@@ -1,0 +1,11 @@
+(fp_lib_table
+  (lib (name INA4180A4IPWR)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/INA4180A4IPWR")(options "")(descr ""))
+  (lib (name ul_ADG841YKSZ-500RL7)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_ADG841YKSZ-500RL7")(options "")(descr ""))
+  (lib (name LT3092ETS8TRPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/LT3092ETS8TRPBF")(options "")(descr ""))
+  (lib (name NX3L4051PW_118)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/NX3L4051PW_118")(options "")(descr ""))
+  (lib (name ul_MC74HC161ADTR2G)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G")(options "")(descr ""))
+  (lib (name INA180B2IDBVT)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/INA180B2IDBVT")(options "")(descr ""))
+  (lib (name MAX4736EUBT)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MAX4736EUBT")(options "")(descr ""))
+  (lib (name ul_CD4518BM96)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_CD4518BM96")(options "")(descr ""))
+  (lib (name CD4028BMT)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/CD4028BMT")(options "")(descr ""))
+)

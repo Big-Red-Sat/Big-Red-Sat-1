@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "HAB_symbols")(type "KiCad")(uri "C:/Users/matth/Documents/Github/spring22hab/libs/HAB_symbols.kicad_sym")(options "")(descr ""))
+  (lib (name "teensy")(type "Legacy")(uri "C:/Users/matth/OneDrive/Desktop/College/AXP/PCB/symbols/teensy.lib")(options "")(descr ""))
+  (lib (name "voltage_switch")(type "KiCad")(uri "C:/Users/matth/Documents/Github/spring22hab/libs/ts3a5018_3.kicad_sym")(options "")(descr ""))
+)

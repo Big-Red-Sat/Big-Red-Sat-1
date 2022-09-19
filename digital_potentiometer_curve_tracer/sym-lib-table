@@ -1,0 +1,12 @@
+(sym_lib_table
+  (lib (name CD4028BMT)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/CD4028BMT/CD4028BMT.lib")(options "")(descr ""))
+  (lib (name INA180B2IDBVT)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/INA180B2IDBVT/INA180B2IDBVT.lib")(options "")(descr ""))
+  (lib (name INA4180A4IPWR)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/INA4180A4IPWR/INA4180A4IPWR.lib")(options "")(descr ""))
+  (lib (name LT3092ETS8TRPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LT3092ETS8TRPBF/LT3092ETS8TRPBF.lib")(options "")(descr ""))
+  (lib (name MAX4736EUBT)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/MAX4736EUBT/MAX4736EUBT.lib")(options "")(descr ""))
+  (lib (name NX3L4051PW_118)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/NX3L4051PW_118/NX3L4051PW_118.lib")(options "")(descr ""))
+  (lib (name ADG841YKSZ-500RL7)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_ADG841YKSZ-500RL7/ADG841YKSZ-500RL7.lib")(options "")(descr ""))
+  (lib (name CD4518BM96)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_CD4518BM96/CD4518BM96.lib")(options "")(descr ""))
+  (lib (name MC74HC161ADTR2G)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G/MC74HC161ADTR2G.lib")(options "")(descr ""))
+  (lib (name AD8400ARZ1)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/AD8400ARZ1/AD8400ARZ1.lib")(options "")(descr ""))
+)
