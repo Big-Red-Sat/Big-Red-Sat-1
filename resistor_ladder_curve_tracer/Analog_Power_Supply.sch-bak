@@ -4,9 +4,9 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 3
-Title ""
+Title "Analog Power Supply"
 Date "2022-09-18"
-Rev ""
+Rev "A"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"

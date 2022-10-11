@@ -567,7 +567,6 @@ Wire Wire Line
 	2500 6000 2500 5550
 Wire Wire Line
 	2500 5550 2600 5550
-NoConn ~ 2600 5150
 $Comp
 L Device:C C8
 U 1 1 63226292
@@ -943,4 +942,8 @@ Connection ~ 4500 2050
 Connection ~ 3900 2050
 Wire Wire Line
 	3900 2050 3900 2350
+Wire Wire Line
+	2600 5150 2300 5150
+Text HLabel 2300 5150 0    50   Input ~ 0
+LADDER_LATCH
 $EndSCHEMATC

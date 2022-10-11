@@ -85,8 +85,9 @@ F0 "Resistor Ladder" 50
 F1 "resistor_ladder.sch" 50
 F2 "V_PANEL" I L 5900 3850 50 
 F3 "~LADDER_EN" I R 7000 4850 50 
-F4 "LADDER_CLOCK" I R 7000 4300 50 
+F4 "LADDER_CLOCK" I R 7000 4150 50 
 F5 "~LADDER_RESET" I R 7000 3750 50 
+F6 "LADDER_LATCH" I R 7000 4500 50 
 $EndSheet
 $Comp
 L Device:R R5
@@ -297,7 +298,7 @@ F 3 "~" H 6600 2400 50  0001 C CNN
 $EndComp
 Text GLabel 8150 3750 2    50   Input ~ 0
 LADDER_RESET
-Text GLabel 8150 4300 2    50   Input ~ 0
+Text GLabel 8150 4150 2    50   Input ~ 0
 LADDER_CLOCK
 Text GLabel 8150 4850 2    50   Input ~ 0
 LADDER_EN
@@ -359,13 +360,11 @@ Text GLabel 9950 5250 0    50   Input ~ 0
 I_PANEL_MEASURE
 Text GLabel 9950 5150 0    50   Input ~ 0
 V_PANEL_MEASURE
-Text GLabel 9950 3750 0    50   Input ~ 0
-ANALOG_PWR_EN
-Text GLabel 9950 4850 0    50   Input ~ 0
+Text GLabel 9950 4250 0    50   Input ~ 0
 LADDER_EN
-Text GLabel 9950 4450 0    50   Input ~ 0
-LADDER_CLOCK
 Text GLabel 9950 4050 0    50   Input ~ 0
+LADDER_CLOCK
+Text GLabel 9950 3950 0    50   Input ~ 0
 LADDER_RESET
 $Comp
 L Connector:Conn_01x10_Female J2
@@ -423,9 +422,6 @@ Wire Wire Line
 	9850 5350 9850 5450
 NoConn ~ 9950 3550
 NoConn ~ 9950 3650
-NoConn ~ 9950 3950
-NoConn ~ 9950 4150
-NoConn ~ 9950 4250
 NoConn ~ 9950 4550
 NoConn ~ 9950 4650
 NoConn ~ 9950 4750
@@ -476,7 +472,7 @@ F 3 "~" H 1650 2850 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8150 4300 7000 4300
+	8150 4150 7000 4150
 Wire Wire Line
 	8150 4850 7500 4850
 Connection ~ 7500 4850
@@ -507,4 +503,10 @@ F 3 "~" H 3050 3850 50  0001 C CNN
 	1    3050 3850
 	0    1    1    0   
 $EndComp
+Text GLabel 8150 4500 2    50   Input ~ 0
+LADDER_LATCH
+Wire Wire Line
+	8150 4500 7000 4500
+Text GLabel 9950 4150 0    50   Input ~ 0
+LADDER_LATCH
 $EndSCHEMATC

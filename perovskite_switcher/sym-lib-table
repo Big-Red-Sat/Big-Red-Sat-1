@@ -10,4 +10,5 @@
   (lib (name MC74HC161ADTR2G)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G/MC74HC161ADTR2G.lib")(options "")(descr ""))
   (lib (name G125-MH12605M4R)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LIB_G125-MH12605M4R/G125-MH12605M4R.lib")(options "")(descr ""))
   (lib (name G125-MV12605M1P)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LIB_G125-MV12605M1P/G125-MV12605M1P.lib")(options "")(descr ""))
+  (lib (name switcher-rescue)(type Legacy)(uri ${KIPRJMOD}/switcher-rescue.lib)(options "")(descr ""))
 )
