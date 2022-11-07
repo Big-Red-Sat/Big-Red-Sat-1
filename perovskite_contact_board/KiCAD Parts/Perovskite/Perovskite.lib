@@ -1,0 +1,23 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Perovskite_CP_6_Cell
+#
+DEF Perovskite_CP_6_Cell U 0 40 Y Y 1 F N
+F0 "U" 0 0 50 H V C CNN
+F1 "Perovskite_CP_6_Cell" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -350 -150 400 -950 0 1 0 N
+X Cell_1 1 -450 -250 100 R 50 50 1 1 B
+X Cell_2 2 -450 -350 100 R 50 50 1 1 B
+X Cell_3 3 -450 -450 100 R 50 50 1 1 B
+X Cell_4 4 -450 -550 100 R 50 50 1 1 B
+X Cell_5 5 -450 -650 100 R 50 50 1 1 B
+X Cell_6 6 -450 -750 100 R 50 50 1 1 B
+X Common_Positive 7 -450 -850 100 R 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+#End Library
