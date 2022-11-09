@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 3
+Sheet 3 4
 Title "Analog Power Supply"
 Date "2022-09-18"
 Rev "A"
@@ -22,45 +22,7 @@ Wire Wire Line
 Wire Wire Line
 	4750 3350 4750 3600
 Wire Wire Line
-	7100 3900 7100 3950
-Wire Wire Line
-	6750 3900 6750 3950
-Wire Wire Line
-	6750 3350 6750 3600
-Wire Wire Line
-	6750 3350 7100 3350
-Wire Wire Line
-	7100 3350 7450 3350
-Connection ~ 7100 3350
-Wire Wire Line
-	7100 3600 7100 3350
-Wire Wire Line
 	8150 3350 8150 3150
-Connection ~ 6750 3350
-Wire Wire Line
-	6500 3350 6750 3350
-$Comp
-L power:GND #PWR0121
-U 1 1 6324CBC0
-P 7100 3950
-F 0 "#PWR0121" H 7100 3700 50  0001 C CNN
-F 1 "GND" H 7105 3777 50  0000 C CNN
-F 2 "" H 7100 3950 50  0001 C CNN
-F 3 "" H 7100 3950 50  0001 C CNN
-	1    7100 3950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0120
-U 1 1 6324C8F1
-P 6750 3950
-F 0 "#PWR0120" H 6750 3700 50  0001 C CNN
-F 1 "GND" H 6755 3777 50  0000 C CNN
-F 2 "" H 6750 3950 50  0001 C CNN
-F 3 "" H 6750 3950 50  0001 C CNN
-	1    6750 3950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4750 3950 4750 3900
 Wire Wire Line
@@ -115,39 +77,6 @@ F 1 "1u" H 5265 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5188 3600 50  0001 C CNN
 F 3 "~" H 5150 3750 50  0001 C CNN
 	1    5150 3750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Ferrite_Bead FB1
-U 1 1 63246E25
-P 7600 3350
-F 0 "FB1" V 7326 3350 50  0000 C CNN
-F 1 "Ferrite_Bead" V 7417 3350 50  0000 C CNN
-F 2 "Inductor_SMD:L_0603_1608Metric" V 7530 3350 50  0001 C CNN
-F 3 "~" H 7600 3350 50  0001 C CNN
-	1    7600 3350
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:CP C4
-U 1 1 63246796
-P 7100 3750
-F 0 "C4" H 7218 3796 50  0000 L CNN
-F 1 "10u" H 7218 3705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 7138 3600 50  0001 C CNN
-F 3 "~" H 7100 3750 50  0001 C CNN
-	1    7100 3750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C3
-U 1 1 632460AE
-P 6750 3750
-F 0 "C3" H 6865 3796 50  0000 L CNN
-F 1 "1u" H 6865 3705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6788 3600 50  0001 C CNN
-F 3 "~" H 6750 3750 50  0001 C CNN
-	1    6750 3750
 	1    0    0    -1  
 $EndComp
 $Comp
