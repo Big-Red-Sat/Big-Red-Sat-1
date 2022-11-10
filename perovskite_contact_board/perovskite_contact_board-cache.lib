@@ -53,7 +53,7 @@ F1 "Perovskite_Perovskite_CP_6_Cell" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
-S -350 -150 400 -950 0 1 0 N
+S -350 -150 400 -950 0 1 0 f
 X Cell_1 1 -450 -250 100 R 50 50 1 1 B
 X Cell_2 2 -450 -350 100 R 50 50 1 1 B
 X Cell_3 3 -450 -450 100 R 50 50 1 1 B
