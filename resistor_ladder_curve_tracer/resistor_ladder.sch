@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 3
 Title "Resistor 8-Bit Ladder"
-Date "2022-09-18"
-Rev "A"
+Date "2022-11-08"
+Rev "B"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
@@ -219,12 +219,12 @@ $EndComp
 $Comp
 L power:+3V3 #PWR0123
 U 1 1 63117816
-P 3700 2750
-F 0 "#PWR0123" H 3700 2600 50  0001 C CNN
-F 1 "+3V3" H 3715 2923 50  0000 C CNN
-F 2 "" H 3700 2750 50  0001 C CNN
-F 3 "" H 3700 2750 50  0001 C CNN
-	1    3700 2750
+P 3900 3050
+F 0 "#PWR0123" H 3900 2900 50  0001 C CNN
+F 1 "+3V3" H 3915 3223 50  0000 C CNN
+F 2 "" H 3900 3050 50  0001 C CNN
+F 3 "" H 3900 3050 50  0001 C CNN
+	1    3900 3050
 	1    0    0    -1  
 $EndComp
 Text HLabel 9400 1650 2    50   Input ~ 0
@@ -268,12 +268,7 @@ Connection ~ 5150 2050
 Wire Wire Line
 	5150 2050 5800 2050
 Wire Wire Line
-	3700 3350 3700 2750
-Wire Wire Line
 	4300 3250 4300 3350
-Connection ~ 4300 3350
-Wire Wire Line
-	4300 3350 3700 3350
 Wire Wire Line
 	4950 3250 4950 3350
 Connection ~ 4950 3350
@@ -946,4 +941,9 @@ Wire Wire Line
 	2600 5150 2300 5150
 Text HLabel 2300 5150 0    50   Input ~ 0
 LADDER_LATCH
+Wire Wire Line
+	4300 3350 3900 3350
+Wire Wire Line
+	3900 3350 3900 3050
+Connection ~ 4300 3350
 $EndSCHEMATC
