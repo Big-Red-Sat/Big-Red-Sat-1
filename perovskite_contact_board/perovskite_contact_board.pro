@@ -1,4 +1,4 @@
-update=11/7/2022 6:45:23 PM
+update=11/9/2022 10:43:27 PM
 version=1
 last_client=kicad
 [general]
@@ -27,7 +27,7 @@ version=1
 PageLayoutDescrFile=
 LastNetListRead=perovskite_contact_board.net
 CopperLayerCount=2
-BoardThickness=1.6
+BoardThickness=0.8
 AllowMicroVias=0
 AllowBlindVias=0
 RequireCourtyardDefinitions=0
