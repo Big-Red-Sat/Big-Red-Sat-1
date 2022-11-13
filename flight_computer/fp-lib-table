@@ -13,4 +13,6 @@
   (lib (name ul_MC74HC161ADTR2G)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G")(options "")(descr ""))
   (lib (name ADS131M04IPWR)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ADS131M04IPWR")(options "")(descr ""))
   (lib (name ICL7660CSAT)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ICL7660CSAT")(options "")(descr ""))
+  (lib (name ul_INA190A4IDDFR)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_INA190A4IDDFR")(options "")(descr ""))
+  (lib (name ul_LT6654AHLS8-2-5-PBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHLS8-2-5-PBF")(options "")(descr ""))
 )

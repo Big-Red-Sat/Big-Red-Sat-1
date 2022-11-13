@@ -71,17 +71,17 @@ $EndComp
 $Comp
 L Device:R R?
 U 1 1 63D67C23
-P 3650 1750
+P 1800 850
 AR Path="/6313FC31/63D67C23" Ref="R?"  Part="1" 
 AR Path="/63D67C23" Ref="R?"  Part="1" 
 AR Path="/635FE71D/63D67C23" Ref="R?"  Part="1" 
 AR Path="/63D1F518/63D67C23" Ref="R?"  Part="1" 
 AR Path="/63D21EEE/63D67C23" Ref="R?"  Part="1" 
-F 0 "R?" V 3550 1750 50  0000 C CNN
-F 1 "R" V 3650 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 3580 1750 50  0001 C CNN
-F 3 "~" H 3650 1750 50  0001 C CNN
-	1    3650 1750
+F 0 "R?" V 1700 850 50  0000 C CNN
+F 1 "R" V 1800 850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1730 850 50  0001 C CNN
+F 3 "~" H 1800 850 50  0001 C CNN
+	1    1800 850 
 	1    0    0    1   
 $EndComp
 Wire Wire Line
@@ -366,58 +366,56 @@ Connection ~ 8500 2450
 Wire Wire Line
 	8500 2450 8000 2450
 Wire Wire Line
-	4300 2050 3650 2050
-Wire Wire Line
-	3650 2050 3650 1900
+	1800 1150 1800 1000
 $Comp
 L power:+3V3 #PWR?
 U 1 1 63D67CA2
-P 3650 1600
+P 1800 700
 AR Path="/63D67CA2" Ref="#PWR?"  Part="1" 
 AR Path="/63D1F518/63D67CA2" Ref="#PWR?"  Part="1" 
 AR Path="/63D21EEE/63D67CA2" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3650 1450 50  0001 C CNN
-F 1 "+3V3" H 3665 1773 50  0000 C CNN
-F 2 "" H 3650 1600 50  0001 C CNN
-F 3 "" H 3650 1600 50  0001 C CNN
-	1    3650 1600
+F 0 "#PWR?" H 1800 550 50  0001 C CNN
+F 1 "+3V3" H 1815 873 50  0000 C CNN
+F 2 "" H 1800 700 50  0001 C CNN
+F 3 "" H 1800 700 50  0001 C CNN
+	1    1800 700 
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C?
 U 1 1 63D67CA8
-P 3650 2350
+P 1800 1450
 AR Path="/6313FC31/63D67CA8" Ref="C?"  Part="1" 
 AR Path="/63D67CA8" Ref="C?"  Part="1" 
 AR Path="/635FE71D/63D67CA8" Ref="C?"  Part="1" 
 AR Path="/63D1F518/63D67CA8" Ref="C?"  Part="1" 
 AR Path="/63D21EEE/63D67CA8" Ref="C?"  Part="1" 
-F 0 "C?" V 3902 2350 50  0000 C CNN
-F 1 "0.1u" V 3811 2350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 3688 2200 50  0001 C CNN
-F 3 "~" H 3650 2350 50  0001 C CNN
-	1    3650 2350
+F 0 "C?" V 2052 1450 50  0000 C CNN
+F 1 "0.1u" V 1961 1450 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1838 1300 50  0001 C CNN
+F 3 "~" H 1800 1450 50  0001 C CNN
+	1    1800 1450
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 63D67CAE
-P 3650 2500
+P 1800 1600
 AR Path="/6313FC31/63D67CAE" Ref="#PWR?"  Part="1" 
 AR Path="/63D67CAE" Ref="#PWR?"  Part="1" 
 AR Path="/635FE71D/63D67CAE" Ref="#PWR?"  Part="1" 
 AR Path="/63D1F518/63D67CAE" Ref="#PWR?"  Part="1" 
 AR Path="/63D21EEE/63D67CAE" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3650 2250 50  0001 C CNN
-F 1 "GND" H 3655 2327 50  0000 C CNN
-F 2 "" H 3650 2500 50  0001 C CNN
-F 3 "" H 3650 2500 50  0001 C CNN
-	1    3650 2500
+F 0 "#PWR?" H 1800 1350 50  0001 C CNN
+F 1 "GND" H 1805 1427 50  0000 C CNN
+F 2 "" H 1800 1600 50  0001 C CNN
+F 3 "" H 1800 1600 50  0001 C CNN
+	1    1800 1600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3650 2200 3650 2050
-Connection ~ 3650 2050
+	1800 1300 1800 1150
+Connection ~ 1800 1150
 $Comp
 L Connector_Generic:Conn_02x07_Odd_Even J?
 U 1 1 63D67CB6
@@ -454,7 +452,7 @@ Wire Wire Line
 	2700 6500 2850 6500
 Wire Wire Line
 	2850 6500 2850 6800
-Text GLabel 3300 2150 0    50   Input ~ 0
+Text GLabel 1450 1250 0    50   Input ~ 0
 ~PAYLOAD_RST
 Text GLabel 2950 6600 2    50   Input ~ 0
 ~PAYLOAD_RST
@@ -525,54 +523,42 @@ Text GLabel 4300 3950 0    50   Input ~ 0
 TDO
 Text GLabel 4300 1850 0    50   Input ~ 0
 TEST
-Text HLabel 13250 4150 0    50   Input ~ 0
-PANEL_I
-Text HLabel 13100 3850 0    50   Input ~ 0
-REVERSE_BIAS
-Text HLabel 13100 3950 0    50   Input ~ 0
-PANEL_V
-Text HLabel 13100 4050 0    50   Input ~ 0
-PANEL_V_2x
-Text HLabel 13100 4250 0    50   Input ~ 0
-PANEL_NEGV
-Text HLabel 13100 4350 0    50   Input ~ 0
-PANEL_NEGV_2x
-Text HLabel 13050 1950 0    50   Input ~ 0
+Text HLabel 4300 3150 0    50   Input ~ 0
 RESET_PANEL_SWITCH
-Text HLabel 13050 2050 0    50   Input ~ 0
+Text HLabel 4300 3050 0    50   Input ~ 0
 ENABLE_PANEL_SWITCH
-Text HLabel 13050 2150 0    50   Input ~ 0
+Text HLabel 7350 3550 2    50   Input ~ 0
 10-19_CLOCK
-Text HLabel 13050 2250 0    50   Input ~ 0
+Text HLabel 7350 3650 2    50   Input ~ 0
 0-9_CLOCK
-Text HLabel 13050 2350 0    50   Input ~ 0
+Text HLabel 7350 3050 2    50   Input ~ 0
 ENABLE_TEST_SOURCE
-Text HLabel 13050 2450 0    50   Input ~ 0
+Text HLabel 7350 2750 2    50   Input ~ 0
 SCL
-Text HLabel 13050 2550 0    50   Input ~ 0
+Text HLabel 7350 2850 2    50   Input ~ 0
 SDA
-Text HLabel 12850 5500 0    50   Input ~ 0
+Text HLabel 4300 2450 0    50   Input ~ 0
 ~LADDER_EN
-Text HLabel 12850 5600 0    50   Input ~ 0
+Text HLabel 4300 2550 0    50   Input ~ 0
 LADDER_CLOCK
-Text HLabel 12850 5700 0    50   Input ~ 0
+Text HLabel 4300 2650 0    50   Input ~ 0
 ~LADDER_RESET
-Text HLabel 12850 5800 0    50   Input ~ 0
+Text HLabel 4300 2750 0    50   Input ~ 0
 LADDER_LATCH
-Text HLabel 3300 1950 0    50   Input ~ 0
+Text HLabel 1450 1050 0    50   Input ~ 0
 ~PAYLOAD_RST
 Wire Wire Line
-	3400 2050 3400 1950
+	1550 1150 1550 1050
 Wire Wire Line
-	3400 1950 3300 1950
+	1550 1050 1450 1050
 Wire Wire Line
-	3400 2050 3650 2050
+	1550 1150 1800 1150
 Wire Wire Line
-	3300 2150 3400 2150
+	1450 1250 1550 1250
 Wire Wire Line
-	3400 2150 3400 2050
-Connection ~ 3400 2050
-Text HLabel 12500 4850 0    50   Input ~ 0
+	1550 1250 1550 1150
+Connection ~ 1550 1150
+Text HLabel 7350 2950 2    50   Input ~ 0
 FAULT
 $Comp
 L ICL7660CSAT:ICL7660CSAT U?
@@ -781,4 +767,169 @@ Wire Wire Line
 Wire Wire Line
 	6500 5700 7150 5700
 Connection ~ 7150 5700
+Text HLabel 4300 3250 0    50   Input ~ 0
+SCLK
+Text HLabel 4300 2850 0    50   Input ~ 0
+MOSI
+Text HLabel 4300 2950 0    50   Input ~ 0
+MISO
+Text HLabel 7350 3250 2    50   Input ~ 0
+ADC_CLK
+Text HLabel 7350 3150 2    50   Input ~ 0
+ADC_CS
+Text HLabel 7350 2250 2    50   Input ~ 0
+ADC_DRDY
+Text HLabel 4300 3450 0    50   Input ~ 0
+ADC_SYNC
+Text HLabel 4300 3650 0    50   Output ~ 0
+RX_IN
+Text HLabel 4300 3550 0    50   Input ~ 0
+TX_OUT
+Text HLabel 7350 3350 2    50   Output ~ 0
+BUSY_IN
+Wire Wire Line
+	1800 1150 2650 1150
+$Comp
+L LT6654AHLS8-2.5-PBF:LT6654AHLS8-2.5-PBF U?
+U 1 1 63854468
+P 2200 2300
+F 0 "U?" H 2200 2787 60  0000 C CNN
+F 1 "LT6654AHLS8-2.5-PBF" H 2200 2681 60  0000 C CNN
+F 2 "LCC-8_LS8_LIT" H 2200 2690 60  0001 C CNN
+F 3 "" H 1400 2450 60  0000 C CNN
+	1    2200 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63854CC8
+P 1300 2500
+AR Path="/6313FC31/63854CC8" Ref="#PWR?"  Part="1" 
+AR Path="/63854CC8" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/63854CC8" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/63854CC8" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/63854CC8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1300 2250 50  0001 C CNN
+F 1 "GND" H 1305 2327 50  0000 C CNN
+F 2 "" H 1300 2500 50  0001 C CNN
+F 3 "" H 1300 2500 50  0001 C CNN
+	1    1300 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 2300 1300 2300
+Wire Wire Line
+	1300 2300 1300 2400
+Wire Wire Line
+	1400 2400 1300 2400
+Connection ~ 1300 2400
+Wire Wire Line
+	1300 2400 1300 2500
+$Comp
+L power:+3V3 #PWR?
+U 1 1 638582A0
+P 1300 2100
+AR Path="/638582A0" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/638582A0" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/638582A0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1300 1950 50  0001 C CNN
+F 1 "+3V3" H 1315 2273 50  0000 C CNN
+F 2 "" H 1300 2100 50  0001 C CNN
+F 3 "" H 1300 2100 50  0001 C CNN
+	1    1300 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 2200 1300 2200
+Wire Wire Line
+	1300 2200 1300 2100
+$Comp
+L Device:C C?
+U 1 1 6385A97A
+P 1000 2300
+AR Path="/6313FC31/6385A97A" Ref="C?"  Part="1" 
+AR Path="/6385A97A" Ref="C?"  Part="1" 
+AR Path="/635FE71D/6385A97A" Ref="C?"  Part="1" 
+AR Path="/63D1F518/6385A97A" Ref="C?"  Part="1" 
+AR Path="/63D21EEE/6385A97A" Ref="C?"  Part="1" 
+F 0 "C?" V 1252 2300 50  0000 C CNN
+F 1 "0.1u" V 1161 2300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1038 2150 50  0001 C CNN
+F 3 "~" H 1000 2300 50  0001 C CNN
+	1    1000 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6385A980
+P 1000 2450
+AR Path="/6313FC31/6385A980" Ref="#PWR?"  Part="1" 
+AR Path="/6385A980" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/6385A980" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/6385A980" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/6385A980" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1000 2200 50  0001 C CNN
+F 1 "GND" H 1005 2277 50  0000 C CNN
+F 2 "" H 1000 2450 50  0001 C CNN
+F 3 "" H 1000 2450 50  0001 C CNN
+	1    1000 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 6385C55F
+P 1000 2150
+AR Path="/6385C55F" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/6385C55F" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/6385C55F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1000 2000 50  0001 C CNN
+F 1 "+3V3" H 1015 2323 50  0000 C CNN
+F 2 "" H 1000 2150 50  0001 C CNN
+F 3 "" H 1000 2150 50  0001 C CNN
+	1    1000 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 6386311A
+P 3100 2550
+AR Path="/6313FC31/6386311A" Ref="C?"  Part="1" 
+AR Path="/6386311A" Ref="C?"  Part="1" 
+AR Path="/635FE71D/6386311A" Ref="C?"  Part="1" 
+AR Path="/63D1F518/6386311A" Ref="C?"  Part="1" 
+AR Path="/63D21EEE/6386311A" Ref="C?"  Part="1" 
+F 0 "C?" V 3352 2550 50  0000 C CNN
+F 1 "1u" V 3261 2550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3138 2400 50  0001 C CNN
+F 3 "~" H 3100 2550 50  0001 C CNN
+	1    3100 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63863120
+P 3100 2700
+AR Path="/6313FC31/63863120" Ref="#PWR?"  Part="1" 
+AR Path="/63863120" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/63863120" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/63863120" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/63863120" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3100 2450 50  0001 C CNN
+F 1 "GND" H 3105 2527 50  0000 C CNN
+F 2 "" H 3100 2700 50  0001 C CNN
+F 3 "" H 3100 2700 50  0001 C CNN
+	1    3100 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 2250 3100 2250
+Wire Wire Line
+	3100 2250 3100 2350
+Wire Wire Line
+	3000 2350 3100 2350
+Connection ~ 3100 2350
+Wire Wire Line
+	3100 2350 3100 2400
+Text HLabel 4300 3350 0    50   Input ~ 0
+REVERSE_BIAS
 $EndSCHEMATC

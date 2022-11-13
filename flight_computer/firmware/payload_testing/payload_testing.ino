@@ -175,8 +175,7 @@ void step_decoder(void)
   current_panel++;
   if (current_panel > 20)
   {
-    digitalWrite(ENABLE_PANEL_SWITCH, LOW);
-    current_panel = 1;
+    reset_decoder();
   }
   Serial.println(current_panel);
 }

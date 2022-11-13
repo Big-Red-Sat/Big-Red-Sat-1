@@ -13,4 +13,7 @@
   (lib (name MC74HC161ADTR2G)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G/MC74HC161ADTR2G.lib")(options "")(descr ""))
   (lib (name ADS131M04IPWR)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ADS131M04IPWR/ADS131M04IPWR.lib")(options "")(descr ""))
   (lib (name ICL7660CSAT)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ICL7660CSAT/ICL7660CSAT.lib")(options "")(descr ""))
+  (lib (name INA190A4IDDFR)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_INA190A4IDDFR/INA190A4IDDFR.lib")(options "")(descr ""))
+  (lib (name OPA387)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/OPA387/OPA387.lib")(options "")(descr ""))
+  (lib (name LT6654AHLS8-2.5-PBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHLS8-2-5-PBF/LT6654AHLS8-2.5-PBF.lib")(options "")(descr ""))
 )
