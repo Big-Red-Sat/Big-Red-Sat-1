@@ -15,4 +15,6 @@
   (lib (name ICL7660CSAT)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ICL7660CSAT")(options "")(descr ""))
   (lib (name ul_INA190A4IDDFR)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_INA190A4IDDFR")(options "")(descr ""))
   (lib (name ul_LT6654AHLS8-2-5-PBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHLS8-2-5-PBF")(options "")(descr ""))
+  (lib (name LT3092EDD_TRPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/LT3092EDD_TRPBF")(options "")(descr ""))
+  (lib (name CM8V-T1A-32)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC")(options "")(descr ""))
 )
