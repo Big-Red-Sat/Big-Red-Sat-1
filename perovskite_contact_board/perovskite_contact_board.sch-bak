@@ -88,11 +88,11 @@ Text GLabel 7125 1450 0    50   Input ~ 0
 CELL_2
 Text GLabel 7125 1050 0    50   Input ~ 0
 CELL_3
-Text GLabel 7100 2475 0    50   Input ~ 0
-CELL_4
-Text GLabel 7125 2075 0    50   Input ~ 0
-CELL_5
 Text GLabel 7125 1875 0    50   Input ~ 0
+CELL_4
+Text GLabel 7100 2275 0    50   Input ~ 0
+CELL_5
+Text GLabel 7100 2475 0    50   Input ~ 0
 CELL_6
 Text GLabel 7100 4075 0    50   Input ~ 0
 CELL_7
@@ -198,9 +198,9 @@ Text GLabel 7100 3050 0    50   Input ~ 0
 SDA
 Text GLabel 7100 2850 0    50   Input ~ 0
 SCL
-Text GLabel 7100 1975 0    50   Input ~ 0
-SDA
 Text GLabel 7100 2175 0    50   Input ~ 0
+SDA
+Text GLabel 7100 1975 0    50   Input ~ 0
 SCL
 $Comp
 L Connector_Generic:Conn_01x08 J1
@@ -219,7 +219,7 @@ U 1 1 636D541F
 P 7500 2075
 F 0 "J2" H 7580 2067 50  0000 L CNN
 F 1 "Conn_01x08" H 7580 1976 50  0000 L CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical_SMD_Pin1Left" H 7500 2075 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical_SMD_Pin1Right" H 7500 2075 50  0001 C CNN
 F 3 "~" H 7500 2075 50  0001 C CNN
 	1    7500 2075
 	1    0    0    -1  
@@ -257,17 +257,6 @@ F 3 "~" H 7550 5700 50  0001 C CNN
 	1    7550 5700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7300 2475 7200 2475
-Wire Wire Line
-	7300 2275 7200 2275
-Wire Wire Line
-	7200 2275 7200 2475
-Connection ~ 7200 2475
-Wire Wire Line
-	7200 2475 7100 2475
-Text GLabel 7125 2375 0    50   Input ~ 0
-CP
 Wire Wire Line
 	7300 2375 7125 2375
 Wire Wire Line
@@ -462,18 +451,16 @@ $EndComp
 $Comp
 L power:GND #PWR0121
 U 1 1 636DD992
-P 7125 5175
-F 0 "#PWR0121" H 7125 4925 50  0001 C CNN
-F 1 "GND" V 7125 4975 50  0000 C CNN
-F 2 "" H 7125 5175 50  0001 C CNN
-F 3 "" H 7125 5175 50  0001 C CNN
-	1    7125 5175
+P 7100 4975
+F 0 "#PWR0121" H 7100 4725 50  0001 C CNN
+F 1 "GND" V 7100 4775 50  0000 C CNN
+F 2 "" H 7100 4975 50  0001 C CNN
+F 3 "" H 7100 4975 50  0001 C CNN
+	1    7100 4975
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7300 1875 7125 1875
-Wire Wire Line
-	7300 2075 7125 2075
+	7300 1875 7200 1875
 Wire Wire Line
 	7300 1650 7125 1650
 Wire Wire Line
@@ -485,12 +472,12 @@ Wire Wire Line
 $Comp
 L power:+5V #PWR0122
 U 1 1 636E8046
-P 7125 1775
-F 0 "#PWR0122" H 7125 1625 50  0001 C CNN
-F 1 "+5V" V 7140 1903 50  0000 L CNN
-F 2 "" H 7125 1775 50  0001 C CNN
-F 3 "" H 7125 1775 50  0001 C CNN
-	1    7125 1775
+P 7125 2375
+F 0 "#PWR0122" H 7125 2225 50  0001 C CNN
+F 1 "+5V" V 7140 2503 50  0000 L CNN
+F 2 "" H 7125 2375 50  0001 C CNN
+F 3 "" H 7125 2375 50  0001 C CNN
+	1    7125 2375
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
@@ -654,12 +641,12 @@ Wire Wire Line
 $Comp
 L power:+5V #PWR0123
 U 1 1 6375EA4D
-P 7100 4975
-F 0 "#PWR0123" H 7100 4825 50  0001 C CNN
-F 1 "+5V" V 7100 5175 50  0000 C CNN
-F 2 "" H 7100 4975 50  0001 C CNN
-F 3 "" H 7100 4975 50  0001 C CNN
-	1    7100 4975
+P 7125 5175
+F 0 "#PWR0123" H 7125 5025 50  0001 C CNN
+F 1 "+5V" V 7125 5375 50  0000 C CNN
+F 2 "" H 7125 5175 50  0001 C CNN
+F 3 "" H 7125 5175 50  0001 C CNN
+	1    7125 5175
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
@@ -724,10 +711,10 @@ Wire Wire Line
 Wire Wire Line
 	5000 1575 5325 1575
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0125
 U 1 1 63736E10
 P 5950 6825
-F 0 "#PWR?" H 5950 6675 50  0001 C CNN
+F 0 "#PWR0125" H 5950 6675 50  0001 C CNN
 F 1 "+5V" H 5965 6998 50  0000 C CNN
 F 2 "" H 5950 6825 50  0001 C CNN
 F 3 "" H 5950 6825 50  0001 C CNN
@@ -745,4 +732,26 @@ Wire Wire Line
 Connection ~ 5950 6825
 Text Notes 4500 7125 0    197  ~ 0
 Pull Up
+Wire Wire Line
+	7100 2475 7300 2475
+Wire Wire Line
+	7300 2075 7200 2075
+Wire Wire Line
+	7200 2075 7200 1875
+Connection ~ 7200 1875
+Wire Wire Line
+	7200 1875 7125 1875
+Wire Wire Line
+	7300 2275 7100 2275
+$Comp
+L power:GND #PWR?
+U 1 1 6378F3C5
+P 7125 1775
+F 0 "#PWR?" H 7125 1525 50  0001 C CNN
+F 1 "GND" V 7130 1647 50  0000 R CNN
+F 2 "" H 7125 1775 50  0001 C CNN
+F 3 "" H 7125 1775 50  0001 C CNN
+	1    7125 1775
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
