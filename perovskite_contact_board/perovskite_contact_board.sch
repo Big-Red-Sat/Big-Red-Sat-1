@@ -102,9 +102,9 @@ Text GLabel 7075 3675 0    50   Input ~ 0
 CELL_9
 Text GLabel 7100 2750 0    50   Input ~ 0
 CELL_10
-Text GLabel 7100 2950 0    50   Input ~ 0
-CELL_11
 Text GLabel 7100 3150 0    50   Input ~ 0
+CELL_11
+Text GLabel 7075 3350 0    50   Input ~ 0
 CELL_12
 Text GLabel 7125 5275 0    50   Input ~ 0
 CELL_13
@@ -542,15 +542,6 @@ $EndComp
 Wire Wire Line
 	7325 3875 7075 3875
 Wire Wire Line
-	7325 3150 7200 3150
-Wire Wire Line
-	7325 3350 7200 3350
-Wire Wire Line
-	7200 3350 7200 3150
-Connection ~ 7200 3150
-Wire Wire Line
-	7200 3150 7100 3150
-Wire Wire Line
 	7325 2750 7100 2750
 Wire Wire Line
 	7325 2950 7100 2950
@@ -754,4 +745,9 @@ F 3 "" H 7125 1775 50  0001 C CNN
 	1    7125 1775
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	7100 3150 7325 3150
+Wire Wire Line
+	7075 3350 7325 3350
+NoConn ~ 7100 2950
 $EndSCHEMATC

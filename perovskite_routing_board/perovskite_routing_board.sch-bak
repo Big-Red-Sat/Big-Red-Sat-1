@@ -16,285 +16,88 @@ $EndDescr
 $Comp
 L G125-MH12605M4R:G125-MH12605M4R J1
 U 1 1 636882D7
-P 7750 2150
-F 0 "J1" H 8200 2415 50  0000 C CNN
-F 1 "G125-MH12605M4R" H 8200 2324 50  0000 C CNN
-F 2 "MV12605M1P:G125-MV12605M1P" H 8500 2250 50  0001 L CNN
-F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 8500 2150 50  0001 L CNN
-F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 8500 2050 50  0001 L CNN "Description"
-F 5 "5.3" H 8500 1950 50  0001 L CNN "Height"
-F 6 "Harwin" H 8500 1850 50  0001 L CNN "Manufacturer_Name"
-F 7 "G125-MH12605M4R" H 8500 1750 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "855-G125MH1265M4RM4R" H 8500 1650 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 8500 1550 50  0001 L CNN "Mouser Price/Stock"
-F 10 "" H 8500 1450 50  0001 L CNN "Arrow Part Number"
-F 11 "" H 8500 1350 50  0001 L CNN "Arrow Price/Stock"
-F 12 "" H 8500 1250 50  0001 L CNN "Mouser Testing Part Number"
-F 13 "" H 8500 1150 50  0001 L CNN "Mouser Testing Price/Stock"
-	1    7750 2150
-	1    0    0    -1  
-$EndComp
-Text GLabel 1025 1625 0    50   Input ~ 0
-1
-Text GLabel 1025 1725 0    50   Input ~ 0
-2
-Text GLabel 1025 1825 0    50   Input ~ 0
-3
-Text GLabel 1025 1925 0    50   Input ~ 0
-4
-Text GLabel 1025 2025 0    50   Input ~ 0
-5
-Text GLabel 1025 2125 0    50   Input ~ 0
-6
-$Comp
-L Perovskite:Perovskite_CP_6_Cell U1
-U 1 1 636879E9
-P 1475 1375
-F 0 "U1" H 1943 871 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 1943 780 50  0000 L CNN
-F 2 "" H 1475 1375 50  0001 C CNN
-F 3 "" H 1475 1375 50  0001 C CNN
-	1    1475 1375
+P 6750 2400
+F 0 "J1" H 7200 2665 50  0000 C CNN
+F 1 "G125-MH12605M4R" H 7200 2574 50  0000 C CNN
+F 2 "MV12605M1P:G125-MV12605M1P" H 7500 2500 50  0001 L CNN
+F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7500 2400 50  0001 L CNN
+F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7500 2300 50  0001 L CNN "Description"
+F 5 "5.3" H 7500 2200 50  0001 L CNN "Height"
+F 6 "Harwin" H 7500 2100 50  0001 L CNN "Manufacturer_Name"
+F 7 "G125-MH12605M4R" H 7500 2000 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "855-G125MH1265M4RM4R" H 7500 1900 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7500 1800 50  0001 L CNN "Mouser Price/Stock"
+F 10 "" H 7500 1700 50  0001 L CNN "Arrow Part Number"
+F 11 "" H 7500 1600 50  0001 L CNN "Arrow Price/Stock"
+F 12 "" H 7500 1500 50  0001 L CNN "Mouser Testing Part Number"
+F 13 "" H 7500 1400 50  0001 L CNN "Mouser Testing Price/Stock"
+	1    6750 2400
 	1    0    0    -1  
 $EndComp
 $Comp
-L Perovskite:Perovskite_CP_6_Cell U2
-U 1 1 6368D231
-P 1450 2975
-F 0 "U2" H 1918 2471 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 1918 2380 50  0000 L CNN
-F 2 "" H 1450 2975 50  0001 C CNN
-F 3 "" H 1450 2975 50  0001 C CNN
-	1    1450 2975
-	1    0    0    -1  
+L Connector_Generic:Conn_01x08 J2
+U 1 1 637743F2
+P 3600 1450
+F 0 "J2" H 3518 825 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 916 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 1450 50  0001 C CNN
+F 3 "~" H 3600 1450 50  0001 C CNN
+	1    3600 1450
+	-1   0    0    1   
 $EndComp
 $Comp
-L Perovskite:Perovskite_CP_6_Cell U3
-U 1 1 63690578
-P 1525 4625
-F 0 "U3" H 1993 4121 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 1993 4030 50  0000 L CNN
-F 2 "" H 1525 4625 50  0001 C CNN
-F 3 "" H 1525 4625 50  0001 C CNN
-	1    1525 4625
-	1    0    0    -1  
-$EndComp
-Text GLabel 1000 3225 0    50   Input ~ 0
-7
-Text GLabel 1000 3325 0    50   Input ~ 0
-8
-Text GLabel 1000 3425 0    50   Input ~ 0
-9
-Text GLabel 1000 3525 0    50   Input ~ 0
-10
-Text GLabel 1000 3625 0    50   Input ~ 0
-11
-Text GLabel 1000 3725 0    50   Input ~ 0
-12
-Text GLabel 1075 4875 0    50   Input ~ 0
-13
-Text GLabel 1075 4975 0    50   Input ~ 0
-14
-Text GLabel 1075 5075 0    50   Input ~ 0
-15
-Text GLabel 1075 5175 0    50   Input ~ 0
-16
-Text GLabel 1075 5275 0    50   Input ~ 0
-17
-Text GLabel 1075 5375 0    50   Input ~ 0
-18
-Text GLabel 8650 3350 2    50   Input ~ 0
-1
-Text GLabel 8650 3250 2    50   Input ~ 0
-2
-Text GLabel 8650 3150 2    50   Input ~ 0
-3
-Text GLabel 8650 3050 2    50   Input ~ 0
-4
-Text GLabel 8650 2950 2    50   Input ~ 0
-5
-Text GLabel 8650 2850 2    50   Input ~ 0
-6
-Text GLabel 8650 2750 2    50   Input ~ 0
-7
-Text GLabel 8650 2650 2    50   Input ~ 0
-8
-Text GLabel 8650 2550 2    50   Input ~ 0
-9
-Text GLabel 8650 2450 2    50   Input ~ 0
-10
-Text GLabel 8650 2350 2    50   Input ~ 0
-11
-Text GLabel 8650 2250 2    50   Input ~ 0
-12
-Text GLabel 8650 2150 2    50   Input ~ 0
-13
-Text GLabel 7750 3350 0    50   Input ~ 0
-14
-Text GLabel 7750 3250 0    50   Input ~ 0
-15
-Text GLabel 7750 3150 0    50   Input ~ 0
-16
-Text GLabel 7750 3050 0    50   Input ~ 0
-17
-Text GLabel 7750 2950 0    50   Input ~ 0
-18
-Text GLabel 1025 2225 0    50   Input ~ 0
-CP
-Text GLabel 1000 3825 0    50   Input ~ 0
-CP
-Text GLabel 1075 5475 0    50   Input ~ 0
-CP
-Text GLabel 7750 2850 0    50   Input ~ 0
-CP
-Text GLabel 7750 2650 0    50   Input ~ 0
-SDA
-Text GLabel 7750 2750 0    50   Input ~ 0
-SCL
-Text GLabel 7750 2550 0    50   Input ~ 0
-GND
-Text GLabel 7750 2450 0    50   Input ~ 0
-Vdd
-$Comp
-L Sensor_Temperature:MCP9808_MSOP U4
-U 1 1 6369EDDD
-P 3625 1900
-F 0 "U4" H 4050 2125 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 4025 2050 50  0000 L CNN
-F 2 "MCP9804Castillated:CastillatedMCP9804" H 3625 1900 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 3375 2350 50  0001 C CNN
-	1    3625 1900
-	1    0    0    -1  
+L Connector_Generic:Conn_01x08 J3
+U 1 1 6377665C
+P 3600 2275
+F 0 "J3" H 3518 1650 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 1741 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 2275 50  0001 C CNN
+F 3 "~" H 3600 2275 50  0001 C CNN
+	1    3600 2275
+	-1   0    0    1   
 $EndComp
 $Comp
-L Sensor_Temperature:MCP9808_MSOP U5
-U 1 1 6369FACF
-P 3625 3525
-F 0 "U5" H 4075 3625 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 4000 3700 50  0000 L CNN
-F 2 "MCP9804Castillated:CastillatedMCP9804" H 3625 3525 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 3375 3975 50  0001 C CNN
-	1    3625 3525
-	1    0    0    -1  
+L Connector_Generic:Conn_01x08 J4
+U 1 1 6377975C
+P 3600 3400
+F 0 "J4" H 3518 2775 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 2866 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 3400 50  0001 C CNN
+F 3 "~" H 3600 3400 50  0001 C CNN
+	1    3600 3400
+	-1   0    0    1   
 $EndComp
 $Comp
-L Sensor_Temperature:MCP9808_MSOP U6
-U 1 1 636A02E7
-P 3625 5150
-F 0 "U6" H 4100 5250 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 4025 5325 50  0000 L CNN
-F 2 "MCP9804Castillated:CastillatedMCP9804" H 3625 5150 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 3375 5600 50  0001 C CNN
-	1    3625 5150
-	1    0    0    -1  
-$EndComp
-Text GLabel 2875 3225 0    50   Input ~ 0
-SDA
-Text GLabel 2875 3325 0    50   Input ~ 0
-SCL
-Text GLabel 2875 1600 0    50   Input ~ 0
-SDA
-Text GLabel 2875 1700 0    50   Input ~ 0
-SCL
-Text GLabel 2875 4850 0    50   Input ~ 0
-SDA
-Text GLabel 2875 4950 0    50   Input ~ 0
-SCL
-Text GLabel 3625 1200 1    50   Input ~ 0
-Vdd
-$Comp
-L Device:R R4
-U 1 1 636A7063
-P 3150 1350
-F 0 "R4" H 3220 1396 50  0000 L CNN
-F 1 "R" H 3220 1305 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 3080 1350 50  0001 C CNN
-F 3 "~" H 3150 1350 50  0001 C CNN
-	1    3150 1350
-	1    0    0    -1  
+L Connector_Generic:Conn_01x08 J5
+U 1 1 63779762
+P 3600 4225
+F 0 "J5" H 3518 3600 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 3691 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 4225 50  0001 C CNN
+F 3 "~" H 3600 4225 50  0001 C CNN
+	1    3600 4225
+	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R R1
-U 1 1 636A82B0
-P 2950 1350
-F 0 "R1" H 3020 1396 50  0000 L CNN
-F 1 "R" H 3020 1305 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" V 2880 1350 50  0001 C CNN
-F 3 "~" H 2950 1350 50  0001 C CNN
-	1    2950 1350
-	1    0    0    -1  
+L Connector_Generic:Conn_01x08 J6
+U 1 1 6377ADA8
+P 3600 5325
+F 0 "J6" H 3518 4700 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 4791 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 5325 50  0001 C CNN
+F 3 "~" H 3600 5325 50  0001 C CNN
+	1    3600 5325
+	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	2950 1200 3150 1200
-Wire Wire Line
-	3150 1200 3625 1200
-Wire Wire Line
-	3625 1200 3625 1400
-Connection ~ 3150 1200
-Wire Wire Line
-	2950 1500 2950 1700
-Wire Wire Line
-	2950 1700 2875 1700
-Wire Wire Line
-	2875 1600 3150 1600
-Connection ~ 2950 1700
-Wire Wire Line
-	2950 1700 3225 1700
-Wire Wire Line
-	3150 1500 3150 1600
-Connection ~ 3150 1600
-Wire Wire Line
-	3150 1600 3225 1600
-Text GLabel 3625 2825 1    50   Input ~ 0
-Vdd
-Wire Wire Line
-	3625 2825 3625 3025
-Text GLabel 3625 4450 1    50   Input ~ 0
-Vdd
-Wire Wire Line
-	3625 4450 3625 4650
-Text GLabel 3625 5650 3    50   Input ~ 0
-GND
-Text GLabel 3625 4025 3    50   Input ~ 0
-GND
-Text GLabel 3625 2400 3    50   Input ~ 0
-GND
-Text GLabel 3225 5350 0    50   Input ~ 0
-GND
-Text GLabel 3225 5250 0    50   Input ~ 0
-GND
-Text GLabel 3225 3825 0    50   Input ~ 0
-GND
-Text GLabel 3225 3625 0    50   Input ~ 0
-GND
-Text GLabel 3225 2200 0    50   Input ~ 0
-GND
-Text GLabel 3225 2100 0    50   Input ~ 0
-GND
-Text GLabel 3225 3725 0    50   Input ~ 0
-Vdd
-Text GLabel 3225 2000 0    50   Input ~ 0
-Vdd
-Text GLabel 3225 5450 0    50   Input ~ 0
-Vdd
-Text GLabel 4025 1900 2    50   Input ~ 0
-Alert1
-Text GLabel 4025 3525 2    50   Input ~ 0
-Alert2
-Text GLabel 4025 5150 2    50   Input ~ 0
-Alert3
-Text GLabel 7750 2150 0    50   Input ~ 0
-Alert3
-Text GLabel 7750 2250 0    50   Input ~ 0
-Alert2
-Text GLabel 7750 2350 0    50   Input ~ 0
-Alert1
-Wire Wire Line
-	2875 3225 3225 3225
-Wire Wire Line
-	2875 3325 3225 3325
-Wire Wire Line
-	2875 4850 3225 4850
-Wire Wire Line
-	2875 4950 3225 4950
+$Comp
+L Connector_Generic:Conn_01x08 J7
+U 1 1 6377ADAE
+P 3600 6150
+F 0 "J7" H 3518 5525 50  0000 C CNN
+F 1 "Conn_01x08" H 3518 5616 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 6150 50  0001 C CNN
+F 3 "~" H 3600 6150 50  0001 C CNN
+	1    3600 6150
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
