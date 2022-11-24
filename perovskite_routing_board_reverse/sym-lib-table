@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name MCP9804-E_MC)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804/MCP9804-E_MC.lib")(options "")(descr ""))
+  (lib (name G125-MV12605M1P)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/MV12605M1P/G125-MV12605M1P.lib")(options "")(descr ""))
+  (lib (name G125-MH12605M4R)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/MV12605M1R/G125-MH12605M4R.lib")(options "")(descr ""))
+  (lib (name Perovskite)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/Perovskite/Perovskite.lib")(options "")(descr ""))
+)

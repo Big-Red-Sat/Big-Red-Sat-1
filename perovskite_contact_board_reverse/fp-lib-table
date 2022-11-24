@@ -1,0 +1,9 @@
+(fp_lib_table
+  (lib (name MCP9804)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804")(options "")(descr ""))
+  (lib (name Perovskite)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/Perovskite")(options "")(descr ""))
+  (lib (name MV12605M1P)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MV12605M1P")(options "")(descr ""))
+  (lib (name MV12605M1R)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MV12605M1R")(options "")(descr ""))
+  (lib (name MCP9804Castillated)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804/MCP9804Castillated.pretty")(options "")(descr ""))
+  (lib (name Logo)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/Logo")(options "")(descr ""))
+  (lib (name MCP9804_Custom)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804/MCP9804_Custom.pretty")(options "")(descr ""))
+)

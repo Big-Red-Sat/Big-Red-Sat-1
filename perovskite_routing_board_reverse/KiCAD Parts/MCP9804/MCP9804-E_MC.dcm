@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MCP9804-E_MC
+D Board Mount Temperature Sensors High-Accuracy, 12-bit Thermal Sensor with Serial Interface
+K
+F http://ww1.microchip.com/downloads/en/DeviceDoc/22203C.pdf
+$ENDCMP
+#
+#End Doc Library
