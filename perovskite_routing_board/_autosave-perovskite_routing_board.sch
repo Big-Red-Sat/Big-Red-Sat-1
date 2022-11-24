@@ -16,22 +16,22 @@ $EndDescr
 $Comp
 L G125-MH12605M4R:G125-MH12605M4R J7
 U 1 1 636882D7
-P 6700 3125
-F 0 "J7" H 7150 3390 50  0000 C CNN
-F 1 "G125-MH12605M4R" H 7150 3299 50  0000 C CNN
-F 2 "MV12605M1P:G125-MV12605M1P" H 7450 3225 50  0001 L CNN
-F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7450 3125 50  0001 L CNN
-F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7450 3025 50  0001 L CNN "Description"
-F 5 "5.3" H 7450 2925 50  0001 L CNN "Height"
-F 6 "Harwin" H 7450 2825 50  0001 L CNN "Manufacturer_Name"
-F 7 "G125-MH12605M4R" H 7450 2725 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "855-G125MH1265M4RM4R" H 7450 2625 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7450 2525 50  0001 L CNN "Mouser Price/Stock"
-F 10 "" H 7450 2425 50  0001 L CNN "Arrow Part Number"
-F 11 "" H 7450 2325 50  0001 L CNN "Arrow Price/Stock"
-F 12 "" H 7450 2225 50  0001 L CNN "Mouser Testing Part Number"
-F 13 "" H 7450 2125 50  0001 L CNN "Mouser Testing Price/Stock"
-	1    6700 3125
+P 6800 3150
+F 0 "J7" H 7250 3415 50  0000 C CNN
+F 1 "G125-MH12605M4R" H 7250 3324 50  0000 C CNN
+F 2 "MV12605M1P:G125-MV12605M1P" H 7550 3250 50  0001 L CNN
+F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7550 3150 50  0001 L CNN
+F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7550 3050 50  0001 L CNN "Description"
+F 5 "5.3" H 7550 2950 50  0001 L CNN "Height"
+F 6 "Harwin" H 7550 2850 50  0001 L CNN "Manufacturer_Name"
+F 7 "G125-MH12605M4R" H 7550 2750 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "855-G125MH1265M4RM4R" H 7550 2650 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7550 2550 50  0001 L CNN "Mouser Price/Stock"
+F 10 "" H 7550 2450 50  0001 L CNN "Arrow Part Number"
+F 11 "" H 7550 2350 50  0001 L CNN "Arrow Price/Stock"
+F 12 "" H 7550 2250 50  0001 L CNN "Mouser Testing Part Number"
+F 13 "" H 7550 2150 50  0001 L CNN "Mouser Testing Price/Stock"
+	1    6800 3150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -454,4 +454,84 @@ F 3 "" H 3100 3050 50  0001 C CNN
 	1    3100 3050
 	-1   0    0    1   
 $EndComp
+Text GLabel 7450 2600 1    50   Input ~ 0
+CP
+Text GLabel 7600 2600 1    50   Input ~ 0
+SCL
+Text GLabel 7900 2600 1    50   Input ~ 0
+SDA
+Text GLabel 8050 2600 1    50   Input ~ 0
+CELL_5
+Text GLabel 8200 2650 1    50   Input ~ 0
+CELL_6
+Text GLabel 9100 4150 0    50   Input ~ 0
+CELL_12
+Text GLabel 9150 3950 0    50   Input ~ 0
+CELL_11
+Text GLabel 9250 3800 0    50   Input ~ 0
+SDA
+Text GLabel 9350 3650 0    50   Input ~ 0
+CELL_10
+Text GLabel 6800 3250 0    50   Input ~ 0
+SCL
+Text GLabel 9550 3350 0    50   Input ~ 0
+CP
+Text GLabel 7850 4900 0    50   Input ~ 0
+CELL_18
+Text GLabel 8700 4800 0    50   Input ~ 0
+CELL_17
+Text GLabel 8800 4650 0    50   Input ~ 0
+SDA
+Text GLabel 8200 5050 0    50   Input ~ 0
+SCL
+Text GLabel 8300 4900 0    50   Input ~ 0
+CELL_16
+Text GLabel 6950 4650 0    50   Input ~ 0
+CELL_13
+Text GLabel 6850 5300 0    50   Input ~ 0
+CELL_14
+Text GLabel 6800 5150 0    50   Input ~ 0
+ALERT3
+Text GLabel 6900 5000 0    50   Input ~ 0
+CELL_15
+Text GLabel 7750 2600 1    50   Input ~ 0
+CELL_4
+$Comp
+L power:VDD #PWR?
+U 1 1 6387FB29
+P 8800 2850
+F 0 "#PWR?" H 8800 2700 50  0001 C CNN
+F 1 "VDD" H 8815 3023 50  0000 C CNN
+F 2 "" H 8800 2850 50  0001 C CNN
+F 3 "" H 8800 2850 50  0001 C CNN
+	1    8800 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6387FB35
+P 8950 2950
+F 0 "#PWR?" H 8950 2700 50  0001 C CNN
+F 1 "GND" H 8955 2777 50  0000 C CNN
+F 2 "" H 8950 2950 50  0001 C CNN
+F 3 "" H 8950 2950 50  0001 C CNN
+	1    8950 2950
+	-1   0    0    1   
+$EndComp
+Text GLabel 5950 3950 0    50   Input ~ 0
+CELL_2
+Text GLabel 5950 3200 0    50   Input ~ 0
+CELL_9
+Text GLabel 5950 3350 0    50   Input ~ 0
+ALERT2
+Text GLabel 5950 3500 0    50   Input ~ 0
+CELL_8
+Text GLabel 5950 3650 0    50   Input ~ 0
+CELL_7
+Text GLabel 5900 3800 0    50   Input ~ 0
+CELL3
+Text GLabel 5900 4150 0    50   Input ~ 0
+ALERT1
+Text GLabel 5900 4300 0    50   Input ~ 0
+CELL_1
 $EndSCHEMATC

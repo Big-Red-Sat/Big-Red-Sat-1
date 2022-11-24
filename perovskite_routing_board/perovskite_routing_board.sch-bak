@@ -14,90 +14,444 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L G125-MH12605M4R:G125-MH12605M4R J1
+L G125-MH12605M4R:G125-MH12605M4R J7
 U 1 1 636882D7
-P 6750 2400
-F 0 "J1" H 7200 2665 50  0000 C CNN
-F 1 "G125-MH12605M4R" H 7200 2574 50  0000 C CNN
-F 2 "MV12605M1P:G125-MV12605M1P" H 7500 2500 50  0001 L CNN
-F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7500 2400 50  0001 L CNN
-F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7500 2300 50  0001 L CNN "Description"
-F 5 "5.3" H 7500 2200 50  0001 L CNN "Height"
-F 6 "Harwin" H 7500 2100 50  0001 L CNN "Manufacturer_Name"
-F 7 "G125-MH12605M4R" H 7500 2000 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "855-G125MH1265M4RM4R" H 7500 1900 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7500 1800 50  0001 L CNN "Mouser Price/Stock"
-F 10 "" H 7500 1700 50  0001 L CNN "Arrow Part Number"
-F 11 "" H 7500 1600 50  0001 L CNN "Arrow Price/Stock"
-F 12 "" H 7500 1500 50  0001 L CNN "Mouser Testing Part Number"
-F 13 "" H 7500 1400 50  0001 L CNN "Mouser Testing Price/Stock"
-	1    6750 2400
+P 6700 3125
+F 0 "J7" H 7150 3390 50  0000 C CNN
+F 1 "G125-MH12605M4R" H 7150 3299 50  0000 C CNN
+F 2 "MV12605M1P:G125-MV12605M1P" H 7450 3225 50  0001 L CNN
+F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7450 3125 50  0001 L CNN
+F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7450 3025 50  0001 L CNN "Description"
+F 5 "5.3" H 7450 2925 50  0001 L CNN "Height"
+F 6 "Harwin" H 7450 2825 50  0001 L CNN "Manufacturer_Name"
+F 7 "G125-MH12605M4R" H 7450 2725 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "855-G125MH1265M4RM4R" H 7450 2625 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7450 2525 50  0001 L CNN "Mouser Price/Stock"
+F 10 "" H 7450 2425 50  0001 L CNN "Arrow Part Number"
+F 11 "" H 7450 2325 50  0001 L CNN "Arrow Price/Stock"
+F 12 "" H 7450 2225 50  0001 L CNN "Mouser Testing Part Number"
+F 13 "" H 7450 2125 50  0001 L CNN "Mouser Testing Price/Stock"
+	1    6700 3125
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 J2
 U 1 1 637743F2
-P 3600 1450
-F 0 "J2" H 3518 825 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 916 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 1450 50  0001 C CNN
-F 3 "~" H 3600 1450 50  0001 C CNN
-	1    3600 1450
+P 1750 2750
+F 0 "J2" H 2150 2700 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 2800 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 2750 50  0001 C CNN
+F 3 "~" H 1750 2750 50  0001 C CNN
+	1    1750 2750
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 J3
 U 1 1 6377665C
-P 3600 2275
-F 0 "J3" H 3518 1650 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 1741 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 2275 50  0001 C CNN
-F 3 "~" H 3600 2275 50  0001 C CNN
-	1    3600 2275
+P 1750 3800
+F 0 "J3" H 2150 3750 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 3850 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 3800 50  0001 C CNN
+F 3 "~" H 1750 3800 50  0001 C CNN
+	1    1750 3800
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 J4
 U 1 1 6377975C
-P 3600 3400
-F 0 "J4" H 3518 2775 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 2866 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 3400 50  0001 C CNN
-F 3 "~" H 3600 3400 50  0001 C CNN
-	1    3600 3400
+P 1750 4800
+F 0 "J4" H 2150 4750 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 4850 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 4800 50  0001 C CNN
+F 3 "~" H 1750 4800 50  0001 C CNN
+	1    1750 4800
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 J5
 U 1 1 63779762
-P 3600 4225
-F 0 "J5" H 3518 3600 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 3691 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 4225 50  0001 C CNN
-F 3 "~" H 3600 4225 50  0001 C CNN
-	1    3600 4225
+P 1750 5850
+F 0 "J5" H 2150 5800 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 5900 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 5850 50  0001 C CNN
+F 3 "~" H 1750 5850 50  0001 C CNN
+	1    1750 5850
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 J6
 U 1 1 6377ADA8
-P 3600 5325
-F 0 "J6" H 3518 4700 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 4791 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 5325 50  0001 C CNN
-F 3 "~" H 3600 5325 50  0001 C CNN
-	1    3600 5325
+P 1750 6900
+F 0 "J6" H 2150 6850 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 6950 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 6900 50  0001 C CNN
+F 3 "~" H 1750 6900 50  0001 C CNN
+	1    1750 6900
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x08 J7
+L Connector_Generic:Conn_01x08 J1
 U 1 1 6377ADAE
-P 3600 6150
-F 0 "J7" H 3518 5525 50  0000 C CNN
-F 1 "Conn_01x08" H 3518 5616 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3600 6150 50  0001 C CNN
-F 3 "~" H 3600 6150 50  0001 C CNN
-	1    3600 6150
+P 1750 1750
+F 0 "J1" H 2150 1700 50  0000 C CNN
+F 1 "Conn_01x08" H 2100 1800 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 1750 1750 50  0001 C CNN
+F 3 "~" H 1750 1750 50  0001 C CNN
+	1    1750 1750
+	-1   0    0    1   
+$EndComp
+Text GLabel 2050 1350 1    50   Input ~ 0
+CP
+Text GLabel 2200 1450 1    50   Input ~ 0
+SCL
+Text GLabel 2500 1650 1    50   Input ~ 0
+SDA
+Text GLabel 2650 1750 1    50   Input ~ 0
+CELL_5
+Text GLabel 2950 1950 1    50   Input ~ 0
+CELL_6
+Text GLabel 3100 2050 1    50   Input ~ 0
+CP
+Wire Wire Line
+	1950 1350 2050 1350
+Wire Wire Line
+	1950 1450 2200 1450
+Wire Wire Line
+	1950 1650 2500 1650
+Wire Wire Line
+	1950 1750 2650 1750
+Wire Wire Line
+	1950 1850 2800 1850
+Wire Wire Line
+	1950 2050 3100 2050
+Text GLabel 2050 2350 1    50   Input ~ 0
+CELL_1
+Text GLabel 2200 2450 1    50   Input ~ 0
+ALERT1
+Text GLabel 2650 2750 1    50   Input ~ 0
+CELL3
+Wire Wire Line
+	1950 2350 2050 2350
+Wire Wire Line
+	1950 2450 2200 2450
+Wire Wire Line
+	1950 2650 2500 2650
+Wire Wire Line
+	1950 2750 2650 2750
+Wire Wire Line
+	1950 2850 2800 2850
+Wire Wire Line
+	1950 2950 2950 2950
+Wire Wire Line
+	1950 3050 3100 3050
+Text GLabel 2050 3400 1    50   Input ~ 0
+CELL_7
+Text GLabel 2650 3800 1    50   Input ~ 0
+CELL_8
+Text GLabel 2800 3900 1    50   Input ~ 0
+ALERT2
+Text GLabel 2950 4000 1    50   Input ~ 0
+CELL_9
+Wire Wire Line
+	1950 3400 2050 3400
+Wire Wire Line
+	1950 3500 2200 3500
+Wire Wire Line
+	1950 3700 2500 3700
+Wire Wire Line
+	1950 3800 2650 3800
+Wire Wire Line
+	1950 3900 2800 3900
+Wire Wire Line
+	1950 4000 2950 4000
+Wire Wire Line
+	1950 4100 3100 4100
+Text GLabel 2200 4500 1    50   Input ~ 0
+CELL_12
+Text GLabel 2500 4700 1    50   Input ~ 0
+CELL_11
+Text GLabel 2650 4800 1    50   Input ~ 0
+SDA
+Text GLabel 2800 4900 1    50   Input ~ 0
+CELL_10
+Text GLabel 2950 5000 1    50   Input ~ 0
+SCL
+Text GLabel 3100 5100 1    50   Input ~ 0
+CP
+Wire Wire Line
+	1950 4400 2050 4400
+Wire Wire Line
+	1950 4500 2200 4500
+Wire Wire Line
+	1950 4700 2500 4700
+Wire Wire Line
+	1950 4800 2650 4800
+Wire Wire Line
+	1950 4900 2800 4900
+Wire Wire Line
+	1950 5000 2950 5000
+Wire Wire Line
+	1950 5100 3100 5100
+Text GLabel 2200 5550 1    50   Input ~ 0
+CELL_18
+Text GLabel 2500 5750 1    50   Input ~ 0
+CELL_17
+Text GLabel 2650 5850 1    50   Input ~ 0
+SDA
+Text GLabel 2950 6050 1    50   Input ~ 0
+SCL
+Text GLabel 3100 6150 1    50   Input ~ 0
+CELL_16
+Wire Wire Line
+	1950 5450 2050 5450
+Wire Wire Line
+	1950 5550 2200 5550
+Wire Wire Line
+	1950 5750 2500 5750
+Wire Wire Line
+	1950 5850 2650 5850
+Wire Wire Line
+	1950 5950 2800 5950
+Wire Wire Line
+	1950 6050 2950 6050
+Wire Wire Line
+	1950 6150 3100 6150
+Text GLabel 2050 6500 1    50   Input ~ 0
+CELL_13
+Text GLabel 2350 6700 1    50   Input ~ 0
+CELL_14
+Text GLabel 2800 7000 1    50   Input ~ 0
+ALERT3
+Text GLabel 2950 7100 1    50   Input ~ 0
+CELL_15
+Wire Wire Line
+	1950 6500 2050 6500
+Wire Wire Line
+	1950 6600 2200 6600
+Wire Wire Line
+	1950 6800 2500 6800
+Wire Wire Line
+	1950 6900 2650 6900
+Wire Wire Line
+	1950 7000 2800 7000
+Wire Wire Line
+	1950 7100 2950 7100
+Wire Wire Line
+	1950 7200 3100 7200
+Text GLabel 2350 1550 1    50   Input ~ 0
+CELL_4
+Text GLabel 2350 2550 1    50   Input ~ 0
+CELL_2
+Wire Wire Line
+	1950 3600 2350 3600
+Wire Wire Line
+	1950 4600 2350 4600
+Wire Wire Line
+	1950 5650 2350 5650
+Wire Wire Line
+	1950 6700 2350 6700
+$Comp
+L power:VDD #PWR?
+U 1 1 63830876
+P 2200 6600
+F 0 "#PWR?" H 2200 6450 50  0001 C CNN
+F 1 "VDD" H 2215 6773 50  0000 C CNN
+F 2 "" H 2200 6600 50  0001 C CNN
+F 3 "" H 2200 6600 50  0001 C CNN
+	1    2200 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63831435
+P 3100 7200
+F 0 "#PWR?" H 3100 6950 50  0001 C CNN
+F 1 "GND" H 3105 7027 50  0000 C CNN
+F 2 "" H 3100 7200 50  0001 C CNN
+F 3 "" H 3100 7200 50  0001 C CNN
+	1    3100 7200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 63833BFB
+P 2800 1850
+F 0 "#PWR?" H 2800 1700 50  0001 C CNN
+F 1 "VDD" H 2815 2023 50  0000 C CNN
+F 2 "" H 2800 1850 50  0001 C CNN
+F 3 "" H 2800 1850 50  0001 C CNN
+	1    2800 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63835D6D
+P 2650 6900
+F 0 "#PWR?" H 2650 6650 50  0001 C CNN
+F 1 "GND" H 2655 6727 50  0000 C CNN
+F 2 "" H 2650 6900 50  0001 C CNN
+F 3 "" H 2650 6900 50  0001 C CNN
+	1    2650 6900
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63836214
+P 2500 6800
+F 0 "#PWR?" H 2500 6550 50  0001 C CNN
+F 1 "GND" H 2505 6627 50  0000 C CNN
+F 2 "" H 2500 6800 50  0001 C CNN
+F 3 "" H 2500 6800 50  0001 C CNN
+	1    2500 6800
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 63836436
+P 2050 5450
+F 0 "#PWR?" H 2050 5300 50  0001 C CNN
+F 1 "VDD" H 2065 5623 50  0000 C CNN
+F 2 "" H 2050 5450 50  0001 C CNN
+F 3 "" H 2050 5450 50  0001 C CNN
+	1    2050 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63836C73
+P 2800 5950
+F 0 "#PWR?" H 2800 5700 50  0001 C CNN
+F 1 "GND" H 2805 5777 50  0000 C CNN
+F 2 "" H 2800 5950 50  0001 C CNN
+F 3 "" H 2800 5950 50  0001 C CNN
+	1    2800 5950
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63836FF1
+P 2350 5650
+F 0 "#PWR?" H 2350 5400 50  0001 C CNN
+F 1 "GND" H 2355 5477 50  0000 C CNN
+F 2 "" H 2350 5650 50  0001 C CNN
+F 3 "" H 2350 5650 50  0001 C CNN
+	1    2350 5650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63837589
+P 2800 2850
+F 0 "#PWR?" H 2800 2600 50  0001 C CNN
+F 1 "GND" H 2805 2677 50  0000 C CNN
+F 2 "" H 2800 2850 50  0001 C CNN
+F 3 "" H 2800 2850 50  0001 C CNN
+	1    2800 2850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 63838F85
+P 2050 4400
+F 0 "#PWR?" H 2050 4250 50  0001 C CNN
+F 1 "VDD" H 2065 4573 50  0000 C CNN
+F 2 "" H 2050 4400 50  0001 C CNN
+F 3 "" H 2050 4400 50  0001 C CNN
+	1    2050 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63839506
+P 2350 4600
+F 0 "#PWR?" H 2350 4350 50  0001 C CNN
+F 1 "GND" H 2355 4427 50  0000 C CNN
+F 2 "" H 2350 4600 50  0001 C CNN
+F 3 "" H 2350 4600 50  0001 C CNN
+	1    2350 4600
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 638399E8
+P 2200 3500
+F 0 "#PWR?" H 2200 3350 50  0001 C CNN
+F 1 "VDD" H 2215 3673 50  0000 C CNN
+F 2 "" H 2200 3500 50  0001 C CNN
+F 3 "" H 2200 3500 50  0001 C CNN
+	1    2200 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6383A2CC
+P 2500 3700
+F 0 "#PWR?" H 2500 3450 50  0001 C CNN
+F 1 "GND" H 2505 3527 50  0000 C CNN
+F 2 "" H 2500 3700 50  0001 C CNN
+F 3 "" H 2500 3700 50  0001 C CNN
+	1    2500 3700
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6383A732
+P 2350 3600
+F 0 "#PWR?" H 2350 3350 50  0001 C CNN
+F 1 "GND" H 2355 3427 50  0000 C CNN
+F 2 "" H 2350 3600 50  0001 C CNN
+F 3 "" H 2350 3600 50  0001 C CNN
+	1    2350 3600
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6383A944
+P 3100 4100
+F 0 "#PWR?" H 3100 3850 50  0001 C CNN
+F 1 "GND" H 3105 3927 50  0000 C CNN
+F 2 "" H 3100 4100 50  0001 C CNN
+F 3 "" H 3100 4100 50  0001 C CNN
+	1    3100 4100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 1950 2950 1950
+Wire Wire Line
+	1950 1550 2350 1550
+Wire Wire Line
+	1950 2550 2350 2550
+$Comp
+L power:GND #PWR?
+U 1 1 6384161D
+P 2500 2650
+F 0 "#PWR?" H 2500 2400 50  0001 C CNN
+F 1 "GND" H 2505 2477 50  0000 C CNN
+F 2 "" H 2500 2650 50  0001 C CNN
+F 3 "" H 2500 2650 50  0001 C CNN
+	1    2500 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63842DD7
+P 2950 2950
+F 0 "#PWR?" H 2950 2700 50  0001 C CNN
+F 1 "GND" H 2955 2777 50  0000 C CNN
+F 2 "" H 2950 2950 50  0001 C CNN
+F 3 "" H 2950 2950 50  0001 C CNN
+	1    2950 2950
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 638430B2
+P 3100 3050
+F 0 "#PWR?" H 3100 2800 50  0001 C CNN
+F 1 "GND" H 3105 2877 50  0000 C CNN
+F 2 "" H 3100 3050 50  0001 C CNN
+F 3 "" H 3100 3050 50  0001 C CNN
+	1    3100 3050
 	-1   0    0    1   
 $EndComp
 $EndSCHEMATC
