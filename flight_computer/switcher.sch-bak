@@ -3,10 +3,10 @@ EELAYER 30 0
 EELAYER END
 $Descr A2 23386 16535
 encoding utf-8
-Sheet 4 9
+Sheet 4 6
 Title "Perovskite Switching Circuit"
 Date "2022-09-24"
-Rev "A"
+Rev "B"
 Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
@@ -2553,8 +2553,6 @@ Wire Wire Line
 	13250 11700 13000 11700
 Wire Wire Line
 	13000 11700 13000 2250
-Wire Wire Line
-	13000 2250 10650 2250
 $Comp
 L LT3092EDD_TRPBF:LT3092EDD#TRPBF U30
 U 1 1 6373328D
@@ -2575,4 +2573,46 @@ Wire Wire Line
 Connection ~ 12000 12950
 Wire Wire Line
 	12000 12950 12000 13050
+$Comp
+L Device:C C?
+U 1 1 638EC9CB
+P 5400 15150
+AR Path="/6313FC31/638EC9CB" Ref="C?"  Part="1" 
+AR Path="/638EC9CB" Ref="C?"  Part="1" 
+AR Path="/635FE71D/638EC9CB" Ref="C46"  Part="1" 
+F 0 "C46" V 5652 15150 50  0000 C CNN
+F 1 "0.1u" V 5561 15150 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5438 15000 50  0001 C CNN
+F 3 "~" H 5400 15150 50  0001 C CNN
+	1    5400 15150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 638EC9D1
+P 5400 15000
+AR Path="/6313FC31/638EC9D1" Ref="#PWR?"  Part="1" 
+AR Path="/638EC9D1" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/638EC9D1" Ref="#PWR0152"  Part="1" 
+F 0 "#PWR0152" H 5400 14850 50  0001 C CNN
+F 1 "+3V3" H 5415 15173 50  0000 C CNN
+F 2 "" H 5400 15000 50  0001 C CNN
+F 3 "" H 5400 15000 50  0001 C CNN
+	1    5400 15000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 638EC9D7
+P 5400 15300
+AR Path="/6313FC31/638EC9D7" Ref="#PWR?"  Part="1" 
+AR Path="/638EC9D7" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/638EC9D7" Ref="#PWR0254"  Part="1" 
+F 0 "#PWR0254" H 5400 15050 50  0001 C CNN
+F 1 "GND" H 5405 15127 50  0000 C CNN
+F 2 "" H 5400 15300 50  0001 C CNN
+F 3 "" H 5400 15300 50  0001 C CNN
+	1    5400 15300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
