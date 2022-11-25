@@ -18,4 +18,7 @@
   (lib (name LT6654AHLS8-2.5-PBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHLS8-2-5-PBF/LT6654AHLS8-2.5-PBF.lib")(options "")(descr ""))
   (lib (name LT3092EDD_TRPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LT3092EDD_TRPBF/LT3092EDD_TRPBF.lib")(options "")(descr ""))
   (lib (name CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC/CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC.lib")(options "")(descr ""))
+  (lib (name LT6654AMPS6-1.25-TRMPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF/LT6654AMPS6-1.25-TRMPBF.lib")(options "")(descr ""))
+  (lib (name OPA2387)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/OPA2387/OPA2387.lib")(options "")(descr ""))
+  (lib (name 0781710004)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/0781710004/0781710004.lib")(options "")(descr ""))
 )
