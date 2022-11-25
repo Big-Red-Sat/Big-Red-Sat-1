@@ -16,22 +16,22 @@ $EndDescr
 $Comp
 L G125-MH12605M4R:G125-MH12605M4R J7
 U 1 1 636882D7
-P 6700 3125
-F 0 "J7" H 7150 3390 50  0000 C CNN
-F 1 "G125-MH12605M4R" H 7150 3299 50  0000 C CNN
-F 2 "MV12605M1P:G125-MV12605M1P" H 7450 3225 50  0001 L CNN
-F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7450 3125 50  0001 L CNN
-F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7450 3025 50  0001 L CNN "Description"
-F 5 "5.3" H 7450 2925 50  0001 L CNN "Height"
-F 6 "Harwin" H 7450 2825 50  0001 L CNN "Manufacturer_Name"
-F 7 "G125-MH12605M4R" H 7450 2725 50  0001 L CNN "Manufacturer_Part_Number"
-F 8 "855-G125MH1265M4RM4R" H 7450 2625 50  0001 L CNN "Mouser Part Number"
-F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7450 2525 50  0001 L CNN "Mouser Price/Stock"
-F 10 "" H 7450 2425 50  0001 L CNN "Arrow Part Number"
-F 11 "" H 7450 2325 50  0001 L CNN "Arrow Price/Stock"
-F 12 "" H 7450 2225 50  0001 L CNN "Mouser Testing Part Number"
-F 13 "" H 7450 2125 50  0001 L CNN "Mouser Testing Price/Stock"
-	1    6700 3125
+P 6800 3150
+F 0 "J7" H 7250 3415 50  0000 C CNN
+F 1 "G125-MH12605M4R" H 7250 3324 50  0000 C CNN
+F 2 "MV12605M1P:G125-MV12605M1P" H 7550 3250 50  0001 L CNN
+F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 7550 3150 50  0001 L CNN
+F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 7550 3050 50  0001 L CNN "Description"
+F 5 "5.3" H 7550 2950 50  0001 L CNN "Height"
+F 6 "Harwin" H 7550 2850 50  0001 L CNN "Manufacturer_Name"
+F 7 "G125-MH12605M4R" H 7550 2750 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "855-G125MH1265M4RM4R" H 7550 2650 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 7550 2550 50  0001 L CNN "Mouser Price/Stock"
+F 10 "" H 7550 2450 50  0001 L CNN "Arrow Part Number"
+F 11 "" H 7550 2350 50  0001 L CNN "Arrow Price/Stock"
+F 12 "" H 7550 2250 50  0001 L CNN "Mouser Testing Part Number"
+F 13 "" H 7550 2150 50  0001 L CNN "Mouser Testing Price/Stock"
+	1    6800 3150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -129,7 +129,7 @@ CELL_1
 Text GLabel 2200 2450 1    50   Input ~ 0
 ALERT1
 Text GLabel 2650 2750 1    50   Input ~ 0
-CELL3
+CELL_3
 Wire Wire Line
 	1950 2350 2050 2350
 Wire Wire Line
@@ -251,10 +251,10 @@ Wire Wire Line
 Wire Wire Line
 	1950 6700 2350 6700
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0101
 U 1 1 63830876
 P 2200 6600
-F 0 "#PWR?" H 2200 6450 50  0001 C CNN
+F 0 "#PWR0101" H 2200 6450 50  0001 C CNN
 F 1 "VDD" H 2215 6773 50  0000 C CNN
 F 2 "" H 2200 6600 50  0001 C CNN
 F 3 "" H 2200 6600 50  0001 C CNN
@@ -262,10 +262,10 @@ F 3 "" H 2200 6600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0102
 U 1 1 63831435
 P 3100 7200
-F 0 "#PWR?" H 3100 6950 50  0001 C CNN
+F 0 "#PWR0102" H 3100 6950 50  0001 C CNN
 F 1 "GND" H 3105 7027 50  0000 C CNN
 F 2 "" H 3100 7200 50  0001 C CNN
 F 3 "" H 3100 7200 50  0001 C CNN
@@ -273,10 +273,10 @@ F 3 "" H 3100 7200 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0103
 U 1 1 63833BFB
 P 2800 1850
-F 0 "#PWR?" H 2800 1700 50  0001 C CNN
+F 0 "#PWR0103" H 2800 1700 50  0001 C CNN
 F 1 "VDD" H 2815 2023 50  0000 C CNN
 F 2 "" H 2800 1850 50  0001 C CNN
 F 3 "" H 2800 1850 50  0001 C CNN
@@ -284,10 +284,10 @@ F 3 "" H 2800 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0104
 U 1 1 63835D6D
 P 2650 6900
-F 0 "#PWR?" H 2650 6650 50  0001 C CNN
+F 0 "#PWR0104" H 2650 6650 50  0001 C CNN
 F 1 "GND" H 2655 6727 50  0000 C CNN
 F 2 "" H 2650 6900 50  0001 C CNN
 F 3 "" H 2650 6900 50  0001 C CNN
@@ -295,10 +295,10 @@ F 3 "" H 2650 6900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0105
 U 1 1 63836214
 P 2500 6800
-F 0 "#PWR?" H 2500 6550 50  0001 C CNN
+F 0 "#PWR0105" H 2500 6550 50  0001 C CNN
 F 1 "GND" H 2505 6627 50  0000 C CNN
 F 2 "" H 2500 6800 50  0001 C CNN
 F 3 "" H 2500 6800 50  0001 C CNN
@@ -306,10 +306,10 @@ F 3 "" H 2500 6800 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0106
 U 1 1 63836436
 P 2050 5450
-F 0 "#PWR?" H 2050 5300 50  0001 C CNN
+F 0 "#PWR0106" H 2050 5300 50  0001 C CNN
 F 1 "VDD" H 2065 5623 50  0000 C CNN
 F 2 "" H 2050 5450 50  0001 C CNN
 F 3 "" H 2050 5450 50  0001 C CNN
@@ -317,10 +317,10 @@ F 3 "" H 2050 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0107
 U 1 1 63836C73
 P 2800 5950
-F 0 "#PWR?" H 2800 5700 50  0001 C CNN
+F 0 "#PWR0107" H 2800 5700 50  0001 C CNN
 F 1 "GND" H 2805 5777 50  0000 C CNN
 F 2 "" H 2800 5950 50  0001 C CNN
 F 3 "" H 2800 5950 50  0001 C CNN
@@ -328,10 +328,10 @@ F 3 "" H 2800 5950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0108
 U 1 1 63836FF1
 P 2350 5650
-F 0 "#PWR?" H 2350 5400 50  0001 C CNN
+F 0 "#PWR0108" H 2350 5400 50  0001 C CNN
 F 1 "GND" H 2355 5477 50  0000 C CNN
 F 2 "" H 2350 5650 50  0001 C CNN
 F 3 "" H 2350 5650 50  0001 C CNN
@@ -339,10 +339,10 @@ F 3 "" H 2350 5650 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0109
 U 1 1 63837589
 P 2800 2850
-F 0 "#PWR?" H 2800 2600 50  0001 C CNN
+F 0 "#PWR0109" H 2800 2600 50  0001 C CNN
 F 1 "GND" H 2805 2677 50  0000 C CNN
 F 2 "" H 2800 2850 50  0001 C CNN
 F 3 "" H 2800 2850 50  0001 C CNN
@@ -350,10 +350,10 @@ F 3 "" H 2800 2850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0110
 U 1 1 63838F85
 P 2050 4400
-F 0 "#PWR?" H 2050 4250 50  0001 C CNN
+F 0 "#PWR0110" H 2050 4250 50  0001 C CNN
 F 1 "VDD" H 2065 4573 50  0000 C CNN
 F 2 "" H 2050 4400 50  0001 C CNN
 F 3 "" H 2050 4400 50  0001 C CNN
@@ -361,10 +361,10 @@ F 3 "" H 2050 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0111
 U 1 1 63839506
 P 2350 4600
-F 0 "#PWR?" H 2350 4350 50  0001 C CNN
+F 0 "#PWR0111" H 2350 4350 50  0001 C CNN
 F 1 "GND" H 2355 4427 50  0000 C CNN
 F 2 "" H 2350 4600 50  0001 C CNN
 F 3 "" H 2350 4600 50  0001 C CNN
@@ -372,10 +372,10 @@ F 3 "" H 2350 4600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0112
 U 1 1 638399E8
 P 2200 3500
-F 0 "#PWR?" H 2200 3350 50  0001 C CNN
+F 0 "#PWR0112" H 2200 3350 50  0001 C CNN
 F 1 "VDD" H 2215 3673 50  0000 C CNN
 F 2 "" H 2200 3500 50  0001 C CNN
 F 3 "" H 2200 3500 50  0001 C CNN
@@ -383,10 +383,10 @@ F 3 "" H 2200 3500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0113
 U 1 1 6383A2CC
 P 2500 3700
-F 0 "#PWR?" H 2500 3450 50  0001 C CNN
+F 0 "#PWR0113" H 2500 3450 50  0001 C CNN
 F 1 "GND" H 2505 3527 50  0000 C CNN
 F 2 "" H 2500 3700 50  0001 C CNN
 F 3 "" H 2500 3700 50  0001 C CNN
@@ -394,10 +394,10 @@ F 3 "" H 2500 3700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0114
 U 1 1 6383A732
 P 2350 3600
-F 0 "#PWR?" H 2350 3350 50  0001 C CNN
+F 0 "#PWR0114" H 2350 3350 50  0001 C CNN
 F 1 "GND" H 2355 3427 50  0000 C CNN
 F 2 "" H 2350 3600 50  0001 C CNN
 F 3 "" H 2350 3600 50  0001 C CNN
@@ -405,10 +405,10 @@ F 3 "" H 2350 3600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0115
 U 1 1 6383A944
 P 3100 4100
-F 0 "#PWR?" H 3100 3850 50  0001 C CNN
+F 0 "#PWR0115" H 3100 3850 50  0001 C CNN
 F 1 "GND" H 3105 3927 50  0000 C CNN
 F 2 "" H 3100 4100 50  0001 C CNN
 F 3 "" H 3100 4100 50  0001 C CNN
@@ -422,10 +422,10 @@ Wire Wire Line
 Wire Wire Line
 	1950 2550 2350 2550
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0116
 U 1 1 6384161D
 P 2500 2650
-F 0 "#PWR?" H 2500 2400 50  0001 C CNN
+F 0 "#PWR0116" H 2500 2400 50  0001 C CNN
 F 1 "GND" H 2505 2477 50  0000 C CNN
 F 2 "" H 2500 2650 50  0001 C CNN
 F 3 "" H 2500 2650 50  0001 C CNN
@@ -433,10 +433,10 @@ F 3 "" H 2500 2650 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0117
 U 1 1 63842DD7
 P 2950 2950
-F 0 "#PWR?" H 2950 2700 50  0001 C CNN
+F 0 "#PWR0117" H 2950 2700 50  0001 C CNN
 F 1 "GND" H 2955 2777 50  0000 C CNN
 F 2 "" H 2950 2950 50  0001 C CNN
 F 3 "" H 2950 2950 50  0001 C CNN
@@ -444,14 +444,88 @@ F 3 "" H 2950 2950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0118
 U 1 1 638430B2
 P 3100 3050
-F 0 "#PWR?" H 3100 2800 50  0001 C CNN
+F 0 "#PWR0118" H 3100 2800 50  0001 C CNN
 F 1 "GND" H 3105 2877 50  0000 C CNN
 F 2 "" H 3100 3050 50  0001 C CNN
 F 3 "" H 3100 3050 50  0001 C CNN
 	1    3100 3050
 	-1   0    0    1   
 $EndComp
+Text GLabel 7700 4350 2    50   Input ~ 0
+CP
+Text GLabel 7700 4150 2    50   Input ~ 0
+CELL_5
+Text GLabel 7700 4250 2    50   Input ~ 0
+CELL_6
+Text GLabel 6800 3750 0    50   Input ~ 0
+CELL_12
+Text GLabel 6800 3650 0    50   Input ~ 0
+CELL_11
+Text GLabel 6800 3550 0    50   Input ~ 0
+CELL_10
+Text GLabel 6800 3450 0    50   Input ~ 0
+SCL
+Text GLabel 6800 4050 0    50   Input ~ 0
+CELL_18
+Text GLabel 6800 4150 0    50   Input ~ 0
+CELL_17
+Text GLabel 6800 4250 0    50   Input ~ 0
+SDA
+Text GLabel 7700 3950 2    50   Input ~ 0
+CELL_16
+Text GLabel 6800 3950 0    50   Input ~ 0
+CELL_13
+Text GLabel 6150 3500 0    50   Input ~ 0
+CELL_14
+Text GLabel 7700 3750 2    50   Input ~ 0
+ALERT3
+Text GLabel 7700 3850 2    50   Input ~ 0
+CELL_15
+Text GLabel 7700 4050 2    50   Input ~ 0
+CELL_4
+Text GLabel 7700 3350 2    50   Input ~ 0
+CELL_2
+Text GLabel 6800 3350 0    50   Input ~ 0
+CELL_9
+Text GLabel 6800 3250 0    50   Input ~ 0
+ALERT2
+Text GLabel 6150 4300 0    50   Input ~ 0
+CELL_8
+Text GLabel 7700 3150 2    50   Input ~ 0
+CELL_7
+Text GLabel 7700 3250 2    50   Input ~ 0
+CELL_3
+Text GLabel 7700 3450 2    50   Input ~ 0
+ALERT1
+Text GLabel 7700 3550 2    50   Input ~ 0
+CELL_1
+$Comp
+L power:GND #PWR0119
+U 1 1 638E0FAA
+P 8300 3850
+F 0 "#PWR0119" H 8300 3600 50  0001 C CNN
+F 1 "GND" H 8305 3677 50  0000 C CNN
+F 2 "" H 8300 3850 50  0001 C CNN
+F 3 "" H 8300 3850 50  0001 C CNN
+	1    8300 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR0120
+U 1 1 638E12AD
+P 6800 4350
+F 0 "#PWR0120" H 6800 4200 50  0001 C CNN
+F 1 "VDD" V 6815 4477 50  0000 L CNN
+F 2 "" H 6800 4350 50  0001 C CNN
+F 3 "" H 6800 4350 50  0001 C CNN
+	1    6800 4350
+	0    -1   -1   0   
+$EndComp
+Text GLabel 6800 3150 0    50   Input ~ 0
+CELL_8
+Text GLabel 7700 3650 2    50   Input ~ 0
+CELL_14
 $EndSCHEMATC
