@@ -1,0 +1,121 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title ""
+Date ""
+Rev ""
+Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2022"
+Comment2 "Designer: WSA"
+Comment3 "Reviewer:"
+Comment4 "Approved: "
+$EndDescr
+$Comp
+L power:GND #PWR?
+U 1 1 637A6C66
+P 5850 4600
+AR Path="/63D2A1FC/637A6C66" Ref="#PWR?"  Part="1" 
+AR Path="/63D2A1C8/637A6C66" Ref="#PWR0285"  Part="1" 
+F 0 "#PWR0285" H 5850 4350 50  0001 C CNN
+F 1 "GND" H 5855 4427 50  0000 C CNN
+F 2 "" H 5850 4600 50  0001 C CNN
+F 3 "" H 5850 4600 50  0001 C CNN
+	1    5850 4600
+	1    0    0    -1  
+$EndComp
+Text HLabel 6100 4100 0    50   Input ~ 0
+SCL
+Text HLabel 6100 4200 0    50   Input ~ 0
+SDA
+Wire Wire Line
+	5800 4000 5800 3650
+Wire Wire Line
+	6100 3900 5850 3900
+$Comp
+L Device:C C?
+U 1 1 637AA27A
+P 5450 4050
+AR Path="/6313FC31/637AA27A" Ref="C?"  Part="1" 
+AR Path="/637AA27A" Ref="C?"  Part="1" 
+AR Path="/635FE71D/637AA27A" Ref="C?"  Part="1" 
+AR Path="/63D1F518/637AA27A" Ref="C?"  Part="1" 
+AR Path="/63D21EEE/637AA27A" Ref="C?"  Part="1" 
+AR Path="/63D2A1C8/637AA27A" Ref="C62"  Part="1" 
+F 0 "C62" V 5702 4050 50  0000 C CNN
+F 1 "0.1u" V 5611 4050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5488 3900 50  0001 C CNN
+F 3 "~" H 5450 4050 50  0001 C CNN
+	1    5450 4050
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 637AA281
+P 5450 4350
+AR Path="/6313FC31/637AA281" Ref="#PWR?"  Part="1" 
+AR Path="/637AA281" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/637AA281" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/637AA281" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/637AA281" Ref="#PWR?"  Part="1" 
+AR Path="/63D2A1C8/637AA281" Ref="#PWR0286"  Part="1" 
+F 0 "#PWR0286" H 5450 4100 50  0001 C CNN
+F 1 "GND" H 5455 4177 50  0000 C CNN
+F 2 "" H 5450 4350 50  0001 C CNN
+F 3 "" H 5450 4350 50  0001 C CNN
+	1    5450 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0287
+U 1 1 637A6E58
+P 5800 3650
+F 0 "#PWR0287" H 5800 3500 50  0001 C CNN
+F 1 "+3V3" H 5815 3823 50  0000 C CNN
+F 2 "" H 5800 3650 50  0001 C CNN
+F 3 "" H 5800 3650 50  0001 C CNN
+	1    5800 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0288
+U 1 1 637AA35F
+P 5450 3750
+F 0 "#PWR0288" H 5450 3600 50  0001 C CNN
+F 1 "+3V3" H 5465 3923 50  0000 C CNN
+F 2 "" H 5450 3750 50  0001 C CNN
+F 3 "" H 5450 3750 50  0001 C CNN
+	1    5450 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 3900 5450 3750
+Wire Wire Line
+	5450 4200 5450 4350
+$Comp
+L 0781710004:0781710004 J5
+U 1 1 63853CF7
+P 6300 4100
+F 0 "J5" H 6830 4096 50  0000 L CNN
+F 1 "0781710004" H 6830 4005 50  0000 L CNN
+F 2 "0781710004:MOLEX_0781710004" H 6300 4100 50  0001 L BNN
+F 3 "" H 6300 4100 50  0001 L BNN
+F 4 "MOLEX" H 6300 4100 50  0001 L BNN "MANUFACTURER"
+F 5 "1.52mm" H 6300 4100 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
+F 6 "Manufacturer Recommendations" H 6300 4100 50  0001 L BNN "STANDARD"
+F 7 "G" H 6300 4100 50  0001 L BNN "PARTREV"
+	1    6300 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 4400 5850 4400
+Wire Wire Line
+	5850 3900 5850 4400
+Wire Wire Line
+	5850 4400 5850 4600
+Connection ~ 5850 4400
+Wire Wire Line
+	5800 4000 6100 4000
+$EndSCHEMATC

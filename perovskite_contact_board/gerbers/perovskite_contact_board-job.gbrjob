@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "(5.1.12)-1"
+      "Version":     "(5.1.10)-1"
     },
-    "CreationDate":  "2022-11-07T03:47:31-06:00"
+    "CreationDate":  "2022-11-26T15:59:39-06:00"
   },
   "GeneralSpecs":
   {
@@ -15,15 +15,15 @@
     {
       "Name": "perovskite_contact_board",
       "GUID": "7065726f-7673-46b6-9974-655f636f6e74",
-      "Revision": "rev?"
+      "Revision": "A"
     },
     "Size":
     {
-      "X": 57.480,
-      "Y": 52.400
+      "X": 57.050,
+      "Y": 52.250
     },
-    "LayerNumber": 4,
-    "BoardThickness":  1.600
+    "LayerNumber": 2,
+    "BoardThickness":  0.800
   },
   "DesignRules":
   [
@@ -32,14 +32,9 @@
       "PadToPad":  0.200,
       "PadToTrack":  0.200,
       "TrackToTrack":  0.200,
-      "MinLineWidth":  0.250
-    },
-    {
-      "Layers": "Inner",
-      "PadToPad":  0.200,
-      "PadToTrack":  0.200,
-      "TrackToTrack":  0.200,
-      "MinLineWidth":  0.250
+      "MinLineWidth":  0.152,
+      "TrackToRegion":  0.254,
+      "RegionToRegion":  0.254
     }
   ],
   "FilesAttributes":
@@ -50,18 +45,8 @@
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "perovskite_contact_board-GND.gbr",
-      "FileFunction":  "Copper,L2,Inr",
-      "FilePolarity":  "Positive"
-    },
-    {
-      "Path":  "perovskite_contact_board-VCC.gbr",
-      "FileFunction":  "Copper,L3,Inr",
-      "FilePolarity":  "Positive"
-    },
-    {
       "Path":  "perovskite_contact_board-B_Cu.gbr",
-      "FileFunction":  "Copper,L4,Bot",
+      "FileFunction":  "Copper,L2,Bot",
       "FilePolarity":  "Positive"
     },
     {
@@ -122,24 +107,6 @@
       "Type":  "Dielectric",
       "Material":  "FR4",
       "Notes":  "Layers L1/L2"
-    },
-    {
-      "Type":  "Copper",
-      "Notes":  "Layer GND"
-    },
-    {
-      "Type":  "Dielectric",
-      "Material":  "FR4",
-      "Notes":  "Layers L2/L3"
-    },
-    {
-      "Type":  "Copper",
-      "Notes":  "Layer VCC"
-    },
-    {
-      "Type":  "Dielectric",
-      "Material":  "FR4",
-      "Notes":  "Layers L3/L4"
     },
     {
       "Type":  "Copper",
