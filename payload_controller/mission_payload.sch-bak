@@ -7,11 +7,11 @@ Sheet 5 6
 Title ""
 Date ""
 Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2022"
+Comment2 "Designer: WSA"
+Comment3 "Reviewer:"
+Comment4 "Approved: "
 $EndDescr
 $Comp
 L MSP430FR5969IRGZR:MSP430FR5969IRGZR U?
@@ -793,11 +793,11 @@ Text GLabel 4300 3650 0    50   Input ~ 0
 RX_IN
 Text GLabel 4300 3550 0    50   Input ~ 0
 TX_OUT
-Text GLabel 1800 4400 2    50   Input ~ 0
+Text GLabel 1800 4300 2    50   Input ~ 0
 FAULT
 Wire Wire Line
 	2650 2050 3000 2050
-Text GLabel 1800 4300 2    50   Input ~ 0
+Text GLabel 1800 4400 2    50   Input ~ 0
 PAYLOAD_RST
 Text GLabel 7350 2950 2    50   Input ~ 0
 FAULT

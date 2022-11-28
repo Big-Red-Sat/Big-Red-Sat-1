@@ -726,8 +726,6 @@ Text HLabel 7350 2250 2    50   Input ~ 0
 ADC_DRDY
 Text HLabel 4300 3450 0    50   Input ~ 0
 ADC_SYNC
-Text HLabel 7350 3350 2    50   Output ~ 0
-BUSY_IN
 Text HLabel 4300 3350 0    50   Input ~ 0
 REVERSE_BIAS
 $Comp
@@ -793,11 +791,11 @@ Text GLabel 4300 3650 0    50   Input ~ 0
 RX_IN
 Text GLabel 4300 3550 0    50   Input ~ 0
 TX_OUT
-Text GLabel 1800 4400 2    50   Input ~ 0
+Text GLabel 1800 4300 2    50   Input ~ 0
 FAULT
 Wire Wire Line
 	2650 2050 3000 2050
-Text GLabel 1800 4300 2    50   Input ~ 0
+Text GLabel 1800 4400 2    50   Input ~ 0
 PAYLOAD_RST
 Text GLabel 7350 2950 2    50   Input ~ 0
 FAULT
@@ -942,4 +940,6 @@ F 3 "~" H 950 6150 50  0001 C CNN
 	1    950  6150
 	0    1    1    0   
 $EndComp
+Text HLabel 7350 3450 2    50   Output ~ 0
+ALERT
 $EndSCHEMATC

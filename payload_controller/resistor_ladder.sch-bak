@@ -10,8 +10,8 @@ Rev "B"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer: WSA"
-Comment4 "Approved: WSA"
+Comment3 "Reviewer:"
+Comment4 "Approved: "
 $EndDescr
 $Comp
 L power:GND #PWR0101
@@ -703,28 +703,6 @@ F 3 "~" H 9350 2950 50  0001 C CNN
 	1    9350 2950
 	-1   0    0    1   
 $EndComp
-$Comp
-L Device:R R14
-U 1 1 6395E4CC
-P 9550 2700
-F 0 "R14" V 9650 2700 50  0000 C CNN
-F 1 "100k" V 9550 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 9480 2700 50  0001 C CNN
-F 3 "~" H 9550 2700 50  0001 C CNN
-	1    9550 2700
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR0134
-U 1 1 6395EDA9
-P 9700 2700
-F 0 "#PWR0134" H 9700 2450 50  0001 C CNN
-F 1 "GND" H 9705 2527 50  0000 C CNN
-F 2 "" H 9700 2700 50  0001 C CNN
-F 3 "" H 9700 2700 50  0001 C CNN
-	1    9700 2700
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	9250 5550 1950 5550
 Connection ~ 1950 5550
@@ -746,51 +724,15 @@ Text HLabel 1700 3250 0    50   Input ~ 0
 ~LADDER_EN
 Wire Wire Line
 	9500 1350 9500 1550
-$Comp
-L power:-3V3 #PWR?
-U 1 1 638EAACA
-P 9700 2500
-AR Path="/63C503EE/638EAACA" Ref="#PWR?"  Part="1" 
-AR Path="/635FEB2F/638EAACA" Ref="#PWR0136"  Part="1" 
-F 0 "#PWR0136" H 9700 2600 50  0001 C CNN
-F 1 "-3V3" V 9715 2628 50  0000 L CNN
-F 2 "" H 9700 2500 50  0001 C CNN
-F 3 "" H 9700 2500 50  0001 C CNN
-	1    9700 2500
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	9650 2300 10000 2300
 Wire Wire Line
 	10000 2300 10000 1550
 Wire Wire Line
 	10000 1550 9500 1550
-$Comp
-L Device:R R13
-U 1 1 6391F434
-P 9550 2500
-F 0 "R13" V 9650 2500 50  0000 C CNN
-F 1 "500k" V 9550 2500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 9480 2500 50  0001 C CNN
-F 3 "~" H 9550 2500 50  0001 C CNN
-	1    9550 2500
-	0    -1   -1   0   
-$EndComp
 Connection ~ 9500 1350
 Wire Wire Line
 	9500 1350 9950 1350
-Wire Wire Line
-	9350 2300 9350 2500
-Wire Wire Line
-	9400 2700 9350 2700
-Wire Wire Line
-	9400 2500 9350 2500
-Connection ~ 9350 2500
-Wire Wire Line
-	9350 2500 9350 2700
-Wire Wire Line
-	9350 2800 9350 2700
-Connection ~ 9350 2700
 Wire Wire Line
 	9450 3900 9450 4100
 Wire Wire Line
@@ -822,7 +764,7 @@ Wire Wire Line
 Wire Wire Line
 	9350 3900 9350 5650
 Wire Notes Line
-	8750 1450 8750 4850
+	8650 1450 8650 4850
 Wire Notes Line
 	8750 4850 10350 4850
 Wire Notes Line
@@ -840,28 +782,16 @@ Wire Wire Line
 Wire Wire Line
 	1700 3750 2050 3750
 $Comp
-L OPA2387:OPA2387 U10
-U 1 1 6382E466
-P 9500 2050
-F 0 "U10" V 9800 1950 50  0000 R CNN
-F 1 "OPA2387" V 9700 1950 50  0000 R CNN
-F 2 "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm" H 9900 2250 50  0001 C CNN
-F 3 "" H 9900 2250 50  0001 C CNN
-	1    9500 2050
-	0    -1   -1   0   
-$EndComp
-Connection ~ 9500 1550
-$Comp
 L power:-3V3 #PWR?
 U 1 1 6383D96E
-P 9850 1950
+P 9500 2300
 AR Path="/63C503EE/6383D96E" Ref="#PWR?"  Part="1" 
 AR Path="/635FEB2F/6383D96E" Ref="#PWR0128"  Part="1" 
-F 0 "#PWR0128" H 9850 2050 50  0001 C CNN
-F 1 "-3V3" V 9865 2078 50  0000 L CNN
-F 2 "" H 9850 1950 50  0001 C CNN
-F 3 "" H 9850 1950 50  0001 C CNN
-	1    9850 1950
+F 0 "#PWR0128" H 9500 2400 50  0001 C CNN
+F 1 "-3V3" V 9515 2428 50  0000 L CNN
+F 2 "" H 9500 2300 50  0001 C CNN
+F 3 "" H 9500 2300 50  0001 C CNN
+	1    9500 2300
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -1268,6 +1198,78 @@ F 1 "16000" V 8234 1350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 8280 1350 50  0001 C CNN
 F 3 "~" H 8350 1350 50  0001 C CNN
 	1    8350 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L OPA2387:OPA2387 U?
+U 2 1 63A95D48
+P 9500 2050
+AR Path="/63C503EE/63A95D48" Ref="U?"  Part="2" 
+AR Path="/635FEB2F/63A95D48" Ref="U?"  Part="2" 
+F 0 "U?" H 9750 2350 50  0000 C CNN
+F 1 "OPA2387" H 9800 2250 50  0000 C CNN
+F 2 "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm" H 9900 2250 50  0001 C CNN
+F 3 "" H 9900 2250 50  0001 C CNN
+	2    9500 2050
+	0    1    -1   0   
+$EndComp
+Connection ~ 9500 1550
+Connection ~ 9350 2700
+Connection ~ 9350 2500
+Wire Wire Line
+	9350 2300 9350 2500
+Wire Wire Line
+	9350 2800 9350 2700
+Wire Wire Line
+	9350 2500 9350 2700
+Wire Wire Line
+	9300 2700 9350 2700
+Wire Wire Line
+	9300 2500 9350 2500
+$Comp
+L Device:R R13
+U 1 1 6391F434
+P 9150 2700
+F 0 "R13" V 9250 2700 50  0000 C CNN
+F 1 "500k" V 9150 2700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9080 2700 50  0001 C CNN
+F 3 "~" H 9150 2700 50  0001 C CNN
+	1    9150 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L power:-3V3 #PWR?
+U 1 1 638EAACA
+P 9000 2700
+AR Path="/63C503EE/638EAACA" Ref="#PWR?"  Part="1" 
+AR Path="/635FEB2F/638EAACA" Ref="#PWR0136"  Part="1" 
+F 0 "#PWR0136" H 9000 2800 50  0001 C CNN
+F 1 "-3V3" V 9015 2828 50  0000 L CNN
+F 2 "" H 9000 2700 50  0001 C CNN
+F 3 "" H 9000 2700 50  0001 C CNN
+	1    9000 2700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0134
+U 1 1 6395EDA9
+P 9000 2500
+F 0 "#PWR0134" H 9000 2250 50  0001 C CNN
+F 1 "GND" H 9005 2327 50  0000 C CNN
+F 2 "" H 9000 2500 50  0001 C CNN
+F 3 "" H 9000 2500 50  0001 C CNN
+	1    9000 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 6395E4CC
+P 9150 2500
+F 0 "R14" V 9250 2500 50  0000 C CNN
+F 1 "100k" V 9150 2500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9080 2500 50  0001 C CNN
+F 3 "~" H 9150 2500 50  0001 C CNN
+	1    9150 2500
 	0    1    1    0   
 $EndComp
 $EndSCHEMATC

@@ -7,11 +7,11 @@ Sheet 6 6
 Title ""
 Date ""
 Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2022"
+Comment2 "Designer: WSA"
+Comment3 "Reviewer:"
+Comment4 "Approved: "
 $EndDescr
 $Comp
 L power:GND #PWR?
