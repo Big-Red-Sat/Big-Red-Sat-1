@@ -1,4 +1,4 @@
-19247781110059459
+19254460234768189
 0781710004
 MOLEX_0781710004
 
@@ -13,6 +13,20 @@ SOP65P640X120-20N
 0
 20
 20
+AXP Logos
+axp_logos
+
+
+0
+0
+0
+AXP Logos
+bigred_logo
+
+
+0
+0
+0
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -2288,6 +2302,13 @@ speaker CUI
 0
 2
 2
+CB3LV-3I-8M1920
+OSCCC700X500X180-4N
+
+
+0
+4
+4
 CD4028BMT
 SOIC127P600X175-16N
 
@@ -50749,6 +50770,13 @@ One digit LED 7 segment SA39-11 SC39-11 SA39-12 SC39-12
 0
 10
 10
+ECS-81
+XTAL_ECS-81.92-12-30Q-EN-TR
+
+
+0
+2
+2
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters

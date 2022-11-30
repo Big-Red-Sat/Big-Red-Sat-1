@@ -487,19 +487,19 @@ Text HLabel 4300 3150 0    50   Input ~ 0
 ENABLE_PANEL_SWITCH
 Text HLabel 7350 3650 2    50   Input ~ 0
 0-9_CLOCK
-Text HLabel 7350 3050 2    50   Input ~ 0
+Text HLabel 7350 3250 2    50   Input ~ 0
 ENABLE_TEST_SOURCE
 Text HLabel 7350 2750 2    50   Input ~ 0
 SCL
 Text HLabel 7350 2850 2    50   Input ~ 0
 SDA
-Text HLabel 4300 2750 0    50   Input ~ 0
-~LADDER_EN
-Text HLabel 4300 2550 0    50   Input ~ 0
-LADDER_CLOCK
-Text HLabel 4300 2650 0    50   Input ~ 0
-~LADDER_RESET
 Text HLabel 4300 2450 0    50   Input ~ 0
+~LADDER_EN
+Text HLabel 4300 2650 0    50   Input ~ 0
+LADDER_CLOCK
+Text HLabel 4300 2750 0    50   Input ~ 0
+~LADDER_RESET
+Text HLabel 4300 2350 0    50   Input ~ 0
 LADDER_LATCH
 $Comp
 L ICL7660CSAT:ICL7660CSAT U33
@@ -714,15 +714,15 @@ Text HLabel 4300 2850 0    50   Input ~ 0
 MOSI
 Text HLabel 4300 2950 0    50   Input ~ 0
 MISO
-Text HLabel 7350 3250 2    50   Input ~ 0
+Text HLabel 7350 3350 2    50   Input ~ 0
 ADC_CLK
-Text HLabel 7350 3150 2    50   Input ~ 0
+Text HLabel 4300 2550 0    50   Input ~ 0
 ADC_CS
 Text HLabel 7350 2250 2    50   Input ~ 0
 ADC_DRDY
 Text HLabel 4300 3450 0    50   Input ~ 0
 ADC_SYNC
-Text HLabel 4300 3350 0    50   Input ~ 0
+Text HLabel 4300 2250 0    50   Input ~ 0
 REVERSE_BIAS
 $Comp
 L CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC:CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC Y1
@@ -793,7 +793,7 @@ Wire Wire Line
 	2650 2050 3000 2050
 Text GLabel 1800 4400 2    50   Input ~ 0
 PAYLOAD_RST
-Text GLabel 7350 2950 2    50   Input ~ 0
+Text GLabel 7350 2650 2    50   Input ~ 0
 FAULT
 Text GLabel 1800 4500 2    50   Input ~ 0
 RX_IN
@@ -936,10 +936,20 @@ F 3 "~" H 950 6150 50  0001 C CNN
 	1    950  6150
 	0    1    1    0   
 $EndComp
-Text HLabel 7350 3450 2    50   Output ~ 0
+Text HLabel 7350 3050 2    50   Output ~ 0
 ALERT
 Text HLabel 7350 3550 2    50   Input ~ 0
 RESET_PANEL_SWITCH
 Text HLabel 4300 3050 0    50   Input ~ 0
 10-19_CLOCK
+NoConn ~ 4300 3350
+NoConn ~ 4300 3750
+NoConn ~ 7350 2350
+NoConn ~ 7350 2450
+NoConn ~ 7350 2550
+NoConn ~ 7350 2950
+NoConn ~ 7350 3450
+NoConn ~ 7350 3750
+Text HLabel 7350 3150 2    50   Input ~ 0
+GAAS_TEMP
 $EndSCHEMATC

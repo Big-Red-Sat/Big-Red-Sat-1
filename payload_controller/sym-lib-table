@@ -23,4 +23,6 @@
   (lib (name 0781710004)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/0781710004/0781710004.lib")(options "")(descr ""))
   (lib (name CD4072BM)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/CD4072BM/CD4072BM.lib")(options "")(descr ""))
   (lib (name DF13C-3P-1.25V_21_)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/DF13C-3P-1.25V_21_/DF13C-3P-1.25V_21_.lib")(options "")(descr ""))
+  (lib (name CB3LV-3I-8M1920)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/CB3LV-3I-8M1920/CB3LV-3I-8M1920.lib")(options "")(descr ""))
+  (lib (name ECS-81.92-12-30Q-EN-TR)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ECS-81.92-12-30Q-EN-TR/ECS-81.92-12-30Q-EN-TR.lib")(options "")(descr ""))
 )

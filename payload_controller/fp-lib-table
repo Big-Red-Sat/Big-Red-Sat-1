@@ -20,4 +20,7 @@
   (lib (name ul_LT6654AMPS6-1-25-TRMPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF")(options "")(descr ""))
   (lib (name 0781710004)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/0781710004")(options "")(descr ""))
   (lib (name DF13C-3P-1)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/DF13C-3P-1.25V_21_")(options "")(descr ""))
+  (lib (name "AXP Logos")(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/logos")(options "")(descr ""))
+  (lib (name CB3LV-3I-8M1920)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/CB3LV-3I-8M1920")(options "")(descr ""))
+  (lib (name ECS-81)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ECS-81.92-12-30Q-EN-TR")(options "")(descr ""))
 )
