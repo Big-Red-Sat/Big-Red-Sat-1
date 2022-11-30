@@ -1,4 +1,4 @@
-19246111344115765
+19247781110059459
 0781710004
 MOLEX_0781710004
 
@@ -48796,6 +48796,13 @@ THT ceramic resonator filter DSS6
 0
 3
 3
+DF13C-3P-1
+HRS_DF13C-3P-1.25V(21)
+
+
+0
+5
+5
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator

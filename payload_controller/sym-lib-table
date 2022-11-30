@@ -22,4 +22,5 @@
   (lib (name OPA2387)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/OPA2387/OPA2387.lib")(options "")(descr ""))
   (lib (name 0781710004)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/0781710004/0781710004.lib")(options "")(descr ""))
   (lib (name CD4072BM)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/CD4072BM/CD4072BM.lib")(options "")(descr ""))
+  (lib (name DF13C-3P-1.25V_21_)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/DF13C-3P-1.25V_21_/DF13C-3P-1.25V_21_.lib")(options "")(descr ""))
 )

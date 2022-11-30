@@ -19,4 +19,5 @@
   (lib (name CM8V-T1A-32)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC")(options "")(descr ""))
   (lib (name ul_LT6654AMPS6-1-25-TRMPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF")(options "")(descr ""))
   (lib (name 0781710004)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/0781710004")(options "")(descr ""))
+  (lib (name DF13C-3P-1)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/DF13C-3P-1.25V_21_")(options "")(descr ""))
 )

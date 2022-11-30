@@ -493,13 +493,10 @@ Wire Wire Line
 	7450 2250 7500 2250
 Wire Wire Line
 	7450 2250 7450 2650
-Connection ~ 7450 2250
 Wire Wire Line
 	8450 2250 8450 4100
 Wire Wire Line
-	3300 2250 7450 2250
-Wire Wire Line
-	8450 5150 8450 4700
+	8450 5150 8450 4850
 Wire Wire Line
 	6400 4550 6950 4550
 Wire Wire Line
@@ -858,10 +855,10 @@ F 3 "" H 7650 4850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0135
 U 1 1 63AD679A
 P 7650 4250
-F 0 "#PWR?" H 7650 4100 50  0001 C CNN
+F 0 "#PWR0135" H 7650 4100 50  0001 C CNN
 F 1 "+3V3" H 7665 4423 50  0000 C CNN
 F 2 "" H 7650 4250 50  0001 C CNN
 F 3 "" H 7650 4250 50  0001 C CNN
@@ -872,11 +869,62 @@ $Comp
 L OPA2387:OPA2387 U?
 U 1 1 63AD4C17
 P 7750 4550
-F 0 "U?" H 8100 4850 50  0000 R CNN
+AR Path="/635FEB2F/63AD4C17" Ref="U?"  Part="1" 
+AR Path="/63C503EE/63AD4C17" Ref="U10"  Part="1" 
+F 0 "U10" H 8100 4850 50  0000 R CNN
 F 1 "OPA2387" H 8300 4750 50  0000 R CNN
 F 2 "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm" H 8150 4750 50  0001 C CNN
 F 3 "" H 8150 4750 50  0001 C CNN
 	1    7750 4550
 	-1   0    0    -1  
 $EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 63A754DC
+P 8750 4400
+AR Path="/635FE71D/63A754DC" Ref="TP?"  Part="1" 
+AR Path="/63C503EE/63A754DC" Ref="TP2"  Part="1" 
+F 0 "TP2" V 8704 4588 50  0000 L CNN
+F 1 "Voltage Test+" V 8795 4588 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8950 4400 50  0001 C CNN
+F 3 "~" H 8950 4400 50  0001 C CNN
+	1    8750 4400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8750 4400 8450 4400
+$Comp
+L Connector:TestPoint_2Pole TP1
+U 1 1 63A77455
+P 6450 2250
+F 0 "TP1" H 6450 2445 50  0000 C CNN
+F 1 "Current Test" H 6450 2354 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6450 2250 50  0001 C CNN
+F 3 "~" H 6450 2250 50  0001 C CNN
+	1    6450 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 2250 7450 2250
+Connection ~ 7450 2250
+Wire Wire Line
+	6250 2250 3300 2250
+$Comp
+L Connector:TestPoint TP?
+U 1 1 63A8A109
+P 8750 4850
+AR Path="/635FE71D/63A8A109" Ref="TP?"  Part="1" 
+AR Path="/63C503EE/63A8A109" Ref="TP3"  Part="1" 
+F 0 "TP3" V 8704 5038 50  0000 L CNN
+F 1 "Voltage Test-" V 8795 5038 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8950 4850 50  0001 C CNN
+F 3 "~" H 8950 4850 50  0001 C CNN
+	1    8750 4850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8750 4850 8450 4850
+Connection ~ 8450 4850
+Wire Wire Line
+	8450 4850 8450 4700
 $EndSCHEMATC

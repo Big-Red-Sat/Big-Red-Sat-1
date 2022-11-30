@@ -428,7 +428,7 @@ Wire Wire Line
 Text GLabel 2650 2050 0    50   Input ~ 0
 PAYLOAD_RST
 Text GLabel 2150 7050 2    50   Input ~ 0
-~PAYLOAD_RST
+PAYLOAD_RST
 Wire Wire Line
 	2150 7050 1900 7050
 Wire Wire Line
@@ -484,11 +484,7 @@ TDO
 Text GLabel 4300 1850 0    50   Input ~ 0
 TEST
 Text HLabel 4300 3150 0    50   Input ~ 0
-RESET_PANEL_SWITCH
-Text HLabel 4300 3050 0    50   Input ~ 0
 ENABLE_PANEL_SWITCH
-Text HLabel 7350 3550 2    50   Input ~ 0
-10-19_CLOCK
 Text HLabel 7350 3650 2    50   Input ~ 0
 0-9_CLOCK
 Text HLabel 7350 3050 2    50   Input ~ 0
@@ -497,13 +493,13 @@ Text HLabel 7350 2750 2    50   Input ~ 0
 SCL
 Text HLabel 7350 2850 2    50   Input ~ 0
 SDA
-Text HLabel 4300 2450 0    50   Input ~ 0
+Text HLabel 4300 2750 0    50   Input ~ 0
 ~LADDER_EN
 Text HLabel 4300 2550 0    50   Input ~ 0
 LADDER_CLOCK
 Text HLabel 4300 2650 0    50   Input ~ 0
 ~LADDER_RESET
-Text HLabel 4300 2750 0    50   Input ~ 0
+Text HLabel 4300 2450 0    50   Input ~ 0
 LADDER_LATCH
 $Comp
 L ICL7660CSAT:ICL7660CSAT U33
@@ -726,8 +722,6 @@ Text HLabel 7350 2250 2    50   Input ~ 0
 ADC_DRDY
 Text HLabel 4300 3450 0    50   Input ~ 0
 ADC_SYNC
-Text HLabel 7350 3350 2    50   Output ~ 0
-BUSY_IN
 Text HLabel 4300 3350 0    50   Input ~ 0
 REVERSE_BIAS
 $Comp
@@ -942,4 +936,10 @@ F 3 "~" H 950 6150 50  0001 C CNN
 	1    950  6150
 	0    1    1    0   
 $EndComp
+Text HLabel 7350 3450 2    50   Output ~ 0
+ALERT
+Text HLabel 7350 3550 2    50   Input ~ 0
+RESET_PANEL_SWITCH
+Text HLabel 4300 3050 0    50   Input ~ 0
+10-19_CLOCK
 $EndSCHEMATC
