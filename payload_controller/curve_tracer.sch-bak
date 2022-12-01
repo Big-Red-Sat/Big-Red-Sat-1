@@ -4,14 +4,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 6
-Title ""
-Date ""
+Title "Curve Tracing Circuits"
+Date "2022-11-30"
 Rev "B"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer:"
-Comment4 "Approved: "
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Comp
 L power:+3V3 #PWR0140
@@ -899,7 +899,7 @@ U 1 1 63A77455
 P 6450 2250
 F 0 "TP1" H 6450 2445 50  0000 C CNN
 F 1 "Current Test" H 6450 2354 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6450 2250 50  0001 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 6450 2250 50  0001 C CNN
 F 3 "~" H 6450 2250 50  0001 C CNN
 	1    6450 2250
 	1    0    0    -1  
@@ -974,7 +974,7 @@ U 1 1 63923F71
 P 2100 2450
 F 0 "TP4" H 2100 2645 50  0000 C CNN
 F 1 "ADC_CLK Connect" H 2100 2554 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2100 2450 50  0001 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 2100 2450 50  0001 C CNN
 F 3 "~" H 2100 2450 50  0001 C CNN
 	1    2100 2450
 	1    0    0    -1  

@@ -4,14 +4,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 6 6
-Title ""
-Date ""
-Rev ""
+Title "Sun Sensor"
+Date "2022-11-30"
+Rev "A"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer:"
-Comment4 "Approved: "
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Comp
 L power:GND #PWR?

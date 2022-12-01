@@ -5,13 +5,13 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 4 6
 Title "Perovskite Switching Circuit"
-Date "2022-09-24"
+Date "2022-11-30"
 Rev "B"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer:"
-Comment4 "Approved: "
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Comp
 L Device:C C?

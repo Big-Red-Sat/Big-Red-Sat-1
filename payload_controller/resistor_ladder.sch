@@ -5,13 +5,13 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "Resistor 8-Bit Ladder"
-Date "2022-09-18"
+Date "2022-11-30"
 Rev "B"
 Comp "Advanced eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2022"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer:"
-Comment4 "Approved: "
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Comp
 L power:GND #PWR0101
@@ -766,11 +766,7 @@ Wire Wire Line
 Wire Notes Line
 	8650 1450 8650 4850
 Wire Notes Line
-	8750 4850 10350 4850
-Wire Notes Line
 	10350 4850 10350 1450
-Wire Notes Line
-	8750 1450 10350 1450
 Text Notes 10250 4750 2    50   ~ 0
 1.2V to -0.3V\nPanel Voltage Drive
 Wire Wire Line
@@ -1257,4 +1253,8 @@ F 3 "~" H 9150 2500 50  0001 C CNN
 	1    9150 2500
 	0    1    1    0   
 $EndComp
+Wire Notes Line
+	8650 4850 10350 4850
+Wire Notes Line
+	8650 1450 10350 1450
 $EndSCHEMATC
