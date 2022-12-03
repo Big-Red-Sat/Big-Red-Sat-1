@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name G125-MV12605M1P)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LIB_G125-MV12605M1P/G125-MV12605M1P.lib")(options "")(descr ""))
+  (lib (name G125-MH12605M4R)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/LIB_G125-MH12605M4R/G125-MH12605M4R.lib")(options "")(descr ""))
+)

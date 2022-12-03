@@ -1,0 +1,348 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L G125-MH12605M4R:G125-MH12605M4R J2
+U 1 1 638AC647
+P 5850 4500
+F 0 "J2" H 5825 6015 50  0000 C CNN
+F 1 "G125-MH12605M4R" H 5825 5924 50  0000 C CNN
+F 2 "G125-MV12605M1P:G125-MV12605M1P" H 5500 6850 50  0001 L CNN
+F 3 "https://cdn.harwin.com/pdfs/G125-MH1XX05M4R.pdf" H 5500 6750 50  0001 L CNN
+F 4 "Gecko Screw-Lok DIL Male Horizontal Throughboard Connector, internally threaded screw fixings with board mount capability, gold, pick &amp; place (Tape &amp; Reel packing), 26 contacts" H 5500 6650 50  0001 L CNN "Description"
+F 5 "5.3" H 5600 6550 50  0001 L CNN "Height"
+F 6 "Harwin" H 5650 6500 50  0001 L CNN "Manufacturer_Name"
+F 7 "G125-MH12605M4R" H 5500 6350 50  0001 L CNN "Manufacturer_Part_Number"
+F 8 "855-G125MH1265M4RM4R" H 5500 6250 50  0001 L CNN "Mouser Part Number"
+F 9 "https://www.mouser.co.uk/ProductDetail/Harwin/G125-MH12605M4R?qs=vHuUswq2%252BsyH7SZgyn76GA%3D%3D" H 5500 6150 50  0001 L CNN "Mouser Price/Stock"
+	1    5850 4500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 638B021D
+P 5300 3250
+F 0 "#PWR0101" H 5300 3100 50  0001 C CNN
+F 1 "+3V3" H 5315 3423 50  0000 C CNN
+F 2 "" H 5300 3250 50  0001 C CNN
+F 3 "" H 5300 3250 50  0001 C CNN
+	1    5300 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 638B0C45
+P 5300 6000
+F 0 "#PWR0102" H 5300 5750 50  0001 C CNN
+F 1 "GND" H 5305 5827 50  0000 C CNN
+F 2 "" H 5300 6000 50  0001 C CNN
+F 3 "" H 5300 6000 50  0001 C CNN
+	1    5300 6000
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5300 4400
+NoConn ~ 5300 4500
+NoConn ~ 5300 4600
+NoConn ~ 5300 5200
+NoConn ~ 5300 5300
+Wire Wire Line
+	8100 3250 7950 3250
+Wire Wire Line
+	8100 4250 7950 4250
+Wire Wire Line
+	7950 4250 7950 3250
+Connection ~ 7950 3250
+Wire Wire Line
+	7950 3250 6450 3250
+Wire Wire Line
+	8100 5400 7950 5400
+Wire Wire Line
+	7950 5400 7950 4250
+Connection ~ 7950 4250
+Wire Wire Line
+	6450 3450 7100 3450
+Wire Wire Line
+	7100 3450 7100 3350
+Wire Wire Line
+	7100 3350 8100 3350
+Wire Wire Line
+	6450 3600 7200 3600
+Wire Wire Line
+	7200 3600 7200 3450
+Wire Wire Line
+	7200 3450 8100 3450
+Wire Wire Line
+	6450 3750 7350 3750
+Wire Wire Line
+	7350 3750 7350 3550
+Wire Wire Line
+	7350 3550 8100 3550
+Wire Wire Line
+	6450 3900 7500 3900
+Wire Wire Line
+	7500 3900 7500 3650
+Wire Wire Line
+	7500 3650 8100 3650
+Wire Wire Line
+	6450 4050 7650 4050
+Wire Wire Line
+	7650 4050 7650 3750
+Wire Wire Line
+	7650 3750 8100 3750
+Wire Wire Line
+	6450 4200 7800 4200
+Wire Wire Line
+	7800 4200 7800 3850
+Wire Wire Line
+	7800 3850 8100 3850
+Wire Wire Line
+	6450 4350 8100 4350
+Wire Wire Line
+	6450 4500 7100 4500
+Wire Wire Line
+	7100 4500 7100 4450
+Wire Wire Line
+	7100 4450 8100 4450
+Wire Wire Line
+	6450 4650 7200 4650
+Wire Wire Line
+	7200 4650 7200 4550
+Wire Wire Line
+	7200 4550 8100 4550
+Wire Wire Line
+	6450 4800 7350 4800
+Wire Wire Line
+	7350 4800 7350 4650
+Wire Wire Line
+	7350 4650 8100 4650
+Wire Wire Line
+	6450 4950 7550 4950
+Wire Wire Line
+	7550 4950 7550 4750
+Wire Wire Line
+	7550 4750 8100 4750
+Wire Wire Line
+	6450 5100 7750 5100
+Wire Wire Line
+	7750 5100 7750 4850
+Wire Wire Line
+	7750 4850 8100 4850
+Wire Wire Line
+	6450 5250 7750 5250
+Wire Wire Line
+	7750 5250 7750 5500
+Wire Wire Line
+	7750 5500 8100 5500
+Wire Wire Line
+	6450 5400 7600 5400
+Wire Wire Line
+	7600 5400 7600 5600
+Wire Wire Line
+	7600 5600 8100 5600
+Wire Wire Line
+	6450 5550 7450 5550
+Wire Wire Line
+	7450 5550 7450 5700
+Wire Wire Line
+	7450 5700 8100 5700
+Wire Wire Line
+	6450 5700 7300 5700
+Wire Wire Line
+	7300 5700 7300 5800
+Wire Wire Line
+	7300 5800 8100 5800
+Wire Wire Line
+	6450 5850 7200 5850
+Wire Wire Line
+	7200 5850 7200 5900
+Wire Wire Line
+	7200 5900 8100 5900
+Wire Wire Line
+	6450 6000 8100 6000
+$Comp
+L Connector:Conn_01x08_Female J3
+U 1 1 638C75FB
+P 6050 2300
+F 0 "J3" H 5942 1767 50  0000 C CNN
+F 1 "Conn_01x08_Female" H 5942 1766 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 6050 2300 50  0001 C CNN
+F 3 "~" H 6050 2300 50  0001 C CNN
+	1    6050 2300
+	1    0    0    1   
+$EndComp
+$Comp
+L power:+3V3 #PWR0103
+U 1 1 638CECAA
+P 5700 1850
+F 0 "#PWR0103" H 5700 1700 50  0001 C CNN
+F 1 "+3V3" H 5715 2023 50  0000 C CNN
+F 2 "" H 5700 1850 50  0001 C CNN
+F 3 "" H 5700 1850 50  0001 C CNN
+	1    5700 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 2000 5700 2000
+Wire Wire Line
+	5700 2000 5700 1900
+Wire Wire Line
+	5850 1900 5700 1900
+Connection ~ 5700 1900
+Wire Wire Line
+	5700 1900 5700 1850
+$Comp
+L power:GND #PWR0104
+U 1 1 638D325C
+P 5700 2650
+F 0 "#PWR0104" H 5700 2400 50  0001 C CNN
+F 1 "GND" H 5705 2477 50  0000 C CNN
+F 2 "" H 5700 2650 50  0001 C CNN
+F 3 "" H 5700 2650 50  0001 C CNN
+	1    5700 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 2500 5700 2500
+Wire Wire Line
+	5700 2500 5700 2600
+Wire Wire Line
+	5850 2600 5700 2600
+Connection ~ 5700 2600
+Wire Wire Line
+	5700 2600 5700 2650
+$Comp
+L Connector:Conn_01x06_Female J1
+U 1 1 638DB30B
+P 3950 2400
+F 0 "J1" H 3842 1967 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 3842 1966 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal" H 3950 2400 50  0001 C CNN
+F 3 "~" H 3950 2400 50  0001 C CNN
+	1    3950 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 638DBE86
+P 4250 2700
+F 0 "#PWR0105" H 4250 2450 50  0001 C CNN
+F 1 "GND" H 4255 2527 50  0000 C CNN
+F 2 "" H 4250 2700 50  0001 C CNN
+F 3 "" H 4250 2700 50  0001 C CNN
+	1    4250 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 2600 4250 2600
+Wire Wire Line
+	4250 2600 4250 2700
+$Comp
+L power:+3V3 #PWR0106
+U 1 1 638DDB7B
+P 4250 1950
+F 0 "#PWR0106" H 4250 1800 50  0001 C CNN
+F 1 "+3V3" H 4265 2123 50  0000 C CNN
+F 2 "" H 4250 1950 50  0001 C CNN
+F 3 "" H 4250 1950 50  0001 C CNN
+	1    4250 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 2400 4250 2400
+Wire Wire Line
+	4250 2400 4250 1950
+Wire Wire Line
+	4150 2300 5850 2300
+Wire Wire Line
+	4150 2200 4350 2200
+Wire Wire Line
+	4350 2200 4350 2400
+Wire Wire Line
+	4350 2400 5850 2400
+NoConn ~ 4150 2100
+NoConn ~ 4150 2500
+$Comp
+L Device:LED D1
+U 1 1 638EE5AE
+P 5100 1300
+F 0 "D1" H 5093 1517 50  0000 C CNN
+F 1 "LED" H 5093 1426 50  0000 C CNN
+F 2 "LED_THT:LED_D5.0mm" H 5100 1300 50  0001 C CNN
+F 3 "~" H 5100 1300 50  0001 C CNN
+	1    5100 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 638EF7BD
+P 4800 1300
+F 0 "R1" V 4593 1300 50  0000 C CNN
+F 1 "R" V 4684 1300 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4730 1300 50  0001 C CNN
+F 3 "~" H 4800 1300 50  0001 C CNN
+	1    4800 1300
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 638EFA66
+P 4650 1300
+F 0 "#PWR0107" H 4650 1050 50  0001 C CNN
+F 1 "GND" H 4655 1127 50  0000 C CNN
+F 2 "" H 4650 1300 50  0001 C CNN
+F 3 "" H 4650 1300 50  0001 C CNN
+	1    4650 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 1300 5400 1300
+Wire Wire Line
+	5400 1300 5400 2100
+Wire Wire Line
+	5400 2100 5850 2100
+$Comp
+L Connector:Screw_Terminal_01x07 J6
+U 1 1 638B250D
+P 8300 3550
+F 0 "J6" H 8380 3592 50  0000 L CNN
+F 1 "Screw_Terminal_01x07" H 8380 3501 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-7-3.5-H_1x07_P3.50mm_Horizontal" H 8300 3550 50  0001 C CNN
+F 3 "~" H 8300 3550 50  0001 C CNN
+	1    8300 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x07 J5
+U 1 1 638B2091
+P 8300 4550
+F 0 "J5" H 8380 4592 50  0000 L CNN
+F 1 "Screw_Terminal_01x07" H 8380 4501 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-7-3.5-H_1x07_P3.50mm_Horizontal" H 8300 4550 50  0001 C CNN
+F 3 "~" H 8300 4550 50  0001 C CNN
+	1    8300 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x07 J4
+U 1 1 638B1569
+P 8300 5700
+F 0 "J4" H 8380 5742 50  0000 L CNN
+F 1 "Screw_Terminal_01x07" H 8380 5651 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-7-3.5-H_1x07_P3.50mm_Horizontal" H 8300 5700 50  0001 C CNN
+F 3 "~" H 8300 5700 50  0001 C CNN
+	1    8300 5700
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
