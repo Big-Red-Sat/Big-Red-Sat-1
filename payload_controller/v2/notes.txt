@@ -1,0 +1,7 @@
+Add FRAM chip to store data, calibration, etc etc.? Those chips are expensive but it may be useful for timing transmissions
+
+Remove low pass filter on current and voltage inputs to ADC... maybe?
+
+Create grounded border
+
+0.5 mm box header for JTAG
