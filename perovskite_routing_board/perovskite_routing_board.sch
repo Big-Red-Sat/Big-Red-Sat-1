@@ -104,9 +104,9 @@ Text GLabel 1950 1350 2    50   Input ~ 0
 CP
 Text GLabel 1950 1450 2    50   Input ~ 0
 SCL
-Text GLabel 1950 2450 2    50   Input ~ 0
+Text GLabel 1950 2950 2    50   Input ~ 0
 ALERT1
-Text GLabel 1950 2750 2    50   Input ~ 0
+Text GLabel 1950 2650 2    50   Input ~ 0
 CELL_3
 Text GLabel 1950 3400 2    50   Input ~ 0
 CELL_7
@@ -146,7 +146,7 @@ Text GLabel 1950 7000 2    50   Input ~ 0
 ALERT3
 Text GLabel 1950 7100 2    50   Input ~ 0
 CELL_15
-Text GLabel 1950 2550 2    50   Input ~ 0
+Text GLabel 1950 2850 2    50   Input ~ 0
 CELL_2
 $Comp
 L power:GND #PWR0102
@@ -272,14 +272,12 @@ Text GLabel 1950 1650 2    50   Input ~ 0
 SDA
 Text GLabel 1950 1550 2    50   Input ~ 0
 CELL_4
-Text GLabel 1950 2350 2    50   Input ~ 0
+Text GLabel 1950 3050 2    50   Input ~ 0
 CELL_1
 Wire Wire Line
 	1950 1850 2800 1850
 Wire Wire Line
 	2800 1850 2800 1200
-Wire Wire Line
-	2800 3500 2800 1850
 Connection ~ 2800 1850
 Wire Wire Line
 	2800 4400 2800 3500
@@ -342,26 +340,7 @@ Wire Wire Line
 	1950 3600 2900 3600
 Wire Wire Line
 	1950 3700 2900 3700
-Wire Wire Line
-	2900 3050 2900 3600
 Connection ~ 2900 3600
-Wire Wire Line
-	1950 3050 2900 3050
-Wire Wire Line
-	1950 2950 2900 2950
-Wire Wire Line
-	2900 2950 2900 3050
-Connection ~ 2900 3050
-Wire Wire Line
-	1950 2850 2900 2850
-Wire Wire Line
-	2900 2850 2900 2950
-Connection ~ 2900 2950
-Wire Wire Line
-	1950 2650 2900 2650
-Wire Wire Line
-	2900 2650 2900 2850
-Connection ~ 2900 2850
 Wire Wire Line
 	6800 3450 6050 3450
 Wire Wire Line
@@ -559,4 +538,25 @@ F 3 "" H 10100 3800 50  0001 C CNN
 	1    10100 3800
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	2800 3500 2800 1850
+Wire Wire Line
+	1950 2750 2900 2750
+Connection ~ 2900 2750
+Wire Wire Line
+	2900 2750 2900 3600
+Wire Wire Line
+	1950 2350 2900 2350
+Wire Wire Line
+	1950 2450 2900 2450
+Wire Wire Line
+	2900 2350 2900 2450
+Connection ~ 2900 2450
+Wire Wire Line
+	1950 2550 2900 2550
+Wire Wire Line
+	2900 2450 2900 2550
+Connection ~ 2900 2550
+Wire Wire Line
+	2900 2550 2900 2750
 $EndSCHEMATC
