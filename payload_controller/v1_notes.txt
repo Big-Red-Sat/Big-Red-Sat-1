@@ -26,7 +26,6 @@ SIT8924BA-22-33E-8.192000 is the clock used by the eval kit from TI
 I have a board that will work for the vibration testing, but I need to clear up these other problems first
 ------------------------
 
-
 Panel 1: Cell 3
 Panel 2: Cell 1
 Panel 3: Cell 7
