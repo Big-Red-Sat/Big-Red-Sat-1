@@ -1,0 +1,1648 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 5 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 0781710004:0781710004 J?
+U 1 1 64A6E2FC
+P 12000 2950
+AR Path="/64A6E2FC" Ref="J?"  Part="1" 
+AR Path="/64A6B33A/64A6E2FC" Ref="J?"  Part="1" 
+F 0 "J?" H 12530 2946 50  0000 L CNN
+F 1 "0781710004" H 12530 2855 50  0000 L CNN
+F 2 "MOLEX_0781710004" H 12000 2950 50  0001 L BNN
+F 3 "" H 12000 2950 50  0001 L BNN
+F 4 "MOLEX" H 12000 2950 50  0001 L BNN "MANUFACTURER"
+F 5 "1.52mm" H 12000 2950 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
+F 6 "Manufacturer Recommendations" H 12000 2950 50  0001 L BNN "STANDARD"
+F 7 "G" H 12000 2950 50  0001 L BNN "PARTREV"
+	1    12000 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A6E302
+P 11750 3350
+AR Path="/6313FC31/64A6E302" Ref="#PWR?"  Part="1" 
+AR Path="/64A6E302" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64A6E302" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A6E302" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11750 3100 50  0001 C CNN
+F 1 "GND" H 11755 3177 50  0000 C CNN
+F 2 "" H 11750 3350 50  0001 C CNN
+F 3 "" H 11750 3350 50  0001 C CNN
+	1    11750 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A6E308
+P 11700 2450
+AR Path="/6313FC31/64A6E308" Ref="#PWR?"  Part="1" 
+AR Path="/64A6E308" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64A6E308" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A6E308" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11700 2300 50  0001 C CNN
+F 1 "+3V3" H 11715 2623 50  0000 C CNN
+F 2 "" H 11700 2450 50  0001 C CNN
+F 3 "" H 11700 2450 50  0001 C CNN
+	1    11700 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11800 2850 11700 2850
+Wire Wire Line
+	11800 2750 11750 2750
+Wire Wire Line
+	11750 2750 11750 3250
+Wire Wire Line
+	11800 3250 11750 3250
+Connection ~ 11750 3250
+Wire Wire Line
+	11750 3250 11750 3350
+$Comp
+L Device:R R?
+U 1 1 64A6E316
+P 11450 2650
+AR Path="/6313FC31/64A6E316" Ref="R?"  Part="1" 
+AR Path="/64A6E316" Ref="R?"  Part="1" 
+AR Path="/648F7944/64A6E316" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A6E316" Ref="R?"  Part="1" 
+F 0 "R?" V 11350 2650 50  0000 C CNN
+F 1 "4k7" V 11450 2650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 11380 2650 50  0001 C CNN
+F 3 "~" H 11450 2650 50  0001 C CNN
+	1    11450 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A6E31C
+P 11450 2450
+AR Path="/6313FC31/64A6E31C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6E31C" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64A6E31C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A6E31C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11450 2300 50  0001 C CNN
+F 1 "+3V3" H 11465 2623 50  0000 C CNN
+F 2 "" H 11450 2450 50  0001 C CNN
+F 3 "" H 11450 2450 50  0001 C CNN
+	1    11450 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A6E322
+P 11200 2450
+AR Path="/6313FC31/64A6E322" Ref="#PWR?"  Part="1" 
+AR Path="/64A6E322" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64A6E322" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A6E322" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11200 2300 50  0001 C CNN
+F 1 "+3V3" H 11215 2623 50  0000 C CNN
+F 2 "" H 11200 2450 50  0001 C CNN
+F 3 "" H 11200 2450 50  0001 C CNN
+	1    11200 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A6E328
+P 11200 2650
+AR Path="/6313FC31/64A6E328" Ref="R?"  Part="1" 
+AR Path="/64A6E328" Ref="R?"  Part="1" 
+AR Path="/648F7944/64A6E328" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A6E328" Ref="R?"  Part="1" 
+F 0 "R?" V 11100 2650 50  0000 C CNN
+F 1 "4k7" V 11200 2650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 11130 2650 50  0001 C CNN
+F 3 "~" H 11200 2650 50  0001 C CNN
+	1    11200 2650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	11100 2950 11200 2950
+Wire Wire Line
+	11100 3050 11450 3050
+Wire Wire Line
+	11200 2800 11200 2950
+Connection ~ 11200 2950
+Wire Wire Line
+	11200 2950 11800 2950
+Wire Wire Line
+	11450 2800 11450 3050
+Connection ~ 11450 3050
+Wire Wire Line
+	11450 3050 11800 3050
+Wire Wire Line
+	11450 2450 11450 2500
+Wire Wire Line
+	11200 2450 11200 2500
+Wire Wire Line
+	11700 2450 11700 2850
+Text HLabel 11100 2950 0    50   Input ~ 0
+SCL
+Text HLabel 11100 3050 0    50   Input ~ 0
+SDA
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A71C86
+P 6050 3300
+AR Path="/64A4749F/64A71C86" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71C86" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 3150 50  0001 C CNN
+F 1 "+3V3" H 6065 3473 50  0000 C CNN
+F 2 "" H 6050 3300 50  0001 C CNN
+F 3 "" H 6050 3300 50  0001 C CNN
+	1    6050 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A71C8C
+P 5400 2250
+AR Path="/6313FC31/64A71C8C" Ref="R?"  Part="1" 
+AR Path="/64A71C8C" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A71C8C" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A71C8C" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A71C8C" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A71C8C" Ref="R?"  Part="1" 
+F 0 "R?" V 5300 2250 50  0000 C CNN
+F 1 "510m" V 5400 2250 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 5330 2250 50  0001 C CNN
+F 3 "~" H 5400 2250 50  0001 C CNN
+	1    5400 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L INA190A4IDDFR:INA190A4IDDFR U?
+U 1 1 64A71C94
+P 5400 3150
+AR Path="/64A4749F/64A71C94" Ref="U?"  Part="1" 
+AR Path="/64A6B33A/64A71C94" Ref="U?"  Part="1" 
+F 0 "U?" H 5400 3650 60  0000 C CNN
+F 1 "INA190A4IDDFR" H 5400 3550 60  0000 C CNN
+F 2 "ul_INA190A4IDDFR:INA190A4IDDFR" H 6200 3390 60  0001 C CNN
+F 3 "" H 5400 3150 60  0000 C CNN
+	1    5400 3150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5550 2250 5600 2250
+$Comp
+L Device:R R?
+U 1 1 64A71C9B
+P 4600 3200
+AR Path="/6313FC31/64A71C9B" Ref="R?"  Part="1" 
+AR Path="/64A71C9B" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A71C9B" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A71C9B" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A71C9B" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A71C9B" Ref="R?"  Part="1" 
+F 0 "R?" V 4500 3200 50  0000 C CNN
+F 1 "10k" V 4600 3200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4530 3200 50  0001 C CNN
+F 3 "~" H 4600 3200 50  0001 C CNN
+	1    4600 3200
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A71CA1
+P 4450 3350
+AR Path="/6313FC31/64A71CA1" Ref="C?"  Part="1" 
+AR Path="/64A71CA1" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A71CA1" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A71CA1" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A71CA1" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A71CA1" Ref="C?"  Part="1" 
+F 0 "C?" V 4702 3350 50  0000 C CNN
+F 1 "10u" V 4611 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4488 3200 50  0001 C CNN
+F 3 "~" H 4450 3350 50  0001 C CNN
+	1    4450 3350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CA7
+P 4450 3500
+AR Path="/64A4749F/64A71CA7" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CA7" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4450 3250 50  0001 C CNN
+F 1 "GND" H 4455 3327 50  0000 C CNN
+F 2 "" H 4450 3500 50  0001 C CNN
+F 3 "" H 4450 3500 50  0001 C CNN
+	1    4450 3500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 3200 4150 3200
+Connection ~ 4450 3200
+$Comp
+L Device:R R?
+U 1 1 64A71CAF
+P 4000 3200
+AR Path="/6313FC31/64A71CAF" Ref="R?"  Part="1" 
+AR Path="/64A71CAF" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A71CAF" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A71CAF" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A71CAF" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A71CAF" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 3200 50  0000 C CNN
+F 1 "470" V 4000 3200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 3200 50  0001 C CNN
+F 3 "~" H 4000 3200 50  0001 C CNN
+	1    4000 3200
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A71CB5
+P 3850 3350
+AR Path="/6313FC31/64A71CB5" Ref="C?"  Part="1" 
+AR Path="/64A71CB5" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A71CB5" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A71CB5" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A71CB5" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A71CB5" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 3350 50  0000 C CNN
+F 1 "10n" V 4011 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 3200 50  0001 C CNN
+F 3 "~" H 3850 3350 50  0001 C CNN
+	1    3850 3350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A71CBB
+P 3850 3650
+AR Path="/6313FC31/64A71CBB" Ref="C?"  Part="1" 
+AR Path="/64A71CBB" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A71CBB" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A71CBB" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A71CBB" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A71CBB" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 3650 50  0000 C CNN
+F 1 "10n" V 4011 3650 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 3500 50  0001 C CNN
+F 3 "~" H 3850 3650 50  0001 C CNN
+	1    3850 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A71CC1
+P 4000 3500
+AR Path="/6313FC31/64A71CC1" Ref="R?"  Part="1" 
+AR Path="/64A71CC1" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A71CC1" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A71CC1" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A71CC1" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A71CC1" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 3500 50  0000 C CNN
+F 1 "470" V 4000 3500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 3500 50  0001 C CNN
+F 3 "~" H 4000 3500 50  0001 C CNN
+	1    4000 3500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CC7
+P 4150 3500
+AR Path="/64A4749F/64A71CC7" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CC7" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4150 3250 50  0001 C CNN
+F 1 "GND" H 4155 3327 50  0000 C CNN
+F 2 "" H 4150 3500 50  0001 C CNN
+F 3 "" H 4150 3500 50  0001 C CNN
+	1    4150 3500
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 3500
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CCE
+P 3850 3800
+AR Path="/64A4749F/64A71CCE" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CCE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3850 3550 50  0001 C CNN
+F 1 "GND" H 3855 3627 50  0000 C CNN
+F 2 "" H 3850 3800 50  0001 C CNN
+F 3 "" H 3850 3800 50  0001 C CNN
+	1    3850 3800
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 3200
+Wire Wire Line
+	3300 3500 3850 3500
+Wire Wire Line
+	5600 2250 5600 2650
+Connection ~ 5600 2250
+Wire Wire Line
+	5200 2250 5250 2250
+Wire Wire Line
+	5200 2250 5200 2650
+Wire Wire Line
+	6050 3200 6050 3300
+Connection ~ 6050 3300
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CE0
+P 6050 3000
+AR Path="/64A4749F/64A71CE0" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CE0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 2750 50  0001 C CNN
+F 1 "GND" H 6055 2827 50  0000 C CNN
+F 2 "" H 6050 3000 50  0001 C CNN
+F 3 "" H 6050 3000 50  0001 C CNN
+	1    6050 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CE6
+P 6400 3450
+AR Path="/64A4749F/64A71CE6" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CE6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6400 3200 50  0001 C CNN
+F 1 "GND" H 6405 3277 50  0000 C CNN
+F 2 "" H 6400 3450 50  0001 C CNN
+F 3 "" H 6400 3450 50  0001 C CNN
+	1    6400 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A71CEC
+P 6400 3300
+AR Path="/6313FC31/64A71CEC" Ref="C?"  Part="1" 
+AR Path="/64A71CEC" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A71CEC" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A71CEC" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A71CEC" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A71CEC" Ref="C?"  Part="1" 
+F 0 "C?" V 6652 3300 50  0000 C CNN
+F 1 "1u" V 6561 3300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6438 3150 50  0001 C CNN
+F 3 "~" H 6400 3300 50  0001 C CNN
+	1    6400 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 3150 6400 3100
+Connection ~ 6400 3100
+Wire Wire Line
+	6400 3100 6050 3100
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A71CF5
+P 4200 2250
+AR Path="/64A4749F/64A71CF5" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A71CF5" Ref="TP?"  Part="1" 
+F 0 "TP?" H 4200 2445 50  0000 C CNN
+F 1 "Current Test" H 4200 2354 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 4200 2250 50  0001 C CNN
+F 3 "~" H 4200 2250 50  0001 C CNN
+	1    4200 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 2250 5200 2250
+Connection ~ 5200 2250
+Text HLabel 3000 3200 0    50   Input ~ 0
+PANEL_1_CURRENT
+$Comp
+L power:GND #PWR?
+U 1 1 64A71CFF
+P 3300 3800
+AR Path="/64A4749F/64A71CFF" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71CFF" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3300 3550 50  0001 C CNN
+F 1 "GND" H 3305 3627 50  0000 C CNN
+F 2 "" H 3300 3800 50  0001 C CNN
+F 3 "" H 3300 3800 50  0001 C CNN
+	1    3300 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 3800 3300 3500
+Wire Wire Line
+	3000 3200 3850 3200
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A71D07
+P 7150 3100
+AR Path="/64A4749F/64A71D07" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A71D07" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 3295 50  0000 C CNN
+F 1 "Current Test" H 7150 3204 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 3100 50  0001 C CNN
+F 3 "~" H 7150 3100 50  0001 C CNN
+	1    7150 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A71D0D
+P 7150 3300
+AR Path="/64A4749F/64A71D0D" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A71D0D" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 3495 50  0000 C CNN
+F 1 "Current Test" H 7150 3404 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 3300 50  0001 C CNN
+F 3 "~" H 7150 3300 50  0001 C CNN
+	1    7150 3300
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6950 3300 6850 3300
+Wire Wire Line
+	6850 3300 6850 3100
+Wire Wire Line
+	6400 3100 6850 3100
+Wire Wire Line
+	6950 3100 6850 3100
+Connection ~ 6850 3100
+$Comp
+L power:GND #PWR?
+U 1 1 64A71D18
+P 7500 3450
+AR Path="/64A4749F/64A71D18" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A71D18" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7500 3200 50  0001 C CNN
+F 1 "GND" H 7505 3277 50  0000 C CNN
+F 2 "" H 7500 3450 50  0001 C CNN
+F 3 "" H 7500 3450 50  0001 C CNN
+	1    7500 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 3300 7500 3300
+Wire Wire Line
+	7500 3300 7500 3450
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A7834B
+P 6050 5900
+AR Path="/64A4749F/64A7834B" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A7834B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 5750 50  0001 C CNN
+F 1 "+3V3" H 6065 6073 50  0000 C CNN
+F 2 "" H 6050 5900 50  0001 C CNN
+F 3 "" H 6050 5900 50  0001 C CNN
+	1    6050 5900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A78351
+P 5400 4850
+AR Path="/6313FC31/64A78351" Ref="R?"  Part="1" 
+AR Path="/64A78351" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A78351" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A78351" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A78351" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A78351" Ref="R?"  Part="1" 
+F 0 "R?" V 5300 4850 50  0000 C CNN
+F 1 "510m" V 5400 4850 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 5330 4850 50  0001 C CNN
+F 3 "~" H 5400 4850 50  0001 C CNN
+	1    5400 4850
+	0    1    1    0   
+$EndComp
+$Comp
+L INA190A4IDDFR:INA190A4IDDFR U?
+U 1 1 64A78359
+P 5400 5750
+AR Path="/64A4749F/64A78359" Ref="U?"  Part="1" 
+AR Path="/64A6B33A/64A78359" Ref="U?"  Part="1" 
+F 0 "U?" H 5400 6250 60  0000 C CNN
+F 1 "INA190A4IDDFR" H 5400 6150 60  0000 C CNN
+F 2 "ul_INA190A4IDDFR:INA190A4IDDFR" H 6200 5990 60  0001 C CNN
+F 3 "" H 5400 5750 60  0000 C CNN
+	1    5400 5750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5550 4850 5600 4850
+$Comp
+L Device:R R?
+U 1 1 64A78360
+P 4600 5800
+AR Path="/6313FC31/64A78360" Ref="R?"  Part="1" 
+AR Path="/64A78360" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A78360" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A78360" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A78360" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A78360" Ref="R?"  Part="1" 
+F 0 "R?" V 4500 5800 50  0000 C CNN
+F 1 "10k" V 4600 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4530 5800 50  0001 C CNN
+F 3 "~" H 4600 5800 50  0001 C CNN
+	1    4600 5800
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A78366
+P 4450 5950
+AR Path="/6313FC31/64A78366" Ref="C?"  Part="1" 
+AR Path="/64A78366" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A78366" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A78366" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A78366" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A78366" Ref="C?"  Part="1" 
+F 0 "C?" V 4702 5950 50  0000 C CNN
+F 1 "10u" V 4611 5950 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4488 5800 50  0001 C CNN
+F 3 "~" H 4450 5950 50  0001 C CNN
+	1    4450 5950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A7836C
+P 4450 6100
+AR Path="/64A4749F/64A7836C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A7836C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4450 5850 50  0001 C CNN
+F 1 "GND" H 4455 5927 50  0000 C CNN
+F 2 "" H 4450 6100 50  0001 C CNN
+F 3 "" H 4450 6100 50  0001 C CNN
+	1    4450 6100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 5800 4150 5800
+Connection ~ 4450 5800
+$Comp
+L Device:R R?
+U 1 1 64A78374
+P 4000 5800
+AR Path="/6313FC31/64A78374" Ref="R?"  Part="1" 
+AR Path="/64A78374" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A78374" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A78374" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A78374" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A78374" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 5800 50  0000 C CNN
+F 1 "470" V 4000 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 5800 50  0001 C CNN
+F 3 "~" H 4000 5800 50  0001 C CNN
+	1    4000 5800
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A7837A
+P 3850 5950
+AR Path="/6313FC31/64A7837A" Ref="C?"  Part="1" 
+AR Path="/64A7837A" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A7837A" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A7837A" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A7837A" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A7837A" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 5950 50  0000 C CNN
+F 1 "10n" V 4011 5950 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 5800 50  0001 C CNN
+F 3 "~" H 3850 5950 50  0001 C CNN
+	1    3850 5950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A78380
+P 3850 6250
+AR Path="/6313FC31/64A78380" Ref="C?"  Part="1" 
+AR Path="/64A78380" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A78380" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A78380" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A78380" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A78380" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 6250 50  0000 C CNN
+F 1 "10n" V 4011 6250 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 6100 50  0001 C CNN
+F 3 "~" H 3850 6250 50  0001 C CNN
+	1    3850 6250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A78386
+P 4000 6100
+AR Path="/6313FC31/64A78386" Ref="R?"  Part="1" 
+AR Path="/64A78386" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A78386" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A78386" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A78386" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A78386" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 6100 50  0000 C CNN
+F 1 "470" V 4000 6100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 6100 50  0001 C CNN
+F 3 "~" H 4000 6100 50  0001 C CNN
+	1    4000 6100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A7838C
+P 4150 6100
+AR Path="/64A4749F/64A7838C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A7838C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4150 5850 50  0001 C CNN
+F 1 "GND" H 4155 5927 50  0000 C CNN
+F 2 "" H 4150 6100 50  0001 C CNN
+F 3 "" H 4150 6100 50  0001 C CNN
+	1    4150 6100
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 6100
+$Comp
+L power:GND #PWR?
+U 1 1 64A78393
+P 3850 6400
+AR Path="/64A4749F/64A78393" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A78393" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3850 6150 50  0001 C CNN
+F 1 "GND" H 3855 6227 50  0000 C CNN
+F 2 "" H 3850 6400 50  0001 C CNN
+F 3 "" H 3850 6400 50  0001 C CNN
+	1    3850 6400
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 5800
+Wire Wire Line
+	3300 6100 3850 6100
+Wire Wire Line
+	5600 4850 5600 5250
+Connection ~ 5600 4850
+Wire Wire Line
+	5200 4850 5250 4850
+Wire Wire Line
+	5200 4850 5200 5250
+Wire Wire Line
+	6050 5800 6050 5900
+Connection ~ 6050 5900
+$Comp
+L power:GND #PWR?
+U 1 1 64A783A5
+P 6050 5600
+AR Path="/64A4749F/64A783A5" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A783A5" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 5350 50  0001 C CNN
+F 1 "GND" H 6055 5427 50  0000 C CNN
+F 2 "" H 6050 5600 50  0001 C CNN
+F 3 "" H 6050 5600 50  0001 C CNN
+	1    6050 5600
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A783AB
+P 6400 6050
+AR Path="/64A4749F/64A783AB" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A783AB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6400 5800 50  0001 C CNN
+F 1 "GND" H 6405 5877 50  0000 C CNN
+F 2 "" H 6400 6050 50  0001 C CNN
+F 3 "" H 6400 6050 50  0001 C CNN
+	1    6400 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A783B1
+P 6400 5900
+AR Path="/6313FC31/64A783B1" Ref="C?"  Part="1" 
+AR Path="/64A783B1" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A783B1" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A783B1" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A783B1" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A783B1" Ref="C?"  Part="1" 
+F 0 "C?" V 6652 5900 50  0000 C CNN
+F 1 "1u" V 6561 5900 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6438 5750 50  0001 C CNN
+F 3 "~" H 6400 5900 50  0001 C CNN
+	1    6400 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 5750 6400 5700
+Connection ~ 6400 5700
+Wire Wire Line
+	6400 5700 6050 5700
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A783BA
+P 4200 4850
+AR Path="/64A4749F/64A783BA" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A783BA" Ref="TP?"  Part="1" 
+F 0 "TP?" H 4200 5045 50  0000 C CNN
+F 1 "Current Test" H 4200 4954 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 4200 4850 50  0001 C CNN
+F 3 "~" H 4200 4850 50  0001 C CNN
+	1    4200 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 4850 5200 4850
+Connection ~ 5200 4850
+Text HLabel 3000 5800 0    50   Input ~ 0
+PANEL_2_CURRENT
+$Comp
+L power:GND #PWR?
+U 1 1 64A783C4
+P 3300 6400
+AR Path="/64A4749F/64A783C4" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A783C4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3300 6150 50  0001 C CNN
+F 1 "GND" H 3305 6227 50  0000 C CNN
+F 2 "" H 3300 6400 50  0001 C CNN
+F 3 "" H 3300 6400 50  0001 C CNN
+	1    3300 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 6400 3300 6100
+Wire Wire Line
+	3000 5800 3850 5800
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A783CC
+P 7150 5700
+AR Path="/64A4749F/64A783CC" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A783CC" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 5895 50  0000 C CNN
+F 1 "Current Test" H 7150 5804 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 5700 50  0001 C CNN
+F 3 "~" H 7150 5700 50  0001 C CNN
+	1    7150 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A783D2
+P 7150 5900
+AR Path="/64A4749F/64A783D2" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A783D2" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 6095 50  0000 C CNN
+F 1 "Current Test" H 7150 6004 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 5900 50  0001 C CNN
+F 3 "~" H 7150 5900 50  0001 C CNN
+	1    7150 5900
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6950 5900 6850 5900
+Wire Wire Line
+	6850 5900 6850 5700
+Wire Wire Line
+	6400 5700 6850 5700
+Wire Wire Line
+	6950 5700 6850 5700
+Connection ~ 6850 5700
+$Comp
+L power:GND #PWR?
+U 1 1 64A783DD
+P 7500 6050
+AR Path="/64A4749F/64A783DD" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A783DD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7500 5800 50  0001 C CNN
+F 1 "GND" H 7505 5877 50  0000 C CNN
+F 2 "" H 7500 6050 50  0001 C CNN
+F 3 "" H 7500 6050 50  0001 C CNN
+	1    7500 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 5900 7500 5900
+Wire Wire Line
+	7500 5900 7500 6050
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64A80D76
+P 6050 8550
+AR Path="/64A4749F/64A80D76" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80D76" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 8400 50  0001 C CNN
+F 1 "+3V3" H 6065 8723 50  0000 C CNN
+F 2 "" H 6050 8550 50  0001 C CNN
+F 3 "" H 6050 8550 50  0001 C CNN
+	1    6050 8550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A80D7C
+P 5400 7500
+AR Path="/6313FC31/64A80D7C" Ref="R?"  Part="1" 
+AR Path="/64A80D7C" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A80D7C" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A80D7C" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A80D7C" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A80D7C" Ref="R?"  Part="1" 
+F 0 "R?" V 5300 7500 50  0000 C CNN
+F 1 "510m" V 5400 7500 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 5330 7500 50  0001 C CNN
+F 3 "~" H 5400 7500 50  0001 C CNN
+	1    5400 7500
+	0    1    1    0   
+$EndComp
+$Comp
+L INA190A4IDDFR:INA190A4IDDFR U?
+U 1 1 64A80D84
+P 5400 8400
+AR Path="/64A4749F/64A80D84" Ref="U?"  Part="1" 
+AR Path="/64A6B33A/64A80D84" Ref="U?"  Part="1" 
+F 0 "U?" H 5400 8900 60  0000 C CNN
+F 1 "INA190A4IDDFR" H 5400 8800 60  0000 C CNN
+F 2 "ul_INA190A4IDDFR:INA190A4IDDFR" H 6200 8640 60  0001 C CNN
+F 3 "" H 5400 8400 60  0000 C CNN
+	1    5400 8400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5550 7500 5600 7500
+$Comp
+L Device:R R?
+U 1 1 64A80D8B
+P 4600 8450
+AR Path="/6313FC31/64A80D8B" Ref="R?"  Part="1" 
+AR Path="/64A80D8B" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A80D8B" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A80D8B" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A80D8B" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A80D8B" Ref="R?"  Part="1" 
+F 0 "R?" V 4500 8450 50  0000 C CNN
+F 1 "10k" V 4600 8450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4530 8450 50  0001 C CNN
+F 3 "~" H 4600 8450 50  0001 C CNN
+	1    4600 8450
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A80D91
+P 4450 8600
+AR Path="/6313FC31/64A80D91" Ref="C?"  Part="1" 
+AR Path="/64A80D91" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A80D91" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A80D91" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A80D91" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A80D91" Ref="C?"  Part="1" 
+F 0 "C?" V 4702 8600 50  0000 C CNN
+F 1 "10u" V 4611 8600 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4488 8450 50  0001 C CNN
+F 3 "~" H 4450 8600 50  0001 C CNN
+	1    4450 8600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A80D97
+P 4450 8750
+AR Path="/64A4749F/64A80D97" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80D97" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4450 8500 50  0001 C CNN
+F 1 "GND" H 4455 8577 50  0000 C CNN
+F 2 "" H 4450 8750 50  0001 C CNN
+F 3 "" H 4450 8750 50  0001 C CNN
+	1    4450 8750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 8450 4150 8450
+Connection ~ 4450 8450
+$Comp
+L Device:R R?
+U 1 1 64A80D9F
+P 4000 8450
+AR Path="/6313FC31/64A80D9F" Ref="R?"  Part="1" 
+AR Path="/64A80D9F" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A80D9F" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A80D9F" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A80D9F" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A80D9F" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 8450 50  0000 C CNN
+F 1 "470" V 4000 8450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 8450 50  0001 C CNN
+F 3 "~" H 4000 8450 50  0001 C CNN
+	1    4000 8450
+	0    -1   1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A80DA5
+P 3850 8600
+AR Path="/6313FC31/64A80DA5" Ref="C?"  Part="1" 
+AR Path="/64A80DA5" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A80DA5" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A80DA5" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A80DA5" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A80DA5" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 8600 50  0000 C CNN
+F 1 "10n" V 4011 8600 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 8450 50  0001 C CNN
+F 3 "~" H 3850 8600 50  0001 C CNN
+	1    3850 8600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A80DAB
+P 3850 8900
+AR Path="/6313FC31/64A80DAB" Ref="C?"  Part="1" 
+AR Path="/64A80DAB" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A80DAB" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A80DAB" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A80DAB" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A80DAB" Ref="C?"  Part="1" 
+F 0 "C?" V 4102 8900 50  0000 C CNN
+F 1 "10n" V 4011 8900 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3888 8750 50  0001 C CNN
+F 3 "~" H 3850 8900 50  0001 C CNN
+	1    3850 8900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 64A80DB1
+P 4000 8750
+AR Path="/6313FC31/64A80DB1" Ref="R?"  Part="1" 
+AR Path="/64A80DB1" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64A80DB1" Ref="R?"  Part="1" 
+AR Path="/63C503EE/64A80DB1" Ref="R?"  Part="1" 
+AR Path="/64A4749F/64A80DB1" Ref="R?"  Part="1" 
+AR Path="/64A6B33A/64A80DB1" Ref="R?"  Part="1" 
+F 0 "R?" V 3900 8750 50  0000 C CNN
+F 1 "470" V 4000 8750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3930 8750 50  0001 C CNN
+F 3 "~" H 4000 8750 50  0001 C CNN
+	1    4000 8750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A80DB7
+P 4150 8750
+AR Path="/64A4749F/64A80DB7" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80DB7" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4150 8500 50  0001 C CNN
+F 1 "GND" H 4155 8577 50  0000 C CNN
+F 2 "" H 4150 8750 50  0001 C CNN
+F 3 "" H 4150 8750 50  0001 C CNN
+	1    4150 8750
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 8750
+$Comp
+L power:GND #PWR?
+U 1 1 64A80DBE
+P 3850 9050
+AR Path="/64A4749F/64A80DBE" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80DBE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3850 8800 50  0001 C CNN
+F 1 "GND" H 3855 8877 50  0000 C CNN
+F 2 "" H 3850 9050 50  0001 C CNN
+F 3 "" H 3850 9050 50  0001 C CNN
+	1    3850 9050
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 8450
+Wire Wire Line
+	3300 8750 3850 8750
+Wire Wire Line
+	5600 7500 5600 7900
+Connection ~ 5600 7500
+Wire Wire Line
+	5200 7500 5250 7500
+Wire Wire Line
+	5200 7500 5200 7900
+Wire Wire Line
+	6050 8450 6050 8550
+Connection ~ 6050 8550
+$Comp
+L power:GND #PWR?
+U 1 1 64A80DD0
+P 6050 8250
+AR Path="/64A4749F/64A80DD0" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80DD0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6050 8000 50  0001 C CNN
+F 1 "GND" H 6055 8077 50  0000 C CNN
+F 2 "" H 6050 8250 50  0001 C CNN
+F 3 "" H 6050 8250 50  0001 C CNN
+	1    6050 8250
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64A80DD6
+P 6400 8700
+AR Path="/64A4749F/64A80DD6" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80DD6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6400 8450 50  0001 C CNN
+F 1 "GND" H 6405 8527 50  0000 C CNN
+F 2 "" H 6400 8700 50  0001 C CNN
+F 3 "" H 6400 8700 50  0001 C CNN
+	1    6400 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64A80DDC
+P 6400 8550
+AR Path="/6313FC31/64A80DDC" Ref="C?"  Part="1" 
+AR Path="/64A80DDC" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64A80DDC" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64A80DDC" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64A80DDC" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64A80DDC" Ref="C?"  Part="1" 
+F 0 "C?" V 6652 8550 50  0000 C CNN
+F 1 "1u" V 6561 8550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6438 8400 50  0001 C CNN
+F 3 "~" H 6400 8550 50  0001 C CNN
+	1    6400 8550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 8400 6400 8350
+Connection ~ 6400 8350
+Wire Wire Line
+	6400 8350 6050 8350
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A80DE5
+P 4200 7500
+AR Path="/64A4749F/64A80DE5" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A80DE5" Ref="TP?"  Part="1" 
+F 0 "TP?" H 4200 7695 50  0000 C CNN
+F 1 "Current Test" H 4200 7604 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 4200 7500 50  0001 C CNN
+F 3 "~" H 4200 7500 50  0001 C CNN
+	1    4200 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 7500 5200 7500
+Connection ~ 5200 7500
+Text HLabel 3000 8450 0    50   Input ~ 0
+PANEL_3_CURRENT
+$Comp
+L power:GND #PWR?
+U 1 1 64A80DEF
+P 3300 9050
+AR Path="/64A4749F/64A80DEF" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80DEF" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3300 8800 50  0001 C CNN
+F 1 "GND" H 3305 8877 50  0000 C CNN
+F 2 "" H 3300 9050 50  0001 C CNN
+F 3 "" H 3300 9050 50  0001 C CNN
+	1    3300 9050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 9050 3300 8750
+Wire Wire Line
+	3000 8450 3850 8450
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A80DF7
+P 7150 8350
+AR Path="/64A4749F/64A80DF7" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A80DF7" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 8545 50  0000 C CNN
+F 1 "Current Test" H 7150 8454 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 8350 50  0001 C CNN
+F 3 "~" H 7150 8350 50  0001 C CNN
+	1    7150 8350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint_2Pole TP?
+U 1 1 64A80DFD
+P 7150 8550
+AR Path="/64A4749F/64A80DFD" Ref="TP?"  Part="1" 
+AR Path="/64A6B33A/64A80DFD" Ref="TP?"  Part="1" 
+F 0 "TP?" H 7150 8745 50  0000 C CNN
+F 1 "Current Test" H 7150 8654 50  0000 C CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch2.54mm_Drill0.8mm" H 7150 8550 50  0001 C CNN
+F 3 "~" H 7150 8550 50  0001 C CNN
+	1    7150 8550
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6950 8550 6850 8550
+Wire Wire Line
+	6850 8550 6850 8350
+Wire Wire Line
+	6400 8350 6850 8350
+Wire Wire Line
+	6950 8350 6850 8350
+Connection ~ 6850 8350
+$Comp
+L power:GND #PWR?
+U 1 1 64A80E08
+P 7500 8700
+AR Path="/64A4749F/64A80E08" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64A80E08" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7500 8450 50  0001 C CNN
+F 1 "GND" H 7505 8527 50  0000 C CNN
+F 2 "" H 7500 8700 50  0001 C CNN
+F 3 "" H 7500 8700 50  0001 C CNN
+	1    7500 8700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 8550 7500 8550
+Wire Wire Line
+	7500 8550 7500 8700
+Wire Wire Line
+	5600 7500 6250 7500
+Wire Wire Line
+	5600 4850 6250 4850
+Wire Wire Line
+	5600 2250 6250 2250
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64AB9E3F
+P 3600 2350
+F 0 "J?" H 3500 2450 50  0000 C CNN
+F 1 "Panel 1" H 3400 2350 50  0000 C CNN
+F 2 "" H 3600 2350 50  0001 C CNN
+F 3 "~" H 3600 2350 50  0001 C CNN
+	1    3600 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64ABA6F1
+P 3600 4950
+F 0 "J?" H 3500 5050 50  0000 C CNN
+F 1 "Panel 2" H 3400 4950 50  0000 C CNN
+F 2 "" H 3600 4950 50  0001 C CNN
+F 3 "~" H 3600 4950 50  0001 C CNN
+	1    3600 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64ABAB92
+P 3600 7600
+F 0 "J?" H 3500 7700 50  0000 C CNN
+F 1 "Panel 3" H 3400 7600 50  0000 C CNN
+F 2 "" H 3600 7600 50  0001 C CNN
+F 3 "~" H 3600 7600 50  0001 C CNN
+	1    3600 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64ABB247
+P 6450 2350
+F 0 "J?" H 6422 2374 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 6422 2283 50  0000 R CNN
+F 2 "" H 6450 2350 50  0001 C CNN
+F 3 "~" H 6450 2350 50  0001 C CNN
+	1    6450 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64ABC4C3
+P 6450 4950
+F 0 "J?" H 6422 4974 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 6422 4883 50  0000 R CNN
+F 2 "" H 6450 4950 50  0001 C CNN
+F 3 "~" H 6450 4950 50  0001 C CNN
+	1    6450 4950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 64ABCAE7
+P 6450 7600
+F 0 "J?" H 6422 7624 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 6422 7533 50  0000 R CNN
+F 2 "" H 6450 7600 50  0001 C CNN
+F 3 "~" H 6450 7600 50  0001 C CNN
+	1    6450 7600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x06_Male J?
+U 1 1 64AC2C0C
+P 12350 4450
+F 0 "J?" H 12250 4550 50  0000 C CNN
+F 1 "Radio" H 12200 4450 50  0000 C CNN
+F 2 "" H 12350 4450 50  0001 C CNN
+F 3 "~" H 12350 4450 50  0001 C CNN
+	1    12350 4450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 64AC3FEF
+P 12350 5600
+F 0 "J?" H 12322 5574 50  0000 R CNN
+F 1 "Power" H 12322 5483 50  0000 R CNN
+F 2 "" H 12350 5600 50  0001 C CNN
+F 3 "~" H 12350 5600 50  0001 C CNN
+	1    12350 5600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 4850 4000 4850
+Wire Wire Line
+	3800 7500 4000 7500
+Wire Wire Line
+	3800 2250 4000 2250
+$Comp
+L power:GND #PWR?
+U 1 1 64AE4060
+P 3800 2450
+AR Path="/64A4749F/64AE4060" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AE4060" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3800 2200 50  0001 C CNN
+F 1 "GND" H 3805 2277 50  0000 C CNN
+F 2 "" H 3800 2450 50  0001 C CNN
+F 3 "" H 3800 2450 50  0001 C CNN
+	1    3800 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64AE4406
+P 3800 5050
+AR Path="/64A4749F/64AE4406" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AE4406" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3800 4800 50  0001 C CNN
+F 1 "GND" H 3805 4877 50  0000 C CNN
+F 2 "" H 3800 5050 50  0001 C CNN
+F 3 "" H 3800 5050 50  0001 C CNN
+	1    3800 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64AE4B09
+P 3800 7700
+AR Path="/64A4749F/64AE4B09" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AE4B09" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3800 7450 50  0001 C CNN
+F 1 "GND" H 3805 7527 50  0000 C CNN
+F 2 "" H 3800 7700 50  0001 C CNN
+F 3 "" H 3800 7700 50  0001 C CNN
+	1    3800 7700
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3800 7600
+NoConn ~ 3800 4950
+NoConn ~ 3800 2350
+$Comp
+L power:GND #PWR?
+U 1 1 64AF0912
+P 6250 7700
+AR Path="/64A4749F/64AF0912" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AF0912" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6250 7450 50  0001 C CNN
+F 1 "GND" H 6255 7527 50  0000 C CNN
+F 2 "" H 6250 7700 50  0001 C CNN
+F 3 "" H 6250 7700 50  0001 C CNN
+	1    6250 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64AF0D2F
+P 6250 5050
+AR Path="/64A4749F/64AF0D2F" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AF0D2F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6250 4800 50  0001 C CNN
+F 1 "GND" H 6255 4877 50  0000 C CNN
+F 2 "" H 6250 5050 50  0001 C CNN
+F 3 "" H 6250 5050 50  0001 C CNN
+	1    6250 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64AF1215
+P 6250 2450
+AR Path="/64A4749F/64AF1215" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64AF1215" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6250 2200 50  0001 C CNN
+F 1 "GND" H 6255 2277 50  0000 C CNN
+F 2 "" H 6250 2450 50  0001 C CNN
+F 3 "" H 6250 2450 50  0001 C CNN
+	1    6250 2450
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6250 2350
+NoConn ~ 6250 4950
+NoConn ~ 6250 7600
+$Comp
+L power:GND #PWR?
+U 1 1 64B56D5E
+P 12150 5700
+AR Path="/6313FC31/64B56D5E" Ref="#PWR?"  Part="1" 
+AR Path="/64B56D5E" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64B56D5E" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B56D5E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12150 5450 50  0001 C CNN
+F 1 "GND" H 12155 5527 50  0000 C CNN
+F 2 "" H 12150 5700 50  0001 C CNN
+F 3 "" H 12150 5700 50  0001 C CNN
+	1    12150 5700
+	1    0    0    -1  
+$EndComp
+Text HLabel 11850 4350 0    50   Input ~ 0
+RX
+Text HLabel 11850 4450 0    50   Input ~ 0
+TX
+$Comp
+L power:GND #PWR?
+U 1 1 64B57C72
+P 11900 4850
+AR Path="/6313FC31/64B57C72" Ref="#PWR?"  Part="1" 
+AR Path="/64B57C72" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64B57C72" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B57C72" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11900 4600 50  0001 C CNN
+F 1 "GND" H 11905 4677 50  0000 C CNN
+F 2 "" H 11900 4850 50  0001 C CNN
+F 3 "" H 11900 4850 50  0001 C CNN
+	1    11900 4850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 12150 4750
+Wire Wire Line
+	12150 4650 11900 4650
+Wire Wire Line
+	11900 4650 11900 4850
+Wire Wire Line
+	12150 4350 11850 4350
+Wire Wire Line
+	11850 4450 12150 4450
+Text HLabel 11850 4550 0    50   Input ~ 0
+BUSY
+Wire Wire Line
+	11850 4550 12150 4550
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B89BB7
+P 11900 4050
+AR Path="/6313FC31/64B89BB7" Ref="#PWR?"  Part="1" 
+AR Path="/64B89BB7" Ref="#PWR?"  Part="1" 
+AR Path="/648F7944/64B89BB7" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B89BB7" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 11900 3900 50  0001 C CNN
+F 1 "+3V3" H 11915 4223 50  0000 C CNN
+F 2 "" H 11900 4050 50  0001 C CNN
+F 3 "" H 11900 4050 50  0001 C CNN
+	1    11900 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12150 4250 11900 4250
+Wire Wire Line
+	11900 4250 11900 4050
+$Comp
+L power:+5V #PWR?
+U 1 1 64B8D00E
+P 12150 5600
+F 0 "#PWR?" H 12150 5450 50  0001 C CNN
+F 1 "+5V" H 12165 5773 50  0000 C CNN
+F 2 "" H 12150 5600 50  0001 C CNN
+F 3 "" H 12150 5600 50  0001 C CNN
+	1    12150 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64B8E990
+P 900 1250
+AR Path="/64A4749F/64B8E990" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B8E990" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 900 1000 50  0001 C CNN
+F 1 "GND" H 905 1077 50  0000 C CNN
+F 2 "" H 900 1250 50  0001 C CNN
+F 3 "" H 900 1250 50  0001 C CNN
+	1    900  1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64B8E996
+P 900 1100
+AR Path="/6313FC31/64B8E996" Ref="C?"  Part="1" 
+AR Path="/64B8E996" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64B8E996" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64B8E996" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64B8E996" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64B8E996" Ref="C?"  Part="1" 
+F 0 "C?" V 1152 1100 50  0000 C CNN
+F 1 "1u" V 1061 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 938 950 50  0001 C CNN
+F 3 "~" H 900 1100 50  0001 C CNN
+	1    900  1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64B90BB1
+P 1350 1250
+AR Path="/64A4749F/64B90BB1" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B90BB1" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1350 1000 50  0001 C CNN
+F 1 "GND" H 1355 1077 50  0000 C CNN
+F 2 "" H 1350 1250 50  0001 C CNN
+F 3 "" H 1350 1250 50  0001 C CNN
+	1    1350 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64B90BB7
+P 1350 1100
+AR Path="/6313FC31/64B90BB7" Ref="C?"  Part="1" 
+AR Path="/64B90BB7" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64B90BB7" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64B90BB7" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64B90BB7" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64B90BB7" Ref="C?"  Part="1" 
+F 0 "C?" V 1602 1100 50  0000 C CNN
+F 1 "1u" V 1511 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1388 950 50  0001 C CNN
+F 3 "~" H 1350 1100 50  0001 C CNN
+	1    1350 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64B92C4C
+P 1800 1250
+AR Path="/64A4749F/64B92C4C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B92C4C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1800 1000 50  0001 C CNN
+F 1 "GND" H 1805 1077 50  0000 C CNN
+F 2 "" H 1800 1250 50  0001 C CNN
+F 3 "" H 1800 1250 50  0001 C CNN
+	1    1800 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64B92C52
+P 1800 1100
+AR Path="/6313FC31/64B92C52" Ref="C?"  Part="1" 
+AR Path="/64B92C52" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64B92C52" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64B92C52" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64B92C52" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64B92C52" Ref="C?"  Part="1" 
+F 0 "C?" V 2052 1100 50  0000 C CNN
+F 1 "1u" V 1961 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1838 950 50  0001 C CNN
+F 3 "~" H 1800 1100 50  0001 C CNN
+	1    1800 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B94AB5
+P 900 950
+AR Path="/64A4749F/64B94AB5" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B94AB5" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 900 800 50  0001 C CNN
+F 1 "+3V3" H 915 1123 50  0000 C CNN
+F 2 "" H 900 950 50  0001 C CNN
+F 3 "" H 900 950 50  0001 C CNN
+	1    900  950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B9569C
+P 1350 950
+AR Path="/64A4749F/64B9569C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B9569C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1350 800 50  0001 C CNN
+F 1 "+3V3" H 1365 1123 50  0000 C CNN
+F 2 "" H 1350 950 50  0001 C CNN
+F 3 "" H 1350 950 50  0001 C CNN
+	1    1350 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B95975
+P 1800 950
+AR Path="/64A4749F/64B95975" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B95975" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1800 800 50  0001 C CNN
+F 1 "+3V3" H 1815 1123 50  0000 C CNN
+F 2 "" H 1800 950 50  0001 C CNN
+F 3 "" H 1800 950 50  0001 C CNN
+	1    1800 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64B9626D
+P 2250 1250
+AR Path="/64A4749F/64B9626D" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B9626D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2250 1000 50  0001 C CNN
+F 1 "GND" H 2255 1077 50  0000 C CNN
+F 2 "" H 2250 1250 50  0001 C CNN
+F 3 "" H 2250 1250 50  0001 C CNN
+	1    2250 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64B96273
+P 2250 1100
+AR Path="/6313FC31/64B96273" Ref="C?"  Part="1" 
+AR Path="/64B96273" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64B96273" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64B96273" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64B96273" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64B96273" Ref="C?"  Part="1" 
+F 0 "C?" V 2502 1100 50  0000 C CNN
+F 1 "1u" V 2411 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2288 950 50  0001 C CNN
+F 3 "~" H 2250 1100 50  0001 C CNN
+	1    2250 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B96279
+P 2250 950
+AR Path="/64A4749F/64B96279" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B96279" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2250 800 50  0001 C CNN
+F 1 "+3V3" H 2265 1123 50  0000 C CNN
+F 2 "" H 2250 950 50  0001 C CNN
+F 3 "" H 2250 950 50  0001 C CNN
+	1    2250 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64B98B30
+P 2700 1250
+AR Path="/64A4749F/64B98B30" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B98B30" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2700 1000 50  0001 C CNN
+F 1 "GND" H 2705 1077 50  0000 C CNN
+F 2 "" H 2700 1250 50  0001 C CNN
+F 3 "" H 2700 1250 50  0001 C CNN
+	1    2700 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64B98B36
+P 2700 1100
+AR Path="/6313FC31/64B98B36" Ref="C?"  Part="1" 
+AR Path="/64B98B36" Ref="C?"  Part="1" 
+AR Path="/635FE71D/64B98B36" Ref="C?"  Part="1" 
+AR Path="/63C503EE/64B98B36" Ref="C?"  Part="1" 
+AR Path="/64A4749F/64B98B36" Ref="C?"  Part="1" 
+AR Path="/64A6B33A/64B98B36" Ref="C?"  Part="1" 
+F 0 "C?" V 2952 1100 50  0000 C CNN
+F 1 "1u" V 2861 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2738 950 50  0001 C CNN
+F 3 "~" H 2700 1100 50  0001 C CNN
+	1    2700 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64B98B3C
+P 2700 950
+AR Path="/64A4749F/64B98B3C" Ref="#PWR?"  Part="1" 
+AR Path="/64A6B33A/64B98B3C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2700 800 50  0001 C CNN
+F 1 "+3V3" H 2715 1123 50  0000 C CNN
+F 2 "" H 2700 950 50  0001 C CNN
+F 3 "" H 2700 950 50  0001 C CNN
+	1    2700 950 
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

@@ -216,18 +216,24 @@ void loop() {
     {
       step_decoder();
     }
+    else if (command[0] == 71)
+    {
+      reverse_bias ^= 1;
+      digitalWrite(REVERSE_BIAS, reverse_bias);
+      Serial.println(reverse_bias);
+    }
   }
-  if (!digitalRead(SWITCH1))
-  {
-    trace_curve();
-    while (!digitalRead(SWITCH1));
-  }
-  if (!digitalRead(SWITCH2))
-  {
-    enable_led2();
-    reset_ladder();
-    while (!digitalRead(SWITCH2));
-    delay(500);
-    disable_led2();
-  } 
+//  if (!digitalRead(SWITCH1))
+//  {
+//    trace_curve();
+//    while (!digitalRead(SWITCH1));
+//  }
+//  if (!digitalRead(SWITCH2))
+//  {
+//    enable_led2();
+//    reset_ladder();
+//    while (!digitalRead(SWITCH2));
+//    delay(500);
+//    disable_led2();
+//  } 
 }

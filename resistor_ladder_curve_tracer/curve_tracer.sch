@@ -42,11 +42,11 @@ Text GLabel 9100 5000 0    50   Input ~ 0
 I_PANEL_MEASURE
 Text GLabel 9100 4900 0    50   Input ~ 0
 V_PANEL_MEASURE
-Text GLabel 9100 3900 0    50   Input ~ 0
-LADDER_EN
-Text GLabel 9100 3800 0    50   Input ~ 0
-LADDER_CLOCK
 Text GLabel 9100 3700 0    50   Input ~ 0
+LADDER_EN
+Text GLabel 9100 3400 0    50   Input ~ 0
+LADDER_CLOCK
+Text GLabel 9100 3300 0    50   Input ~ 0
 LADDER_RESET
 $Comp
 L Connector:Conn_01x10_Female J2
@@ -85,8 +85,6 @@ Wire Wire Line
 	9100 5100 9000 5100
 Wire Wire Line
 	9000 5100 9000 5200
-NoConn ~ 9100 3300
-NoConn ~ 9100 3400
 NoConn ~ 9100 4300
 NoConn ~ 9100 4400
 NoConn ~ 9100 4500
@@ -102,7 +100,7 @@ Text GLabel 6250 4250 2    50   Input ~ 0
 LADDER_LATCH
 Wire Wire Line
 	6250 4250 5100 4250
-Text GLabel 9100 4000 0    50   Input ~ 0
+Text GLabel 9100 3800 0    50   Input ~ 0
 LADDER_LATCH
 Wire Wire Line
 	5600 3050 5600 3100
