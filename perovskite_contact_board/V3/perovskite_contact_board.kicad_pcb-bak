@@ -11,7 +11,7 @@
 
   (page A4)
   (layers
-    (0 F.Cu signal hide)
+    (0 F.Cu signal)
     (31 B.Cu signal)
     (32 B.Adhes user hide)
     (33 F.Adhes user hide)
@@ -929,11 +929,6 @@
       (net 3 CELL_3))
     (pad 1 smd rect (at 4.55 2.6) (size 7.4 3.8) (layers F.Cu F.Paste F.Mask)
       (net 1 CELL_1))
-    (model "${KIPRJMOD}/KiCAD Parts/Perovskite/Perovskite v2.step"
-      (offset (xyz 12.5 -12.5 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz -90 0 0))
-    )
   )
 
   (gr_text 7 (at 84.328 106.426) (layer B.SilkS)
