@@ -1,4 +1,4 @@
-update=7/16/2023 2:23:27 PM
+update=7/18/2023 11:34:11 PM
 version=1
 last_client=kicad
 [general]
@@ -51,7 +51,7 @@ CopperTextThickness=0.3
 CopperTextItalic=0
 CopperTextUpright=1
 EdgeCutLineWidth=0.09999999999999999
-CourtyardLineWidth=0.12
+CourtyardLineWidth=0.05
 OthersLineWidth=0.15
 OthersTextSizeV=1
 OthersTextSizeH=1
@@ -193,19 +193,19 @@ Enabled=1
 [pcbnew/Layer.B.Adhes]
 Enabled=1
 [pcbnew/Layer.F.Adhes]
-Enabled=0
+Enabled=1
 [pcbnew/Layer.B.Paste]
 Enabled=1
 [pcbnew/Layer.F.Paste]
-Enabled=0
+Enabled=1
 [pcbnew/Layer.B.SilkS]
 Enabled=1
 [pcbnew/Layer.F.SilkS]
-Enabled=0
+Enabled=1
 [pcbnew/Layer.B.Mask]
 Enabled=1
 [pcbnew/Layer.F.Mask]
-Enabled=0
+Enabled=1
 [pcbnew/Layer.Dwgs.User]
 Enabled=1
 [pcbnew/Layer.Cmts.User]
