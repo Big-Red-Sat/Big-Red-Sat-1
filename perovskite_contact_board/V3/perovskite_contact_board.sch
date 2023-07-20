@@ -13,514 +13,514 @@ Comment2 "Designer: JMMS"
 Comment3 "Reviewer: WSA"
 Comment4 "Approved: "
 $EndDescr
-Text GLabel 3550 1650 0    50   Input ~ 0
+Text GLabel 5050 1550 0    50   Input ~ 0
 CELL_1
-Text GLabel 3550 1750 0    50   Input ~ 0
+Text GLabel 5050 1650 0    50   Input ~ 0
 CELL_2
-Text GLabel 3550 1850 0    50   Input ~ 0
+Text GLabel 5050 1750 0    50   Input ~ 0
 CELL_3
-Text GLabel 3550 1950 0    50   Input ~ 0
+Text GLabel 5050 1850 0    50   Input ~ 0
 CELL_4
-Text GLabel 3550 2050 0    50   Input ~ 0
+Text GLabel 5050 1950 0    50   Input ~ 0
 CELL_5
-Text GLabel 3550 2150 0    50   Input ~ 0
+Text GLabel 5050 2050 0    50   Input ~ 0
 CELL_6
 $Comp
 L Perovskite:Perovskite_CP_6_Cell U1
 U 1 1 636879E9
-P 4000 1400
-F 0 "U1" H 3950 1400 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 3600 1325 50  0000 L CNN
-F 2 "Perovskite:Perovskite" H 4000 1400 50  0001 C CNN
-F 3 "" H 4000 1400 50  0001 C CNN
-	1    4000 1400
+P 5500 1300
+F 0 "U1" H 5450 1300 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5100 1225 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5500 1300 50  0001 C CNN
+F 3 "" H 5500 1300 50  0001 C CNN
+	1    5500 1300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Perovskite:Perovskite_CP_6_Cell U2
 U 1 1 6368D231
-P 4025 3100
-F 0 "U2" H 3975 3100 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 3625 3025 50  0000 L CNN
-F 2 "Perovskite:Perovskite" H 4025 3100 50  0001 C CNN
-F 3 "" H 4025 3100 50  0001 C CNN
-	1    4025 3100
+P 5525 3000
+F 0 "U2" H 5475 3000 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5125 2925 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5525 3000 50  0001 C CNN
+F 3 "" H 5525 3000 50  0001 C CNN
+	1    5525 3000
 	1    0    0    -1  
 $EndComp
 $Comp
 L Perovskite:Perovskite_CP_6_Cell U3
 U 1 1 63690578
-P 4025 5000
-F 0 "U3" H 3975 4975 50  0000 L CNN
-F 1 "Perovskite_CP_6_Cell" H 3650 4900 50  0000 L CNN
-F 2 "Perovskite:Perovskite" H 4025 5000 50  0001 C CNN
-F 3 "" H 4025 5000 50  0001 C CNN
-	1    4025 5000
+P 5525 4900
+F 0 "U3" H 5475 4875 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5150 4800 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5525 4900 50  0001 C CNN
+F 3 "" H 5525 4900 50  0001 C CNN
+	1    5525 4900
 	1    0    0    -1  
 $EndComp
-Text GLabel 3575 3350 0    50   Input ~ 0
+Text GLabel 5075 3250 0    50   Input ~ 0
 CELL_7
-Text GLabel 3575 3450 0    50   Input ~ 0
+Text GLabel 5075 3350 0    50   Input ~ 0
 CELL_8
-Text GLabel 3575 3550 0    50   Input ~ 0
+Text GLabel 5075 3450 0    50   Input ~ 0
 CELL_9
-Text GLabel 3575 3650 0    50   Input ~ 0
+Text GLabel 5075 3550 0    50   Input ~ 0
 CELL_10
-Text GLabel 3575 3750 0    50   Input ~ 0
+Text GLabel 5075 3650 0    50   Input ~ 0
 CELL_11
-Text GLabel 3575 3850 0    50   Input ~ 0
+Text GLabel 5075 3750 0    50   Input ~ 0
 CELL_12
-Text GLabel 3575 5250 0    50   Input ~ 0
+Text GLabel 5075 5150 0    50   Input ~ 0
 CELL_13
-Text GLabel 3575 5350 0    50   Input ~ 0
+Text GLabel 5075 5250 0    50   Input ~ 0
 CELL_14
-Text GLabel 3575 5450 0    50   Input ~ 0
+Text GLabel 5075 5350 0    50   Input ~ 0
 CELL_15
-Text GLabel 3575 5550 0    50   Input ~ 0
+Text GLabel 5075 5450 0    50   Input ~ 0
 CELL_16
-Text GLabel 3575 5650 0    50   Input ~ 0
+Text GLabel 5075 5550 0    50   Input ~ 0
 CELL_17
-Text GLabel 3575 5750 0    50   Input ~ 0
+Text GLabel 5075 5650 0    50   Input ~ 0
 CELL_18
-Text GLabel 7000 1150 0    50   Input ~ 0
+Text GLabel 8500 1050 0    50   Input ~ 0
 CELL_1
-Text GLabel 7000 1350 0    50   Input ~ 0
+Text GLabel 8500 1250 0    50   Input ~ 0
 CELL_2
-Text GLabel 7000 1550 0    50   Input ~ 0
+Text GLabel 8500 1450 0    50   Input ~ 0
 CELL_3
-Text GLabel 7000 1750 0    50   Input ~ 0
+Text GLabel 8500 1650 0    50   Input ~ 0
 CELL_4
-Text GLabel 7000 1950 0    50   Input ~ 0
+Text GLabel 8500 1850 0    50   Input ~ 0
 CELL_5
-Text GLabel 7000 2150 0    50   Input ~ 0
+Text GLabel 8500 2050 0    50   Input ~ 0
 CELL_6
-Text GLabel 7000 3050 0    50   Input ~ 0
+Text GLabel 8500 2950 0    50   Input ~ 0
 CELL_7
-Text GLabel 7000 3250 0    50   Input ~ 0
+Text GLabel 8500 3150 0    50   Input ~ 0
 CELL_8
-Text GLabel 7000 3450 0    50   Input ~ 0
+Text GLabel 8500 3350 0    50   Input ~ 0
 CELL_9
-Text GLabel 7000 3650 0    50   Input ~ 0
+Text GLabel 8500 3550 0    50   Input ~ 0
 CELL_10
-Text GLabel 7000 3850 0    50   Input ~ 0
+Text GLabel 8500 3750 0    50   Input ~ 0
 CELL_11
-Text GLabel 7000 4050 0    50   Input ~ 0
+Text GLabel 8500 3950 0    50   Input ~ 0
 CELL_12
-Text GLabel 6950 5500 0    50   Input ~ 0
+Text GLabel 8450 5400 0    50   Input ~ 0
 CELL_16
 $Comp
 L Sensor_Temperature:MCP9808_MSOP U5
 U 1 1 6369FACF
-P 5500 3650
-F 0 "U5" H 5575 4125 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 5575 4225 50  0000 L CNN
-F 2 "MCP9804_Custom:MCP9804_With_Hole" H 5500 3650 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 5250 4100 50  0001 C CNN
-	1    5500 3650
+P 7000 3550
+F 0 "U5" H 7075 4025 50  0000 L CNN
+F 1 "MCP9808_MSOP" H 7075 4125 50  0000 L CNN
+F 2 "MCP9804_Custom:MCP9804_With_Hole" H 7000 3550 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 6750 4000 50  0001 C CNN
+	1    7000 3550
 	1    0    0    -1  
 $EndComp
 $Comp
 L Sensor_Temperature:MCP9808_MSOP U6
 U 1 1 636A02E7
-P 5500 5500
-F 0 "U6" H 5575 6000 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 5575 6100 50  0000 L CNN
-F 2 "MCP9804_Custom:MCP9804_With_Hole" H 5500 5500 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 5250 5950 50  0001 C CNN
-	1    5500 5500
+P 7000 5400
+F 0 "U6" H 7075 5900 50  0000 L CNN
+F 1 "MCP9808_MSOP" H 7075 6000 50  0000 L CNN
+F 2 "MCP9804_Custom:MCP9804_With_Hole" H 7000 5400 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 6750 5850 50  0001 C CNN
+	1    7000 5400
 	1    0    0    -1  
 $EndComp
-Text GLabel 5100 3350 0    50   Input ~ 0
+Text GLabel 6600 3250 0    50   Input ~ 0
 SDA
-Text GLabel 5100 3450 0    50   Input ~ 0
+Text GLabel 6600 3350 0    50   Input ~ 0
 SCL
-Text GLabel 5100 5200 0    50   Input ~ 0
+Text GLabel 6600 5100 0    50   Input ~ 0
 SDA
-Text GLabel 5100 5300 0    50   Input ~ 0
+Text GLabel 6600 5200 0    50   Input ~ 0
 SCL
 $Comp
 L power:GND #PWR0114
 U 1 1 636DAE21
-P 5500 6150
-F 0 "#PWR0114" H 5500 5900 50  0001 C CNN
-F 1 "GND" H 5505 5977 50  0000 C CNN
-F 2 "" H 5500 6150 50  0001 C CNN
-F 3 "" H 5500 6150 50  0001 C CNN
-	1    5500 6150
+P 7000 6050
+F 0 "#PWR0114" H 7000 5800 50  0001 C CNN
+F 1 "GND" H 7005 5877 50  0000 C CNN
+F 2 "" H 7000 6050 50  0001 C CNN
+F 3 "" H 7000 6050 50  0001 C CNN
+	1    7000 6050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0115
 U 1 1 636DB638
-P 5500 4250
-F 0 "#PWR0115" H 5500 4000 50  0001 C CNN
-F 1 "GND" H 5505 4077 50  0000 C CNN
-F 2 "" H 5500 4250 50  0001 C CNN
-F 3 "" H 5500 4250 50  0001 C CNN
-	1    5500 4250
+P 7000 4150
+F 0 "#PWR0115" H 7000 3900 50  0001 C CNN
+F 1 "GND" H 7005 3977 50  0000 C CNN
+F 2 "" H 7000 4150 50  0001 C CNN
+F 3 "" H 7000 4150 50  0001 C CNN
+	1    7000 4150
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0118
 U 1 1 636DC750
-P 5450 2400
-F 0 "#PWR0118" H 5450 2150 50  0001 C CNN
-F 1 "GND" H 5455 2227 50  0000 C CNN
-F 2 "" H 5450 2400 50  0001 C CNN
-F 3 "" H 5450 2400 50  0001 C CNN
-	1    5450 2400
+P 6950 2300
+F 0 "#PWR0118" H 6950 2050 50  0001 C CNN
+F 1 "GND" H 6955 2127 50  0000 C CNN
+F 2 "" H 6950 2300 50  0001 C CNN
+F 3 "" H 6950 2300 50  0001 C CNN
+	1    6950 2300
 	1    0    0    -1  
 $EndComp
-Text Notes 1200 1825 0    197  ~ 0
+Text Notes 2700 1725 0    197  ~ 0
 Perovskite 1
-Text Notes 1200 3575 0    197  ~ 0
+Text Notes 2700 3475 0    197  ~ 0
 Perovskite 2
-Text Notes 1200 5325 0    197  ~ 0
+Text Notes 2700 5225 0    197  ~ 0
 Perovskite 3
 Wire Notes Line
-	975  900  7850 900 
+	2475 800  9350 800 
 Wire Notes Line
-	7850 6400 975  6400
+	9350 6300 2475 6300
 Wire Notes Line
-	975  4525 7850 4525
+	2475 4425 9350 4425
 Wire Notes Line
-	7850 900  7850 6400
+	9350 800  9350 6300
 Wire Notes Line
-	975  900  975  6400
-Text GLabel 3575 5850 0    50   Input ~ 0
+	2475 800  2475 6300
+Text GLabel 5075 5750 0    50   Input ~ 0
 CP_3
-Text GLabel 7000 4250 0    50   Input ~ 0
+Text GLabel 8500 4150 0    50   Input ~ 0
 CP_2
-Text GLabel 3575 3950 0    50   Input ~ 0
+Text GLabel 5075 3850 0    50   Input ~ 0
 CP_2
-Text GLabel 6950 6100 0    50   Input ~ 0
+Text GLabel 8450 6000 0    50   Input ~ 0
 CP_3
-Text GLabel 3550 2250 0    50   Input ~ 0
+Text GLabel 5050 2150 0    50   Input ~ 0
 CP_1
 $Comp
 L Sensor_Temperature:MCP9808_MSOP U4
 U 1 1 6369EDDD
-P 5450 1850
-F 0 "U4" H 5525 2325 50  0000 L CNN
-F 1 "MCP9808_MSOP" H 5525 2425 50  0000 L CNN
-F 2 "MCP9804_Custom:MCP9804_With_Hole" H 5450 1850 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 5200 2300 50  0001 C CNN
-	1    5450 1850
+P 6950 1750
+F 0 "U4" H 7025 2225 50  0000 L CNN
+F 1 "MCP9808_MSOP" H 7025 2325 50  0000 L CNN
+F 2 "MCP9804_Custom:MCP9804_With_Hole" H 6950 1750 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 6700 2200 50  0001 C CNN
+	1    6950 1750
 	1    0    0    -1  
 $EndComp
-Text GLabel 5050 1550 0    50   Input ~ 0
+Text GLabel 6550 1450 0    50   Input ~ 0
 SDA
-Text GLabel 5050 1650 0    50   Input ~ 0
+Text GLabel 6550 1550 0    50   Input ~ 0
 SCL
 Wire Wire Line
-	5450 1200 5450 1350
+	6950 1100 6950 1250
 Wire Wire Line
-	5450 1200 5150 1200
+	6950 1100 6650 1100
 Wire Wire Line
-	4800 1200 4800 1950
+	6300 1100 6300 1850
 Wire Wire Line
-	4800 1950 5050 1950
+	6300 1850 6550 1850
 Wire Wire Line
-	5050 2050 5000 2050
+	6550 1950 6500 1950
 Wire Wire Line
-	5000 2050 5000 2150
+	6500 1950 6500 2050
 Wire Wire Line
-	5050 2150 5000 2150
-Connection ~ 5000 2150
+	6550 2050 6500 2050
+Connection ~ 6500 2050
 Wire Wire Line
-	5000 2150 5000 2400
+	6500 2050 6500 2300
 Wire Wire Line
-	5450 2400 5450 2350
+	6950 2300 6950 2250
 $Comp
 L power:GND #PWR0101
 U 1 1 63849F8B
-P 5000 2400
-F 0 "#PWR0101" H 5000 2150 50  0001 C CNN
-F 1 "GND" H 5005 2227 50  0000 C CNN
-F 2 "" H 5000 2400 50  0001 C CNN
-F 3 "" H 5000 2400 50  0001 C CNN
-	1    5000 2400
+P 6500 2300
+F 0 "#PWR0101" H 6500 2050 50  0001 C CNN
+F 1 "GND" H 6505 2127 50  0000 C CNN
+F 2 "" H 6500 2300 50  0001 C CNN
+F 3 "" H 6500 2300 50  0001 C CNN
+	1    6500 2300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5500 3150 5500 2950
+	7000 3050 7000 2850
 Wire Wire Line
-	5500 2950 5150 2950
+	7000 2850 6650 2850
 Wire Wire Line
-	4750 2950 4750 3750
+	6250 2850 6250 3650
 Wire Wire Line
-	4750 3850 5100 3850
+	6250 3750 6600 3750
 $Comp
 L power:GND #PWR0104
 U 1 1 63850003
-P 5050 4250
-F 0 "#PWR0104" H 5050 4000 50  0001 C CNN
-F 1 "GND" H 5055 4077 50  0000 C CNN
-F 2 "" H 5050 4250 50  0001 C CNN
-F 3 "" H 5050 4250 50  0001 C CNN
-	1    5050 4250
+P 6550 4150
+F 0 "#PWR0104" H 6550 3900 50  0001 C CNN
+F 1 "GND" H 6555 3977 50  0000 C CNN
+F 2 "" H 6550 4150 50  0001 C CNN
+F 3 "" H 6550 4150 50  0001 C CNN
+	1    6550 4150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5100 3950 5050 3950
+	6600 3850 6550 3850
 Wire Wire Line
-	5050 3950 5050 4250
+	6550 3850 6550 4150
 Wire Wire Line
-	5500 4150 5500 4250
+	7000 4050 7000 4150
 Wire Wire Line
-	5500 4800 5500 5000
+	7000 4700 7000 4900
 Wire Wire Line
-	5500 4800 5150 4800
+	7000 4700 6650 4700
 Wire Wire Line
-	4800 4800 4800 5600
+	6300 4700 6300 5500
 Wire Wire Line
-	4800 5800 5100 5800
+	6300 5700 6600 5700
 Wire Wire Line
-	5500 6000 5500 6150
+	7000 5900 7000 6050
 Wire Wire Line
-	4750 3750 5100 3750
-Connection ~ 4750 3750
+	6250 3650 6600 3650
+Connection ~ 6250 3650
 Wire Wire Line
-	4750 3750 4750 3850
+	6250 3650 6250 3750
 Wire Wire Line
-	4800 5600 5100 5600
-Connection ~ 4800 5600
+	6300 5500 6600 5500
+Connection ~ 6300 5500
 Wire Wire Line
-	4800 5600 4800 5700
+	6300 5500 6300 5600
 Wire Wire Line
-	4800 5700 5100 5700
-Connection ~ 4800 5700
+	6300 5600 6600 5600
+Connection ~ 6300 5600
 Wire Wire Line
-	4800 5700 4800 5800
+	6300 5600 6300 5700
 $Comp
 L Connector_Generic:Conn_01x01 JP100.1
 U 1 1 64B48B55
-P 7200 1150
-F 0 "JP100.1" H 7280 1192 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 1101 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 1150 50  0001 C CNN
-F 3 "~" H 7200 1150 50  0001 C CNN
-	1    7200 1150
+P 8700 1050
+F 0 "JP100.1" H 8780 1092 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 1001 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 1050 50  0001 C CNN
+F 3 "~" H 8700 1050 50  0001 C CNN
+	1    8700 1050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.2
 U 1 1 64B50405
-P 7200 1350
-F 0 "JP100.2" H 7280 1392 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 1301 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 1350 50  0001 C CNN
-F 3 "~" H 7200 1350 50  0001 C CNN
-	1    7200 1350
+P 8700 1250
+F 0 "JP100.2" H 8780 1292 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 1201 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 1250 50  0001 C CNN
+F 3 "~" H 8700 1250 50  0001 C CNN
+	1    8700 1250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.3
 U 1 1 64B50664
-P 7200 1550
-F 0 "JP100.3" H 7280 1592 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 1501 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 1550 50  0001 C CNN
-F 3 "~" H 7200 1550 50  0001 C CNN
-	1    7200 1550
+P 8700 1450
+F 0 "JP100.3" H 8780 1492 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 1401 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 1450 50  0001 C CNN
+F 3 "~" H 8700 1450 50  0001 C CNN
+	1    8700 1450
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.4
 U 1 1 64B50942
-P 7200 1750
-F 0 "JP100.4" H 7280 1792 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 1701 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 1750 50  0001 C CNN
-F 3 "~" H 7200 1750 50  0001 C CNN
-	1    7200 1750
+P 8700 1650
+F 0 "JP100.4" H 8780 1692 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 1601 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 1650 50  0001 C CNN
+F 3 "~" H 8700 1650 50  0001 C CNN
+	1    8700 1650
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.5
 U 1 1 64B54D8C
-P 7200 1950
-F 0 "JP100.5" H 7280 1992 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 1901 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 1950 50  0001 C CNN
-F 3 "~" H 7200 1950 50  0001 C CNN
-	1    7200 1950
+P 8700 1850
+F 0 "JP100.5" H 8780 1892 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 1801 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 1850 50  0001 C CNN
+F 3 "~" H 8700 1850 50  0001 C CNN
+	1    8700 1850
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.6
 U 1 1 64B54D92
-P 7200 2150
-F 0 "JP100.6" H 7280 2192 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 2101 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 2150 50  0001 C CNN
-F 3 "~" H 7200 2150 50  0001 C CNN
-	1    7200 2150
+P 8700 2050
+F 0 "JP100.6" H 8780 2092 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 2001 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 2050 50  0001 C CNN
+F 3 "~" H 8700 2050 50  0001 C CNN
+	1    8700 2050
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP100.7
 U 1 1 64B54D98
-P 7200 2350
-F 0 "JP100.7" H 7280 2392 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 2301 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 2350 50  0001 C CNN
-F 3 "~" H 7200 2350 50  0001 C CNN
-	1    7200 2350
+P 8700 2250
+F 0 "JP100.7" H 8780 2292 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 2201 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 2250 50  0001 C CNN
+F 3 "~" H 8700 2250 50  0001 C CNN
+	1    8700 2250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.1
 U 1 1 64B54D9E
-P 7200 3050
-F 0 "JP101.1" H 7280 3092 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 3001 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 3050 50  0001 C CNN
-F 3 "~" H 7200 3050 50  0001 C CNN
-	1    7200 3050
+P 8700 2950
+F 0 "JP101.1" H 8780 2992 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 2901 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 2950 50  0001 C CNN
+F 3 "~" H 8700 2950 50  0001 C CNN
+	1    8700 2950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.2
 U 1 1 64B5722D
-P 7200 3250
-F 0 "JP101.2" H 7280 3292 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 3201 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 3250 50  0001 C CNN
-F 3 "~" H 7200 3250 50  0001 C CNN
-	1    7200 3250
+P 8700 3150
+F 0 "JP101.2" H 8780 3192 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 3101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 3150 50  0001 C CNN
+F 3 "~" H 8700 3150 50  0001 C CNN
+	1    8700 3150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.3
 U 1 1 64B57233
-P 7200 3450
-F 0 "JP101.3" H 7280 3492 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 3401 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 3450 50  0001 C CNN
-F 3 "~" H 7200 3450 50  0001 C CNN
-	1    7200 3450
+P 8700 3350
+F 0 "JP101.3" H 8780 3392 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 3301 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 3350 50  0001 C CNN
+F 3 "~" H 8700 3350 50  0001 C CNN
+	1    8700 3350
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.4
 U 1 1 64B57239
-P 7200 3650
-F 0 "JP101.4" H 7280 3692 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 3601 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 3650 50  0001 C CNN
-F 3 "~" H 7200 3650 50  0001 C CNN
-	1    7200 3650
+P 8700 3550
+F 0 "JP101.4" H 8780 3592 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 3501 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 3550 50  0001 C CNN
+F 3 "~" H 8700 3550 50  0001 C CNN
+	1    8700 3550
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.5
 U 1 1 64B5723F
-P 7200 3850
-F 0 "JP101.5" H 7280 3892 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 3801 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 3850 50  0001 C CNN
-F 3 "~" H 7200 3850 50  0001 C CNN
-	1    7200 3850
+P 8700 3750
+F 0 "JP101.5" H 8780 3792 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 3701 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 3750 50  0001 C CNN
+F 3 "~" H 8700 3750 50  0001 C CNN
+	1    8700 3750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.6
 U 1 1 64B591F4
-P 7200 4050
-F 0 "JP101.6" H 7280 4092 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 4001 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 4050 50  0001 C CNN
-F 3 "~" H 7200 4050 50  0001 C CNN
-	1    7200 4050
+P 8700 3950
+F 0 "JP101.6" H 8780 3992 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 3901 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 3950 50  0001 C CNN
+F 3 "~" H 8700 3950 50  0001 C CNN
+	1    8700 3950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP101.7
 U 1 1 64B591FA
-P 7200 4250
-F 0 "JP101.7" H 7280 4292 50  0000 L CNN
-F 1 "Conn_01x01" H 7280 4201 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7200 4250 50  0001 C CNN
-F 3 "~" H 7200 4250 50  0001 C CNN
-	1    7200 4250
+P 8700 4150
+F 0 "JP101.7" H 8780 4192 50  0000 L CNN
+F 1 "Conn_01x01" H 8780 4101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8700 4150 50  0001 C CNN
+F 3 "~" H 8700 4150 50  0001 C CNN
+	1    8700 4150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.1
 U 1 1 64B59200
-P 7150 4900
-F 0 "JP102.1" H 7230 4942 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 4851 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 4900 50  0001 C CNN
-F 3 "~" H 7150 4900 50  0001 C CNN
-	1    7150 4900
+P 8650 4800
+F 0 "JP102.1" H 8730 4842 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 4751 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 4800 50  0001 C CNN
+F 3 "~" H 8650 4800 50  0001 C CNN
+	1    8650 4800
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.2
 U 1 1 64B59206
-P 7150 5100
-F 0 "JP102.2" H 7230 5142 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 5051 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 5100 50  0001 C CNN
-F 3 "~" H 7150 5100 50  0001 C CNN
-	1    7150 5100
+P 8650 5000
+F 0 "JP102.2" H 8730 5042 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 4951 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 5000 50  0001 C CNN
+F 3 "~" H 8650 5000 50  0001 C CNN
+	1    8650 5000
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.3
 U 1 1 64B5B299
-P 7150 5300
-F 0 "JP102.3" H 7230 5342 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 5251 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 5300 50  0001 C CNN
-F 3 "~" H 7150 5300 50  0001 C CNN
-	1    7150 5300
+P 8650 5200
+F 0 "JP102.3" H 8730 5242 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5151 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 5200 50  0001 C CNN
+F 3 "~" H 8650 5200 50  0001 C CNN
+	1    8650 5200
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.4
 U 1 1 64B5B29F
-P 7150 5500
-F 0 "JP102.4" H 7230 5542 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 5451 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 5500 50  0001 C CNN
-F 3 "~" H 7150 5500 50  0001 C CNN
-	1    7150 5500
+P 8650 5400
+F 0 "JP102.4" H 8730 5442 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5351 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 5400 50  0001 C CNN
+F 3 "~" H 8650 5400 50  0001 C CNN
+	1    8650 5400
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.5
 U 1 1 64B5B2A5
-P 7150 5700
-F 0 "JP102.5" H 7230 5742 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 5651 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 5700 50  0001 C CNN
-F 3 "~" H 7150 5700 50  0001 C CNN
-	1    7150 5700
+P 8650 5600
+F 0 "JP102.5" H 8730 5642 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5551 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 5600 50  0001 C CNN
+F 3 "~" H 8650 5600 50  0001 C CNN
+	1    8650 5600
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.6
 U 1 1 64B5B2AB
-P 7150 5900
-F 0 "JP102.6" H 7230 5942 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 5851 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 5900 50  0001 C CNN
-F 3 "~" H 7150 5900 50  0001 C CNN
-	1    7150 5900
+P 8650 5800
+F 0 "JP102.6" H 8730 5842 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5751 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 5800 50  0001 C CNN
+F 3 "~" H 8650 5800 50  0001 C CNN
+	1    8650 5800
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x01 JP102.7
 U 1 1 64B5D0F6
-P 7150 6100
-F 0 "JP102.7" H 7230 6142 50  0000 L CNN
-F 1 "Conn_01x01" H 7230 6051 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 7150 6100 50  0001 C CNN
-F 3 "~" H 7150 6100 50  0001 C CNN
-	1    7150 6100
+P 8650 6000
+F 0 "JP102.7" H 8730 6042 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5951 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 8650 6000 50  0001 C CNN
+F 3 "~" H 8650 6000 50  0001 C CNN
+	1    8650 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -601,63 +601,63 @@ Wire Wire Line
 	5400 7150 5300 7150
 Wire Wire Line
 	5300 7150 5300 6750
-NoConn ~ 5900 5500
-NoConn ~ 5900 3650
-NoConn ~ 5850 1850
+NoConn ~ 7400 5400
+NoConn ~ 7400 3550
+NoConn ~ 7350 1750
 Wire Notes Line
-	7850 2675 975  2675
+	9350 2575 2475 2575
 $Comp
 L power:VDD #PWR0105
 U 1 1 64BC9726
-P 5150 4800
-F 0 "#PWR0105" H 5150 4650 50  0001 C CNN
-F 1 "VDD" H 5165 4973 50  0000 C CNN
-F 2 "" H 5150 4800 50  0001 C CNN
-F 3 "" H 5150 4800 50  0001 C CNN
-	1    5150 4800
+P 6650 4700
+F 0 "#PWR0105" H 6650 4550 50  0001 C CNN
+F 1 "VDD" H 6665 4873 50  0000 C CNN
+F 2 "" H 6650 4700 50  0001 C CNN
+F 3 "" H 6650 4700 50  0001 C CNN
+	1    6650 4700
 	1    0    0    -1  
 $EndComp
-Connection ~ 5150 4800
+Connection ~ 6650 4700
 Wire Wire Line
-	5150 4800 4800 4800
+	6650 4700 6300 4700
 $Comp
 L power:VDD #PWR0106
 U 1 1 64BCA3BE
-P 5150 2950
-F 0 "#PWR0106" H 5150 2800 50  0001 C CNN
-F 1 "VDD" H 5165 3123 50  0000 C CNN
-F 2 "" H 5150 2950 50  0001 C CNN
-F 3 "" H 5150 2950 50  0001 C CNN
-	1    5150 2950
+P 6650 2850
+F 0 "#PWR0106" H 6650 2700 50  0001 C CNN
+F 1 "VDD" H 6665 3023 50  0000 C CNN
+F 2 "" H 6650 2850 50  0001 C CNN
+F 3 "" H 6650 2850 50  0001 C CNN
+	1    6650 2850
 	1    0    0    -1  
 $EndComp
-Connection ~ 5150 2950
+Connection ~ 6650 2850
 Wire Wire Line
-	5150 2950 4750 2950
+	6650 2850 6250 2850
 $Comp
 L power:VDD #PWR0107
 U 1 1 64BCB08F
-P 5150 1200
-F 0 "#PWR0107" H 5150 1050 50  0001 C CNN
-F 1 "VDD" H 5165 1373 50  0000 C CNN
-F 2 "" H 5150 1200 50  0001 C CNN
-F 3 "" H 5150 1200 50  0001 C CNN
-	1    5150 1200
+P 6650 1100
+F 0 "#PWR0107" H 6650 950 50  0001 C CNN
+F 1 "VDD" H 6665 1273 50  0000 C CNN
+F 2 "" H 6650 1100 50  0001 C CNN
+F 3 "" H 6650 1100 50  0001 C CNN
+	1    6650 1100
 	1    0    0    -1  
 $EndComp
-Connection ~ 5150 1200
+Connection ~ 6650 1100
 Wire Wire Line
-	5150 1200 4800 1200
-Text GLabel 6950 5900 0    50   Input ~ 0
+	6650 1100 6300 1100
+Text GLabel 8450 5800 0    50   Input ~ 0
 CELL_18
-Text GLabel 6950 5700 0    50   Input ~ 0
+Text GLabel 8450 5600 0    50   Input ~ 0
 CELL_17
-Text GLabel 6950 5300 0    50   Input ~ 0
+Text GLabel 8450 5200 0    50   Input ~ 0
 CELL_15
-Text GLabel 6950 5100 0    50   Input ~ 0
+Text GLabel 8450 5000 0    50   Input ~ 0
 CELL_14
-Text GLabel 6950 4900 0    50   Input ~ 0
+Text GLabel 8450 4800 0    50   Input ~ 0
 CELL_13
-Text GLabel 7000 2350 0    50   Input ~ 0
+Text GLabel 8500 2250 0    50   Input ~ 0
 CP_1
 $EndSCHEMATC

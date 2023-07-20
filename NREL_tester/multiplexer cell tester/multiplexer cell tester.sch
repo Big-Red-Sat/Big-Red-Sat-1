@@ -4,14 +4,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 5
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Title "IV Curve Tracer for Ossila AM1.5 Solar Simulator"
+Date "2023-07-08"
+Rev "A"
+Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2023"
+Comment2 "Designer: WSA"
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Sheet
 S 4800 1650 1550 1150
@@ -41,9 +41,9 @@ L Device:R R?
 U 1 1 64966A3F
 P 2550 5100
 AR Path="/6313FC31/64966A3F" Ref="R?"  Part="1" 
-AR Path="/64966A3F" Ref="R?"  Part="1" 
+AR Path="/64966A3F" Ref="R4"  Part="1" 
 AR Path="/648F7944/64966A3F" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 5550 50  0000 C CNN
+F 0 "R4" V 2550 5550 50  0000 C CNN
 F 1 "100" V 2550 5100 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 5100 50  0001 C CNN
 F 3 "~" H 2550 5100 50  0001 C CNN
@@ -55,9 +55,9 @@ L Device:R R?
 U 1 1 64966A45
 P 2550 5300
 AR Path="/6313FC31/64966A45" Ref="R?"  Part="1" 
-AR Path="/64966A45" Ref="R?"  Part="1" 
+AR Path="/64966A45" Ref="R6"  Part="1" 
 AR Path="/648F7944/64966A45" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 4850 50  0000 C CNN
+F 0 "R6" V 2550 4850 50  0000 C CNN
 F 1 "100" V 2550 5300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 5300 50  0001 C CNN
 F 3 "~" H 2550 5300 50  0001 C CNN
@@ -69,9 +69,9 @@ L Device:R R?
 U 1 1 64966A4B
 P 2550 5400
 AR Path="/6313FC31/64966A4B" Ref="R?"  Part="1" 
-AR Path="/64966A4B" Ref="R?"  Part="1" 
+AR Path="/64966A4B" Ref="R7"  Part="1" 
 AR Path="/648F7944/64966A4B" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 4950 50  0000 C CNN
+F 0 "R7" V 2550 4950 50  0000 C CNN
 F 1 "100" V 2550 5400 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 5400 50  0001 C CNN
 F 3 "~" H 2550 5400 50  0001 C CNN
@@ -83,17 +83,17 @@ L Device:Ferrite_Bead FB?
 U 1 1 64966A51
 P 2550 3700
 AR Path="/648F7944/64966A51" Ref="FB?"  Part="1" 
-AR Path="/64966A51" Ref="FB?"  Part="1" 
-F 0 "FB?" H 2687 3746 50  0000 L CNN
+AR Path="/64966A51" Ref="FB1"  Part="1" 
+F 0 "FB1" H 2687 3746 50  0000 L CNN
 F 1 "Ferrite_Bead" H 2687 3655 50  0000 L CNN
 F 2 "Inductor_SMD:L_0603_1608Metric" V 2480 3700 50  0001 C CNN
 F 3 "~" H 2550 3700 50  0001 C CNN
 	1    2550 3700
 	1    0    0    -1  
 $EndComp
-Text GLabel 2700 5300 2    50   Input ~ 0
+Text GLabel 2700 5100 2    50   Input ~ 0
 10-19_CLOCK
-Text GLabel 2700 5400 2    50   Input ~ 0
+Text GLabel 2700 5200 2    50   Input ~ 0
 ENABLE_PANEL_SWITCH
 Wire Wire Line
 	2550 3550 2550 3400
@@ -108,9 +108,9 @@ L power:+3V3 #PWR?
 U 1 1 64966A5F
 P 2550 3400
 AR Path="/6313FC31/64966A5F" Ref="#PWR?"  Part="1" 
-AR Path="/64966A5F" Ref="#PWR?"  Part="1" 
+AR Path="/64966A5F" Ref="#PWR0101"  Part="1" 
 AR Path="/648F7944/64966A5F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2550 3250 50  0001 C CNN
+F 0 "#PWR0101" H 2550 3250 50  0001 C CNN
 F 1 "+3V3" H 2565 3573 50  0000 C CNN
 F 2 "" H 2550 3400 50  0001 C CNN
 F 3 "" H 2550 3400 50  0001 C CNN
@@ -122,9 +122,9 @@ L power:GND #PWR?
 U 1 1 64966A65
 P 2550 6050
 AR Path="/6313FC31/64966A65" Ref="#PWR?"  Part="1" 
-AR Path="/64966A65" Ref="#PWR?"  Part="1" 
+AR Path="/64966A65" Ref="#PWR0102"  Part="1" 
 AR Path="/648F7944/64966A65" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2550 5800 50  0001 C CNN
+F 0 "#PWR0102" H 2550 5800 50  0001 C CNN
 F 1 "GND" H 2555 5877 50  0000 C CNN
 F 2 "" H 2550 6050 50  0001 C CNN
 F 3 "" H 2550 6050 50  0001 C CNN
@@ -133,24 +133,11 @@ F 3 "" H 2550 6050 50  0001 C CNN
 $EndComp
 $Comp
 L Connector:Conn_01x10_Female J?
-U 1 1 64966A6B
-P 2200 5400
-AR Path="/648F7944/64966A6B" Ref="J?"  Part="1" 
-AR Path="/64966A6B" Ref="J?"  Part="1" 
-F 0 "J?" H 2100 5950 50  0000 C CNN
-F 1 "Conn_01x10_Female" H 2092 4766 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical" H 2200 5400 50  0001 C CNN
-F 3 "~" H 2200 5400 50  0001 C CNN
-	1    2200 5400
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x10_Female J?
 U 1 1 64966A71
 P 2200 4250
 AR Path="/648F7944/64966A71" Ref="J?"  Part="1" 
-AR Path="/64966A71" Ref="J?"  Part="1" 
-F 0 "J?" H 2092 4743 50  0000 C CNN
+AR Path="/64966A71" Ref="J1"  Part="1" 
+F 0 "J1" H 2092 4743 50  0000 C CNN
 F 1 "Conn_01x10_Female" H 2092 3616 50  0001 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical" H 2200 4250 50  0001 C CNN
 F 3 "~" H 2200 4250 50  0001 C CNN
@@ -166,16 +153,16 @@ L Device:R R?
 U 1 1 64966A86
 P 2550 5200
 AR Path="/6313FC31/64966A86" Ref="R?"  Part="1" 
-AR Path="/64966A86" Ref="R?"  Part="1" 
+AR Path="/64966A86" Ref="R5"  Part="1" 
 AR Path="/648F7944/64966A86" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 4750 50  0000 C CNN
+F 0 "R5" V 2550 4750 50  0000 C CNN
 F 1 "100" V 2550 5200 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 5200 50  0001 C CNN
 F 3 "~" H 2550 5200 50  0001 C CNN
 	1    2550 5200
 	0    1    1    0   
 $EndComp
-Text GLabel 2700 5200 2    50   Input ~ 0
+Text GLabel 2700 5400 2    50   Input ~ 0
 REVERSE_BIAS
 $Sheet
 S 6600 1650 1500 1750
@@ -195,7 +182,7 @@ Text GLabel 4700 2050 0    50   Input ~ 0
 ENABLE_PANEL_SWITCH
 Text GLabel 4700 1900 0    50   Input ~ 0
 10-19_CLOCK
-Text GLabel 2700 5100 2    50   Input ~ 0
+Text GLabel 2700 5300 2    50   Input ~ 0
 RESET_PANEL_SWITCH
 Text GLabel 4700 2200 0    50   Input ~ 0
 RESET_PANEL_SWITCH
@@ -206,9 +193,9 @@ L power:GND #PWR?
 U 1 1 64A640C4
 P 4650 2650
 AR Path="/6313FC31/64A640C4" Ref="#PWR?"  Part="1" 
-AR Path="/64A640C4" Ref="#PWR?"  Part="1" 
+AR Path="/64A640C4" Ref="#PWR0103"  Part="1" 
 AR Path="/648F7944/64A640C4" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4650 2400 50  0001 C CNN
+F 0 "#PWR0103" H 4650 2400 50  0001 C CNN
 F 1 "GND" H 4655 2477 50  0000 C CNN
 F 2 "" H 4650 2650 50  0001 C CNN
 F 3 "" H 4650 2650 50  0001 C CNN
@@ -314,9 +301,9 @@ L power:GND #PWR?
 U 1 1 64B78CD3
 P 8150 4200
 AR Path="/6313FC31/64B78CD3" Ref="#PWR?"  Part="1" 
-AR Path="/64B78CD3" Ref="#PWR?"  Part="1" 
+AR Path="/64B78CD3" Ref="#PWR0104"  Part="1" 
 AR Path="/648F7944/64B78CD3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8150 3950 50  0001 C CNN
+F 0 "#PWR0104" H 8150 3950 50  0001 C CNN
 F 1 "GND" H 8155 4027 50  0000 C CNN
 F 2 "" H 8150 4200 50  0001 C CNN
 F 3 "" H 8150 4200 50  0001 C CNN
@@ -332,9 +319,9 @@ L Device:R R?
 U 1 1 64B7E372
 P 2550 5000
 AR Path="/6313FC31/64B7E372" Ref="R?"  Part="1" 
-AR Path="/64B7E372" Ref="R?"  Part="1" 
+AR Path="/64B7E372" Ref="R3"  Part="1" 
 AR Path="/648F7944/64B7E372" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 5450 50  0000 C CNN
+F 0 "R3" V 2550 5450 50  0000 C CNN
 F 1 "100" V 2550 5000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 5000 50  0001 C CNN
 F 3 "~" H 2550 5000 50  0001 C CNN
@@ -346,9 +333,9 @@ L Device:R R?
 U 1 1 64B7F6B2
 P 2550 4450
 AR Path="/6313FC31/64B7F6B2" Ref="R?"  Part="1" 
-AR Path="/64B7F6B2" Ref="R?"  Part="1" 
+AR Path="/64B7F6B2" Ref="R1"  Part="1" 
 AR Path="/648F7944/64B7F6B2" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 4900 50  0000 C CNN
+F 0 "R1" V 2550 4900 50  0000 C CNN
 F 1 "100" V 2550 4450 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 4450 50  0001 C CNN
 F 3 "~" H 2550 4450 50  0001 C CNN
@@ -360,9 +347,9 @@ L Device:R R?
 U 1 1 64B8035D
 P 2550 4550
 AR Path="/6313FC31/64B8035D" Ref="R?"  Part="1" 
-AR Path="/64B8035D" Ref="R?"  Part="1" 
+AR Path="/64B8035D" Ref="R2"  Part="1" 
 AR Path="/648F7944/64B8035D" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 5000 50  0000 C CNN
+F 0 "R2" V 2550 5000 50  0000 C CNN
 F 1 "100" V 2550 4550 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2480 4550 50  0001 C CNN
 F 3 "~" H 2550 4550 50  0001 C CNN
@@ -373,9 +360,11 @@ $Comp
 L 74xGxx:SN74LVC1G14DRL U?
 U 1 1 64BA669B
 P 6400 3700
-F 0 "U?" H 6450 3600 50  0000 L CNN
+AR Path="/648F7944/64BA669B" Ref="U?"  Part="1" 
+AR Path="/64BA669B" Ref="U1"  Part="1" 
+F 0 "U1" H 6450 3600 50  0000 L CNN
 F 1 "SN74LVC1G14DRL" H 6450 3500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-553" H 6400 3450 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 6400 3450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1g14.pdf" H 6400 3700 50  0001 C CNN
 	1    6400 3700
 	1    0    0    -1  
@@ -385,9 +374,9 @@ L power:GND #PWR?
 U 1 1 64BA6AF4
 P 6400 4050
 AR Path="/6313FC31/64BA6AF4" Ref="#PWR?"  Part="1" 
-AR Path="/64BA6AF4" Ref="#PWR?"  Part="1" 
+AR Path="/64BA6AF4" Ref="#PWR0105"  Part="1" 
 AR Path="/648F7944/64BA6AF4" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6400 3800 50  0001 C CNN
+F 0 "#PWR0105" H 6400 3800 50  0001 C CNN
 F 1 "GND" H 6405 3877 50  0000 C CNN
 F 2 "" H 6400 4050 50  0001 C CNN
 F 3 "" H 6400 4050 50  0001 C CNN
@@ -399,9 +388,9 @@ L power:+3V3 #PWR?
 U 1 1 64BA6EDC
 P 6400 3500
 AR Path="/6313FC31/64BA6EDC" Ref="#PWR?"  Part="1" 
-AR Path="/64BA6EDC" Ref="#PWR?"  Part="1" 
+AR Path="/64BA6EDC" Ref="#PWR0106"  Part="1" 
 AR Path="/648F7944/64BA6EDC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6400 3350 50  0001 C CNN
+F 0 "#PWR0106" H 6400 3350 50  0001 C CNN
 F 1 "+3V3" H 6415 3673 50  0000 C CNN
 F 2 "" H 6400 3500 50  0001 C CNN
 F 3 "" H 6400 3500 50  0001 C CNN
@@ -421,4 +410,17 @@ Wire Wire Line
 Connection ~ 6150 4000
 Wire Wire Line
 	6150 4000 8300 4000
+$Comp
+L Connector:Conn_01x10_Female J?
+U 1 1 64966A6B
+P 2200 5500
+AR Path="/648F7944/64966A6B" Ref="J?"  Part="1" 
+AR Path="/64966A6B" Ref="J2"  Part="1" 
+F 0 "J2" H 2100 6050 50  0000 C CNN
+F 1 "Conn_01x10_Female" H 2092 4866 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical" H 2200 5500 50  0001 C CNN
+F 3 "~" H 2200 5500 50  0001 C CNN
+	1    2200 5500
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

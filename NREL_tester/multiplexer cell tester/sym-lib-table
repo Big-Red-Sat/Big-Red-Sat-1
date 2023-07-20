@@ -19,4 +19,6 @@
   (lib (name ADG839)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_ADG839YKSZ-REEL7/ADG839.lib")(options "")(descr ""))
   (lib (name CD4514BM)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_CD4514BM/CD4514BM.lib")(options "")(descr ""))
   (lib (name 0781710004)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/0781710004/0781710004.lib")(options "")(descr ""))
+  (lib (name LT6654AMPS6-1.25-TRMPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF/LT6654AMPS6-1.25-TRMPBF.lib")(options "")(descr ""))
+  (lib (name LT6654AHS6-3.3-TRMPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHS6-3-3-TRMPBF/LT6654AHS6-3.3-TRMPBF.lib")(options "")(descr ""))
 )
