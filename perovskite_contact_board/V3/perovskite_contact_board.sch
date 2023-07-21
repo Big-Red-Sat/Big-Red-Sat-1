@@ -8,10 +8,10 @@ Title "Perovskite Contact Board"
 Date "2023-07-20"
 Rev "V3"
 Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
-Comment1 "Copyright (c) 2022"
+Comment1 "Copyright (c) 2023"
 Comment2 "Designer: JMMS"
 Comment3 "Reviewer: WSA"
-Comment4 "Approved: "
+Comment4 "Approved: WSA"
 $EndDescr
 Text GLabel 5050 1550 0    50   Input ~ 0
 CELL_1

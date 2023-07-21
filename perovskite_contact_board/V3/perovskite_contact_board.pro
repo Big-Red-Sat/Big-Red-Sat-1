@@ -1,4 +1,4 @@
-update=7/20/2023 11:58:24 AM
+update=7/20/2023 10:08:54 PM
 version=1
 last_client=kicad
 [general]
@@ -243,7 +243,7 @@ dPairViaGap=0.25
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=Renders/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
