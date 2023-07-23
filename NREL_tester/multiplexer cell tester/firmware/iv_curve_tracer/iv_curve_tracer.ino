@@ -6,6 +6,8 @@
  * Author: Walker Arce
  * Date: 26 Dec 2022
  */
+
+ // C:\Users\wsarc\Downloads\energia-1.8.10E23-windows\energia-1.8.10E23\hardware\tools\DSLite/DebugServer/bin/DSLite load -c C:\Users\wsarc\Downloads\energia-1.8.10E23-windows\energia-1.8.10E23\hardware\tools\DSLite/MSP-EXP430FR5969LP.ccxml -f C:\Users\wsarc\AppData\Local\Temp\arduino_build_860748/iv_curve_tracer.ino.elf
 #include <MCP9808.h>      // http://github.com/JChristensen/MCP9808
 #include "MCP4725.h"
 
@@ -25,10 +27,10 @@
 #define REVERSE_BIAS  15
 
 // Process Control Variables
-#define ANALOG_SAMPLES_V      20
-#define ANALOG_SAMPLES_I      20
+#define ANALOG_SAMPLES_V      5
+#define ANALOG_SAMPLES_I      5
 
-#define PEROVSKITE_1_LOWER    1
+#define PEROVSKITE_1_LOWER    0
 
 #define SWITCH1           27
 #define SWITCH2           28
@@ -44,9 +46,14 @@ volatile bool reverse_bias = false;
 
 int v_readings[256];
 int i_readings[256];
+int t_reading;
+
+uint8_t status;
 
 void setup_pins(void)
 {
+  perovskite_1.begin();
+  
   pinMode(RESET_PANEL_SWITCH, OUTPUT);
   digitalWrite(RESET_PANEL_SWITCH, LOW);
   
@@ -69,11 +76,8 @@ void setup_pins(void)
   pinMode(R_DIVIDER_I, INPUT);
 
   pinMode(SWITCH1, INPUT_PULLUP);
-  pinMode(SWITCH2, INPUT_PULLUP);
   pinMode(LED1, OUTPUT);
   digitalWrite(LED1, LOW);
-  pinMode(LED2, OUTPUT);
-  digitalWrite(LED2, LOW);
 }
 
 void read_point(int reading_index)
@@ -124,17 +128,26 @@ int read_divider_i(void)
 
 void trace_curve(void)
 {
+  if ((status = perovskite_1.read()) == 0 )
+  {
+    t_reading = (int)((perovskite_1.tAmbient / 16.0)*100);
+  }
+  else
+  {
+    t_reading = 0;
+  }
   for (int i = 0; i < 256; i++)
   {
     v_readings[i] = read_divider_v();
     i_readings[i] = read_divider_i();
     step_ladder();
-    delay(250);
   }
   for (int i = 0; i < 256; i++)
   {
     read_point(i);
   }
+  Serial.println(t_reading);
+  
   reset_ladder();
 }
 
@@ -153,8 +166,6 @@ void step_decoder(void)
     digitalWrite(DECODER_0_5_CLOCK, HIGH);
     digitalWrite(DECODER_0_5_CLOCK, LOW);
   }
-  
-  
   Serial.println(current_panel);
 }
 
@@ -190,35 +201,25 @@ void loop() {
     {
       Serial.println(current_panel);
     }
-//    else if (command[0] == 69)
-//    {
-//      step_decoder();
-//    }
-    else if (command[0] == 71)
+    else if (command[0] == 69)
     {
-      reverse_bias ^= 1;
-      digitalWrite(REVERSE_BIAS, reverse_bias);
-      Serial.println(reverse_bias);
+      step_decoder();
     }
   }
   if (!digitalRead(SWITCH1))
   {
     digitalWrite(LED1, HIGH);
     
-    step_decoder();
+    if ( (status = perovskite_1.read()) == 0 )
+    {
+      Serial.println(perovskite_1.tAmbient / 16.0);
+    }
+    else
+    {
+      while(1);
+    }
 
     while (!digitalRead(SWITCH1));
-    delay(250);
     digitalWrite(LED1, LOW);
-  }
-  if (!digitalRead(SWITCH2))
-  {
-    digitalWrite(LED2, HIGH);
-    
-    step_ladder();
-
-    while (!digitalRead(SWITCH2));
-    delay(250);
-    digitalWrite(LED2, LOW);
   }
 }
