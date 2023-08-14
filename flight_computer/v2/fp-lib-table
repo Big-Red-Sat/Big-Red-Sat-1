@@ -29,4 +29,6 @@
   (lib (name ul_LT6654AHS6-3-3-TRMPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHS6-3-3-TRMPBF")(options "")(descr ""))
   (lib (name ul_LT6654AMPS6-1-25-TRMPBF)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF")(options "")(descr ""))
   (lib (name ul_MC74HC161ADTR2G)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G")(options "")(descr ""))
+  (lib (name ul_CD4516BPWR)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_CD4516BPWR")(options "")(descr ""))
+  (lib (name ul_74LVC139PW)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/ul_74LVC139PW")(options "")(descr ""))
 )

@@ -27,15 +27,16 @@
 #define REVERSE_BIAS  15
 
 // Process Control Variables
-#define ANALOG_SAMPLES_V      5
-#define ANALOG_SAMPLES_I      5
+#define ANALOG_SAMPLES_V      10
+#define ANALOG_SAMPLES_I      10
+#define SETTLING_TIME         10
 
 #define PEROVSKITE_1_LOWER    0
 
 #define SWITCH1           27
 #define SWITCH2           28
 #define LED1              25
-#define LED2              26 
+#define LED2              P2_7
 
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
 
@@ -106,7 +107,6 @@ void step_ladder(void)
 
 int read_divider_v(void)
 {
-  analogReference(INTERNAL2V5);
   int readings = 0;
   for (int i = 0; i < ANALOG_SAMPLES_V; i++)
   {
@@ -117,7 +117,6 @@ int read_divider_v(void)
 
 int read_divider_i(void)
 {
-  analogReference(INTERNAL2V5);
   int readings = 0;
   for (int i = 0; i < ANALOG_SAMPLES_I; i++)
   {
@@ -138,6 +137,7 @@ void trace_curve(void)
   }
   for (int i = 0; i < 256; i++)
   {
+    delay(SETTLING_TIME);
     v_readings[i] = read_divider_v();
     i_readings[i] = read_divider_i();
     step_ladder();
@@ -182,6 +182,8 @@ void setup() {
   Serial.begin(115200);
   
   analogReadResolution(12);
+  analogReference(EXTERNAL);
+  
   setup_pins();
   reset_decoder();
   reset_ladder();
@@ -210,7 +212,7 @@ void loop() {
   {
     digitalWrite(LED1, HIGH);
     
-    if ( (status = perovskite_1.read()) == 0 )
+    if ((status = perovskite_1.read()) == 0)
     {
       Serial.println(perovskite_1.tAmbient / 16.0);
     }

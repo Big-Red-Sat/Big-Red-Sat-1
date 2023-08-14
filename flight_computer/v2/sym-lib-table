@@ -28,4 +28,6 @@
   (lib (name LT6654AHS6-3.3-TRMPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AHS6-3-3-TRMPBF/LT6654AHS6-3.3-TRMPBF.lib")(options "")(descr ""))
   (lib (name LT6654AMPS6-1.25-TRMPBF)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_LT6654AMPS6-1-25-TRMPBF/LT6654AMPS6-1.25-TRMPBF.lib")(options "")(descr ""))
   (lib (name MC74HC161ADTR2G)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_MC74HC161ADTR2G/MC74HC161ADTR2G.lib")(options "")(descr ""))
+  (lib (name CD4516BPWR)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_CD4516BPWR/CD4516BPWR.lib")(options "")(descr ""))
+  (lib (name 74LVC139PW)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/ul_74LVC139PW/74LVC139PW.lib")(options "")(descr ""))
 )
