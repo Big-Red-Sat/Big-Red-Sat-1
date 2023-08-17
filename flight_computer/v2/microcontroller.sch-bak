@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 8
+Sheet 8 8
 Title "Radiation Hardened Microcontroller Circuits"
 Date "2023-08-13"
 Rev "B"
@@ -406,11 +406,11 @@ Text GLabel 4250 3850 0    50   Input ~ 0
 TX_OUT
 Wire Wire Line
 	2800 2100 3150 2100
-Text GLabel 950  6450 2    50   Input ~ 0
-PAYLOAD_RST
-Text GLabel 950  7150 2    50   Input ~ 0
-RX_IN
 Text GLabel 950  7250 2    50   Input ~ 0
+PAYLOAD_RST
+Text GLabel 950  6350 2    50   Input ~ 0
+RX_IN
+Text GLabel 950  6450 2    50   Input ~ 0
 TX_OUT
 $Comp
 L Device:CP C8
@@ -566,8 +566,6 @@ Wire Wire Line
 	950  7350 1050 7350
 Wire Wire Line
 	1050 7350 1050 7450
-Text GLabel 950  6350 2    50   Input ~ 0
-TEST
 Text GLabel 950  7050 2    50   Input ~ 0
 TCK
 Text GLabel 950  6950 2    50   Input ~ 0
@@ -765,47 +763,43 @@ Text HLabel 4250 3450 0    50   Input ~ 0
 READ_CURRENT
 Text HLabel 4250 3550 0    50   Input ~ 0
 READ_VOLTAGE
-Text HLabel 7300 3350 2    50   Input ~ 0
+Text HLabel 7300 4550 2    50   Input ~ 0
 S0_CT
-Text HLabel 7300 3450 2    50   Input ~ 0
+Text HLabel 4250 3350 0    50   Input ~ 0
 S1_CT
 Text HLabel 7300 3550 2    50   Input ~ 0
 GAAS_ON
-Text HLabel 7300 3650 2    50   Input ~ 0
+Text HLabel 7300 3750 2    50   Input ~ 0
 MUX_CLOCK
-Text HLabel 7300 4350 2    50   Input ~ 0
+Text HLabel 7300 3650 2    50   Input ~ 0
 MUX_GOOD
-Text HLabel 7300 4450 2    50   Input ~ 0
+Text HLabel 7300 4250 2    50   Input ~ 0
 GAAS_TEMP
 Text HLabel 7300 3950 2    50   Input ~ 0
 LADDER_CLOCK
 Text HLabel 7300 4050 2    50   Input ~ 0
 TRACE_DIR
-Text HLabel 7300 4550 2    50   Input ~ 0
+Text HLabel 7300 3450 2    50   Input ~ 0
 CT_GOOD
-Text HLabel 7300 3050 2    50   Input ~ 0
-PANEL_1_ON
-Text HLabel 7300 3150 2    50   Input ~ 0
-PANEL_2_ON
-Text HLabel 7300 3250 2    50   Input ~ 0
+Text HLabel 7300 4450 2    50   Input ~ 0
 PANEL_3_ON
 Text HLabel 2650 4450 0    50   Input ~ 0
 SCL
 Text HLabel 2650 4350 0    50   Input ~ 0
 SDA
-Text HLabel 7300 4250 2    50   Input ~ 0
+Text HLabel 7300 4350 2    50   Input ~ 0
 BUSY
 Text HLabel 4250 4450 0    50   Input ~ 0
 RX
 Text HLabel 4250 4350 0    50   Input ~ 0
 TX
-Text HLabel 7300 3750 2    50   Input ~ 0
+Text HLabel 7300 3350 2    50   Input ~ 0
 MAG_INT
-Text HLabel 4250 4050 0    50   Input ~ 0
+Text HLabel 7300 3250 2    50   Input ~ 0
 SET
-Text HLabel 4250 4150 0    50   Input ~ 0
+Text HLabel 7300 3150 2    50   Input ~ 0
 UNSET
-Text HLabel 4250 3350 0    50   Input ~ 0
+Text HLabel 7300 3050 2    50   Input ~ 0
 NO_V
 Text HLabel 4250 3250 0    50   Input ~ 0
 NC_V
@@ -1167,4 +1161,57 @@ Wire Wire Line
 	2650 3150 4250 3150
 Wire Wire Line
 	1250 3050 4250 3050
+$Comp
+L Device:C C?
+U 1 1 6513B657
+P 2050 7200
+AR Path="/6313FC31/6513B657" Ref="C?"  Part="1" 
+AR Path="/6513B657" Ref="C?"  Part="1" 
+AR Path="/635FE71D/6513B657" Ref="C?"  Part="1" 
+AR Path="/63D1F518/6513B657" Ref="C?"  Part="1" 
+AR Path="/63D21EEE/6513B657" Ref="C?"  Part="1" 
+AR Path="/64AE160A/6513B657" Ref="C18"  Part="1" 
+F 0 "C18" V 2302 7200 50  0000 C CNN
+F 1 "0.1u" V 2211 7200 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2088 7050 50  0001 C CNN
+F 3 "~" H 2050 7200 50  0001 C CNN
+	1    2050 7200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6513B65D
+P 2050 7350
+AR Path="/6313FC31/6513B65D" Ref="#PWR?"  Part="1" 
+AR Path="/6513B65D" Ref="#PWR?"  Part="1" 
+AR Path="/635FE71D/6513B65D" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/6513B65D" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/6513B65D" Ref="#PWR?"  Part="1" 
+AR Path="/64AE160A/6513B65D" Ref="#PWR0154"  Part="1" 
+F 0 "#PWR0154" H 2050 7100 50  0001 C CNN
+F 1 "GND" H 2055 7177 50  0000 C CNN
+F 2 "" H 2050 7350 50  0001 C CNN
+F 3 "" H 2050 7350 50  0001 C CNN
+	1    2050 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 6513C640
+P 2050 7050
+AR Path="/6513C640" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/6513C640" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/6513C640" Ref="#PWR?"  Part="1" 
+AR Path="/64AE160A/6513C640" Ref="#PWR0158"  Part="1" 
+F 0 "#PWR0158" H 2050 6900 50  0001 C CNN
+F 1 "+3V3" H 2065 7223 50  0000 C CNN
+F 2 "" H 2050 7050 50  0001 C CNN
+F 3 "" H 2050 7050 50  0001 C CNN
+	1    2050 7050
+	1    0    0    -1  
+$EndComp
+Text GLabel 950  7150 2    50   Input ~ 0
+TEST
+NoConn ~ 4250 4050
+NoConn ~ 4250 4150
 $EndSCHEMATC

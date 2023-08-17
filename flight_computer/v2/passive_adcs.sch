@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 8
+Sheet 3 8
 Title "Passive Attitude Determination and Control System"
 Date "2023-08-13"
 Rev "B"
@@ -306,70 +306,6 @@ F 3 "~" H 4950 7050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
-U 1 1 64B9626D
-P 5400 7200
-AR Path="/64A4749F/64B9626D" Ref="#PWR?"  Part="1" 
-AR Path="/64A6B33A/64B9626D" Ref="#PWR0249"  Part="1" 
-AR Path="/64D823E8/64B9626D" Ref="#PWR0135"  Part="1" 
-F 0 "#PWR0135" H 5400 6950 50  0001 C CNN
-F 1 "GND" H 5405 7027 50  0000 C CNN
-F 2 "" H 5400 7200 50  0001 C CNN
-F 3 "" H 5400 7200 50  0001 C CNN
-	1    5400 7200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64B96273
-P 5400 7050
-AR Path="/6313FC31/64B96273" Ref="C?"  Part="1" 
-AR Path="/64B96273" Ref="C?"  Part="1" 
-AR Path="/635FE71D/64B96273" Ref="C?"  Part="1" 
-AR Path="/63C503EE/64B96273" Ref="C?"  Part="1" 
-AR Path="/64A4749F/64B96273" Ref="C?"  Part="1" 
-AR Path="/64A6B33A/64B96273" Ref="C37"  Part="1" 
-AR Path="/64D823E8/64B96273" Ref="C49"  Part="1" 
-F 0 "C49" V 5652 7050 50  0000 C CNN
-F 1 "1u" V 5561 7050 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5438 6900 50  0001 C CNN
-F 3 "~" H 5400 7050 50  0001 C CNN
-	1    5400 7050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 64B98B30
-P 5850 7200
-AR Path="/64A4749F/64B98B30" Ref="#PWR?"  Part="1" 
-AR Path="/64A6B33A/64B98B30" Ref="#PWR0251"  Part="1" 
-AR Path="/64D823E8/64B98B30" Ref="#PWR0137"  Part="1" 
-F 0 "#PWR0137" H 5850 6950 50  0001 C CNN
-F 1 "GND" H 5855 7027 50  0000 C CNN
-F 2 "" H 5850 7200 50  0001 C CNN
-F 3 "" H 5850 7200 50  0001 C CNN
-	1    5850 7200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64B98B36
-P 5850 7050
-AR Path="/6313FC31/64B98B36" Ref="C?"  Part="1" 
-AR Path="/64B98B36" Ref="C?"  Part="1" 
-AR Path="/635FE71D/64B98B36" Ref="C?"  Part="1" 
-AR Path="/63C503EE/64B98B36" Ref="C?"  Part="1" 
-AR Path="/64A4749F/64B98B36" Ref="C?"  Part="1" 
-AR Path="/64A6B33A/64B98B36" Ref="C38"  Part="1" 
-AR Path="/64D823E8/64B98B36" Ref="C50"  Part="1" 
-F 0 "C50" V 6102 7050 50  0000 C CNN
-F 1 "1u" V 6011 7050 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5888 6900 50  0001 C CNN
-F 3 "~" H 5850 7050 50  0001 C CNN
-	1    5850 7050
-	1    0    0    -1  
-$EndComp
-$Comp
 L 0781710004:0781710004 J?
 U 1 1 64E1E16D
 P 6300 1800
@@ -416,92 +352,6 @@ Wire Wire Line
 Connection ~ 6050 2100
 Wire Wire Line
 	6050 2100 6050 2200
-$Comp
-L Device:R R?
-U 1 1 64E1E17F
-P 5750 1500
-AR Path="/6313FC31/64E1E17F" Ref="R?"  Part="1" 
-AR Path="/64E1E17F" Ref="R?"  Part="1" 
-AR Path="/648F7944/64E1E17F" Ref="R?"  Part="1" 
-AR Path="/64A6B33A/64E1E17F" Ref="R?"  Part="1" 
-AR Path="/64D823E8/64E1E17F" Ref="R54"  Part="1" 
-AR Path="/64D821F3/64E1E17F" Ref="R?"  Part="1" 
-F 0 "R54" V 5650 1500 50  0000 C CNN
-F 1 "4k7" V 5750 1500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5680 1500 50  0001 C CNN
-F 3 "~" H 5750 1500 50  0001 C CNN
-	1    5750 1500
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 64E1E185
-P 5750 1300
-AR Path="/6313FC31/64E1E185" Ref="#PWR?"  Part="1" 
-AR Path="/64E1E185" Ref="#PWR?"  Part="1" 
-AR Path="/648F7944/64E1E185" Ref="#PWR?"  Part="1" 
-AR Path="/64A6B33A/64E1E185" Ref="#PWR?"  Part="1" 
-AR Path="/64D823E8/64E1E185" Ref="#PWR0127"  Part="1" 
-AR Path="/64D821F3/64E1E185" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0127" H 5750 1150 50  0001 C CNN
-F 1 "+3V3" H 5765 1473 50  0000 C CNN
-F 2 "" H 5750 1300 50  0001 C CNN
-F 3 "" H 5750 1300 50  0001 C CNN
-	1    5750 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 64E1E18B
-P 5500 1300
-AR Path="/6313FC31/64E1E18B" Ref="#PWR?"  Part="1" 
-AR Path="/64E1E18B" Ref="#PWR?"  Part="1" 
-AR Path="/648F7944/64E1E18B" Ref="#PWR?"  Part="1" 
-AR Path="/64A6B33A/64E1E18B" Ref="#PWR?"  Part="1" 
-AR Path="/64D823E8/64E1E18B" Ref="#PWR0126"  Part="1" 
-AR Path="/64D821F3/64E1E18B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0126" H 5500 1150 50  0001 C CNN
-F 1 "+3V3" H 5515 1473 50  0000 C CNN
-F 2 "" H 5500 1300 50  0001 C CNN
-F 3 "" H 5500 1300 50  0001 C CNN
-	1    5500 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 64E1E191
-P 5500 1500
-AR Path="/6313FC31/64E1E191" Ref="R?"  Part="1" 
-AR Path="/64E1E191" Ref="R?"  Part="1" 
-AR Path="/648F7944/64E1E191" Ref="R?"  Part="1" 
-AR Path="/64A6B33A/64E1E191" Ref="R?"  Part="1" 
-AR Path="/64D823E8/64E1E191" Ref="R53"  Part="1" 
-AR Path="/64D821F3/64E1E191" Ref="R?"  Part="1" 
-F 0 "R53" V 5400 1500 50  0000 C CNN
-F 1 "4k7" V 5500 1500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5430 1500 50  0001 C CNN
-F 3 "~" H 5500 1500 50  0001 C CNN
-	1    5500 1500
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5400 1800 5500 1800
-Wire Wire Line
-	5400 1900 5750 1900
-Wire Wire Line
-	5500 1650 5500 1800
-Connection ~ 5500 1800
-Wire Wire Line
-	5500 1800 6100 1800
-Wire Wire Line
-	5750 1650 5750 1900
-Connection ~ 5750 1900
-Wire Wire Line
-	5750 1900 6100 1900
-Wire Wire Line
-	5750 1300 5750 1350
-Wire Wire Line
-	5500 1300 5500 1350
 Wire Wire Line
 	6000 1300 6000 1700
 Text HLabel 5400 1800 0    50   Input ~ 0
@@ -585,32 +435,6 @@ F 1 "VBUS" H 4965 7073 50  0000 C CNN
 F 2 "" H 4950 6900 50  0001 C CNN
 F 3 "" H 4950 6900 50  0001 C CNN
 	1    4950 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VBUS #PWR?
-U 1 1 64F78A76
-P 5400 6900
-AR Path="/64D821F3/64F78A76" Ref="#PWR?"  Part="1" 
-AR Path="/64D823E8/64F78A76" Ref="#PWR0134"  Part="1" 
-F 0 "#PWR0134" H 5400 6750 50  0001 C CNN
-F 1 "VBUS" H 5415 7073 50  0000 C CNN
-F 2 "" H 5400 6900 50  0001 C CNN
-F 3 "" H 5400 6900 50  0001 C CNN
-	1    5400 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VBUS #PWR?
-U 1 1 64F78C7D
-P 5850 6900
-AR Path="/64D821F3/64F78C7D" Ref="#PWR?"  Part="1" 
-AR Path="/64D823E8/64F78C7D" Ref="#PWR0136"  Part="1" 
-F 0 "#PWR0136" H 5850 6750 50  0001 C CNN
-F 1 "VBUS" H 5865 7073 50  0000 C CNN
-F 2 "" H 5850 6900 50  0001 C CNN
-F 3 "" H 5850 6900 50  0001 C CNN
-	1    5850 6900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -725,4 +549,21 @@ F 3 "" H 4000 4300 50  0001 C CNN
 	1    4000 4300
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 64F4D993
+P 4450 4100
+AR Path="/64D8220D/64F4D993" Ref="TP?"  Part="1" 
+AR Path="/64D823E8/64F4D993" Ref="TP11"  Part="1" 
+F 0 "TP11" H 4500 4300 50  0000 R CNN
+F 1 "I" H 4393 4217 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4650 4100 50  0001 C CNN
+F 3 "~" H 4650 4100 50  0001 C CNN
+	1    4450 4100
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	5400 1800 6100 1800
+Wire Wire Line
+	5400 1900 6100 1900
 $EndSCHEMATC

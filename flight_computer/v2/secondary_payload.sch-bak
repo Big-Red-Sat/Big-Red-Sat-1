@@ -23,9 +23,9 @@ Text HLabel 6000 4100 0    50   Input ~ 0
 SET
 Text HLabel 6000 4200 0    50   Input ~ 0
 UNSET
-Text HLabel 6000 4400 0    50   Input ~ 0
-NO_V
 Text HLabel 6000 4300 0    50   Input ~ 0
+NO_V
+Text HLabel 6000 4400 0    50   Input ~ 0
 NC_V
 $Comp
 L Connector:Conn_01x10_Male J3
@@ -68,21 +68,21 @@ Wire Wire Line
 	5950 3450 5950 3500
 Wire Wire Line
 	5950 3500 6000 3500
+Wire Wire Line
+	5750 3450 5750 3600
+Wire Wire Line
+	5750 3600 6000 3600
 $Comp
-L power:VCC #PWR?
-U 1 1 6727A7C2
+L power:VPP #PWR?
+U 1 1 67283A84
 P 5750 3450
-AR Path="/64D821F3/6727A7C2" Ref="#PWR?"  Part="1" 
-AR Path="/6685FD81/6727A7C2" Ref="#PWR0109"  Part="1" 
-F 0 "#PWR0109" H 5750 3300 50  0001 C CNN
-F 1 "VCC" H 5765 3623 50  0000 C CNN
+AR Path="/64D821F3/67283A84" Ref="#PWR?"  Part="1" 
+AR Path="/6685FD81/67283A84" Ref="#PWR0110"  Part="1" 
+F 0 "#PWR0110" H 5750 3300 50  0001 C CNN
+F 1 "VPP" H 5765 3623 50  0000 C CNN
 F 2 "" H 5750 3450 50  0001 C CNN
 F 3 "" H 5750 3450 50  0001 C CNN
 	1    5750 3450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5750 3450 5750 3600
-Wire Wire Line
-	5750 3600 6000 3600
 $EndSCHEMATC
