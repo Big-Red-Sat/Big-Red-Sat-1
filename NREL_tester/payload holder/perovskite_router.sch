@@ -103,17 +103,17 @@ $EndComp
 $Comp
 L power:GND #PWR0106
 U 1 1 64AB952A
-P 4850 4800
-F 0 "#PWR0106" H 4850 4550 50  0001 C CNN
-F 1 "GND" H 4855 4627 50  0000 C CNN
-F 2 "" H 4850 4800 50  0001 C CNN
-F 3 "" H 4850 4800 50  0001 C CNN
-	1    4850 4800
+P 4850 5000
+F 0 "#PWR0106" H 4850 4750 50  0001 C CNN
+F 1 "GND" H 4855 4827 50  0000 C CNN
+F 2 "" H 4850 5000 50  0001 C CNN
+F 3 "" H 4850 5000 50  0001 C CNN
+	1    4850 5000
 	1    0    0    -1  
 $EndComp
-Text GLabel 4600 4700 2    50   Input ~ 0
+Text GLabel 4600 4400 2    50   Input ~ 0
 SDA
-Text GLabel 4600 4600 2    50   Input ~ 0
+Text GLabel 4600 4500 2    50   Input ~ 0
 SCL
 Text GLabel 4600 4200 2    50   Input ~ 0
 CELL_1
@@ -127,9 +127,9 @@ Text GLabel 4600 3800 2    50   Input ~ 0
 CELL_5
 Text GLabel 4600 3700 2    50   Input ~ 0
 CELL_4
-Text GLabel 5450 4450 2    50   Input ~ 0
+Text GLabel 5450 4650 2    50   Input ~ 0
 COMMON_1
-Text GLabel 5450 4550 2    50   Input ~ 0
+Text GLabel 5450 4750 2    50   Input ~ 0
 COMMON_2
 $Comp
 L Connector:Conn_01x11_Male J3
@@ -143,20 +143,20 @@ F 3 "~" H 4400 4200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5450 4450 5400 4450
+	5450 4650 5400 4650
 Wire Wire Line
-	5400 4450 5400 4500
+	5400 4650 5400 4700
 Wire Wire Line
-	5400 4550 5450 4550
+	5400 4750 5450 4750
 Wire Wire Line
-	5400 4500 4600 4500
-Connection ~ 5400 4500
+	5400 4700 4600 4700
+Connection ~ 5400 4700
 Wire Wire Line
-	5400 4500 5400 4550
+	5400 4700 5400 4750
 Wire Wire Line
-	4600 4400 4850 4400
+	4600 4600 4850 4600
 Wire Wire Line
-	4850 4400 4850 4800
+	4850 4600 4850 5000
 Wire Wire Line
 	4600 4300 5050 4300
 Wire Wire Line

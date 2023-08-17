@@ -5,13 +5,13 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 8
 Title "Big Red Satellite Flight Computer - Top Level"
-Date "2023-08-13"
+Date "2023-08-16"
 Rev "B"
 Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
-Comment3 "Reviewer:"
-Comment4 "Approved:"
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
 $EndDescr
 $Sheet
 S 6300 800  1300 1900
