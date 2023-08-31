@@ -7,7 +7,7 @@ Sheet 7 8
 Title "Secondary Payload Connections"
 Date "2023-08-16"
 Rev "A"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"

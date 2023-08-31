@@ -7,7 +7,7 @@ Sheet 5 8
 Title "Payload Switching Circuit"
 Date "2023-08-16"
 Rev "B"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"
@@ -1442,16 +1442,6 @@ F 3 "" H 5600 7900 60  0000 C CNN
 	1    6300 7350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3300 8350 3200 8350
-Wire Wire Line
-	3200 8350 3200 8050
-Connection ~ 3200 8050
-Wire Wire Line
-	3200 8350 3200 8450
-Wire Wire Line
-	3200 8450 3300 8450
-Connection ~ 3200 8350
 $Comp
 L Device:C C?
 U 1 1 650F28BE
@@ -2267,12 +2257,6 @@ Wire Wire Line
 Wire Wire Line
 	12950 14950 14900 14950
 Wire Wire Line
-	3200 8550 3200 8650
-Wire Wire Line
-	3200 8650 3200 8750
-Connection ~ 3200 8650
-Connection ~ 3200 8750
-Wire Wire Line
 	17050 14550 17050 9550
 Wire Wire Line
 	17050 9550 18050 9550
@@ -2961,4 +2945,20 @@ Text GLabel 14950 6650 2    50   Input ~ 0
 P2_P2
 Text GLabel 14900 11150 2    50   Input ~ 0
 P3_P1
+Wire Wire Line
+	3200 8550 3200 8650
+Wire Wire Line
+	3300 8450 3200 8450
+Wire Wire Line
+	3200 8450 3200 8350
+Connection ~ 3200 8050
+Wire Wire Line
+	3300 8350 3200 8350
+Connection ~ 3200 8350
+Wire Wire Line
+	3200 8350 3200 8050
+Connection ~ 3200 8750
+Wire Wire Line
+	3200 8650 3200 8750
+Connection ~ 3200 8650
 $EndSCHEMATC

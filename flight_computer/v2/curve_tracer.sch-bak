@@ -5,9 +5,9 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 2 8
 Title "Curve Tracing Circuits"
-Date "2023-08-16"
-Rev "C"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Date "2023-08-20"
+Rev "D"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"
@@ -1533,26 +1533,12 @@ F 3 "" H 2950 5850 50  0001 C CNN
 	1    2950 5850
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3V3 #PWR040
-U 1 1 660CCD79
-P 2350 4650
-F 0 "#PWR040" H 2350 4500 50  0001 C CNN
-F 1 "+3V3" H 2365 4823 50  0000 C CNN
-F 2 "" H 2350 4650 50  0001 C CNN
-F 3 "" H 2350 4650 50  0001 C CNN
-	1    2350 4650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2550 5550 2350 5550
-Wire Wire Line
-	2350 5550 2350 4650
 Wire Wire Line
 	2550 5650 2350 5650
 Wire Wire Line
 	2350 5650 2350 5550
-Connection ~ 2350 5550
 Wire Wire Line
 	2550 5250 2150 5250
 Wire Wire Line
@@ -2021,4 +2007,18 @@ F 3 "" H 3550 10500 50  0001 C CNN
 	1    3550 10500
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR0127
+U 1 1 64E45D8F
+P 2350 5850
+F 0 "#PWR0127" H 2350 5600 50  0001 C CNN
+F 1 "GND" H 2355 5677 50  0000 C CNN
+F 2 "" H 2350 5850 50  0001 C CNN
+F 3 "" H 2350 5850 50  0001 C CNN
+	1    2350 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 5650 2350 5850
+Connection ~ 2350 5650
 $EndSCHEMATC

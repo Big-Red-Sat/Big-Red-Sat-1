@@ -7,7 +7,7 @@ Sheet 3 8
 Title "Passive Attitude Determination and Control System"
 Date "2023-08-16"
 Rev "B"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"

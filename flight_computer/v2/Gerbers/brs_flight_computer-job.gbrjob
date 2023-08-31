@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "(5.1.10)-1"
     },
-    "CreationDate":  "2023-08-16T19:47:32-05:00"
+    "CreationDate":  "2023-08-20T09:24:49-05:00"
   },
   "GeneralSpecs":
   {
@@ -15,7 +15,7 @@
     {
       "Name": "brs_flight_computer",
       "GUID": "6272735f-666c-4696-9768-745f636f6d70",
-      "Revision": "rev?"
+      "Revision": "A"
     },
     "Size":
     {

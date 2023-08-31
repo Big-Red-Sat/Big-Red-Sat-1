@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP OPA2387
+D Low noise low drift op amp
+F https://www.ti.com/lit/ds/symlink/opa387.pdf?ts=1669014858969&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FOPA387
+$ENDCMP
+#
+#End Doc Library

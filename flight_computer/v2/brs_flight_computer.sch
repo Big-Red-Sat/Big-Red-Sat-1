@@ -7,7 +7,7 @@ Sheet 1 8
 Title "Big Red Satellite Flight Computer - Top Level"
 Date "2023-08-16"
 Rev "B"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"
@@ -68,6 +68,8 @@ F7 "GAAS_POS" O R 5900 1000 50
 F8 "SDA" I L 4600 1550 50 
 F9 "SCL" I L 4600 1450 50 
 F10 "GAAS_TEMP" I L 4600 1350 50 
+F11 "MUX_RESET" I L 4600 1050 50 
+F12 "MUX_ENABLE" I L 4600 950 50 
 $EndSheet
 Wire Wire Line
 	7950 2250 7600 2250
@@ -206,5 +208,11 @@ F21 "UNSET" I R 3750 5950 50
 F22 "NO_V" I R 3750 6050 50 
 F23 "NC_V" I R 3750 6150 50 
 F24 "READ_BUSS" I R 3750 4900 50 
+F25 "MUX_ENABLE" I R 3750 950 50 
+F26 "MUX_RESET" I R 3750 1050 50 
 $EndSheet
+Wire Wire Line
+	4600 1050 3750 1050
+Wire Wire Line
+	3750 950  4600 950 
 $EndSCHEMATC

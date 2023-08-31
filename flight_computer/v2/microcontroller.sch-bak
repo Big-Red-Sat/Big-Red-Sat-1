@@ -7,7 +7,7 @@ Sheet 8 8
 Title "Radiation Hardened Microcontroller Circuits"
 Date "2023-08-16"
 Rev "B"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"
@@ -23,7 +23,7 @@ AR Path="/63D21EEE/63D67C0B" Ref="U34"  Part="1"
 AR Path="/64AE160A/63D67C0B" Ref="U8"  Part="1" 
 F 0 "U8" H 5775 5615 50  0000 C CNN
 F 1 "MSP430FR5969IRGZR" H 5775 5524 50  0000 C CNN
-F 2 "MSP430FR5969IRGZR:QFN50P700X700X100-49N" H 6200 3750 50  0001 L BNN
+F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 6200 3750 50  0001 L BNN
 F 3 "" H 6200 3750 50  0001 L BNN
 	1    5800 3750
 	1    0    0    -1  
@@ -383,7 +383,7 @@ U 1 1 6373CA55
 P 8500 3600
 F 0 "Y1" H 8450 3800 50  0000 L CNN
 F 1 "CM8V-T1A" H 8300 3450 50  0000 L CNN
-F 2 "CM8V-T1A-32:XTAL_CM8V-T1A-32.768KHZ-7PF-20PPM-TA-QC" H 8500 3600 50  0001 L BNN
+F 2 "Crystal:Crystal_SMD_MicroCrystal_CC7V-T1A-2Pin_3.2x1.5mm" H 8500 3600 50  0001 L BNN
 F 3 "" H 8500 3600 50  0001 L BNN
 F 4 "Manufacturer Recommendations" H 8500 3600 50  0001 L BNN "STANDARD"
 F 5 "Micro Crystal" H 8500 3600 50  0001 L BNN "MANUFACTURER"
@@ -1117,9 +1117,6 @@ F 3 "" H 2350 6750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7300 2250 7650 2250
-NoConn ~ 4250 4250
-NoConn ~ 4250 4550
-NoConn ~ 7300 4150
 $Comp
 L Device:C C?
 U 1 1 6715DC73
@@ -1212,6 +1209,9 @@ F 3 "" H 2050 7050 50  0001 C CNN
 $EndComp
 Text GLabel 950  7150 2    50   Input ~ 0
 TEST
+NoConn ~ 7300 4150
+NoConn ~ 4250 4550
 NoConn ~ 4250 4050
 NoConn ~ 4250 4150
+NoConn ~ 4250 4250
 $EndSCHEMATC

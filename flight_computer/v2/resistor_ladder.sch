@@ -7,7 +7,7 @@ Sheet 4 8
 Title "Resistor 4-Bit Ladders"
 Date "2023-08-16"
 Rev "C"
-Comp "UNL Aerospace Club | Advanced eXperimental Payloads"
+Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
 Comment3 "Reviewer: WSA"
@@ -376,17 +376,6 @@ F 3 "" H 750 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CD4516BPWR:CD4516B_PW_16 U26
-U 1 1 64EB28CD
-P 7250 6600
-F 0 "U26" H 7275 7287 60  0000 C CNN
-F 1 "CD4516B_PW_16" H 7275 7181 60  0000 C CNN
-F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7250 7190 60  0001 C CNN
-F 3 "" H 6400 6950 60  0000 C CNN
-	1    7250 6600
-	0    -1   -1   0   
-$EndComp
-$Comp
 L power:GND #PWR0197
 U 1 1 63350ACA
 P 7600 7450
@@ -397,12 +386,6 @@ F 3 "" H 7600 7450 50  0001 C CNN
 	1    7600 7450
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7100 7450
-NoConn ~ 7200 7450
-NoConn ~ 7300 7450
-NoConn ~ 7400 7450
-NoConn ~ 7600 5700
-NoConn ~ 7500 5700
 $Comp
 L power:GND #PWR0200
 U 1 1 64EFFF9E
@@ -666,12 +649,7 @@ F 3 "" H 11100 7450 50  0001 C CNN
 	1    11100 7450
 	1    0    0    -1  
 $EndComp
-NoConn ~ 10600 7450
-NoConn ~ 10700 7450
-NoConn ~ 10800 7450
-NoConn ~ 10900 7450
 NoConn ~ 11100 5700
-NoConn ~ 11000 5700
 $Comp
 L power:GND #PWR0207
 U 1 1 65CD2E88
@@ -924,17 +902,6 @@ Wire Wire Line
 Wire Wire Line
 	3950 3650 3950 3350
 $Comp
-L CD4516BPWR:CD4516B_PW_16 U21
-U 1 1 65CDCBD2
-P 3750 6600
-F 0 "U21" H 3775 7287 60  0000 C CNN
-F 1 "CD4516B_PW_16" H 3775 7181 60  0000 C CNN
-F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 3750 7190 60  0001 C CNN
-F 3 "" H 2900 6950 60  0000 C CNN
-	1    3750 6600
-	0    -1   -1   0   
-$EndComp
-$Comp
 L power:GND #PWR0178
 U 1 1 65CDCBDF
 P 4100 7450
@@ -945,12 +912,7 @@ F 3 "" H 4100 7450 50  0001 C CNN
 	1    4100 7450
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3600 7450
-NoConn ~ 3700 7450
-NoConn ~ 3800 7450
-NoConn ~ 3900 7450
 NoConn ~ 4100 5700
-NoConn ~ 4000 5700
 $Comp
 L power:GND #PWR0181
 U 1 1 65CDCBEF
@@ -1228,12 +1190,7 @@ F 3 "" H 14700 7450 50  0001 C CNN
 	1    14700 7450
 	1    0    0    -1  
 $EndComp
-NoConn ~ 14200 7450
-NoConn ~ 14300 7450
-NoConn ~ 14400 7450
-NoConn ~ 14500 7450
 NoConn ~ 14700 5700
-NoConn ~ 14600 5700
 $Comp
 L power:GND #PWR0212
 U 1 1 65CF750D
@@ -1281,7 +1238,7 @@ Wire Wire Line
 Wire Wire Line
 	10400 7750 10400 7450
 Wire Wire Line
-	10400 7750 14000 7750
+	10400 7750 10600 7750
 Wire Wire Line
 	14000 7750 14000 7450
 Connection ~ 10400 7750
@@ -1760,23 +1717,23 @@ Wire Wire Line
 Wire Wire Line
 	4300 5600 4300 5700
 Wire Wire Line
-	3500 5600 4300 5600
+	3500 5600 4000 5600
 Wire Wire Line
 	7000 5700 7000 5600
 Wire Wire Line
-	7000 5600 7800 5600
+	7000 5600 7500 5600
 Wire Wire Line
 	7800 5600 7800 5700
 Wire Wire Line
 	10500 5700 10500 5600
 Wire Wire Line
-	10500 5600 11350 5600
+	10500 5600 11000 5600
 Wire Wire Line
 	11350 5600 11350 5700
 Wire Wire Line
 	14100 5700 14100 5600
 Wire Wire Line
-	14100 5600 14950 5600
+	14100 5600 14600 5600
 Wire Wire Line
 	14950 5600 14950 5700
 $Comp
@@ -1803,7 +1760,7 @@ F 3 "" H 14000 5700 50  0001 C CNN
 $EndComp
 Connection ~ 6900 7750
 Wire Wire Line
-	6900 7750 10400 7750
+	6900 7750 7100 7750
 Connection ~ 7000 7850
 Wire Wire Line
 	7000 7850 10500 7850
@@ -1811,7 +1768,7 @@ Connection ~ 7500 7950
 Wire Wire Line
 	7500 7950 11000 7950
 Wire Wire Line
-	3400 7750 6900 7750
+	3400 7750 3600 7750
 Wire Wire Line
 	3500 7850 7000 7850
 Wire Wire Line
@@ -2352,4 +2309,169 @@ F 3 "" H 3550 1700 50  0001 C CNN
 	1    3550 1700
 	1    0    0    -1  
 $EndComp
+NoConn ~ 7600 5700
+Wire Wire Line
+	11000 5700 11000 5600
+Connection ~ 11000 5600
+Wire Wire Line
+	11000 5600 11350 5600
+Wire Wire Line
+	7500 5700 7500 5600
+Connection ~ 7500 5600
+Wire Wire Line
+	7500 5600 7800 5600
+$Comp
+L CD4516BPWR:CD4516B_PW_16 U21
+U 1 1 65CDCBD2
+P 3750 6600
+F 0 "U21" H 3775 7287 60  0000 C CNN
+F 1 "CD4516B_PW_16" H 3775 7181 60  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 3750 7190 60  0001 C CNN
+F 3 "" H 2900 6950 60  0000 C CNN
+	1    3750 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4000 5700 4000 5600
+Connection ~ 4000 5600
+Wire Wire Line
+	4000 5600 4300 5600
+Wire Wire Line
+	14600 5700 14600 5600
+Connection ~ 14600 5600
+Wire Wire Line
+	14600 5600 14950 5600
+$Comp
+L CD4516BPWR:CD4516B_PW_16 U26
+U 1 1 64EB28CD
+P 7250 6600
+F 0 "U26" H 7275 7287 60  0000 C CNN
+F 1 "CD4516B_PW_16" H 7275 7181 60  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7250 7190 60  0001 C CNN
+F 3 "" H 6400 6950 60  0000 C CNN
+	1    7250 6600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3600 7450 3600 7750
+Connection ~ 3600 7750
+Wire Wire Line
+	3600 7750 3700 7750
+Wire Wire Line
+	3700 7450 3700 7750
+Connection ~ 3700 7750
+Wire Wire Line
+	3700 7750 3800 7750
+Wire Wire Line
+	3800 7450 3800 7750
+Connection ~ 3800 7750
+Wire Wire Line
+	3800 7750 3900 7750
+Wire Wire Line
+	3900 7450 3900 7750
+Connection ~ 3900 7750
+Wire Wire Line
+	3900 7750 6900 7750
+Wire Wire Line
+	7100 7450 7100 7750
+Connection ~ 7100 7750
+Wire Wire Line
+	7100 7750 7200 7750
+Wire Wire Line
+	7200 7750 7200 7450
+Connection ~ 7200 7750
+Wire Wire Line
+	7200 7750 7300 7750
+Wire Wire Line
+	7300 7450 7300 7750
+Connection ~ 7300 7750
+Wire Wire Line
+	7300 7750 7400 7750
+Wire Wire Line
+	7400 7750 7400 7450
+Connection ~ 7400 7750
+Wire Wire Line
+	7400 7750 10400 7750
+Wire Wire Line
+	10600 7450 10600 7750
+Connection ~ 10600 7750
+Wire Wire Line
+	10600 7750 10700 7750
+Wire Wire Line
+	10700 7750 10700 7450
+Connection ~ 10700 7750
+Wire Wire Line
+	10800 7450 10800 7750
+Wire Wire Line
+	10700 7750 10800 7750
+Connection ~ 10800 7750
+Wire Wire Line
+	10800 7750 10900 7750
+Wire Wire Line
+	10900 7750 10900 7450
+Connection ~ 10900 7750
+Wire Wire Line
+	10900 7750 14000 7750
+Wire Wire Line
+	14000 7750 14200 7750
+Wire Wire Line
+	14500 7750 14500 7450
+Connection ~ 14000 7750
+Wire Wire Line
+	14400 7450 14400 7750
+Connection ~ 14400 7750
+Wire Wire Line
+	14400 7750 14500 7750
+Wire Wire Line
+	14300 7450 14300 7750
+Connection ~ 14300 7750
+Wire Wire Line
+	14300 7750 14400 7750
+Wire Wire Line
+	14200 7450 14200 7750
+Connection ~ 14200 7750
+Wire Wire Line
+	14200 7750 14300 7750
+$Comp
+L 4xxx:4012 U6
+U 2 1 650E82D8
+P 3200 9100
+F 0 "U6" H 3200 8758 50  0000 C CNN
+F 1 "4012" H 3200 8849 50  0000 C CNN
+F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 3200 9100 50  0001 C CNN
+F 3 "http://www.intersil.com/content/dam/Intersil/documents/cd40/cd4011bms-12bms-23bms.pdf" H 3200 9100 50  0001 C CNN
+	2    3200 9100
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0162
+U 1 1 650ECA30
+P 3600 9350
+F 0 "#PWR0162" H 3600 9100 50  0001 C CNN
+F 1 "GND" H 3605 9177 50  0000 C CNN
+F 2 "" H 3600 9350 50  0001 C CNN
+F 3 "" H 3600 9350 50  0001 C CNN
+	1    3600 9350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 8950 3600 8950
+Wire Wire Line
+	3600 8950 3600 9050
+Wire Wire Line
+	3500 9250 3600 9250
+Connection ~ 3600 9250
+Wire Wire Line
+	3600 9250 3600 9350
+Connection ~ 3600 9150
+Wire Wire Line
+	3600 9150 3600 9250
+Wire Wire Line
+	3500 9050 3600 9050
+Connection ~ 3600 9050
+Wire Wire Line
+	3600 9050 3600 9150
+Wire Wire Line
+	3500 9150 3600 9150
+NoConn ~ 2900 9100
 $EndSCHEMATC
