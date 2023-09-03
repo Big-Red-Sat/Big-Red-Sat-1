@@ -243,4 +243,69 @@ F 3 "" H 8150 4850 50  0001 C CNN
 	1    8150 4850
 	-1   0    0    1   
 $EndComp
+$Comp
+L Connector:Conn_01x06_Male J7
+U 1 1 64F13341
+P 4100 5150
+F 0 "J7" H 4072 5078 50  0000 R CNN
+F 1 "Conn_01x06_Male" H 4072 5123 50  0001 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 4100 5150 50  0001 C CNN
+F 3 "~" H 4100 5150 50  0001 C CNN
+	1    4100 5150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x06_Male J8
+U 1 1 64F13347
+P 4350 5050
+F 0 "J8" H 4458 5339 50  0000 C CNN
+F 1 "Conn_01x06_Male" H 4458 5340 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 4350 5050 50  0001 C CNN
+F 3 "~" H 4350 5050 50  0001 C CNN
+	1    4350 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR?
+U 1 1 64F1334D
+P 3800 4800
+AR Path="/64D821F3/64F1334D" Ref="#PWR?"  Part="1" 
+AR Path="/6685FD81/64F1334D" Ref="#PWR?"  Part="1" 
+AR Path="/64F1334D" Ref="#PWR0109"  Part="1" 
+F 0 "#PWR0109" H 3800 4650 50  0001 C CNN
+F 1 "VDDF" H 3815 4973 50  0000 C CNN
+F 2 "" H 3800 4800 50  0001 C CNN
+F 3 "" H 3800 4800 50  0001 C CNN
+	1    3800 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 64F13353
+P 3900 5050
+AR Path="/6685FD81/64F13353" Ref="#PWR?"  Part="1" 
+AR Path="/64F13353" Ref="#PWR0110"  Part="1" 
+F 0 "#PWR0110" H 3900 4800 50  0001 C CNN
+F 1 "GND" V 3905 4922 50  0000 R CNN
+F 2 "" H 3900 5050 50  0001 C CNN
+F 3 "" H 3900 5050 50  0001 C CNN
+	1    3900 5050
+	0    1    1    0   
+$EndComp
+Text HLabel 3900 5150 0    50   Input ~ 0
+SCL
+Text HLabel 3900 5250 0    50   Input ~ 0
+SDA
+Wire Wire Line
+	3900 4850 3800 4850
+Wire Wire Line
+	3800 4850 3800 4800
+NoConn ~ 3900 4950
+NoConn ~ 4550 4850
+NoConn ~ 4550 4950
+NoConn ~ 4550 5050
+NoConn ~ 4550 5150
+NoConn ~ 4550 5250
+NoConn ~ 4550 5350
+NoConn ~ 3900 5350
 $EndSCHEMATC
