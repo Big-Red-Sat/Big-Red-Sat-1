@@ -30,15 +30,15 @@ NC_V
 $Comp
 L Connector:Conn_01x10_Male J?
 U 1 1 64DDA625
-P 6200 3850
+P 6200 3950
 AR Path="/6685FD81/64DDA625" Ref="J?"  Part="1" 
 AR Path="/64DDA625" Ref="J3"  Part="1" 
-F 0 "J3" H 6172 3824 50  0000 R CNN
-F 1 "Conn_01x10_Male" H 6172 3733 50  0000 R CNN
-F 2 "Connector_Molex:Molex_PicoBlade_53047-1010_1x10_P1.25mm_Vertical" H 6200 3850 50  0001 C CNN
-F 3 "~" H 6200 3850 50  0001 C CNN
-	1    6200 3850
-	-1   0    0    -1  
+F 0 "J3" H 6172 3924 50  0000 R CNN
+F 1 "Conn_01x10_Male" H 6172 3833 50  0000 R CNN
+F 2 "Connector_Molex:Molex_PicoBlade_53047-1010_1x10_P1.25mm_Vertical" H 6200 3950 50  0001 C CNN
+F 3 "~" H 6200 3950 50  0001 C CNN
+	1    6200 3950
+	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR?
