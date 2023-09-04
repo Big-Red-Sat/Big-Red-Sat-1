@@ -1244,7 +1244,7 @@ F 1 "GaAs Panel" H 16200 14900 50  0000 C CNN
 F 2 "Connector_Hirose:Hirose_DF13C_CL535-0403-5-51_1x03-1MP_P1.25mm_Vertical" H 16450 14900 50  0001 C CNN
 F 3 "~" H 16450 14900 50  0001 C CNN
 	1    16450 14900
-	-1   0    0    -1  
+	-1   0    0    1   
 $EndComp
 NoConn ~ 16250 14900
 $Comp
@@ -1298,25 +1298,8 @@ F 1 "GaAs Temperature" H 16050 15400 50  0000 C CNN
 F 2 "Connector_Hirose:Hirose_DF13C_CL535-0403-5-51_1x03-1MP_P1.25mm_Vertical" H 16450 15400 50  0001 C CNN
 F 3 "~" H 16450 15400 50  0001 C CNN
 	1    16450 15400
-	-1   0    0    -1  
+	-1   0    0    1   
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 6543CC99
-P 16250 15500
-AR Path="/64A4749F/6543CC99" Ref="#PWR?"  Part="1" 
-AR Path="/64A6B33A/6543CC99" Ref="#PWR?"  Part="1" 
-AR Path="/64D823E8/6543CC99" Ref="#PWR?"  Part="1" 
-AR Path="/64FA0890/6543CC99" Ref="#PWR?"  Part="1" 
-AR Path="/64D827F9/6543CC99" Ref="#PWR0314"  Part="1" 
-F 0 "#PWR0314" H 16250 15250 50  0001 C CNN
-F 1 "GND" H 16255 15327 50  0000 C CNN
-F 2 "" H 16250 15500 50  0001 C CNN
-F 3 "" H 16250 15500 50  0001 C CNN
-	1    16250 15500
-	-1   0    0    -1  
-$EndComp
-NoConn ~ 16250 15400
 Wire Wire Line
 	12300 1500 16300 1500
 Wire Wire Line
@@ -1646,7 +1629,7 @@ F 3 "" H 17300 11500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	17000 11400 17300 11400
-Text HLabel 16250 15300 0    50   Input ~ 0
+Text HLabel 15600 15400 0    50   Input ~ 0
 GAAS_TEMP
 $Comp
 L power:GND #PWR?
@@ -3056,4 +3039,68 @@ F 3 "" H 2950 3250 50  0001 C CNN
 	1    2950 3250
 	1    0    0    -1  
 $EndComp
+NoConn ~ 16250 15300
+$Comp
+L Device:R R?
+U 1 1 64FAD85E
+P 16000 15200
+AR Path="/6313FC31/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/635FE71D/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/63D1F518/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/63D21EEE/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/64AE160A/64FAD85E" Ref="R?"  Part="1" 
+AR Path="/64D827F9/64FAD85E" Ref="R?"  Part="1" 
+F 0 "R?" V 15900 15200 50  0000 C CNN
+F 1 "4k7" V 16000 15200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 15930 15200 50  0001 C CNN
+F 3 "~" H 16000 15200 50  0001 C CNN
+	1    16000 15200
+	1    0    0    1   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64FAD864
+P 16000 15050
+AR Path="/64FAD864" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/64FAD864" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/64FAD864" Ref="#PWR?"  Part="1" 
+AR Path="/64AE160A/64FAD864" Ref="#PWR?"  Part="1" 
+AR Path="/64D827F9/64FAD864" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 16000 14900 50  0001 C CNN
+F 1 "+3V3" H 16015 15223 50  0000 C CNN
+F 2 "" H 16000 15050 50  0001 C CNN
+F 3 "" H 16000 15050 50  0001 C CNN
+	1    16000 15050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	16000 15350 16000 15400
+Connection ~ 16000 15400
+Wire Wire Line
+	16000 15400 16250 15400
+$Comp
+L power:+3V3 #PWR?
+U 1 1 64FF6664
+P 15700 15050
+AR Path="/64FF6664" Ref="#PWR?"  Part="1" 
+AR Path="/63D1F518/64FF6664" Ref="#PWR?"  Part="1" 
+AR Path="/63D21EEE/64FF6664" Ref="#PWR?"  Part="1" 
+AR Path="/64AE160A/64FF6664" Ref="#PWR?"  Part="1" 
+AR Path="/64D827F9/64FF6664" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 15700 14900 50  0001 C CNN
+F 1 "+3V3" H 15715 15223 50  0000 C CNN
+F 2 "" H 15700 15050 50  0001 C CNN
+F 3 "" H 15700 15050 50  0001 C CNN
+	1    15700 15050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	15700 15050 15700 15500
+Wire Wire Line
+	15700 15500 16250 15500
+Wire Wire Line
+	15600 15400 16000 15400
+Text Notes 15300 15750 0    50   ~ 0
+DS1820 Temperature Sensor\nConnected through panel to GND
 $EndSCHEMATC

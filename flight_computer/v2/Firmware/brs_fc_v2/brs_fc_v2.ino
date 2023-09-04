@@ -2,6 +2,8 @@
 #include "FSS100.h"
 #include <MCP9808.h>
 #include <OneWire.h>
+#include <SoftwareSerial.h>
+#include <stdio.h>
 
 #define DEBUGGING
 #define COUNT_UP HIGH
@@ -16,19 +18,27 @@
 #define PEROVSKITE_2_LOWER    3
 #define PEROVSKITE_3_LOWER    7
 
+// Send this every minute to keep switched outputs enabled
+byte heartbeat_payload[] = {0x50, 0x50, 0x50, 0x0B, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+#define EPS_BYTES 21
+
 // Temperature sensor on the reference GaAs panel
-OneWire  gaas_temp_sensor(GAAS_TEMP);
+OneWire gaas_temp_sensor(GAAS_TEMP);
 // Sun vector sensor
 FSS100 sun_sensor(0x11);
 // Temperature sensors on the payload
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
 MCP9808 perovskite_2(PEROVSKITE_2_LOWER);
 MCP9808 perovskite_3(PEROVSKITE_3_LOWER);
+// Serial interface for EPS
+SoftwareSerial eps_serial(EPS_RX, EPS_TX, false);
 
 volatile long last_gaas_rot = 0;
 volatile long last_p3_rot = 0;
 volatile bool last_p3_en = false;
 volatile int current_rot = 0;
+int16_t theta;
+int16_t phi;
 
 void init_pins(void)
 {
@@ -122,13 +132,29 @@ void read_mux(uint8_t *voltage, uint8_t *current)
   *current = analogRead(READ_CURRENT);
 }
 
+bool eps_send_packet(int packet)
+{
+  
+}
+
+bool eps_update(void)
+{
+  eps_serial.write(heartbeat_payload, EPS_BYTES);
+  byte ack[EPS_BYTES];
+  memset(ack, 0, EPS_BYTES);
+  eps_serial.readBytes(ack, EPS_BYTES);
+  if (memcmp(heartbeat_payload, ack, EPS_BYTES) == 0) return true;
+  else return false;
+}
+
 void setup() {
   #ifdef DEBUGGING
   Serial.begin(115200);
   #endif
-  
+  // Setup system
   init_pins();
   sun_sensor.init();
+  eps_serial.begin(38400);
   // Configure ADC
   analogReadResolution(12);
   analogReference(EXTERNAL);
@@ -136,9 +162,6 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
   attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
 }
-
-int16_t theta;
-int16_t phi;
 
 void loop() {
   /*if (digitalRead(GAAS_ON)

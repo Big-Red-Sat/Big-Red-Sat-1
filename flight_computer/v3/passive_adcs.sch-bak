@@ -164,7 +164,7 @@ F 1 "Panel 3" H 4600 4950 50  0000 C CNN
 F 2 "Connector_Hirose:Hirose_DF13C_CL535-0403-5-51_1x03-1MP_P1.25mm_Vertical" H 4800 4950 50  0001 C CNN
 F 3 "~" H 4800 4950 50  0001 C CNN
 	1    4800 4950
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Connector:Conn_01x03_Male J8
@@ -175,7 +175,7 @@ F 1 "Conn_01x03_Male" H 7622 4883 50  0000 R CNN
 F 2 "Connector_Hirose:Hirose_DF13C_CL535-0403-5-51_1x03-1MP_P1.25mm_Vertical" H 7650 4950 50  0001 C CNN
 F 3 "~" H 7650 4950 50  0001 C CNN
 	1    7650 4950
-	-1   0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	5000 4850 5200 4850
