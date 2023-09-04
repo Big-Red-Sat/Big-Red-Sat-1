@@ -2,8 +2,10 @@
 #include "FSS100.h"
 #include <MCP9808.h>
 #include <OneWire.h>
-#include <SoftwareSerial.h>
 #include <stdio.h>
+#include "NSL_EPS.h"
+#include <Wire.h>
+#include <MLX90393.h>
 
 #define DEBUGGING
 #define COUNT_UP HIGH
@@ -15,23 +17,23 @@
 #define MUX_POS_P3 1
 
 #define PEROVSKITE_1_LOWER    1
-#define PEROVSKITE_2_LOWER    3
-#define PEROVSKITE_3_LOWER    7
+#define PEROVSKITE_2_LOWER    7
+#define PEROVSKITE_3_LOWER    3
 
-// Send this every minute to keep switched outputs enabled
-byte heartbeat_payload[] = {0x50, 0x50, 0x50, 0x0B, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-#define EPS_BYTES 21
+// Temperature sensors on the payload
+MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
+MCP9808 perovskite_2(PEROVSKITE_2_LOWER);
+MCP9808 perovskite_3(PEROVSKITE_3_LOWER);
+
+EPS eps(EPS_RX, EPS_TX);
+
+MLX90393 magnetometer;
+MLX90393::txyz data;
 
 // Temperature sensor on the reference GaAs panel
 OneWire gaas_temp_sensor(GAAS_TEMP);
 // Sun vector sensor
 FSS100 sun_sensor(0x11);
-// Temperature sensors on the payload
-MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
-MCP9808 perovskite_2(PEROVSKITE_2_LOWER);
-MCP9808 perovskite_3(PEROVSKITE_3_LOWER);
-// Serial interface for EPS
-SoftwareSerial eps_serial(EPS_RX, EPS_TX, false);
 
 volatile long last_gaas_rot = 0;
 volatile long last_p3_rot = 0;
@@ -71,6 +73,30 @@ void init_pins(void)
   
   pinMode(S0_CT, OUTPUT);
   digitalWrite(S0_CT, LOW);
+}
+
+void init_magnetometer(void)
+{
+  magnetometer.begin(0, 0); //Assumes I2C jumpers are GND. No DRDY pin used.
+  magnetometer.setOverSampling(0);
+  magnetometer.setDigitalFiltering(0);
+}
+
+void read_magnetometer(void)
+{
+  magnetometer.readData(data); //Read the values from the sensor
+
+  Serial.print("magX[");
+  Serial.print(data.x);
+  Serial.print("] magY[");
+  Serial.print(data.y);
+  Serial.print("] magZ[");
+  Serial.print(data.z);
+  Serial.print("] temperature(C)[");
+  Serial.print(data.t);
+  Serial.print("]");
+
+  Serial.println();
 }
 
 void step_ladder(void)
@@ -132,42 +158,85 @@ void read_mux(uint8_t *voltage, uint8_t *current)
   *current = analogRead(READ_CURRENT);
 }
 
-bool eps_send_packet(int packet)
+void init_payload(void)
 {
-  
+  uint8_t status = perovskite_1.begin();
+  if (status != 0) Serial.println("Perovskite 1 temp sensor is not working");
+  status = perovskite_2.begin();
+  if (status != 0) Serial.println("Perovskite 2 temp sensor is not working");
+  status = perovskite_3.begin();
+  if (status != 0) Serial.println("Perovskite 3 temp sensor is not working");
 }
 
-bool eps_update(void)
+void read_payload(float *p_1_temperature, float *p_2_temperature, float *p_3_temperature)
 {
-  eps_serial.write(heartbeat_payload, EPS_BYTES);
-  byte ack[EPS_BYTES];
-  memset(ack, 0, EPS_BYTES);
-  eps_serial.readBytes(ack, EPS_BYTES);
-  if (memcmp(heartbeat_payload, ack, EPS_BYTES) == 0) return true;
-  else return false;
+  perovskite_1.read();
+  *p_1_temperature = perovskite_1.tAmbient / 16.0;
+  perovskite_2.read();
+  *p_2_temperature = perovskite_2.tAmbient / 16.0;
+  perovskite_3.read();
+  *p_3_temperature = perovskite_3.tAmbient / 16.0;
+}
+
+void read_relay(void)
+{
+  digitalWrite(SET, HIGH);
+  delay(10);
+  digitalWrite(SET, LOW);
+  delay(500);
+  digitalWrite(UNSET, HIGH);
+  delay(10);
+  digitalWrite(UNSET, LOW);
 }
 
 void setup() {
   #ifdef DEBUGGING
-  Serial.begin(115200);
+  Serial.begin(9600);
   #endif
   // Setup system
   init_pins();
-  sun_sensor.init();
-  eps_serial.begin(38400);
+  while (digitalRead(BUSY) == EPS_BUSY)
+  {
+    Serial.println("Waiting to start");
+    delay(1000);
+  }
+  
+  eps.begin();
+  eps.heartbeat();
+  
+  Wire.begin();
+  //sun_sensor.init();
+  init_magnetometer();
+  //init_payload();
   // Configure ADC
-  analogReadResolution(12);
-  analogReference(EXTERNAL);
+  //analogReadResolution(12);
+  //analogReference(EXTERNAL);
   // Setup rotation interrupts
-  attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
-  attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
+  //attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
+  //attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
 }
+
+float p1t;
+float p2t;
+float p3t;
 
 void loop() {
   /*if (digitalRead(GAAS_ON)
   {
     sun_sensor.getSample(&theta, &phi);
   }*/
-  Serial.println(current_rot / 100);
+//  while (!sun_sensor.sample_wait());
+//  Serial.println(sun_sensor.getTheta());
+//  sun_sensor.default_config();
+//  read_payload(&p1t, &p2t, &p3t);
+//  Serial.print("P1: ");
+//  Serial.print(p1t);
+//  Serial.print(" | P2: ");
+//  Serial.print(p2t);
+//  Serial.print(" | P3: ");
+//  Serial.println(p3t);
+//  delay(500);
+  read_magnetometer();
   delay(500);
+  
 }

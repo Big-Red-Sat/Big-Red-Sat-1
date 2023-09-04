@@ -310,21 +310,12 @@ F 3 "" H 6050 2200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6100 1700 6000 1700
-Wire Wire Line
-	6100 1600 6050 1600
-Wire Wire Line
-	6050 1600 6050 2100
-Wire Wire Line
 	6100 2100 6050 2100
-Connection ~ 6050 2100
 Wire Wire Line
 	6050 2100 6050 2200
-Wire Wire Line
-	6000 1300 6000 1700
-Text HLabel 5400 1800 0    50   Input ~ 0
+Text HLabel 5400 1700 0    50   Input ~ 0
 SCL
-Text HLabel 5400 1900 0    50   Input ~ 0
+Text HLabel 5400 1600 0    50   Input ~ 0
 SDA
 $Comp
 L power:VBUS #PWR?
@@ -518,7 +509,16 @@ F 3 "~" H 4650 4100 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 Wire Wire Line
-	5400 1800 6100 1800
+	5400 1700 6100 1700
 Wire Wire Line
-	5400 1900 6100 1900
+	5400 1600 6100 1600
+Wire Wire Line
+	6000 1300 6000 1800
+Wire Wire Line
+	6000 1800 6100 1800
+Wire Wire Line
+	6050 2100 6050 1900
+Wire Wire Line
+	6050 1900 6100 1900
+Connection ~ 6050 2100
 $EndSCHEMATC

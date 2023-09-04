@@ -79,9 +79,9 @@ bool eps_heartbeat_send(void)
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  pinMode(BUSY, INPUT);
   while (digitalRead(BUSY) == HIGH);
   eps_serial.begin(38400);
-  pinMode(BUSY, INPUT);
 }
 
 void loop() {
