@@ -934,17 +934,6 @@ F 3 "" H 4200 4650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x04_Male J20
-U 1 1 66920F9B
-P 7500 1750
-F 0 "J20" H 7472 1632 50  0000 R CNN
-F 1 "BUSS+" H 7472 1723 50  0000 R CNN
-F 2 "Connector_Hirose:Hirose_DF13C_CL535-0404-8-51_1x04-1MP_P1.25mm_Vertical" H 7500 1750 50  0001 C CNN
-F 3 "~" H 7500 1750 50  0001 C CNN
-	1    7500 1750
-	-1   0    0    1   
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 6695B752
 P 7050 2000
@@ -962,14 +951,7 @@ F 3 "" H 7050 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7300 1750 7050 1750
-Wire Wire Line
-	7050 1750 7050 1850
-Wire Wire Line
-	7300 1850 7050 1850
-Connection ~ 7050 1850
-Wire Wire Line
-	7050 1850 7050 2000
+	7300 1650 7050 1650
 $Comp
 L Device:R R?
 U 1 1 6695EEAA
@@ -1026,15 +1008,6 @@ Wire Wire Line
 Wire Wire Line
 	6550 1550 6550 1700
 Wire Wire Line
-	6950 1550 7050 1550
-Wire Wire Line
-	7300 1650 7050 1650
-Wire Wire Line
-	7050 1650 7050 1550
-Connection ~ 7050 1550
-Wire Wire Line
-	7050 1550 7300 1550
-Wire Wire Line
 	6550 1550 6200 1550
 Connection ~ 6550 1550
 Text HLabel 6200 1550 0    50   Input ~ 0
@@ -1063,4 +1036,21 @@ F 3 "" H 5000 5350 50  0001 C CNN
 	1    5000 5350
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	6950 1550 7300 1550
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 64F69F0E
+P 7500 1650
+AR Path="/64D823E8/64F69F0E" Ref="J?"  Part="1" 
+AR Path="/64D821F3/64F69F0E" Ref="J4"  Part="1" 
+F 0 "J4" H 7472 1624 50  0000 R CNN
+F 1 "BUSS" H 7472 1533 50  0000 R CNN
+F 2 "Connector_Hirose:Hirose_DF13C_CL535-0402-2-51_1x02-1MP_P1.25mm_Vertical" H 7500 1650 50  0001 C CNN
+F 3 "~" H 7500 1650 50  0001 C CNN
+	1    7500 1650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7050 1650 7050 2000
 $EndSCHEMATC
