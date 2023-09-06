@@ -27,7 +27,7 @@ MCP9808 perovskite_3(PEROVSKITE_3_LOWER);
 
 EPS eps(EPS_RX, EPS_TX);
 
-MLX90393 magnetometer;
+MLX90393 magnetometer(0x18);
 MLX90393::txyz data;
 
 // Temperature sensor on the reference GaAs panel
@@ -77,7 +77,9 @@ void init_pins(void)
 
 void init_magnetometer(void)
 {
-  magnetometer.begin(0, 0); //Assumes I2C jumpers are GND. No DRDY pin used.
+  
+  uint8_t status = magnetometer.begin(0, 0, MAG_INT); //Assumes I2C jumpers are GND. No DRDY pin used.
+  Serial.println(status);
   magnetometer.setOverSampling(0);
   magnetometer.setDigitalFiltering(0);
 }
@@ -201,8 +203,8 @@ void setup() {
     delay(1000);
   }
   
-  eps.begin();
-  eps.heartbeat();
+//  eps.begin();
+//  eps.heartbeat();
   
   Wire.begin();
   //sun_sensor.init();
