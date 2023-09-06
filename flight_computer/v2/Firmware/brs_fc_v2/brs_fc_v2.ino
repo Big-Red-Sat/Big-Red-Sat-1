@@ -20,6 +20,14 @@
 #define PEROVSKITE_2_LOWER    7
 #define PEROVSKITE_3_LOWER    3
 
+byte pixel_packet_1[17] = { 0 };
+byte pixel_packet_2[17] = { 0 };
+byte pixel_packet_3[17] = { 0 };
+byte pixel_packet_4[17] = { 0 };
+byte flux_packet[17] = { 0 };
+byte secondary_packet[17] = { 0 };
+byte tertiary_packet[17] = { 0 };
+
 // Temperature sensors on the payload
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
 MCP9808 perovskite_2(PEROVSKITE_2_LOWER);
@@ -77,7 +85,6 @@ void init_pins(void)
 
 void init_magnetometer(void)
 {
-  
   uint8_t status = magnetometer.begin(0, 0, MAG_INT); //Assumes I2C jumpers are GND. No DRDY pin used.
   Serial.println(status);
   magnetometer.setOverSampling(0);
@@ -160,24 +167,26 @@ void read_mux(uint8_t *voltage, uint8_t *current)
   *current = analogRead(READ_CURRENT);
 }
 
-void init_payload(void)
+uint8_t init_payload(void)
 {
+  uint8_t all_status = 0;
   uint8_t status = perovskite_1.begin();
-  if (status != 0) Serial.println("Perovskite 1 temp sensor is not working");
+  if (status != 0) all_status |= (1 << 0);
   status = perovskite_2.begin();
-  if (status != 0) Serial.println("Perovskite 2 temp sensor is not working");
+  if (status != 0) all_status |= (1 << 1);
   status = perovskite_3.begin();
-  if (status != 0) Serial.println("Perovskite 3 temp sensor is not working");
+  if (status != 0) all_status |= (1 << 2);
+  return all_status;
 }
 
 void read_payload(float *p_1_temperature, float *p_2_temperature, float *p_3_temperature)
 {
   perovskite_1.read();
-  *p_1_temperature = perovskite_1.tAmbient / 16.0;
+  *p_1_temperature = perovskite_1.tAmbient;
   perovskite_2.read();
-  *p_2_temperature = perovskite_2.tAmbient / 16.0;
+  *p_2_temperature = perovskite_2.tAmbient;
   perovskite_3.read();
-  *p_3_temperature = perovskite_3.tAmbient / 16.0;
+  *p_3_temperature = perovskite_3.tAmbient;
 }
 
 void read_relay(void)
@@ -192,24 +201,23 @@ void read_relay(void)
 }
 
 void setup() {
-  #ifdef DEBUGGING
+#ifdef DEBUGGING
   Serial.begin(9600);
-  #endif
+#endif
+  
   // Setup system
   init_pins();
   while (digitalRead(BUSY) == EPS_BUSY)
   {
-    Serial.println("Waiting to start");
     delay(1000);
   }
-  
-//  eps.begin();
-//  eps.heartbeat();
-  
-  Wire.begin();
-  //sun_sensor.init();
+  // Startup cubesat EPS
+  eps.begin();
+  eps.heartbeat();
+  // Initialize sensors
+  sun_sensor.init();
   init_magnetometer();
-  //init_payload();
+  init_payload();
   // Configure ADC
   //analogReadResolution(12);
   //analogReference(EXTERNAL);
@@ -217,10 +225,6 @@ void setup() {
   //attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
   //attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
 }
-
-float p1t;
-float p2t;
-float p3t;
 
 void loop() {
   /*if (digitalRead(GAAS_ON)
@@ -238,7 +242,7 @@ void loop() {
 //  Serial.print(" | P3: ");
 //  Serial.println(p3t);
 //  delay(500);
-  read_magnetometer();
-  delay(500);
+//  read_magnetometer();
+//  delay(500);
   
 }
