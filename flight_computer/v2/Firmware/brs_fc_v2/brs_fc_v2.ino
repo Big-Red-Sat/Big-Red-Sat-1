@@ -20,6 +20,8 @@
 #define PEROVSKITE_2_LOWER    7
 #define PEROVSKITE_3_LOWER    3
 
+#define SETTLING_TIME 10
+
 byte pixel_packet_1[17] = { 0 };
 byte pixel_packet_2[17] = { 0 };
 byte pixel_packet_3[17] = { 0 };
@@ -50,6 +52,14 @@ volatile int current_rot = 0;
 int16_t theta;
 int16_t phi;
 
+void shutdown_system(void)
+{
+  // Turn off ADC
+  ADC12CTL0 &= ~(ADC12ENC);
+  ADC12CTL0 &= ~(ADC12ON);
+  REFCTL0 &= ~(REFON);
+}
+
 void init_pins(void)
 {
   pinMode(NC_V, INPUT);
@@ -67,20 +77,91 @@ void init_pins(void)
   pinMode(CT_GOOD, INPUT);
   pinMode(GAAS_ON, INPUT);
   pinMode(MUX_GOOD, INPUT);
-  pinMode(MUX_CLOCK, INPUT);
+  pinMode(MUX_CLOCK, OUTPUT);
   pinMode(READ_BUSS, INPUT);
   
   pinMode(LADDER_CLOCK, OUTPUT);
-  digitalWrite(LADDER_CLOCK, LOW);
+  digitalWrite(LADDER_CLOCK, HIGH);
   pinMode(TRACE_DIR, OUTPUT);
   digitalWrite(TRACE_DIR, COUNT_UP);
   
-  pinMode(GAAS_TEMP, INPUT);
+//  pinMode(GAAS_TEMP, INPUT);
   pinMode(BUSY, INPUT);
   pinMode(PANEL_3_ON, INPUT);
   
   pinMode(S0_CT, OUTPUT);
   digitalWrite(S0_CT, LOW);
+}
+
+bool read_gaas_temp(int16_t *gaas_temp_reading)
+{
+  byte i;
+  byte present = 0;
+  byte type_s;
+  byte data[9];
+  byte addr[8];
+  
+  if (!gaas_temp_sensor.search(addr)) {
+    gaas_temp_sensor.reset_search();
+    return false;
+  }
+
+  if (OneWire::crc8(addr, 7) != addr[7]) {
+      return false;
+  }
+
+  // the first ROM byte indicates which chip
+  switch (addr[0]) {
+    case 0x10:
+      type_s = 1;
+      break;
+    case 0x28:
+      type_s = 0;
+      break;
+    case 0x22:
+      type_s = 0;
+      break;
+    default:
+      return false;
+  } 
+
+  gaas_temp_sensor.reset();
+  gaas_temp_sensor.select(addr);
+  gaas_temp_sensor.write(0x44, 1);        // start conversion, with parasite power on at the end
+  
+  delay(1000);     // maybe 750ms is enough, maybe not
+  // we might do a ds.depower() here, but the reset will take care of it.
+  
+  present = gaas_temp_sensor.reset();
+  gaas_temp_sensor.select(addr);    
+  gaas_temp_sensor.write(0xBE);         // Read Scratchpad
+
+  for ( i = 0; i < 9; i++) {           // we need 9 bytes
+    data[i] = gaas_temp_sensor.read();
+  }
+  gaas_temp_sensor.depower();
+  
+  // Convert the data to actual temperature
+  // because the result is a 16 bit signed integer, it should
+  // be stored to an "int16_t" type, which is always 16 bits
+  // even when compiled on a 32 bit processor.
+  int16_t raw = (data[1] << 8) | data[0];
+  if (type_s) {
+    raw = raw << 3; // 9 bit resolution default
+    if (data[7] == 0x10) {
+      // "count remain" gives full 12 bit resolution
+      raw = (raw & 0xFFF0) + 12 - data[6];
+    }
+  } else {
+    byte cfg = (data[4] & 0x60);
+    // at lower res, the low bits are undefined, so let's zero them
+    if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
+    else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
+    else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
+    //// default is 12 bit resolution, 750 ms conversion time
+  }
+  *gaas_temp_reading = raw;
+  return true;
 }
 
 void init_magnetometer(void)
@@ -110,8 +191,14 @@ void read_magnetometer(void)
 
 void step_ladder(void)
 {
-  digitalWrite(LADDER_CLOCK, HIGH);
   digitalWrite(LADDER_CLOCK, LOW);
+  digitalWrite(LADDER_CLOCK, HIGH);
+}
+
+void step_mux(void)
+{
+  digitalWrite(MUX_CLOCK, HIGH);
+  digitalWrite(MUX_CLOCK, LOW);
 }
 
 void set_trace_direction(uint8_t dir)
@@ -161,7 +248,7 @@ void p3_rotation_isr(void)
   last_p3_en = true;
 }
 
-void read_mux(uint8_t *voltage, uint8_t *current)
+void read_mux(uint16_t *voltage, uint16_t *current)
 {
   *voltage = analogRead(READ_VOLTAGE);
   *current = analogRead(READ_CURRENT);
@@ -203,34 +290,39 @@ void read_relay(void)
 void setup() {
 #ifdef DEBUGGING
   Serial.begin(9600);
+  while (!Serial);
 #endif
-  
+
   // Setup system
   init_pins();
-  while (digitalRead(BUSY) == EPS_BUSY)
-  {
-    delay(1000);
-  }
+//  while (digitalRead(BUSY) == EPS_BUSY)
+//  {
+//    delay(1000);
+//  }
   // Startup cubesat EPS
-  eps.begin();
-  eps.heartbeat();
+//  eps.begin();
+//  eps.heartbeat();
   // Initialize sensors
-  sun_sensor.init();
-  init_magnetometer();
-  init_payload();
+//  sun_sensor.init();
+//  init_magnetometer();
+//  init_payload();
   // Configure ADC
-  //analogReadResolution(12);
-  //analogReference(EXTERNAL);
+  analogReadResolution(12);
+  analogReference(EXTERNAL);
   // Setup rotation interrupts
   //attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
   //attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
+  set_read_mux(MUX_POS_GAAS);
 }
 
+uint16_t iv_voltage, iv_current;
+int16_t gaas_temp;
+
 void loop() {
-  /*if (digitalRead(GAAS_ON)
-  {
-    sun_sensor.getSample(&theta, &phi);
-  }*/
+//  if (digitalRead(GAAS_ON)
+//  {
+//    sun_sensor.getSample(&theta, &phi);
+//  }
 //  while (!sun_sensor.sample_wait());
 //  Serial.println(sun_sensor.getTheta());
 //  sun_sensor.default_config();
@@ -244,5 +336,45 @@ void loop() {
 //  delay(500);
 //  read_magnetometer();
 //  delay(500);
+//  if (read_gaas_temp(&raw_gaas_temp)) Serial.println(raw_gaas_temp);
+//  delay(500);
+
+  step_ladder();
+//  step_mux();
+
+//  delay(1000);
+
+//  set_read_mux(MUX_POS_P1);
+//  read_mux(&iv_voltage, &iv_current);
+//  Serial.print("P1\tVoltage:\t");
+//  Serial.print(iv_voltage);
+//  Serial.print("\t|\tCurrent:\t");
+//  Serial.println(iv_current);
+//
+//  set_read_mux(MUX_POS_P2);
+//  read_mux(&iv_voltage, &iv_current);
+//  Serial.print("P2\tVoltage:\t");
+//  Serial.print(iv_voltage);
+//  Serial.print("\t|\tCurrent:\t");
+//  Serial.println(iv_current);
+//
+//  set_read_mux(MUX_POS_P3);
+//  read_mux(&iv_voltage, &iv_current);
+//  Serial.print("P3\tVoltage:\t");
+//  Serial.print(iv_voltage);
+//  Serial.print("\t|\tCurrent:\t");
+//  Serial.println(iv_current);
+
+//  set_read_mux(MUX_POS_GAAS);
+  delay(SETTLING_TIME);
+  read_mux(&iv_voltage, &iv_current);
+  read_gaas_temp(&gaas_temp);
+  Serial.print("Voltage:");
+  Serial.print(iv_voltage);
+  Serial.print(" ");
+  Serial.print("Current:");
+  Serial.print(iv_current);
+  Serial.print(" Temp: ");
+  Serial.println(gaas_temp);
   
 }

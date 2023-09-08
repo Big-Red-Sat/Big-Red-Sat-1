@@ -1209,9 +1209,13 @@ F 3 "" H 1950 7050 50  0001 C CNN
 $EndComp
 Text GLabel 950  7150 2    50   Input ~ 0
 TEST
-NoConn ~ 7700 4100
-NoConn ~ 4650 4500
 NoConn ~ 4650 4000
-NoConn ~ 4650 4100
-NoConn ~ 4650 4200
+Text HLabel 3050 4500 0    50   Input ~ 0
+PANEL_3_CURRENT_V
+Wire Wire Line
+	3050 4500 4000 4500
+Wire Wire Line
+	4000 4500 4000 4200
+Wire Wire Line
+	4000 4200 4650 4200
 $EndSCHEMATC

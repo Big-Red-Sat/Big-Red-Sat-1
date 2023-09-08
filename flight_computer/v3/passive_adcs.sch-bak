@@ -521,4 +521,10 @@ Wire Wire Line
 Wire Wire Line
 	6050 1900 6100 1900
 Connection ~ 6050 2100
+Text HLabel 3600 3050 0    50   Input ~ 0
+PANEL_3_CURRENT_V
+Wire Wire Line
+	5050 3900 5050 3050
+Wire Wire Line
+	5050 3050 3600 3050
 $EndSCHEMATC
