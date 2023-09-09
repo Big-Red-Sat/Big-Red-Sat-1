@@ -5,8 +5,8 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 5 8
 Title "Payload Switching Circuit"
-Date "2023-08-16"
-Rev "B"
+Date "2023-09-08"
+Rev "C"
 Comp "UNL Aerospace Club | Aerospace eXperimental Payloads"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: WSA"
