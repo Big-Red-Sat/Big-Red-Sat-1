@@ -1218,4 +1218,6 @@ Wire Wire Line
 	4000 4500 4000 4200
 Wire Wire Line
 	4000 4200 4650 4200
+Text HLabel 4650 4100 0    50   Input ~ 0
+MUX_RESET
 $EndSCHEMATC

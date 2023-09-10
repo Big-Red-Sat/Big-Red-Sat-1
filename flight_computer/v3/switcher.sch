@@ -2098,12 +2098,6 @@ Wire Wire Line
 Wire Wire Line
 	9400 14250 11400 14250
 Wire Wire Line
-	6150 7800 6250 7800
-Wire Wire Line
-	6250 7800 6250 8650
-Wire Wire Line
-	6250 8650 4250 8650
-Wire Wire Line
 	6350 7500 6350 12050
 Wire Wire Line
 	6450 7600 6450 12150
@@ -2340,10 +2334,6 @@ F 3 "" H 11400 6750 60  0000 C CNN
 	1    11850 6750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4650 8100 4250 8100
-Wire Wire Line
-	4250 8100 4250 8650
 Connection ~ 4500 8200
 Wire Wire Line
 	4650 7900 4550 7900
@@ -3403,4 +3393,9 @@ Wire Wire Line
 Wire Wire Line
 	13500 11100 14300 11100
 Connection ~ 14300 11100
+NoConn ~ 6150 7800
+Wire Wire Line
+	4650 8100 3850 8100
+Text HLabel 3850 8100 0    50   Input ~ 0
+MUX_RESET
 $EndSCHEMATC

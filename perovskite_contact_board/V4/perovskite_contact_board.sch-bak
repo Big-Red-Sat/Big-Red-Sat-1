@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Perovskite Contact Board"
-Date "2023-07-20"
-Rev "V3"
+Date "2023-09-05"
+Rev "V4"
 Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
 Comment1 "Copyright (c) 2023"
 Comment2 "Designer: JMMS"
@@ -1043,10 +1043,10 @@ F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-D
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0124
 U 1 1 64FDDE83
 P 2300 3000
-F 0 "#PWR?" H 2300 2850 50  0001 C CNN
+F 0 "#PWR0124" H 2300 2850 50  0001 C CNN
 F 1 "VDD" H 2315 3173 50  0000 C CNN
 F 2 "" H 2300 3000 50  0001 C CNN
 F 3 "" H 2300 3000 50  0001 C CNN
@@ -1054,10 +1054,10 @@ F 3 "" H 2300 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0126
 U 1 1 64FDE767
 P 2500 3000
-F 0 "#PWR?" H 2500 2850 50  0001 C CNN
+F 0 "#PWR0126" H 2500 2850 50  0001 C CNN
 F 1 "VDD" H 2515 3173 50  0000 C CNN
 F 2 "" H 2500 3000 50  0001 C CNN
 F 3 "" H 2500 3000 50  0001 C CNN
@@ -1065,10 +1065,10 @@ F 3 "" H 2500 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0127
 U 1 1 64FDE9DC
 P 3350 3000
-F 0 "#PWR?" H 3350 2850 50  0001 C CNN
+F 0 "#PWR0127" H 3350 2850 50  0001 C CNN
 F 1 "VDD" H 3365 3173 50  0000 C CNN
 F 2 "" H 3350 3000 50  0001 C CNN
 F 3 "" H 3350 3000 50  0001 C CNN
@@ -1076,10 +1076,10 @@ F 3 "" H 3350 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0130
 U 1 1 64FDECFE
 P 950 3450
-F 0 "#PWR?" H 950 3300 50  0001 C CNN
+F 0 "#PWR0130" H 950 3300 50  0001 C CNN
 F 1 "VDD" H 965 3623 50  0000 C CNN
 F 2 "" H 950 3450 50  0001 C CNN
 F 3 "" H 950 3450 50  0001 C CNN
@@ -1087,10 +1087,10 @@ F 3 "" H 950 3450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VDD #PWR?
+L power:VDD #PWR0132
 U 1 1 64FDF44D
 P 1350 3450
-F 0 "#PWR?" H 1350 3300 50  0001 C CNN
+F 0 "#PWR0132" H 1350 3300 50  0001 C CNN
 F 1 "VDD" H 1365 3623 50  0000 C CNN
 F 2 "" H 1350 3450 50  0001 C CNN
 F 3 "" H 1350 3450 50  0001 C CNN
