@@ -1,0 +1,322 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Perovskite Contact Board"
+Date "2023-09-05"
+Rev "V4"
+Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2023"
+Comment2 "Designer: JMMS"
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
+$EndDescr
+Text GLabel 5050 1550 0    50   Input ~ 0
+CELL_1
+Text GLabel 5050 1650 0    50   Input ~ 0
+CELL_2
+Text GLabel 5050 1750 0    50   Input ~ 0
+CELL_3
+Text GLabel 5050 1850 0    50   Input ~ 0
+CELL_4
+Text GLabel 5050 1950 0    50   Input ~ 0
+CELL_5
+Text GLabel 5050 2050 0    50   Input ~ 0
+CELL_6
+$Comp
+L Perovskite:Perovskite_CP_6_Cell U1
+U 1 1 636879E9
+P 5500 1300
+F 0 "U1" H 5450 1300 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5100 1225 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5500 1300 50  0001 C CNN
+F 3 "" H 5500 1300 50  0001 C CNN
+	1    5500 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Perovskite:Perovskite_CP_6_Cell U2
+U 1 1 6368D231
+P 5525 3000
+F 0 "U2" H 5475 3000 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5125 2925 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5525 3000 50  0001 C CNN
+F 3 "" H 5525 3000 50  0001 C CNN
+	1    5525 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Perovskite:Perovskite_CP_6_Cell U3
+U 1 1 63690578
+P 5525 4900
+F 0 "U3" H 5475 4875 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5150 4800 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5525 4900 50  0001 C CNN
+F 3 "" H 5525 4900 50  0001 C CNN
+	1    5525 4900
+	1    0    0    -1  
+$EndComp
+Text GLabel 5075 3250 0    50   Input ~ 0
+CELL_7
+Text GLabel 5075 3350 0    50   Input ~ 0
+CELL_8
+Text GLabel 5075 3450 0    50   Input ~ 0
+CELL_9
+Text GLabel 5075 3550 0    50   Input ~ 0
+CELL_10
+Text GLabel 5075 3650 0    50   Input ~ 0
+CELL_11
+Text GLabel 5075 3750 0    50   Input ~ 0
+CELL_12
+Text GLabel 5075 5150 0    50   Input ~ 0
+CELL_13
+Text GLabel 5075 5250 0    50   Input ~ 0
+CELL_14
+Text GLabel 5075 5350 0    50   Input ~ 0
+CELL_15
+Text GLabel 5075 5450 0    50   Input ~ 0
+CELL_16
+Text GLabel 5075 5550 0    50   Input ~ 0
+CELL_17
+Text GLabel 5075 5650 0    50   Input ~ 0
+CELL_18
+Text GLabel 5075 5750 0    50   Input ~ 0
+CP_3
+Text GLabel 5075 3850 0    50   Input ~ 0
+CP_2
+Text GLabel 5050 2150 0    50   Input ~ 0
+CP_1
+$Comp
+L Connector_Generic:Conn_01x01 JP103.1
+U 1 1 64B5D0FC
+P 2350 6750
+F 0 "JP103.1" H 2430 6792 50  0000 L CNN
+F 1 "Conn_01x01" H 2430 6701 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 2350 6750 50  0001 C CNN
+F 3 "~" H 2350 6750 50  0001 C CNN
+	1    2350 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.2
+U 1 1 64B5D102
+P 3850 6750
+F 0 "JP103.2" H 3930 6792 50  0000 L CNN
+F 1 "Conn_01x01" H 3930 6701 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 3850 6750 50  0001 C CNN
+F 3 "~" H 3850 6750 50  0001 C CNN
+	1    3850 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 64BAB42F
+P 1550 7250
+F 0 "#PWR0102" H 1550 7000 50  0001 C CNN
+F 1 "GND" H 1555 7077 50  0000 C CNN
+F 2 "" H 1550 7250 50  0001 C CNN
+F 3 "" H 1550 7250 50  0001 C CNN
+	1    1550 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0103
+U 1 1 64BB3055
+P 3550 6650
+F 0 "#PWR0103" H 3550 6500 50  0001 C CNN
+F 1 "VDD" H 3565 6823 50  0000 C CNN
+F 2 "" H 3550 6650 50  0001 C CNN
+F 3 "" H 3550 6650 50  0001 C CNN
+	1    3550 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 6750 3550 6750
+Wire Wire Line
+	3550 6750 3550 6650
+$Comp
+L Connector_Generic:Conn_01x01 JP103.8
+U 1 1 64BA5C01
+P 6200 6950
+F 0 "JP103.8" H 6280 6992 50  0000 L CNN
+F 1 "Conn_01x01" H 6280 6901 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 6200 6950 50  0001 C CNN
+F 3 "~" H 6200 6950 50  0001 C CNN
+	1    6200 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.11
+U 1 1 64BA5848
+P 5000 7150
+F 0 "JP103.11" H 5080 7192 50  0000 L CNN
+F 1 "Conn_01x01" H 5080 7101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 5000 7150 50  0001 C CNN
+F 3 "~" H 5000 7150 50  0001 C CNN
+	1    5000 7150
+	1    0    0    -1  
+$EndComp
+Text GLabel 5800 6650 1    50   Input ~ 0
+SDA2
+Text GLabel 4500 6650 1    50   Input ~ 0
+SCL3
+Wire Wire Line
+	4500 6650 4500 7150
+Wire Wire Line
+	4500 7150 4800 7150
+Wire Wire Line
+	5800 6650 5800 6950
+Wire Wire Line
+	5800 6950 6000 6950
+Wire Wire Line
+	1550 6750 2150 6750
+$Comp
+L Device:C C2
+U 1 1 64F85588
+P 1350 3600
+F 0 "C2" H 1465 3646 50  0000 L CNN
+F 1 "0.1u" H 1465 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1388 3450 50  0001 C CNN
+F 3 "~" H 1350 3600 50  0001 C CNN
+	1    1350 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0125
+U 1 1 64F85594
+P 1350 3750
+F 0 "#PWR0125" H 1350 3500 50  0001 C CNN
+F 1 "GND" H 1355 3577 50  0000 C CNN
+F 2 "" H 1350 3750 50  0001 C CNN
+F 3 "" H 1350 3750 50  0001 C CNN
+	1    1350 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0128
+U 1 1 64F86E24
+P 2300 4200
+F 0 "#PWR0128" H 2300 3950 50  0001 C CNN
+F 1 "GND" H 2305 4027 50  0000 C CNN
+F 2 "" H 2300 4200 50  0001 C CNN
+F 3 "" H 2300 4200 50  0001 C CNN
+	1    2300 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0129
+U 1 1 64F87098
+P 2500 4200
+F 0 "#PWR0129" H 2500 3950 50  0001 C CNN
+F 1 "GND" H 2505 4027 50  0000 C CNN
+F 2 "" H 2500 4200 50  0001 C CNN
+F 3 "" H 2500 4200 50  0001 C CNN
+	1    2500 4200
+	1    0    0    -1  
+$EndComp
+Text GLabel 3000 3700 2    50   Input ~ 0
+SDA2
+Text GLabel 3000 3500 2    50   Input ~ 0
+SCL3
+$Comp
+L Device:C C1
+U 1 1 64F92513
+P 950 3600
+F 0 "C1" H 1065 3646 50  0000 L CNN
+F 1 "0.1u" H 1065 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 988 3450 50  0001 C CNN
+F 3 "~" H 950 3600 50  0001 C CNN
+	1    950  3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0131
+U 1 1 64F9251F
+P 950 3750
+F 0 "#PWR0131" H 950 3500 50  0001 C CNN
+F 1 "GND" H 955 3577 50  0000 C CNN
+F 2 "" H 950 3750 50  0001 C CNN
+F 3 "" H 950 3750 50  0001 C CNN
+	1    950  3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 3900 3350 3900
+Wire Wire Line
+	3350 3000 3350 3300
+Wire Wire Line
+	3000 3300 3350 3300
+Connection ~ 3350 3300
+Wire Wire Line
+	3350 3300 3350 3900
+$Comp
+L Sensor:BME280 U7
+U 1 1 64F7CCC1
+P 2400 3600
+F 0 "U7" H 1971 3646 50  0000 R CNN
+F 1 "BME280" H 1971 3555 50  0000 R CNN
+F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 3900 3150 50  0001 C CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-DS002.pdf" H 2400 3400 50  0001 C CNN
+	1    2400 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0124
+U 1 1 64FDDE83
+P 2300 3000
+F 0 "#PWR0124" H 2300 2850 50  0001 C CNN
+F 1 "VDD" H 2315 3173 50  0000 C CNN
+F 2 "" H 2300 3000 50  0001 C CNN
+F 3 "" H 2300 3000 50  0001 C CNN
+	1    2300 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0126
+U 1 1 64FDE767
+P 2500 3000
+F 0 "#PWR0126" H 2500 2850 50  0001 C CNN
+F 1 "VDD" H 2515 3173 50  0000 C CNN
+F 2 "" H 2500 3000 50  0001 C CNN
+F 3 "" H 2500 3000 50  0001 C CNN
+	1    2500 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0127
+U 1 1 64FDE9DC
+P 3350 3000
+F 0 "#PWR0127" H 3350 2850 50  0001 C CNN
+F 1 "VDD" H 3365 3173 50  0000 C CNN
+F 2 "" H 3350 3000 50  0001 C CNN
+F 3 "" H 3350 3000 50  0001 C CNN
+	1    3350 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0130
+U 1 1 64FDECFE
+P 950 3450
+F 0 "#PWR0130" H 950 3300 50  0001 C CNN
+F 1 "VDD" H 965 3623 50  0000 C CNN
+F 2 "" H 950 3450 50  0001 C CNN
+F 3 "" H 950 3450 50  0001 C CNN
+	1    950  3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0132
+U 1 1 64FDF44D
+P 1350 3450
+F 0 "#PWR0132" H 1350 3300 50  0001 C CNN
+F 1 "VDD" H 1365 3623 50  0000 C CNN
+F 2 "" H 1350 3450 50  0001 C CNN
+F 3 "" H 1350 3450 50  0001 C CNN
+	1    1350 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 6750 1550 7250
+$EndSCHEMATC

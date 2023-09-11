@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name MCP9804-E_MC)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804/MCP9804-E_MC.lib")(options "")(descr ""))
+  (lib (name Perovskite)(type Legacy)(uri "${KIPRJMOD}/KiCAD Parts/Perovskite/Perovskite.lib")(options "")(descr ""))
+)

@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name MCP9804_Custom)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/MCP9804/MCP9804_Custom.pretty")(options "")(descr ""))
+  (lib (name "KiCAD Parts")(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts")(options "")(descr ""))
+  (lib (name Perovskite)(type KiCad)(uri "${KIPRJMOD}/KiCAD Parts/Perovskite")(options "")(descr ""))
+)

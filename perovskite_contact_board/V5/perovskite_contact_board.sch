@@ -1,0 +1,493 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Perovskite Contact Board"
+Date "2023-09-05"
+Rev "V4"
+Comp "Aerospace eXperimental Payloads | UNL Aerospace Club"
+Comment1 "Copyright (c) 2023"
+Comment2 "Designer: JMMS"
+Comment3 "Reviewer: WSA"
+Comment4 "Approved: WSA"
+$EndDescr
+$Comp
+L Perovskite:Perovskite_CP_6_Cell U3
+U 1 1 63690578
+P 5525 4900
+F 0 "U3" H 5475 4875 50  0000 L CNN
+F 1 "Perovskite_CP_6_Cell" H 5150 4800 50  0000 L CNN
+F 2 "Perovskite:Perovskite" H 5525 4900 50  0001 C CNN
+F 3 "" H 5525 4900 50  0001 C CNN
+	1    5525 4900
+	1    0    0    -1  
+$EndComp
+Text GLabel 5075 5150 0    50   Input ~ 0
+CELL_13
+Text GLabel 5075 5250 0    50   Input ~ 0
+CELL_14
+Text GLabel 5075 5350 0    50   Input ~ 0
+CELL_15
+Text GLabel 5075 5450 0    50   Input ~ 0
+CELL_16
+Text GLabel 5075 5550 0    50   Input ~ 0
+CELL_17
+Text GLabel 5075 5650 0    50   Input ~ 0
+CELL_18
+Text GLabel 8450 5400 0    50   Input ~ 0
+CELL_16
+$Comp
+L Sensor_Temperature:MCP9808_MSOP U6
+U 1 1 636A02E7
+P 7000 5400
+F 0 "U6" H 7075 5900 50  0000 L CNN
+F 1 "MCP9808_MSOP" H 7075 6000 50  0000 L CNN
+F 2 "MCP9804_Custom:MCP9804_With_Hole" H 7000 5400 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22203b.pdf" H 6750 5850 50  0001 C CNN
+	1    7000 5400
+	1    0    0    -1  
+$EndComp
+Text GLabel 6600 5100 0    50   Input ~ 0
+SDA3
+Text GLabel 6600 5200 0    50   Input ~ 0
+SCL3
+Text GLabel 5075 5750 0    50   Input ~ 0
+CP_3
+Text GLabel 8450 6000 0    50   Input ~ 0
+CP_3
+Wire Wire Line
+	7000 4700 7000 4900
+Wire Wire Line
+	6300 4700 6300 5500
+Wire Wire Line
+	6300 5700 6600 5700
+Wire Wire Line
+	7000 5900 7000 6050
+Wire Wire Line
+	6300 5500 6600 5500
+Connection ~ 6300 5500
+Wire Wire Line
+	6300 5500 6300 5600
+Wire Wire Line
+	6300 5600 6600 5600
+Connection ~ 6300 5600
+Wire Wire Line
+	6300 5600 6300 5700
+$Comp
+L Connector_Generic:Conn_01x01 JP102.1
+U 1 1 64B59200
+P 8650 4800
+F 0 "JP102.1" H 8730 4842 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 4751 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 4800 50  0001 C CNN
+F 3 "~" H 8650 4800 50  0001 C CNN
+	1    8650 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.2
+U 1 1 64B59206
+P 8650 5000
+F 0 "JP102.2" H 8730 5042 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 4951 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 5000 50  0001 C CNN
+F 3 "~" H 8650 5000 50  0001 C CNN
+	1    8650 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.3
+U 1 1 64B5B299
+P 8650 5200
+F 0 "JP102.3" H 8730 5242 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5151 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 5200 50  0001 C CNN
+F 3 "~" H 8650 5200 50  0001 C CNN
+	1    8650 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.4
+U 1 1 64B5B29F
+P 8650 5400
+F 0 "JP102.4" H 8730 5442 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5351 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 5400 50  0001 C CNN
+F 3 "~" H 8650 5400 50  0001 C CNN
+	1    8650 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.5
+U 1 1 64B5B2A5
+P 8650 5600
+F 0 "JP102.5" H 8730 5642 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5551 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 5600 50  0001 C CNN
+F 3 "~" H 8650 5600 50  0001 C CNN
+	1    8650 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.6
+U 1 1 64B5B2AB
+P 8650 5800
+F 0 "JP102.6" H 8730 5842 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5751 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 5800 50  0001 C CNN
+F 3 "~" H 8650 5800 50  0001 C CNN
+	1    8650 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP102.7
+U 1 1 64B5D0F6
+P 8650 6000
+F 0 "JP102.7" H 8730 6042 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 5951 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 6000 50  0001 C CNN
+F 3 "~" H 8650 6000 50  0001 C CNN
+	1    8650 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.1
+U 1 1 64B5D0FC
+P 2350 6750
+F 0 "JP103.1" H 2430 6792 50  0000 L CNN
+F 1 "Conn_01x01" H 2430 6701 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 2350 6750 50  0001 C CNN
+F 3 "~" H 2350 6750 50  0001 C CNN
+	1    2350 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 64BAB42F
+P 1550 7250
+F 0 "#PWR0102" H 1550 7000 50  0001 C CNN
+F 1 "GND" H 1555 7077 50  0000 C CNN
+F 2 "" H 1550 7250 50  0001 C CNN
+F 3 "" H 1550 7250 50  0001 C CNN
+	1    1550 7250
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7400 5400
+Text GLabel 8450 5800 0    50   Input ~ 0
+CELL_18
+Text GLabel 8450 5600 0    50   Input ~ 0
+CELL_17
+Text GLabel 8450 5200 0    50   Input ~ 0
+CELL_15
+Text GLabel 8450 5000 0    50   Input ~ 0
+CELL_14
+Text GLabel 8450 4800 0    50   Input ~ 0
+CELL_13
+$Comp
+L Connector_Generic:Conn_01x01 JP103.10
+U 1 1 64B988DA
+P 3850 7150
+F 0 "JP103.10" H 3930 7192 50  0000 L CNN
+F 1 "Conn_01x01" H 3930 7101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 3850 7150 50  0001 C CNN
+F 3 "~" H 3850 7150 50  0001 C CNN
+	1    3850 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.12
+U 1 1 64BA5ED3
+P 6200 7150
+F 0 "JP103.12" H 6280 7192 50  0000 L CNN
+F 1 "Conn_01x01" H 6280 7101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 6200 7150 50  0001 C CNN
+F 3 "~" H 6200 7150 50  0001 C CNN
+	1    6200 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.11
+U 1 1 64BA5848
+P 5000 7150
+F 0 "JP103.11" H 5080 7192 50  0000 L CNN
+F 1 "Conn_01x01" H 5080 7101 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 5000 7150 50  0001 C CNN
+F 3 "~" H 5000 7150 50  0001 C CNN
+	1    5000 7150
+	1    0    0    -1  
+$EndComp
+Text GLabel 5700 6650 1    50   Input ~ 0
+SDA3
+Text GLabel 4500 6650 1    50   Input ~ 0
+SCL3
+Wire Wire Line
+	4500 6650 4500 7150
+Wire Wire Line
+	4500 7150 4800 7150
+Wire Wire Line
+	5700 6650 5700 7150
+Wire Wire Line
+	5700 7150 6000 7150
+$Comp
+L power:VDDF #PWR0108
+U 1 1 64BAF015
+P 7000 4700
+F 0 "#PWR0108" H 7000 4550 50  0001 C CNN
+F 1 "VDDF" H 7015 4873 50  0000 C CNN
+F 2 "" H 7000 4700 50  0001 C CNN
+F 3 "" H 7000 4700 50  0001 C CNN
+	1    7000 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0110
+U 1 1 64BB5317
+P 3050 6650
+F 0 "#PWR0110" H 3050 6500 50  0001 C CNN
+F 1 "VDDF" H 3065 6823 50  0000 C CNN
+F 2 "" H 3050 6650 50  0001 C CNN
+F 3 "" H 3050 6650 50  0001 C CNN
+	1    3050 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 6650 3050 7150
+Wire Wire Line
+	3050 7150 3650 7150
+Wire Wire Line
+	1550 6750 2150 6750
+$Comp
+L power:VDDF #PWR0119
+U 1 1 64F7F9A0
+P 6300 4700
+F 0 "#PWR0119" H 6300 4550 50  0001 C CNN
+F 1 "VDDF" H 6315 4873 50  0000 C CNN
+F 2 "" H 6300 4700 50  0001 C CNN
+F 3 "" H 6300 4700 50  0001 C CNN
+	1    6300 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C5
+U 1 1 64F82799
+P 7600 5400
+F 0 "C5" H 7715 5446 50  0000 L CNN
+F 1 "0.1u" H 7715 5355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7638 5250 50  0001 C CNN
+F 3 "~" H 7600 5400 50  0001 C CNN
+	1    7600 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0123
+U 1 1 64F827A5
+P 7600 5550
+F 0 "#PWR0123" H 7600 5300 50  0001 C CNN
+F 1 "GND" H 7605 5377 50  0000 C CNN
+F 2 "" H 7600 5550 50  0001 C CNN
+F 3 "" H 7600 5550 50  0001 C CNN
+	1    7600 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 64F85588
+P 1350 3600
+F 0 "C2" H 1465 3646 50  0000 L CNN
+F 1 "0.1u" H 1465 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1388 3450 50  0001 C CNN
+F 3 "~" H 1350 3600 50  0001 C CNN
+	1    1350 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0125
+U 1 1 64F85594
+P 1350 3750
+F 0 "#PWR0125" H 1350 3500 50  0001 C CNN
+F 1 "GND" H 1355 3577 50  0000 C CNN
+F 2 "" H 1350 3750 50  0001 C CNN
+F 3 "" H 1350 3750 50  0001 C CNN
+	1    1350 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0128
+U 1 1 64F86E24
+P 2300 4200
+F 0 "#PWR0128" H 2300 3950 50  0001 C CNN
+F 1 "GND" H 2305 4027 50  0000 C CNN
+F 2 "" H 2300 4200 50  0001 C CNN
+F 3 "" H 2300 4200 50  0001 C CNN
+	1    2300 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0129
+U 1 1 64F87098
+P 2500 4200
+F 0 "#PWR0129" H 2500 3950 50  0001 C CNN
+F 1 "GND" H 2505 4027 50  0000 C CNN
+F 2 "" H 2500 4200 50  0001 C CNN
+F 3 "" H 2500 4200 50  0001 C CNN
+	1    2500 4200
+	1    0    0    -1  
+$EndComp
+Text GLabel 3000 3700 2    50   Input ~ 0
+SDA3
+Text GLabel 3000 3500 2    50   Input ~ 0
+SCL2
+$Comp
+L Device:C C1
+U 1 1 64F92513
+P 950 3600
+F 0 "C1" H 1065 3646 50  0000 L CNN
+F 1 "0.1u" H 1065 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 988 3450 50  0001 C CNN
+F 3 "~" H 950 3600 50  0001 C CNN
+	1    950  3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0131
+U 1 1 64F9251F
+P 950 3750
+F 0 "#PWR0131" H 950 3500 50  0001 C CNN
+F 1 "GND" H 955 3577 50  0000 C CNN
+F 2 "" H 950 3750 50  0001 C CNN
+F 3 "" H 950 3750 50  0001 C CNN
+	1    950  3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 3900 3350 3900
+Wire Wire Line
+	3350 3000 3350 3300
+Wire Wire Line
+	3000 3300 3350 3300
+Connection ~ 3350 3300
+Wire Wire Line
+	3350 3300 3350 3900
+$Comp
+L power:VDDF #PWR0120
+U 1 1 64FADC39
+P 7600 5250
+F 0 "#PWR0120" H 7600 5100 50  0001 C CNN
+F 1 "VDDF" H 7615 5423 50  0000 C CNN
+F 2 "" H 7600 5250 50  0001 C CNN
+F 3 "" H 7600 5250 50  0001 C CNN
+	1    7600 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor:BME280 U7
+U 1 1 64F7CCC1
+P 2400 3600
+F 0 "U7" H 1971 3646 50  0000 R CNN
+F 1 "BME280" H 1971 3555 50  0000 R CNN
+F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 3900 3150 50  0001 C CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-DS002.pdf" H 2400 3400 50  0001 C CNN
+	1    2400 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 6750 1550 7250
+Text GLabel 8450 6200 0    50   Input ~ 0
+CP_3
+$Comp
+L Connector_Generic:Conn_01x01 JP102.8
+U 1 1 64FEEFCB
+P 8650 6200
+F 0 "JP102.8" H 8730 6242 50  0000 L CNN
+F 1 "Conn_01x01" H 8730 6151 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8650 6200 50  0001 C CNN
+F 3 "~" H 8650 6200 50  0001 C CNN
+	1    8650 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 64FF572D
+P 7000 6050
+F 0 "#PWR0101" H 7000 5800 50  0001 C CNN
+F 1 "GND" H 7005 5877 50  0000 C CNN
+F 2 "" H 7000 6050 50  0001 C CNN
+F 3 "" H 7000 6050 50  0001 C CNN
+	1    7000 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0103
+U 1 1 64FF5E8C
+P 2300 3000
+F 0 "#PWR0103" H 2300 2850 50  0001 C CNN
+F 1 "VDDF" H 2315 3173 50  0000 C CNN
+F 2 "" H 2300 3000 50  0001 C CNN
+F 3 "" H 2300 3000 50  0001 C CNN
+	1    2300 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0104
+U 1 1 64FF6ACC
+P 2500 3000
+F 0 "#PWR0104" H 2500 2850 50  0001 C CNN
+F 1 "VDDF" H 2515 3173 50  0000 C CNN
+F 2 "" H 2500 3000 50  0001 C CNN
+F 3 "" H 2500 3000 50  0001 C CNN
+	1    2500 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0105
+U 1 1 64FF6FA9
+P 3350 3000
+F 0 "#PWR0105" H 3350 2850 50  0001 C CNN
+F 1 "VDDF" H 3365 3173 50  0000 C CNN
+F 2 "" H 3350 3000 50  0001 C CNN
+F 3 "" H 3350 3000 50  0001 C CNN
+	1    3350 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0106
+U 1 1 64FF725B
+P 1350 3450
+F 0 "#PWR0106" H 1350 3300 50  0001 C CNN
+F 1 "VDDF" H 1365 3623 50  0000 C CNN
+F 2 "" H 1350 3450 50  0001 C CNN
+F 3 "" H 1350 3450 50  0001 C CNN
+	1    1350 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDDF #PWR0107
+U 1 1 64FF753D
+P 950 3450
+F 0 "#PWR0107" H 950 3300 50  0001 C CNN
+F 1 "VDDF" H 965 3623 50  0000 C CNN
+F 2 "" H 950 3450 50  0001 C CNN
+F 3 "" H 950 3450 50  0001 C CNN
+	1    950  3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 JP103.2
+U 1 1 64FF9586
+P 5150 7000
+F 0 "JP103.2" H 5230 7042 50  0000 L CNN
+F 1 "Conn_01x01" H 5230 6951 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 5150 7000 50  0001 C CNN
+F 3 "~" H 5150 7000 50  0001 C CNN
+	1    5150 7000
+	1    0    0    -1  
+$EndComp
+Text GLabel 4650 6500 1    50   Input ~ 0
+SCL2
+Wire Wire Line
+	4650 6500 4650 7000
+Wire Wire Line
+	4650 7000 4950 7000
+$EndSCHEMATC
