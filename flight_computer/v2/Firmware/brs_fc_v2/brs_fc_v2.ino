@@ -295,17 +295,17 @@ void setup() {
 
   // Setup system
   init_pins();
-//  while (digitalRead(BUSY) == EPS_BUSY)
-//  {
-//    delay(1000);
-//  }
+  while (digitalRead(BUSY) == EPS_BUSY)
+  {
+    delay(1000);
+  }
   // Startup cubesat EPS
-//  eps.begin();
-//  eps.heartbeat();
+  eps.begin();
+  eps.heartbeat();
   // Initialize sensors
-//  sun_sensor.init();
-//  init_magnetometer();
-//  init_payload();
+  sun_sensor.init();
+  init_magnetometer();
+  init_payload();
   // Configure ADC
   analogReadResolution(12);
   analogReference(EXTERNAL);
