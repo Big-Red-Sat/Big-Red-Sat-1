@@ -22,6 +22,8 @@
 
 #define SETTLING_TIME 10
 
+#define MAX_PIXELS 6
+
 byte pixel_packet_1[17] = { 0 };
 byte pixel_packet_2[17] = { 0 };
 byte pixel_packet_3[17] = { 0 };
@@ -51,6 +53,7 @@ volatile bool last_p3_en = false;
 volatile int current_rot = 0;
 int16_t theta;
 int16_t phi;
+uint8_t current_pixel = 0;
 
 void shutdown_system(void)
 {
@@ -76,8 +79,12 @@ void init_pins(void)
   pinMode(MAG_INT, INPUT);
   pinMode(CT_GOOD, INPUT);
   pinMode(GAAS_ON, INPUT);
+  
   pinMode(MUX_GOOD, INPUT);
   pinMode(MUX_CLOCK, OUTPUT);
+  pinMode(MUX_RESET, OUTPUT);
+  digitalWrite(MUX_RESET, LOW);
+  
   pinMode(READ_BUSS, INPUT);
   
   pinMode(LADDER_CLOCK, OUTPUT);
@@ -91,6 +98,8 @@ void init_pins(void)
   
   pinMode(S0_CT, OUTPUT);
   digitalWrite(S0_CT, LOW);
+
+  reset_mux();
 }
 
 bool read_gaas_temp(int16_t *gaas_temp_reading)
@@ -195,10 +204,18 @@ void step_ladder(void)
   digitalWrite(LADDER_CLOCK, HIGH);
 }
 
+void reset_mux(void)
+{
+  digitalWrite(MUX_RESET, HIGH);
+  digitalWrite(MUX_RESET, LOW);
+  current_pixel = 0;
+}
+
 void step_mux(void)
 {
   digitalWrite(MUX_CLOCK, HIGH);
   digitalWrite(MUX_CLOCK, LOW);
+  current_pixel++;
 }
 
 void set_trace_direction(uint8_t dir)
@@ -291,21 +308,23 @@ void setup() {
 #ifdef DEBUGGING
   Serial.begin(9600);
   while (!Serial);
+  Serial.println("Starting flight computer");
 #endif
 
   // Setup system
   init_pins();
-  while (digitalRead(BUSY) == EPS_BUSY)
-  {
-    delay(1000);
-  }
+//  while (digitalRead(BUSY) == EPS_BUSY)
+//  {
+//    delay(1000);
+//  }
   // Startup cubesat EPS
-  eps.begin();
-  eps.heartbeat();
+//  eps.begin();
+//  eps.heartbeat();
   // Initialize sensors
-  sun_sensor.init();
+//  sun_sensor.init();
+//  Wire.begin();
   init_magnetometer();
-  init_payload();
+//  init_payload();
   // Configure ADC
   analogReadResolution(12);
   analogReference(EXTERNAL);
@@ -339,10 +358,17 @@ void loop() {
 //  if (read_gaas_temp(&raw_gaas_temp)) Serial.println(raw_gaas_temp);
 //  delay(500);
 
-  step_ladder();
-//  step_mux();
-
-//  delay(1000);
+//  step_ladder();
+  step_mux();
+  if (current_pixel == MAX_PIXELS)
+  {
+    reset_mux();
+  }
+  read_relay();
+  read_magnetometer();
+  Serial.print("Current pixel: "); Serial.println(current_pixel);
+  delay(3000);
+  
 
 //  set_read_mux(MUX_POS_P1);
 //  read_mux(&iv_voltage, &iv_current);
@@ -366,15 +392,15 @@ void loop() {
 //  Serial.println(iv_current);
 
 //  set_read_mux(MUX_POS_GAAS);
-  delay(SETTLING_TIME);
-  read_mux(&iv_voltage, &iv_current);
-  read_gaas_temp(&gaas_temp);
-  Serial.print("Voltage:");
-  Serial.print(iv_voltage);
-  Serial.print(" ");
-  Serial.print("Current:");
-  Serial.print(iv_current);
-  Serial.print(" Temp: ");
-  Serial.println(gaas_temp);
+//  delay(SETTLING_TIME);
+//  read_mux(&iv_voltage, &iv_current);
+//  read_gaas_temp(&gaas_temp);
+//  Serial.print("Voltage:");
+//  Serial.print(iv_voltage);
+//  Serial.print(" ");
+//  Serial.print("Current:");
+//  Serial.print(iv_current);
+//  Serial.print(" Temp: ");
+//  Serial.println(gaas_temp);
   
 }
