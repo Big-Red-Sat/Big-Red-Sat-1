@@ -24,6 +24,8 @@
 
 #define MAX_PIXELS 6
 
+#define EPS_SEND_TIMEOUT 100
+
 byte pixel_packet_1[17] = { 0 };
 byte pixel_packet_2[17] = { 0 };
 byte pixel_packet_3[17] = { 0 };
@@ -31,6 +33,16 @@ byte pixel_packet_4[17] = { 0 };
 byte flux_packet[17] = { 0 };
 byte secondary_packet[17] = { 0 };
 byte tertiary_packet[17] = { 0 };
+byte status_register = 0x00;
+
+#define STATUS_REGISTER_PIXEL_BIT_0   0
+#define STATUS_REGISTER_PIXEL_BIT_1   1
+#define STATUS_REGISTER_PIXEL_BIT_2   2
+#define STATUS_REGISTER_SAMPLE_BIT_0  3
+#define STATUS_REGISTER_SAMPLE_BIT_1  4
+#define STATUS_REGISTER_EPS_FAIL      5
+#define STATUS_REGISTER_CT_FAIL       6
+#define STATUS_REGISTER_MUX_FAIL      7
 
 // Temperature sensors on the payload
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
@@ -54,53 +66,12 @@ volatile int current_rot = 0;
 int16_t theta;
 int16_t phi;
 uint8_t current_pixel = 0;
+uint16_t humidity_reading = 0;
+uint16_t pressure_reading = 0;
 
-void shutdown_system(void)
-{
-  // Turn off ADC
-  ADC12CTL0 &= ~(ADC12ENC);
-  ADC12CTL0 &= ~(ADC12ON);
-  REFCTL0 &= ~(REFON);
-}
-
-void init_pins(void)
-{
-  pinMode(NC_V, INPUT);
-  pinMode(S1_CT, OUTPUT);
-  digitalWrite(S1_CT, LOW);
-  
-  pinMode(READ_CURRENT, INPUT);
-  pinMode(READ_VOLTAGE, INPUT);
-  pinMode(NO_V, INPUT);
-  pinMode(UNSET, OUTPUT);
-  digitalWrite(UNSET, LOW);
-  pinMode(SET, OUTPUT);
-  digitalWrite(SET, LOW);
-  pinMode(MAG_INT, INPUT);
-  pinMode(CT_GOOD, INPUT);
-  pinMode(GAAS_ON, INPUT);
-  
-  pinMode(MUX_GOOD, INPUT);
-  pinMode(MUX_CLOCK, OUTPUT);
-  pinMode(MUX_RESET, OUTPUT);
-  digitalWrite(MUX_RESET, LOW);
-  
-  pinMode(READ_BUSS, INPUT);
-  
-  pinMode(LADDER_CLOCK, OUTPUT);
-  digitalWrite(LADDER_CLOCK, HIGH);
-  pinMode(TRACE_DIR, OUTPUT);
-  digitalWrite(TRACE_DIR, COUNT_UP);
-  
-//  pinMode(GAAS_TEMP, INPUT);
-  pinMode(BUSY, INPUT);
-  pinMode(PANEL_3_ON, INPUT);
-  
-  pinMode(S0_CT, OUTPUT);
-  digitalWrite(S0_CT, LOW);
-
-  reset_mux();
-}
+///////////////////////////////////////////
+//       START PRIMARY PAYLOAD CODE
+///////////////////////////////////////////
 
 bool read_gaas_temp(int16_t *gaas_temp_reading)
 {
@@ -173,30 +144,57 @@ bool read_gaas_temp(int16_t *gaas_temp_reading)
   return true;
 }
 
-void init_magnetometer(void)
+void gaas_rotation_isr(void)
 {
-  uint8_t status = magnetometer.begin(0, 0, MAG_INT); //Assumes I2C jumpers are GND. No DRDY pin used.
-  Serial.println(status);
-  magnetometer.setOverSampling(0);
-  magnetometer.setDigitalFiltering(0);
+  if (last_gaas_rot != 0)
+  {
+    long rotation_time = millis() - last_gaas_rot;
+    float rotation = 1000 / rotation_time;
+    current_rot = rotation * 1000;
+  }
+  last_gaas_rot = millis();
 }
 
-void read_magnetometer(void)
+void p3_rotation_isr(void)
 {
-  magnetometer.readData(data); //Read the values from the sensor
-
-  Serial.print("magX[");
-  Serial.print(data.x);
-  Serial.print("] magY[");
-  Serial.print(data.y);
-  Serial.print("] magZ[");
-  Serial.print(data.z);
-  Serial.print("] temperature(C)[");
-  Serial.print(data.t);
-  Serial.print("]");
-
-  Serial.println();
+  last_p3_rot = millis();
+  last_p3_en = true;
 }
+
+uint8_t init_payload(void)
+{
+  uint8_t all_status = 0;
+  uint8_t status = perovskite_1.begin();
+  if (status != 0) all_status |= (1 << 0);
+  status = perovskite_2.begin();
+  if (status != 0) all_status |= (1 << 1);
+  status = perovskite_3.begin();
+  if (status != 0) all_status |= (1 << 2);
+  return all_status;
+}
+
+void read_payload(float *p_1_temperature, float *p_2_temperature, float *p_3_temperature)
+{
+  perovskite_1.read();
+  *p_1_temperature = perovskite_1.tAmbient;
+  perovskite_2.read();
+  *p_2_temperature = perovskite_2.tAmbient;
+  perovskite_3.read();
+  *p_3_temperature = perovskite_3.tAmbient;
+}
+
+void read_bme280(void)
+{
+  
+}
+
+///////////////////////////////////////////
+//       END PRIMARY PAYLOAD CODE
+///////////////////////////////////////////
+
+///////////////////////////////////////////
+//       START CURVE TRACER CODE
+///////////////////////////////////////////
 
 void step_ladder(void)
 {
@@ -248,61 +246,240 @@ void set_read_mux(uint8_t mux_pos)
   }
 }
 
-void gaas_rotation_isr(void)
-{
-  if (last_gaas_rot != 0)
-  {
-    long rotation_time = millis() - last_gaas_rot;
-    float rotation = 1000 / rotation_time;
-    current_rot = rotation * 1000;
-  }
-  last_gaas_rot = millis();
-}
-
-void p3_rotation_isr(void)
-{
-  last_p3_rot = millis();
-  last_p3_en = true;
-}
-
 void read_mux(uint16_t *voltage, uint16_t *current)
 {
   *voltage = analogRead(READ_VOLTAGE);
   *current = analogRead(READ_CURRENT);
 }
 
-uint8_t init_payload(void)
-{
-  uint8_t all_status = 0;
-  uint8_t status = perovskite_1.begin();
-  if (status != 0) all_status |= (1 << 0);
-  status = perovskite_2.begin();
-  if (status != 0) all_status |= (1 << 1);
-  status = perovskite_3.begin();
-  if (status != 0) all_status |= (1 << 2);
-  return all_status;
-}
+///////////////////////////////////////////
+//       END CURVE TRACER CODE
+///////////////////////////////////////////
 
-void read_payload(float *p_1_temperature, float *p_2_temperature, float *p_3_temperature)
+///////////////////////////////////////////
+//       START SECONDARY PAYLOAD CODE
+///////////////////////////////////////////
+
+long start_time;
+uint16_t nc_time, no_time;
+
+void set_relay_comparator (int pin)
 {
-  perovskite_1.read();
-  *p_1_temperature = perovskite_1.tAmbient;
-  perovskite_2.read();
-  *p_2_temperature = perovskite_2.tAmbient;
-  perovskite_3.read();
-  *p_3_temperature = perovskite_3.tAmbient;
+  CECTL2 = pin;  // P1.1 = +comp
+  CECTL1 = CERSEL + CEREFL_2 + CEON;  //  -comp = 0.5*Vcc; comparator on
 }
 
 void read_relay(void)
 {
+  // Test the NO path
+  no_time = 0;
+  set_relay_comparator(NO_V);
+  // Latch NO path
   digitalWrite(SET, HIGH);
   delay(10);
   digitalWrite(SET, LOW);
-  delay(500);
+  // Start reading
+  start_time = micros();
+  while (!(CECTL1 & 0x01))
+  {
+    if ((micros() - start_time) > 0xFFFF)
+    {
+      no_time = 0xFFFF;
+      break; 
+    }
+  }
+  if (no_time == 0)
+  {
+    no_time = (uint16_t)(micros() - start_time);
+  }
+  // Let NC discharge
+  delay(1000);
+  
+  nc_time = 0;
+  set_relay_comparator(NC_V);
   digitalWrite(UNSET, HIGH);
   delay(10);
   digitalWrite(UNSET, LOW);
+  
+  start_time = micros();
+  while (!(CECTL1 & 0x01))
+  {
+    if ((micros() - start_time) > 0xFFFF)
+    {
+      nc_time = 0xFFFF;
+      break; 
+    }
+  }
+  if (nc_time == 0)
+  {
+    nc_time = (uint16_t)(micros() - start_time);
+  }
 }
+
+void handle_secondary_payload_sensors(void)
+{
+#ifdef DEBUGGING
+  Serial.println("Handling secondary payload interrupt");
+#endif
+}
+
+void init_secondary_payload(void)
+{
+  read_relay();
+  init_magnetometer();
+}
+
+void enable_magnetometer_int(void)
+{
+  attachInterrupt(digitalPinToInterrupt(MAG_INT), handle_secondary_payload_sensors, RISING);
+}
+
+void init_magnetometer(void)
+{
+  uint8_t status = magnetometer.begin(0, 0, MAG_INT);
+  
+#ifdef DEBUGGING
+  Serial.println(status);
+#endif
+
+  // Sample rate: 303.4 Hz
+  magnetometer.setOverSampling(2);
+  magnetometer.setDigitalFiltering(0);
+
+  enable_magnetometer_int();
+}
+
+void read_magnetometer(void)
+{
+  magnetometer.readData(data); //Read the values from the sensor
+  
+#ifdef DEBUGGING
+  Serial.print("magX[");
+  Serial.print(data.x);
+  Serial.print("] magY[");
+  Serial.print(data.y);
+  Serial.print("] magZ[");
+  Serial.print(data.z);
+  Serial.print("] temperature(C)[");
+  Serial.print(data.t);
+  Serial.print("]");
+
+  Serial.println();
+#endif
+}
+
+///////////////////////////////////////////
+//       END SECONDARY PAYLOAD CODE
+///////////////////////////////////////////
+
+void shutdown_system(void)
+{
+  // Turn off ADC
+  ADC12CTL0 &= ~(ADC12ENC);
+  ADC12CTL0 &= ~(ADC12ON);
+  REFCTL0 &= ~(REFON);
+}
+
+void init_pins(void)
+{
+  pinMode(NC_V, INPUT);
+  pinMode(S1_CT, OUTPUT);
+  digitalWrite(S1_CT, LOW);
+  
+  pinMode(READ_CURRENT, INPUT);
+  pinMode(READ_VOLTAGE, INPUT);
+  pinMode(NO_V, INPUT);
+  pinMode(UNSET, OUTPUT);
+  digitalWrite(UNSET, LOW);
+  pinMode(SET, OUTPUT);
+  digitalWrite(SET, LOW);
+  pinMode(MAG_INT, INPUT);
+  pinMode(CT_GOOD, INPUT);
+  pinMode(GAAS_ON, INPUT);
+  
+  pinMode(MUX_GOOD, INPUT);
+  pinMode(MUX_CLOCK, OUTPUT);
+  pinMode(MUX_RESET, OUTPUT);
+  digitalWrite(MUX_RESET, LOW);
+  
+  pinMode(READ_BUSS, INPUT);
+  
+  pinMode(LADDER_CLOCK, OUTPUT);
+  digitalWrite(LADDER_CLOCK, HIGH);
+  pinMode(TRACE_DIR, OUTPUT);
+  digitalWrite(TRACE_DIR, COUNT_UP);
+  
+//  pinMode(GAAS_TEMP, INPUT);
+  pinMode(BUSY, INPUT);
+  pinMode(PANEL_3_ON, INPUT);
+  
+  pinMode(S0_CT, OUTPUT);
+  digitalWrite(S0_CT, LOW);
+
+  reset_mux();
+}
+
+#define BUSS_VOLTAGE_CUTOFF 0xA665
+
+bool check_battery(void)
+{
+  uint16_t battery_voltage = analogRead(READ_BUSS);
+  if (battery_voltage > BUSS_VOLTAGE_CUTOFF)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+bool startup_test(void)
+{
+  if (check_battery())
+  {
+    // Wait for EPS to wakeup
+    int timeout_count = 0;
+    while (digitalRead(BUSY) == EPS_BUSY)
+    {
+      delay(1000);
+      #ifdef DEBUGGING
+      Serial.println("Waiting for EPS");
+      #endif
+      if (timeout_count++ == EPS_SEND_TIMEOUT)
+      {
+        status_register |= (1 << STATUS_REGISTER_EPS_FAIL);
+        break;
+      }
+    }
+    // Startup cubesat EPS
+    eps.begin();
+    if (!eps.heartbeat())
+    {
+      status_register |= (1 << STATUS_REGISTER_EPS_FAIL);
+    }
+    // Initialize sensors
+    sun_sensor.init();
+    init_secondary_payload();
+    init_payload();
+  
+    // Setup rotation interrupts
+    attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
+    attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
+  
+    // Set reading mux
+    set_read_mux(MUX_POS_GAAS);
+
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+long startup_time = 0;
+#define HALFORBIT_WAKEUP 1500000
 
 void setup() {
 #ifdef DEBUGGING
@@ -313,31 +490,34 @@ void setup() {
 
   // Setup system
   init_pins();
-//  while (digitalRead(BUSY) == EPS_BUSY)
-//  {
-//    delay(1000);
-//  }
-  // Startup cubesat EPS
-//  eps.begin();
-//  eps.heartbeat();
-  // Initialize sensors
-//  sun_sensor.init();
-//  Wire.begin();
-  init_magnetometer();
-//  init_payload();
+  if (!startup_test())
+  {
+    #ifdef DEBUGGING
+    Serial.println("Battery is too low");
+    #endif
+    while (1);
+  }
+  
   // Configure ADC
   analogReadResolution(12);
   analogReference(EXTERNAL);
-  // Setup rotation interrupts
-  //attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
-  //attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
-  set_read_mux(MUX_POS_GAAS);
+  
+  startup_time = millis();
 }
 
-uint16_t iv_voltage, iv_current;
-int16_t gaas_temp;
+void loop() 
+{
+  while ((millis() - startup_time) < HALFORBIT_WAKEUP)
+  {
+    #ifdef DEBUGGING
+    Serial.print("Waiting to wakeup in ");
+    Serial.println(millis() - startup_time);
+    delay(1000);
+    #endif
+    // wait until halfway orbit to start sampling
+  }
 
-void loop() {
+  
 //  if (digitalRead(GAAS_ON)
 //  {
 //    sun_sensor.getSample(&theta, &phi);
@@ -359,15 +539,15 @@ void loop() {
 //  delay(500);
 
 //  step_ladder();
-  step_mux();
-  if (current_pixel == MAX_PIXELS)
-  {
-    reset_mux();
-  }
-  read_relay();
-  read_magnetometer();
-  Serial.print("Current pixel: "); Serial.println(current_pixel);
-  delay(3000);
+//  step_mux();
+//  if (current_pixel == MAX_PIXELS)
+//  {
+//    reset_mux();
+//  }
+//  read_relay();
+//  read_magnetometer();
+//  Serial.print("Current pixel: "); Serial.println(current_pixel);
+//  delay(3000);
   
 
 //  set_read_mux(MUX_POS_P1);
