@@ -618,21 +618,21 @@ void loop()
   read_gaas_temp(&gaas_temperature);
 
   // Read humidity and pressure
-  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_0) | (0 << STATUS_REGISTER_SAMPLE_BIT_1) | current_pixel;
-  pixel_packet_1[4] = (byte)(p_1_temperature >> 8);
-  pixel_packet_1[5] = (byte)(p_1_temperature);
+  status_register |= (0 << STATUS_REGISTER_SAMPLE_BIT_0) | (0 << STATUS_REGISTER_SAMPLE_BIT_1) | 0x00;
+  pixel_packet_1[4] = (byte)(gaas_temperature >> 8);
+  pixel_packet_1[5] = (byte)(gaas_temperature);
   pixel_packet_1[6] = (byte)(voltage_1[0] / 4);
   pixel_packet_1[7] = (byte)(current_1[0] / 4);
-  pixel_packet_1[8] = (byte)(voltage_1[mp_4i - 2] / 4);
-  pixel_packet_1[9] = (byte)(current_1[mp_4i - 2] / 4);
-  pixel_packet_1[10] = (byte)(voltage_1[mp_4i - 1] / 4);
-  pixel_packet_1[11] = (byte)(current_1[mp_4i - 1] / 4);
-  pixel_packet_1[12] = (byte)(voltage_1[mp_4i] / 4);
-  pixel_packet_1[13] = (byte)(current_1[mp_4i] / 4);
-  pixel_packet_1[14] = (byte)(voltage_1[mp_4i + 1] / 4);
-  pixel_packet_1[15] = (byte)(current_1[mp_4i + 1] / 4);
-  pixel_packet_1[16] = (byte)(voltage_1[mp_4i + 2] / 4);
-  pixel_packet_1[17] = (byte)(current_1[mp_4i + 2] / 4);
+  pixel_packet_1[8] = (byte)(voltage_1[mp_1i - 2] / 4);
+  pixel_packet_1[9] = (byte)(current_1[mp_1i - 2] / 4);
+  pixel_packet_1[10] = (byte)(voltage_1[mp_1i - 1] / 4);
+  pixel_packet_1[11] = (byte)(current_1[mp_1i - 1] / 4);
+  pixel_packet_1[12] = (byte)(voltage_1[mp_1i] / 4);
+  pixel_packet_1[13] = (byte)(current_1[mp_1i] / 4);
+  pixel_packet_1[14] = (byte)(voltage_1[mp_1i + 1] / 4);
+  pixel_packet_1[15] = (byte)(current_1[mp_1i + 1] / 4);
+  pixel_packet_1[16] = (byte)(voltage_1[mp_1i + 2] / 4);
+  pixel_packet_1[17] = (byte)(current_1[mp_1i + 2] / 4);
   pixel_packet_1[18] = (byte)(voltage_1[15] / 4);
   pixel_packet_1[19] = (byte)(current_1[15] / 4);
   pixel_packet_1[20] = status_register;
@@ -640,7 +640,184 @@ void loop()
   eps.radio(pixel_packet_1);
   eps.radio(pixel_packet_1);
   #ifdef DEBUGGING
+  Serial.println("GaAs Packet");
   Serial.write(pixel_packet_1, 21);
+  #endif
+
+  flux_packet_1[4] = (byte)(flux[0] >> 8);
+  flux_packet_1[5] = (byte)(flux[0] >> 0);
+  flux_packet_1[6] = (byte)(flux[mp_1i - 2] >> 8);
+  flux_packet_1[7] = (byte)(flux[mp_1i - 2] >> 0);
+  flux_packet_1[8] = (byte)(flux[mp_1i - 1] >> 8);
+  flux_packet_1[9] = (byte)(flux[mp_1i - 1] >> 0);
+  flux_packet_1[10] = (byte)(flux[mp_1i] >> 8);
+  flux_packet_1[11] = (byte)(flux[mp_1i] >> 0);
+  flux_packet_1[12] = (byte)(flux[mp_1i + 1] >> 8);
+  flux_packet_1[13] = (byte)(flux[mp_1i + 1] >> 0);
+  flux_packet_1[14] = (byte)(flux[mp_1i + 2] >> 8);
+  flux_packet_1[15] = (byte)(flux[mp_1i + 2] >> 0);
+  flux_packet_1[16] = (byte)(flux[15] >> 8);
+  flux_packet_1[17] = (byte)(flux[15] >> 0);
+  flux_packet_1[18] = (byte)(current_rot >> 8);
+  flux_packet_1[19] = (byte)(current_rot >> 0);
+  flux_packet_1[20] = status_register;
+
+  eps.radio(flux_packet_1);
+  eps.radio(flux_packet_1);
+  #ifdef DEBUGGING
+  Serial.println("GaAs Flux Packet");
+  Serial.write(flux_packet_1, 21);
+  #endif
+
+  status_register |= (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  pixel_packet_2[4] = (byte)(p_1_temperature >> 8);
+  pixel_packet_2[5] = (byte)(p_1_temperature >> 0);
+  pixel_packet_2[6] = (byte)(voltage_2[0] / 4);
+  pixel_packet_2[7] = (byte)(current_2[0] / 4);
+  pixel_packet_2[8] = (byte)(voltage_2[mp_2i - 2] / 4);
+  pixel_packet_2[9] = (byte)(current_2[mp_2i - 2] / 4);
+  pixel_packet_2[10] = (byte)(voltage_2[mp_2i - 1] / 4);
+  pixel_packet_2[11] = (byte)(current_2[mp_2i - 1] / 4);
+  pixel_packet_2[12] = (byte)(voltage_2[mp_2i] / 4);
+  pixel_packet_2[13] = (byte)(current_2[mp_2i] / 4);
+  pixel_packet_2[14] = (byte)(voltage_2[mp_2i + 1] / 4);
+  pixel_packet_2[15] = (byte)(current_2[mp_2i + 1] / 4);
+  pixel_packet_2[16] = (byte)(voltage_2[mp_2i + 2] / 4);
+  pixel_packet_2[17] = (byte)(current_2[mp_2i + 2] / 4);
+  pixel_packet_2[18] = (byte)(voltage_2[15] / 4);
+  pixel_packet_2[19] = (byte)(current_2[15] / 4);
+  pixel_packet_2[20] = status_register;
+
+  eps.radio(pixel_packet_2);
+  eps.radio(pixel_packet_2);
+  #ifdef DEBUGGING
+  Serial.println("P1 Packet");
+  Serial.write(pixel_packet_2, 21);
+  #endif
+
+  flux_packet_2[4] = (byte)(flux[0] >> 8);
+  flux_packet_2[5] = (byte)(flux[0] >> 0);
+  flux_packet_2[6] = (byte)(flux[mp_2i - 2] >> 8);
+  flux_packet_2[7] = (byte)(flux[mp_2i - 2] >> 0);
+  flux_packet_2[8] = (byte)(flux[mp_2i - 1] >> 8);
+  flux_packet_2[9] = (byte)(flux[mp_2i - 1] >> 0);
+  flux_packet_2[10] = (byte)(flux[mp_2i] >> 8);
+  flux_packet_2[11] = (byte)(flux[mp_2i] >> 0);
+  flux_packet_2[12] = (byte)(flux[mp_2i + 1] >> 8);
+  flux_packet_2[13] = (byte)(flux[mp_2i + 1] >> 0);
+  flux_packet_2[14] = (byte)(flux[mp_2i + 2] >> 8);
+  flux_packet_2[15] = (byte)(flux[mp_2i + 2] >> 0);
+  flux_packet_2[16] = (byte)(flux[15] >> 8);
+  flux_packet_2[17] = (byte)(flux[15] >> 0);
+  flux_packet_2[18] = (byte)(current_rot >> 8);
+  flux_packet_2[19] = (byte)(current_rot >> 0);
+  flux_packet_2[20] = status_register;
+
+  eps.radio(flux_packet_2);
+  eps.radio(flux_packet_2);
+  #ifdef DEBUGGING
+  Serial.println("P1 Flux Packet");
+  Serial.write(flux_packet_2, 21);
+  #endif
+
+  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  pixel_packet_3[4] = (byte)(p_2_temperature >> 8);
+  pixel_packet_3[5] = (byte)(p_2_temperature);
+  pixel_packet_3[6] = (byte)(voltage_3[0] / 4);
+  pixel_packet_3[7] = (byte)(current_3[0] / 4);
+  pixel_packet_3[8] = (byte)(voltage_3[mp_3i - 2] / 4);
+  pixel_packet_3[9] = (byte)(current_3[mp_3i - 2] / 4);
+  pixel_packet_3[10] = (byte)(voltage_3[mp_3i - 1] / 4);
+  pixel_packet_3[11] = (byte)(current_3[mp_3i - 1] / 4);
+  pixel_packet_3[12] = (byte)(voltage_3[mp_3i] / 4);
+  pixel_packet_3[13] = (byte)(current_3[mp_3i] / 4);
+  pixel_packet_3[14] = (byte)(voltage_3[mp_3i + 1] / 4);
+  pixel_packet_3[15] = (byte)(current_3[mp_3i + 1] / 4);
+  pixel_packet_3[16] = (byte)(voltage_3[mp_3i + 2] / 4);
+  pixel_packet_3[17] = (byte)(current_3[mp_3i + 2] / 4);
+  pixel_packet_3[18] = (byte)(voltage_3[15] / 4);
+  pixel_packet_3[19] = (byte)(current_3[15] / 4);
+  pixel_packet_3[20] = status_register;
+
+  eps.radio(pixel_packet_3);
+  eps.radio(pixel_packet_3);
+  #ifdef DEBUGGING
+  Serial.write(pixel_packet_3, 21);
+  #endif
+
+  flux_packet_3[4] = (byte)(flux[0] >> 8);
+  flux_packet_3[5] = (byte)(flux[0] >> 0);
+  flux_packet_3[6] = (byte)(flux[mp_3i - 2] >> 8);
+  flux_packet_3[7] = (byte)(flux[mp_3i - 2] >> 0);
+  flux_packet_3[8] = (byte)(flux[mp_3i - 1] >> 8);
+  flux_packet_3[9] = (byte)(flux[mp_3i - 1] >> 0);
+  flux_packet_3[10] = (byte)(flux[mp_3i] >> 8);
+  flux_packet_3[11] = (byte)(flux[mp_3i] >> 0);
+  flux_packet_3[12] = (byte)(flux[mp_3i + 1] >> 8);
+  flux_packet_3[13] = (byte)(flux[mp_3i + 1] >> 0);
+  flux_packet_3[14] = (byte)(flux[mp_3i + 2] >> 8);
+  flux_packet_3[15] = (byte)(flux[mp_3i + 2] >> 0);
+  flux_packet_3[16] = (byte)(flux[15] >> 8);
+  flux_packet_3[17] = (byte)(flux[15] >> 0);
+  flux_packet_3[18] = (byte)(current_rot >> 8);
+  flux_packet_3[19] = (byte)(current_rot >> 0);
+  flux_packet_3[20] = status_register;
+
+  eps.radio(flux_packet_3);
+  eps.radio(flux_packet_3);
+  #ifdef DEBUGGING
+  Serial.println("P2 Flux Packet");
+  Serial.write(flux_packet_3, 21);
+  #endif
+
+  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  pixel_packet_4[4] = (byte)(p_3_temperature >> 8);
+  pixel_packet_4[5] = (byte)(p_3_temperature);
+  pixel_packet_4[6] = (byte)(voltage_4[0] / 4);
+  pixel_packet_4[7] = (byte)(current_4[0] / 4);
+  pixel_packet_4[8] = (byte)(voltage_4[mp_4i - 2] / 4);
+  pixel_packet_4[9] = (byte)(current_4[mp_4i - 2] / 4);
+  pixel_packet_4[10] = (byte)(voltage_4[mp_4i - 1] / 4);
+  pixel_packet_4[11] = (byte)(current_4[mp_4i - 1] / 4);
+  pixel_packet_4[12] = (byte)(voltage_4[mp_4i] / 4);
+  pixel_packet_4[13] = (byte)(current_4[mp_4i] / 4);
+  pixel_packet_4[14] = (byte)(voltage_4[mp_4i + 1] / 4);
+  pixel_packet_4[15] = (byte)(current_4[mp_4i + 1] / 4);
+  pixel_packet_4[16] = (byte)(voltage_4[mp_4i + 2] / 4);
+  pixel_packet_4[17] = (byte)(current_4[mp_4i + 2] / 4);
+  pixel_packet_4[18] = (byte)(voltage_4[15] / 4);
+  pixel_packet_4[19] = (byte)(current_4[15] / 4);
+  pixel_packet_4[20] = status_register;
+
+  eps.radio(pixel_packet_4);
+  eps.radio(pixel_packet_4);
+  #ifdef DEBUGGING
+  Serial.write(pixel_packet_4, 21);
+  #endif
+
+  flux_packet_4[4] = (byte)(flux[0] >> 8);
+  flux_packet_4[5] = (byte)(flux[0] >> 0);
+  flux_packet_4[6] = (byte)(flux[mp_4i - 2] >> 8);
+  flux_packet_4[7] = (byte)(flux[mp_4i - 2] >> 0);
+  flux_packet_4[8] = (byte)(flux[mp_4i - 1] >> 8);
+  flux_packet_4[9] = (byte)(flux[mp_4i - 1] >> 0);
+  flux_packet_4[10] = (byte)(flux[mp_4i] >> 8);
+  flux_packet_4[11] = (byte)(flux[mp_4i] >> 0);
+  flux_packet_4[12] = (byte)(flux[mp_4i + 1] >> 8);
+  flux_packet_4[13] = (byte)(flux[mp_4i + 1] >> 0);
+  flux_packet_4[14] = (byte)(flux[mp_4i + 2] >> 8);
+  flux_packet_4[15] = (byte)(flux[mp_4i + 2] >> 0);
+  flux_packet_4[16] = (byte)(flux[15] >> 8);
+  flux_packet_4[17] = (byte)(flux[15] >> 0);
+  flux_packet_4[18] = (byte)(current_rot >> 8);
+  flux_packet_4[19] = (byte)(current_rot >> 0);
+  flux_packet_4[20] = status_register;
+
+  eps.radio(flux_packet_4);
+  eps.radio(flux_packet_4);
+  #ifdef DEBUGGING
+  Serial.println("P3 Flux Packet");
+  Serial.write(flux_packet_4, 21);
   #endif
   
   noInterrupts();
