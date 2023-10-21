@@ -26,14 +26,34 @@
 
 #define EPS_SEND_TIMEOUT 100
 
-byte pixel_packet_1[17] = { 0 };
-byte pixel_packet_2[17] = { 0 };
-byte pixel_packet_3[17] = { 0 };
-byte pixel_packet_4[17] = { 0 };
-byte flux_packet[17] = { 0 };
-byte secondary_packet[17] = { 0 };
-byte tertiary_packet[17] = { 0 };
+byte pixel_packet_1[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte pixel_packet_2[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte pixel_packet_3[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte pixel_packet_4[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+byte flux_packet_1[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte flux_packet_2[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte flux_packet_3[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte flux_packet_4[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+byte secondary_packet[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF5};
+byte tertiary_packet[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5F};
+
 byte status_register = 0x00;
+
+byte heartbeat_payload[] = {0x50, 0x50, 0x50, 0x0B, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+uint16_t flux[16] = { 0 };
+uint16_t current_1[16] = { 0 };
+uint16_t voltage_1[16] = { 0 };
+uint16_t current_2[16] = { 0 };
+uint16_t voltage_2[16] = { 0 };
+uint16_t current_3[16] = { 0 };
+uint16_t voltage_3[16] = { 0 };
+uint16_t current_4[16] = { 0 };
+uint16_t voltage_4[16] = { 0 };
+
+int i, mp_1, mp_1i, mp_2, mp_2i, mp_3, mp_3i, mp_4, mp_4i;
 
 #define STATUS_REGISTER_PIXEL_BIT_0   0
 #define STATUS_REGISTER_PIXEL_BIT_1   1
@@ -68,12 +88,16 @@ int16_t phi;
 uint8_t current_pixel = 0;
 uint16_t humidity_reading = 0;
 uint16_t pressure_reading = 0;
+uint16_t p_1_temperature;
+uint16_t p_2_temperature;
+uint16_t p_3_temperature;
+uint16_t gaas_temperature;
 
 ///////////////////////////////////////////
 //       START PRIMARY PAYLOAD CODE
 ///////////////////////////////////////////
 
-bool read_gaas_temp(int16_t *gaas_temp_reading)
+bool read_gaas_temp(uint16_t *gaas_temp_reading)
 {
   byte i;
   byte present = 0;
@@ -144,6 +168,8 @@ bool read_gaas_temp(int16_t *gaas_temp_reading)
   return true;
 }
 
+bool gaas_en = false;
+
 void gaas_rotation_isr(void)
 {
   if (last_gaas_rot != 0)
@@ -153,6 +179,7 @@ void gaas_rotation_isr(void)
     current_rot = rotation * 1000;
   }
   last_gaas_rot = millis();
+  gaas_en = true;
 }
 
 void p3_rotation_isr(void)
@@ -173,14 +200,11 @@ uint8_t init_payload(void)
   return all_status;
 }
 
-void read_payload(float *p_1_temperature, float *p_2_temperature, float *p_3_temperature)
+void read_payload(uint16_t *p_1, uint16_t *p_2, uint16_t *p_3)
 {
-  perovskite_1.read();
-  *p_1_temperature = perovskite_1.tAmbient;
-  perovskite_2.read();
-  *p_2_temperature = perovskite_2.tAmbient;
-  perovskite_3.read();
-  *p_3_temperature = perovskite_3.tAmbient;
+  *p_1 = perovskite_1.read_ambient();
+  *p_2 = perovskite_2.read_ambient();
+  *p_3 = perovskite_3.read_ambient();
 }
 
 void read_bme280(void)
@@ -196,10 +220,13 @@ void read_bme280(void)
 //       START CURVE TRACER CODE
 ///////////////////////////////////////////
 
+byte ladder_step = 0;
+
 void step_ladder(void)
 {
   digitalWrite(LADDER_CLOCK, LOW);
   digitalWrite(LADDER_CLOCK, HIGH);
+  ladder_step++;
 }
 
 void reset_mux(void)
@@ -225,23 +252,38 @@ void set_read_mux(uint8_t mux_pos)
 {
   switch (mux_pos)
   {
-    case 0:
+    case MUX_POS_GAAS:
+    #ifdef DEBUGGING
+      Serial.println("Setting analog mux to GaAs position");
+    #endif
       digitalWrite(S0_CT, LOW);
       digitalWrite(S1_CT, LOW);
       break;
-    case 1:
+    case MUX_POS_P1:
+    #ifdef DEBUGGING
+      Serial.println("Setting analog mux to P1 position");
+    #endif
       digitalWrite(S0_CT, HIGH);
       digitalWrite(S1_CT, LOW);
       break;
-    case 2:
+    case MUX_POS_P2:
+    #ifdef DEBUGGING
+      Serial.println("Setting analog mux to P2 position");
+    #endif
       digitalWrite(S0_CT, LOW);
       digitalWrite(S1_CT, HIGH);
       break;
-    case 3:
+    case MUX_POS_P3:
+    #ifdef DEBUGGING
+      Serial.println("Setting analog mux to P3 position");
+    #endif
       digitalWrite(S0_CT, HIGH);
       digitalWrite(S1_CT, HIGH);
       break;
     default:
+    #ifdef DEBUGGING
+      Serial.println("Setting analog mux to undefined position");
+    #endif
       break;
   }
 }
@@ -250,6 +292,9 @@ void read_mux(uint16_t *voltage, uint16_t *current)
 {
   *voltage = analogRead(READ_VOLTAGE);
   *current = analogRead(READ_CURRENT);
+  #ifdef DEBUGGING
+  Serial.print("V: "); Serial.print(*voltage); Serial.print(" | I: "); Serial.println(*current);
+  #endif
 }
 
 ///////////////////////////////////////////
@@ -276,10 +321,10 @@ void read_relay(void)
   set_relay_comparator(NO_V);
   // Latch NO path
   digitalWrite(SET, HIGH);
-  delay(10);
-  digitalWrite(SET, LOW);
   // Start reading
   start_time = micros();
+  delay(10);
+  digitalWrite(SET, LOW);
   while (!(CECTL1 & 0x01))
   {
     if ((micros() - start_time) > 0xFFFF)
@@ -454,7 +499,7 @@ bool startup_test(void)
     }
     // Startup cubesat EPS
     eps.begin();
-    if (!eps.heartbeat())
+    if (!eps.heartbeat(heartbeat_payload))
     {
       status_register |= (1 << STATUS_REGISTER_EPS_FAIL);
     }
@@ -516,7 +561,89 @@ void loop()
     #endif
     // wait until halfway orbit to start sampling
   }
+  while (ladder_step != 16)
+  {
+    while (!gaas_en)
+    {
+      #ifdef DEBUGGING
+      Serial.print("Waiting for GaAs trigger");
+      delay(1000);
+      #endif
+    }
+    noInterrupts();
+    
+    gaas_en = false;
+    while (!sun_sensor.sample_wait());
+    flux[ladder_step] = sun_sensor.getTheta();
+    // Read from each sample
+    set_read_mux(MUX_POS_GAAS);
+    read_mux(&voltage_1[ladder_step], &current_1[ladder_step]);
+    set_read_mux(MUX_POS_P1);
+    read_mux(&voltage_2[ladder_step], &current_2[ladder_step]);
+    set_read_mux(MUX_POS_P2);
+    read_mux(&voltage_3[ladder_step], &current_3[ladder_step]);
+    set_read_mux(MUX_POS_P3);
+    read_mux(&voltage_4[ladder_step], &current_4[ladder_step]);
+    set_read_mux(MUX_POS_GAAS);
+    step_ladder();
+    
+    interrupts();
+  }
+  // Find maximum power point for each sample
+  for (i = 0; i < 16; i++)
+  {
+    if ((voltage_1[i] * current_1[i]) > mp_1)
+    {
+      mp_1 = voltage_1[i] * current_1[i];
+      mp_1i = i;
+    }
+    if ((voltage_2[i] * current_2[i]) > mp_2)
+    {
+      mp_2 = voltage_2[i] * current_2[i];
+      mp_2i = i;
+    }
+    if ((voltage_3[i] * current_3[i]) > mp_3)
+    {
+      mp_3 = voltage_3[i] * current_3[i];
+      mp_3i = i;
+    }
+    if ((voltage_4[i] * current_4[i]) > mp_4)
+    {
+      mp_4 = voltage_4[i] * current_4[i];
+      mp_4i = i;
+    }
+  }
+  // Read payload temperatures
+  read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
+  read_gaas_temp(&gaas_temperature);
 
+  // Read humidity and pressure
+  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_0) | (0 << STATUS_REGISTER_SAMPLE_BIT_1) | current_pixel;
+  pixel_packet_1[4] = (byte)(p_1_temperature >> 8);
+  pixel_packet_1[5] = (byte)(p_1_temperature);
+  pixel_packet_1[6] = (byte)(voltage_1[0] / 4);
+  pixel_packet_1[7] = (byte)(current_1[0] / 4);
+  pixel_packet_1[8] = (byte)(voltage_1[mp_4i - 2] / 4);
+  pixel_packet_1[9] = (byte)(current_1[mp_4i - 2] / 4);
+  pixel_packet_1[10] = (byte)(voltage_1[mp_4i - 1] / 4);
+  pixel_packet_1[11] = (byte)(current_1[mp_4i - 1] / 4);
+  pixel_packet_1[12] = (byte)(voltage_1[mp_4i] / 4);
+  pixel_packet_1[13] = (byte)(current_1[mp_4i] / 4);
+  pixel_packet_1[14] = (byte)(voltage_1[mp_4i + 1] / 4);
+  pixel_packet_1[15] = (byte)(current_1[mp_4i + 1] / 4);
+  pixel_packet_1[16] = (byte)(voltage_1[mp_4i + 2] / 4);
+  pixel_packet_1[17] = (byte)(current_1[mp_4i + 2] / 4);
+  pixel_packet_1[18] = (byte)(voltage_1[15] / 4);
+  pixel_packet_1[19] = (byte)(current_1[15] / 4);
+  pixel_packet_1[20] = status_register;
+
+  eps.radio(pixel_packet_1);
+  eps.radio(pixel_packet_1);
+  #ifdef DEBUGGING
+  Serial.write(pixel_packet_1, 21);
+  #endif
+  
+  noInterrupts();
   
 //  if (digitalRead(GAAS_ON)
 //  {
