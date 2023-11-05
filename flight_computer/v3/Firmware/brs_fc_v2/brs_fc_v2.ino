@@ -25,7 +25,7 @@
 
 #define MAX_PIXELS 6
 
-#define EPS_SEND_TIMEOUT 100
+#define EPS_SEND_TIMEOUT -1
 
 byte pixel_packet_1[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 byte pixel_packet_2[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -845,6 +845,11 @@ void loop()
 {
   while (true)
   {
+    Serial.println("Waiting...");
+    delay(1000);
+  }
+  while (true)
+  {
     read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
     read_bme280();
     sun_sensor.default_config();
@@ -879,6 +884,7 @@ void loop()
     noInterrupts();
     
     gaas_en = false;
+    sun_sensor.default_config();
     while (!sun_sensor.sample_wait());
     flux[ladder_step] = sun_sensor.getTheta();
     // Read from each sample
@@ -924,7 +930,8 @@ void loop()
   read_gaas_temp(&gaas_temperature);
 
   // Read humidity and pressure
-
+  read_bme280();
+  
   send_payload_1_packets();
   send_payload_2_packets();
   send_payload_3_packets();
