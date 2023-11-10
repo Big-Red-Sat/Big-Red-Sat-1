@@ -7,6 +7,7 @@
 #include <Wire.h>
 #include <MLX90393.h>
 #include <TinyBME280.h>
+#include <ICM20649.h>
 
 #define DEBUGGING
 #define COUNT_UP HIGH
@@ -24,7 +25,7 @@
 #define SETTLING_TIME 10
 
 #define MAX_PIXELS 6
-
+#define MAX_LADDER_STEPS 16
 #define EPS_SEND_TIMEOUT -1
 
 byte pixel_packet_1[] = {0x50, 0x50, 0x50, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
@@ -74,6 +75,7 @@ EPS eps(EPS_RX, EPS_TX);
 
 MLX90393 magnetometer(0x18);
 MLX90393::txyz data;
+ICM20649 imu;
 
 // Temperature sensor on the reference GaAs panel
 OneWire gaas_temp_sensor(GAAS_TEMP);
@@ -432,6 +434,7 @@ void init_secondary_payload(void)
 {
   read_relay();
   init_magnetometer();
+  init_imu();
 }
 
 void enable_magnetometer_int(void)
@@ -439,9 +442,18 @@ void enable_magnetometer_int(void)
   attachInterrupt(digitalPinToInterrupt(MAG_INT), handle_secondary_payload_sensors, RISING);
 }
 
+void init_imu(void)
+{ 
+  uint8_t status = imu.initialize(ACCEL_RANGE_8G, GYRO_RANGE_2000DPS);
+#ifdef DEBUGGING
+  Serial.print("IMU status: ");
+  Serial.println(status);
+#endif
+}
+
 void init_magnetometer(void)
 {
-  uint8_t status = magnetometer.begin(0, 0, MAG_INT);
+  uint8_t status = magnetometer.begin(0, 0);
   
 #ifdef DEBUGGING
   Serial.print("Magnetometer status: ");
@@ -452,26 +464,47 @@ void init_magnetometer(void)
   magnetometer.setOverSampling(2);
   magnetometer.setDigitalFiltering(0);
 
-  enable_magnetometer_int();
+//  enable_magnetometer_int();
+}
+
+void read_imu(void)
+{
+  imu.readAcceleration();
+  imu.readGyro();
+  imu.readTemperature();
+
+//  Serial.print(imu.accelInG.x,2);
+//  Serial.print(",");
+//  Serial.print(imu.accelInG.y,2);
+//  Serial.print(",");
+//  Serial.print(imu.accelInG.z,2);
+//  Serial.print(",  ");
+//  Serial.print(imu.gyroDPS.x,2);
+//  Serial.print(",");
+//  Serial.print(imu.gyroDPS.y,2);
+//  Serial.print(",");
+//  Serial.print(imu.gyroDPS.z,2);
+//  Serial.print(",  ");
+//  Serial.println(imu.tempRaw,HEX);
 }
 
 void read_magnetometer(void)
 {
   magnetometer.readData(data); //Read the values from the sensor
   
-#ifdef DEBUGGING
-  Serial.print("magX[");
-  Serial.print(data.x);
-  Serial.print("] magY[");
-  Serial.print(data.y);
-  Serial.print("] magZ[");
-  Serial.print(data.z);
-  Serial.print("] temperature(C)[");
-  Serial.print(data.t);
-  Serial.print("]");
-
-  Serial.println();
-#endif
+//#ifdef DEBUGGING
+//  Serial.print("magX[");
+//  Serial.print(data.x);
+//  Serial.print("] magY[");
+//  Serial.print(data.y);
+//  Serial.print("] magZ[");
+//  Serial.print(data.z);
+//  Serial.print("] temperature(C)[");
+//  Serial.print(data.t);
+//  Serial.print("]");
+//
+//  Serial.println();
+//#endif
 }
 
 ///////////////////////////////////////////
@@ -522,6 +555,8 @@ void init_pins(void)
   pinMode(S0_CT, OUTPUT);
   digitalWrite(S0_CT, LOW);
 
+  Wire.begin();
+  
   reset_mux();
 }
 
@@ -814,6 +849,7 @@ void send_payload_4_packets(void)
 
 long startup_time = 0;
 #define HALFORBIT_WAKEUP 1500000
+#define TESTORBIT_WAKEUP 1000
 
 void setup() {
 #ifdef DEBUGGING
@@ -841,39 +877,112 @@ void setup() {
   startup_time = millis();
 }
 
+//#define POWER_TEST
+#define SENSOR_TEST
+//#define TEST_ORBIT
+//#define DEPLOY
+
 void loop() 
 {
+  #ifdef POWER_TEST
   while (true)
   {
     Serial.println("Waiting...");
     delay(1000);
   }
+  #endif
+  
+  #ifdef SENSOR_TEST
   while (true)
   {
     read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
     read_bme280();
+    read_imu();
+    read_magnetometer();
     sun_sensor.default_config();
     while (!sun_sensor.sample_wait());
+
+    Serial.print("Acc X"); Serial.print("\t|\t"); 
+    Serial.print("Acc Y"); Serial.print("\t|\t"); 
+    Serial.print("Acc Z"); Serial.print("\t|\t"); 
+    Serial.print("Gyr X"); Serial.print("\t|\t");
+    Serial.print("Gyr Y"); Serial.print("\t|\t");
+    Serial.print("Gyr Z"); Serial.print("\t|\t");
+    Serial.print("Temp"); Serial.print("\t|\t");
+    Serial.println();
+
+    Serial.print(imu.accelInG.x, 2); Serial.print("\t|\t"); 
+    Serial.print(imu.accelInG.y, 2); Serial.print("\t|\t"); 
+    Serial.print(imu.accelInG.z, 2); Serial.print("\t|\t"); 
+    Serial.print(imu.gyroDPS.x, 2); Serial.print("\t|\t");
+    Serial.print(imu.gyroDPS.y, 2); Serial.print("\t|\t");
+    Serial.print(imu.gyroDPS.z, 2); Serial.print("\t|\t");
+    Serial.print(imu.tempRaw, 2); Serial.print("\t|\t");
+    Serial.println();
+    Serial.println();
+
+    Serial.print("Mag X"); Serial.print("\t|\t"); 
+    Serial.print("Mag Y"); Serial.print("\t|\t"); 
+    Serial.print("Mag Z"); Serial.print("\t|\t"); 
+    Serial.print("Mag T"); Serial.print("\t|\t"); 
+    Serial.println();
+
+    Serial.print(data.x); Serial.print("\t|\t"); 
+    Serial.print(data.y); Serial.print("\t|\t"); 
+    Serial.print(data.z); Serial.print("\t|\t"); 
+    Serial.print(data.t); Serial.print("\t|\t"); 
+    Serial.println();
+    Serial.println();
+
+    Serial.print("P1 Temp"); Serial.print("\t|\t"); 
+    Serial.print("P2 Temp"); Serial.print("\t|\t"); 
+    Serial.print("P3 Temp"); Serial.print("\t|\t"); 
+    Serial.print("Press"); Serial.print("\t|\t"); 
+    Serial.print("Humid"); Serial.print("\t|\t");
+    Serial.print("Theta"); Serial.print("\t|\t");
+    Serial.println();
     
-    Serial.print(p_1_temperature); Serial.print(" | "); 
-    Serial.print(p_2_temperature); Serial.print(" | "); 
-    Serial.print(p_3_temperature); Serial.print(" | "); 
-    Serial.print(pressure_reading); Serial.print(" | "); 
-    Serial.print(humidity_reading); Serial.print(" | ");
-    Serial.print(sun_sensor.getTheta()); Serial.println(" | ");
+    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
+    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
+    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
+    Serial.print(pressure_reading); Serial.print("\t|\t"); 
+    Serial.print(humidity_reading); Serial.print("\t|\t");
+    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
+    Serial.println();
+    Serial.println();
     delay(1000);
   }
+  #endif
+  
+  #ifdef DEPLOY
+  #ifdef TEST_ORBIT
+  while ((millis() - startup_time) < TESTORBIT_WAKEUP)
+  {
+    Serial.print("TEST ORBIT: Waiting to wakeup in ");
+    Serial.println(TESTORBIT_WAKEUP - (millis() - startup_time));
+    delay(1000);
+  }
+  #else
   while ((millis() - startup_time) < HALFORBIT_WAKEUP)
   {
     #ifdef DEBUGGING
     Serial.print("Waiting to wakeup in ");
-    Serial.println(millis() - startup_time);
+    Serial.println(HALFORBIT_WAKEUP - (millis() - startup_time));
     delay(1000);
     #endif
     // wait until halfway orbit to start sampling
   }
-  while (ladder_step != 16)
+  #endif
+  while (ladder_step != MAX_LADDER_STEPS)
   {
+    #ifdef TEST_ORBIT
+    while (!gaas_en)
+    {
+      Serial.print("TEST ORBIT: Waiting for GaAs trigger");
+      delay(1000);
+      break;
+    }
+    #else
     while (!gaas_en)
     {
       #ifdef DEBUGGING
@@ -881,6 +990,7 @@ void loop()
       delay(1000);
       #endif
     }
+    #endif
     noInterrupts();
     
     gaas_en = false;
@@ -931,6 +1041,10 @@ void loop()
 
   // Read humidity and pressure
   read_bme280();
+
+  // Read accelerometry, gyroscope, and magnetometer
+  read_magnetometer();
+  read_imu();
   
   send_payload_1_packets();
   send_payload_2_packets();
@@ -938,4 +1052,5 @@ void loop()
   send_payload_4_packets();
   
   noInterrupts();
+  #endif
 }
