@@ -14,6 +14,7 @@
 //#define SENSOR_TEST
 #define TEST_ORBIT
 #define DEPLOY
+#define NO_TRANSMIT
 
 #define COUNT_UP HIGH
 #define COUNT_DOWN LOW
@@ -70,9 +71,9 @@ int i, mp_1, mp_1i, mp_2, mp_2i, mp_3, mp_3i, mp_4, mp_4i;
 #define STATUS_REGISTER_PIXEL_BIT_2   2
 #define STATUS_REGISTER_SAMPLE_BIT_0  3
 #define STATUS_REGISTER_SAMPLE_BIT_1  4
-#define STATUS_REGISTER_EPS_FAIL      5
-#define STATUS_REGISTER_CT_FAIL       6
-#define STATUS_REGISTER_MUX_FAIL      7
+#define STATUS_REGISTER_PACKET_BIT_0  5
+#define STATUS_REGISTER_PACKET_BIT_1  6
+#define STATUS_REGISTER_PACKET_BIT_2  7
 
 // Temperature sensors on the payload
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
@@ -471,8 +472,6 @@ void init_magnetometer(void)
   // Sample rate: 303.4 Hz
   magnetometer.setOverSampling(2);
   magnetometer.setDigitalFiltering(0);
-
-//  enable_magnetometer_int();
 }
 
 void read_imu(void)
@@ -568,7 +567,6 @@ bool startup_test(void)
     #endif
     if (timeout_count++ == EPS_SEND_TIMEOUT)
     {
-      status_register |= (1 << STATUS_REGISTER_EPS_FAIL);
       #ifdef DEBUGGING
       Serial.println("EPS timeout");
       #endif
@@ -583,7 +581,6 @@ bool startup_test(void)
     #ifdef DEBUGGING
     Serial.println("Heartbeat payload failed");
     #endif
-    status_register |= (1 << STATUS_REGISTER_EPS_FAIL);
   }
   if (check_battery())
   {
@@ -609,8 +606,11 @@ bool startup_test(void)
 
 void send_payload_1_packets(void)
 {
-  status_register &= 0x1F;
-  status_register |= (0 << STATUS_REGISTER_SAMPLE_BIT_0) | (0 << STATUS_REGISTER_SAMPLE_BIT_1) | 0x00;
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      0x00;
+                      
   pixel_packet_1[4] = (byte)(gaas_temperature >> 8);
   pixel_packet_1[5] = (byte)(gaas_temperature);
   pixel_packet_1[6] = (byte)(voltage_1[0]);
@@ -629,8 +629,10 @@ void send_payload_1_packets(void)
   pixel_packet_1[19] = (byte)(current_1[15]);
   pixel_packet_1[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(pixel_packet_1);
   eps.radio(pixel_packet_1);
+  #endif
   #ifdef DEBUGGING
   Serial.println("GaAs Packet");
   for (int i = 0; i < 21; i++)
@@ -640,8 +642,12 @@ void send_payload_1_packets(void)
     Serial.print(" ");
   }
   Serial.println();
-  //Serial.write(pixel_packet_1, 21);
   #endif
+
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      0x00;
 
   flux_packet_1[4] = (byte)(flux[0] >> 8);
   flux_packet_1[5] = (byte)(flux[0] >> 0);
@@ -661,8 +667,10 @@ void send_payload_1_packets(void)
   flux_packet_1[19] = (byte)(current_rot >> 0);
   flux_packet_1[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(flux_packet_1);
   eps.radio(flux_packet_1);
+  #endif
   #ifdef DEBUGGING
   Serial.println("GaAs Flux Packet");
   for (int i = 0; i < 21; i++)
@@ -677,8 +685,11 @@ void send_payload_1_packets(void)
 
 void send_payload_2_packets(void)
 {
-  status_register &= 0x1F;
-  status_register |= (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
+                      
   pixel_packet_2[4] = (byte)(p_1_temperature >> 8);
   pixel_packet_2[5] = (byte)(p_1_temperature >> 0);
   pixel_packet_2[6] = (byte)(voltage_2[0]);
@@ -697,9 +708,10 @@ void send_payload_2_packets(void)
   pixel_packet_2[19] = (byte)(current_2[15]);
   pixel_packet_2[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(pixel_packet_2);
   eps.radio(pixel_packet_2);
-  
+  #endif
   #ifdef DEBUGGING
   Serial.println("P1 Packet");
   for (int i = 0; i < 21; i++)
@@ -710,6 +722,11 @@ void send_payload_2_packets(void)
   }
   Serial.println();
   #endif
+
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
 
   flux_packet_2[4] = (byte)(flux[0] >> 8);
   flux_packet_2[5] = (byte)(flux[0] >> 0);
@@ -729,9 +746,10 @@ void send_payload_2_packets(void)
   flux_packet_2[19] = (byte)(current_rot >> 0);
   flux_packet_2[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(flux_packet_2);
   eps.radio(flux_packet_2);
-  
+  #endif
   #ifdef DEBUGGING
   Serial.println("P1 Flux Packet");
   for (int i = 0; i < 21; i++)
@@ -746,8 +764,11 @@ void send_payload_2_packets(void)
 
 void send_payload_3_packets(void)
 {
-  status_register &= 0x1F;
-  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
+                      
   pixel_packet_3[4] = (byte)(p_2_temperature >> 8);
   pixel_packet_3[5] = (byte)(p_2_temperature);
   pixel_packet_3[6] = (byte)(voltage_3[0]);
@@ -766,9 +787,10 @@ void send_payload_3_packets(void)
   pixel_packet_3[19] = (byte)(current_3[15]);
   pixel_packet_3[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(pixel_packet_3);
   eps.radio(pixel_packet_3);
-  
+  #endif
   #ifdef DEBUGGING
   Serial.println("P2 Packet");
   for (int i = 0; i < 21; i++)
@@ -779,6 +801,11 @@ void send_payload_3_packets(void)
   }
   Serial.println();
   #endif
+
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
 
   flux_packet_3[4] = (byte)(flux[0] >> 8);
   flux_packet_3[5] = (byte)(flux[0] >> 0);
@@ -798,10 +825,11 @@ void send_payload_3_packets(void)
   flux_packet_3[19] = (byte)(current_rot >> 0);
   flux_packet_3[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(flux_packet_3);
   eps.radio(flux_packet_3);
-  
-#ifdef DEBUGGING
+  #endif
+  #ifdef DEBUGGING
   Serial.println("P2 Flux Packet");
   for (int i = 0; i < 21; i++)
   {
@@ -810,13 +838,16 @@ void send_payload_3_packets(void)
     Serial.print(" ");
   }
   Serial.println();
-#endif
+  #endif
 }
 
 void send_payload_4_packets(void)
 {
-  status_register &= 0x1F;
-  status_register |= (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | current_pixel;
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
+                      
   pixel_packet_4[4] = (byte)(p_3_temperature >> 8);
   pixel_packet_4[5] = (byte)(p_3_temperature);
   pixel_packet_4[6] = (byte)(voltage_4[0]);
@@ -835,8 +866,10 @@ void send_payload_4_packets(void)
   pixel_packet_4[19] = (byte)(current_4[15]);
   pixel_packet_4[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(pixel_packet_4);
   eps.radio(pixel_packet_4);
+  #endif
   #ifdef DEBUGGING
   Serial.println("P3 Packet");
   for (int i = 0; i < 21; i++)
@@ -847,6 +880,11 @@ void send_payload_4_packets(void)
   }
   Serial.println();
   #endif
+
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
 
   flux_packet_4[4] = (byte)(flux[0] >> 8);
   flux_packet_4[5] = (byte)(flux[0] >> 0);
@@ -866,8 +904,10 @@ void send_payload_4_packets(void)
   flux_packet_4[19] = (byte)(current_rot >> 0);
   flux_packet_4[20] = status_register;
 
+  #ifndef NO_TRANSMIT
   eps.radio(flux_packet_4);
   eps.radio(flux_packet_4);
+  #endif
   #ifdef DEBUGGING
   Serial.println("P3 Flux Packet");
   for (int i = 0; i < 21; i++)
@@ -882,6 +922,11 @@ void send_payload_4_packets(void)
 
 void send_secondary_payload(void)
 {
+  status_register = 0x00;
+  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
+  
   secondary_packet[4] = (imu.gyroRaw.x >> 8);
   secondary_packet[5] = (imu.gyroRaw.x >> 0);
 
@@ -900,13 +945,18 @@ void send_secondary_payload(void)
   secondary_packet[14] = (mag_data.z >> 8);
   secondary_packet[15] = (mag_data.z >> 0);
 
-  secondary_packet[17] = battery_voltage;
+  secondary_packet[10] = (nc_time >> 8);
+  secondary_packet[11] = (nc_time >> 0);
 
   secondary_packet[18] = (no_time >> 8);
   secondary_packet[19] = (no_time >> 0);
 
+  secondary_packet[20] = status_register;
+
+  #ifndef NO_TRANSMIT
   eps.radio(secondary_packet);
   eps.radio(secondary_packet);
+  #endif
   #ifdef DEBUGGING
   Serial.println("Secondary Packet");
   for (int i = 0; i < 21; i++)
@@ -921,6 +971,11 @@ void send_secondary_payload(void)
 
 void send_tertiary_payload(void)
 {
+  status_register = 0x00;
+  status_register |=  (1 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      current_pixel;
+  
   tertiary_packet[4] = (imu.accelRaw.x >> 8);
   tertiary_packet[5] = (imu.accelRaw.x >> 0);
 
@@ -930,8 +985,8 @@ void send_tertiary_payload(void)
   tertiary_packet[8] = (imu.accelRaw.z >> 8);
   tertiary_packet[9] = (imu.accelRaw.z >> 0);
 
-  tertiary_packet[10] = (nc_time >> 8);
-  tertiary_packet[11] = (nc_time >> 0);
+  tertiary_packet[10] = 0x00;
+  tertiary_packet[11] = battery_voltage;
 
   tertiary_packet[12] = (pressure_reading >> 24);
   tertiary_packet[13] = (pressure_reading >> 16);
@@ -943,8 +998,12 @@ void send_tertiary_payload(void)
   tertiary_packet[18] = (humidity_reading >> 8);
   tertiary_packet[19] = (humidity_reading >> 0);
 
+  tertiary_packet[20] = status_register;
+
+  #ifndef NO_TRANSMIT
   eps.radio(tertiary_packet);
   eps.radio(tertiary_packet);
+  #endif
   #ifdef DEBUGGING
   Serial.println("Tertiary Packet");
   for (int i = 0; i < 21; i++)
