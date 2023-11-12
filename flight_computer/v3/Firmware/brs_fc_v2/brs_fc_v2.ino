@@ -551,6 +551,7 @@ void init_pins(void)
 //  pinMode(GAAS_TEMP, INPUT);
   pinMode(BUSY, INPUT);
   pinMode(PANEL_3_ON, INPUT);
+  pinMode(PANEL_3_CURRENT_V, INPUT);
   
   pinMode(S0_CT, OUTPUT);
   digitalWrite(S0_CT, LOW);
@@ -655,7 +656,14 @@ void send_payload_1_packets(void)
   eps.radio(pixel_packet_1);
   #ifdef DEBUGGING
   Serial.println("GaAs Packet");
-  Serial.write(pixel_packet_1, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(pixel_packet_1[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+  //Serial.write(pixel_packet_1, 21);
   #endif
 
   flux_packet_1[4] = (byte)(flux[0] >> 8);
@@ -680,7 +688,13 @@ void send_payload_1_packets(void)
   eps.radio(flux_packet_1);
   #ifdef DEBUGGING
   Serial.println("GaAs Flux Packet");
-  Serial.write(flux_packet_1, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(flux_packet_1[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 }
 
@@ -708,9 +722,16 @@ void send_payload_2_packets(void)
 
   eps.radio(pixel_packet_2);
   eps.radio(pixel_packet_2);
+  
   #ifdef DEBUGGING
   Serial.println("P1 Packet");
-  Serial.write(pixel_packet_2, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(pixel_packet_2[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 
   flux_packet_2[4] = (byte)(flux[0] >> 8);
@@ -733,9 +754,16 @@ void send_payload_2_packets(void)
 
   eps.radio(flux_packet_2);
   eps.radio(flux_packet_2);
+  
   #ifdef DEBUGGING
   Serial.println("P1 Flux Packet");
-  Serial.write(flux_packet_2, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(flux_packet_2[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 }
 
@@ -763,8 +791,16 @@ void send_payload_3_packets(void)
 
   eps.radio(pixel_packet_3);
   eps.radio(pixel_packet_3);
+  
   #ifdef DEBUGGING
-  Serial.write(pixel_packet_3, 21);
+  Serial.println("P2 Packet");
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(pixel_packet_3[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 
   flux_packet_3[4] = (byte)(flux[0] >> 8);
@@ -787,9 +823,16 @@ void send_payload_3_packets(void)
 
   eps.radio(flux_packet_3);
   eps.radio(flux_packet_3);
+  
   #ifdef DEBUGGING
   Serial.println("P2 Flux Packet");
-  Serial.write(flux_packet_3, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(flux_packet_3[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 }
 
@@ -818,7 +861,14 @@ void send_payload_4_packets(void)
   eps.radio(pixel_packet_4);
   eps.radio(pixel_packet_4);
   #ifdef DEBUGGING
-  Serial.write(pixel_packet_4, 21);
+  Serial.println("P3 Packet");
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(pixel_packet_4[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 
   flux_packet_4[4] = (byte)(flux[0] >> 8);
@@ -843,7 +893,13 @@ void send_payload_4_packets(void)
   eps.radio(flux_packet_4);
   #ifdef DEBUGGING
   Serial.println("P3 Flux Packet");
-  Serial.write(flux_packet_4, 21);
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(flux_packet_4[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
   #endif
 }
 
@@ -878,9 +934,9 @@ void setup() {
 }
 
 //#define POWER_TEST
-#define SENSOR_TEST
-//#define TEST_ORBIT
-//#define DEPLOY
+//#define SENSOR_TEST
+#define TEST_ORBIT
+#define DEPLOY
 
 void loop() 
 {
@@ -950,6 +1006,14 @@ void loop()
     Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
     Serial.println();
     Serial.println();
+
+    Serial.print("PANEL 3"); Serial.print("\t|\t"); 
+    Serial.println();
+
+    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
+    Serial.println();
+    Serial.println();
+    
     delay(1000);
   }
   #endif
@@ -976,22 +1040,25 @@ void loop()
   while (ladder_step != MAX_LADDER_STEPS)
   {
     #ifdef TEST_ORBIT
+    Serial.print("TEST ORBIT: Ladder step - ");
+    Serial.println(ladder_step);
     while (!gaas_en)
     {
-      Serial.print("TEST ORBIT: Waiting for GaAs trigger");
+      Serial.println("TEST ORBIT: Waiting for GaAs trigger");
       delay(1000);
       break;
     }
+    Serial.println("TEST ORBIT: Leaving GaAs trigger");
     #else
     while (!gaas_en)
     {
       #ifdef DEBUGGING
-      Serial.print("Waiting for GaAs trigger");
+      Serial.println("Waiting for GaAs trigger");
       delay(1000);
       #endif
     }
     #endif
-    noInterrupts();
+    //noInterrupts();
     
     gaas_en = false;
     sun_sensor.default_config();
@@ -1009,8 +1076,10 @@ void loop()
     set_read_mux(MUX_POS_GAAS);
     step_ladder();
     
-    interrupts();
+    //interrupts();
   }
+  ladder_step = 0;
+  Serial.println("TEST ORBIT: Finished curve trace");
   // Find maximum power point for each sample
   for (i = 0; i < 16; i++)
   {
@@ -1035,6 +1104,24 @@ void loop()
       mp_4i = i;
     }
   }
+  if (mp_1i == 0) mp_1i = 2; 
+  else if (mp_1i == 15) mp_1i = 13;
+  if (mp_2i == 0) mp_2i = 2; 
+  else if (mp_2i == 15) mp_2i = 13;
+  if (mp_3i == 0) mp_3i = 2; 
+  else if (mp_3i == 15) mp_3i = 13;
+  if (mp_4i == 0) mp_4i = 2; 
+  else if (mp_4i == 15) mp_4i = 13;
+
+  Serial.print("MPP 1: ");
+  Serial.println(mp_1i);
+  Serial.print("MPP 2: ");
+  Serial.println(mp_2i);
+  Serial.print("MPP 3: ");
+  Serial.println(mp_3i);
+  Serial.print("MPP 4: ");
+  Serial.println(mp_4i);
+  
   // Read payload temperatures
   read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
   read_gaas_temp(&gaas_temperature);
@@ -1051,6 +1138,6 @@ void loop()
   send_payload_3_packets();
   send_payload_4_packets();
   
-  noInterrupts();
+  //noInterrupts();
   #endif
 }
