@@ -82,7 +82,7 @@ MCP9808 perovskite_3(PEROVSKITE_3_LOWER);
 EPS eps(EPS_RX, EPS_TX);
 
 MLX90393 magnetometer(0x18);
-MLX90393::txyz mag_data;
+MLX90393::txyzRaw mag_data;
 ICM20649 imu;
 
 // Temperature sensor on the reference GaAs panel
@@ -484,7 +484,12 @@ void read_imu(void)
 
 void read_magnetometer(void)
 {
-  magnetometer.readData(mag_data); //Read the values from the sensor
+  uint8_t status1 = magnetometer.startMeasurement(magnetometer.X_FLAG | magnetometer.Y_FLAG | magnetometer.Z_FLAG | magnetometer.T_FLAG);
+  
+  delay(magnetometer.convDelayMillis());
+
+  uint8_t status2 = magnetometer.readMeasurement(magnetometer.X_FLAG | magnetometer.Y_FLAG | magnetometer.Z_FLAG | magnetometer.T_FLAG, mag_data);
+  bool magstatus = magnetometer.checkStatus(status1) | magnetometer.checkStatus(status2);
 }
 
 ///////////////////////////////////////////
@@ -920,7 +925,7 @@ void send_tertiary_payload(void)
   tertiary_packet[5] = (imu.accelRaw.x >> 0);
 
   tertiary_packet[6] = (imu.accelRaw.y >> 8);
-  tertiary_packet[7] = (imu.accelRawaw.y >> 0);
+  tertiary_packet[7] = (imu.accelRaw.y >> 0);
 
   tertiary_packet[8] = (imu.accelRaw.z >> 8);
   tertiary_packet[9] = (imu.accelRaw.z >> 0);
