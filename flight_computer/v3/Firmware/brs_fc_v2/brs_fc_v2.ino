@@ -1123,7 +1123,11 @@ void loop()
     //interrupts();
   }
   ladder_step = 0;
+  
+#ifdef DEBUGGING
   Serial.println("TEST ORBIT: Finished curve trace");
+#endif
+
   // Find maximum power point for each sample
   for (i = 0; i < 16; i++)
   {
@@ -1157,6 +1161,7 @@ void loop()
   if (mp_4i == 0) mp_4i = 2; 
   else if (mp_4i == 15) mp_4i = 13;
 
+#ifdef DEBUGGING
   Serial.print("MPP 1: ");
   Serial.println(mp_1i);
   Serial.print("MPP 2: ");
@@ -1165,6 +1170,7 @@ void loop()
   Serial.println(mp_3i);
   Serial.print("MPP 4: ");
   Serial.println(mp_4i);
+#endif
   
   // Read payload temperatures
   read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
