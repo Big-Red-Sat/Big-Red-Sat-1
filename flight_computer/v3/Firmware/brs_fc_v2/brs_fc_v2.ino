@@ -73,7 +73,7 @@ int i, mp_1, mp_1i, mp_2, mp_2i, mp_3, mp_3i, mp_4, mp_4i;
 #define STATUS_REGISTER_SAMPLE_BIT_1  4
 #define STATUS_REGISTER_PACKET_BIT_0  5
 #define STATUS_REGISTER_PACKET_BIT_1  6
-#define STATUS_REGISTER_PACKET_BIT_2  7
+#define STATUS_REGISTER_DIRECTION_BIT  7
 
 // Temperature sensors on the payload
 MCP9808 perovskite_1(PEROVSKITE_1_LOWER);
@@ -104,6 +104,7 @@ uint16_t p_1_temperature;
 uint16_t p_2_temperature;
 uint16_t p_3_temperature;
 uint16_t gaas_temperature;
+bool trace_dir;
 
 ///////////////////////////////////////////
 //       START PRIMARY PAYLOAD CODE
@@ -259,6 +260,7 @@ void step_mux(void)
 
 void set_trace_direction(uint8_t dir)
 {
+  trace_dir = dir;
   digitalWrite(TRACE_DIR, dir);
 }
 
@@ -543,6 +545,7 @@ void init_pins(void)
   Wire.begin();
   
   reset_mux();
+  set_trace_direction(COUNT_UP);
 }
 
 bool check_battery(void)
@@ -563,7 +566,8 @@ bool startup_test(void)
   {
     delay(1000);
     #ifdef DEBUGGING
-    Serial.println("Waiting for EPS");
+    Serial.print("Waiting for EPS, ");
+    Serial.println(timeout_count);
     #endif
     if (timeout_count++ == EPS_SEND_TIMEOUT)
     {
@@ -607,7 +611,7 @@ bool startup_test(void)
 void send_payload_1_packets(void)
 {
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       0x00;
                       
@@ -645,7 +649,7 @@ void send_payload_1_packets(void)
   #endif
 
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       0x00;
 
@@ -686,7 +690,7 @@ void send_payload_1_packets(void)
 void send_payload_2_packets(void)
 {
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
@@ -724,7 +728,7 @@ void send_payload_2_packets(void)
   #endif
 
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
 
@@ -765,7 +769,7 @@ void send_payload_2_packets(void)
 void send_payload_3_packets(void)
 {
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
@@ -803,7 +807,7 @@ void send_payload_3_packets(void)
   #endif
 
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
 
@@ -844,7 +848,7 @@ void send_payload_3_packets(void)
 void send_payload_4_packets(void)
 {
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
@@ -882,7 +886,7 @@ void send_payload_4_packets(void)
   #endif
 
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
 
@@ -923,7 +927,7 @@ void send_payload_4_packets(void)
 void send_secondary_payload(void)
 {
   status_register = 0x00;
-  status_register |=  (0 << STATUS_REGISTER_PACKET_BIT_2) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
   
@@ -972,7 +976,7 @@ void send_secondary_payload(void)
 void send_tertiary_payload(void)
 {
   status_register = 0x00;
-  status_register |=  (1 << STATUS_REGISTER_PACKET_BIT_2) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (1 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
   
@@ -1023,7 +1027,6 @@ long startup_time = 0;
 void setup() {
 #ifdef DEBUGGING
   Serial.begin(9600);
-  while (!Serial);
   Serial.println("Starting flight computer");
 #endif
 
@@ -1186,7 +1189,21 @@ void loop()
     
     //interrupts();
   }
+  // Reset the ladder step
   ladder_step = 0;
+  // Invert the counting direction
+  set_trace_direction(!trace_dir);
+  // If two directions have been performed, then go to the next pixel
+  if (trace_dir == COUNT_UP)
+  {
+    // Go to the next pixel
+    step_mux();
+    // If all pixels have been sampled, then reset mux
+    if (digitalRead(MUX_GOOD))
+    {
+      reset_mux();
+    }
+  }
   
 #ifdef DEBUGGING
   Serial.println("TEST ORBIT: Finished curve trace");
