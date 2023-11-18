@@ -89,7 +89,7 @@ ICM20649 imu;
 // Temperature sensor on the reference GaAs panel
 OneWire gaas_temp_sensor(GAAS_TEMP);
 // Sun vector sensor
-FSS100 sun_sensor(0x11);
+FSS100 sun_sensor(0x57);
 
 volatile long last_gaas_rot = 0;
 volatile long last_p3_rot = 0;
@@ -443,7 +443,7 @@ void handle_secondary_payload_sensors(void)
 
 void init_secondary_payload(void)
 {
-  read_relay();
+//  read_relay();
   init_magnetometer();
   init_imu();
 }
@@ -1066,8 +1066,6 @@ void loop()
     read_bme280();
     read_imu();
     read_magnetometer();
-    sun_sensor.default_config();
-    while (!sun_sensor.sample_wait());
 
     Serial.print("Acc X"); Serial.print("\t|\t"); 
     Serial.print("Acc Y"); Serial.print("\t|\t"); 
@@ -1078,13 +1076,13 @@ void loop()
     Serial.print("Temp"); Serial.print("\t|\t");
     Serial.println();
 
-    Serial.print(imu.accelInG.x, 2); Serial.print("\t|\t"); 
-    Serial.print(imu.accelInG.y, 2); Serial.print("\t|\t"); 
-    Serial.print(imu.accelInG.z, 2); Serial.print("\t|\t"); 
-    Serial.print(imu.gyroDPS.x, 2); Serial.print("\t|\t");
-    Serial.print(imu.gyroDPS.y, 2); Serial.print("\t|\t");
-    Serial.print(imu.gyroDPS.z, 2); Serial.print("\t|\t");
-    Serial.print(imu.tempRaw, 2); Serial.print("\t|\t");
+    Serial.print(imu.accelRaw.x); Serial.print("\t|\t"); 
+    Serial.print(imu.accelRaw.y); Serial.print("\t|\t"); 
+    Serial.print(imu.accelRaw.z); Serial.print("\t|\t"); 
+    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
+    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
+    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
+    Serial.print(imu.tempRaw); Serial.print("\t|\t");
     Serial.println();
     Serial.println();
 
@@ -1108,6 +1106,9 @@ void loop()
     Serial.print("Humid"); Serial.print("\t|\t");
     Serial.print("Theta"); Serial.print("\t|\t");
     Serial.println();
+
+    sun_sensor.default_config();
+    sun_sensor.sample_wait();
     
     Serial.print(p_1_temperature); Serial.print("\t|\t"); 
     Serial.print(p_2_temperature); Serial.print("\t|\t"); 
@@ -1177,7 +1178,7 @@ void loop()
     
     gaas_en = false;
     sun_sensor.default_config();
-    while (!sun_sensor.sample_wait());
+    sun_sensor.sample_wait();
     flux[ladder_step] = sun_sensor.getTheta();
     // Read from each sample
     set_read_mux(MUX_POS_GAAS);
