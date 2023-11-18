@@ -91,9 +91,6 @@ OneWire gaas_temp_sensor(GAAS_TEMP);
 // Sun vector sensor
 FSS100 sun_sensor(0x57);
 
-volatile long last_gaas_rot = 0;
-volatile long last_p3_rot = 0;
-volatile bool last_p3_en = false;
 volatile int current_rot = 0;
 int16_t theta;
 int16_t phi;
@@ -181,24 +178,53 @@ bool read_gaas_temp(uint16_t *gaas_temp_reading)
   return true;
 }
 
-bool gaas_en = false;
-
-void gaas_rotation_isr(void)
-{
-  if (last_gaas_rot != 0)
-  {
-    long rotation_time = millis() - last_gaas_rot;
-    float rotation = 1000 / rotation_time;
-    current_rot = rotation * 1000;
-  }
-  last_gaas_rot = millis();
-  gaas_en = true;
-}
+#define ROTATION_END 5
+volatile long last_p3_time = 0;
+volatile bool last_p3_en = false;
+volatile long center_time = 0;
+volatile long rotation = 0;
 
 void p3_rotation_isr(void)
 {
-  last_p3_rot = millis();
+  if (last_p3_time != 0)
+  {
+    rotation = millis() - last_p3_time;
+  }
+  last_p3_time = millis();
   last_p3_en = true;
+}
+
+// Do we need center time? Could probably skip and just wait
+# define CENTER_TIME
+void p3_wait(void)
+{
+  detachInterrupt(digitalPinToInterrupt(PANEL_3_ON));
+#ifdef CENTER_TIME
+  uint8_t max_current = 0;
+  long max_current_time = 0;
+  uint8_t zero_checks = ROTATION_END;
+  while (zero_checks != 0)
+  {
+    uint8_t panel_current = analogRead(PANEL_3_CURRENT_V);
+    long panel_current_time = millis();
+    if (panel_current > max_current)
+    {
+      max_current = panel_current;
+      max_current_time = panel_current_time;
+    }
+    if (panel_current == 0)
+    {
+      zero_checks--;
+    }
+  }
+  center_time = max_current_time - last_p3_time;
+  
+  delay((rotation / 2) - (center_time * 2));
+#else
+  delay(rotation / 2);
+#endif
+  last_p3_en = false;
+  attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
 }
 
 uint8_t init_payload(void)
@@ -597,7 +623,6 @@ bool startup_test(void)
     init_payload();
   
     // Setup rotation interrupts
-    attachInterrupt(digitalPinToInterrupt(GAAS_ON), gaas_rotation_isr, RISING);
     attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
   
     // Set reading mux
@@ -1068,7 +1093,9 @@ void loop()
 //    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
 //    read_bme280();
 //    read_imu();
-    read_magnetometer();
+//    read_magnetometer();
+//    sun_sensor.default_config();
+//    sun_sensor.sample_wait();
 //
 //    Serial.print("Acc X"); Serial.print("\t|\t"); 
 //    Serial.print("Acc Y"); Serial.print("\t|\t"); 
@@ -1109,9 +1136,6 @@ void loop()
 //    Serial.print("Humid"); Serial.print("\t|\t");
 //    Serial.print("Theta"); Serial.print("\t|\t");
 //    Serial.println();
-//
-//    sun_sensor.default_config();
-//    sun_sensor.sample_wait();
 //    
 //    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
 //    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
@@ -1122,6 +1146,17 @@ void loop()
 //    Serial.println();
 //    Serial.println();
 
+    Serial.print("PANEL 3 CURRENT"); Serial.print("\t|\t"); 
+    Serial.print("PANEL 3 ON"); Serial.print("\t|\t");
+    Serial.print("ROTATION"); Serial.print("\t|\t");
+    Serial.println();
+
+    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
+    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
+    Serial.print(rotation); Serial.print("\t|\t");
+    Serial.println();
+//    Serial.println();
+
 //    Serial.print("Analog:"); Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print(",");
 //    Serial.print("Digital:"); Serial.print(digitalRead(PANEL_3_ON)*255); Serial.println();
 
@@ -1130,23 +1165,12 @@ void loop()
 //    Serial.print("Z:"); Serial.print(imu.gyroDPS.z);
 //    Serial.println();
 
-    Serial.print("X:"); Serial.print(mag_data.x); Serial.print(",");
-    Serial.print("Y:"); Serial.print(mag_data.y); Serial.print(",");
-    Serial.print("Z:"); Serial.print(mag_data.z);
-    Serial.println();
-//    Serial.print("PANEL 3"); Serial.print("\t|\t"); 
+//    Serial.print("X:"); Serial.print(mag_data.x); Serial.print(",");
+//    Serial.print("Y:"); Serial.print(mag_data.y); Serial.print(",");
+//    Serial.print("Z:"); Serial.print(mag_data.z);
 //    Serial.println();
-//
-//    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
-//    Serial.println();
-//    Serial.println();
-//
-//    Serial.print("PANEL 3 D"); Serial.print("\t|\t");
-//    Serial.println();
-//
-//    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
-//    Serial.println();
-//    Serial.println();
+
+    
     
     //delay(1000);
   }
@@ -1180,25 +1204,25 @@ void loop()
     #ifdef TEST_ORBIT
     Serial.print("TEST ORBIT: Ladder step - ");
     Serial.println(ladder_step);
-    while (!gaas_en)
+    while (!last_p3_en)
     {
-      Serial.println("TEST ORBIT: Waiting for GaAs trigger");
+      Serial.println("TEST ORBIT: Waiting for solar trigger");
       delay(1000);
       break;
     }
-    Serial.println("TEST ORBIT: Leaving GaAs trigger");
+    Serial.println("TEST ORBIT: Leaving solar trigger");
     #else
-    while (!gaas_en)
+    while (!last_p3_en)
     {
       #ifdef DEBUGGING
-      Serial.println("Waiting for GaAs trigger");
+      Serial.println("Waiting for solar trigger");
       delay(1000);
       #endif
     }
     #endif
     //noInterrupts();
+    p3_wait();
     
-    gaas_en = false;
     sun_sensor.default_config();
     sun_sensor.sample_wait();
     flux[ladder_step] = sun_sensor.getTheta();
