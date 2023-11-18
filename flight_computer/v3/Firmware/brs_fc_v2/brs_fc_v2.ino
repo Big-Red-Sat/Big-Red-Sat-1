@@ -472,6 +472,9 @@ void init_magnetometer(void)
 #endif
 
   // Sample rate: 303.4 Hz
+  magnetometer.setGainSel(0);
+  magnetometer.setResolution(0, 0, 0);
+  magnetometer.setOffsets(0xFFFF, 0xFFFF, 0xFFFF);
   magnetometer.setOverSampling(2);
   magnetometer.setDigitalFiltering(0);
 }
@@ -536,7 +539,7 @@ void init_pins(void)
   
 //  pinMode(GAAS_TEMP, INPUT);
   pinMode(BUSY, INPUT);
-  pinMode(PANEL_3_ON, INPUT);
+  pinMode(PANEL_3_ON, INPUT_PULLUP);
   pinMode(PANEL_3_CURRENT_V, INPUT);
   
   pinMode(S0_CT, OUTPUT);
@@ -1062,71 +1065,90 @@ void loop()
 #ifdef SENSOR_TEST
   while (true)
   {
-    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
-    read_bme280();
-    read_imu();
+//    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
+//    read_bme280();
+//    read_imu();
     read_magnetometer();
+//
+//    Serial.print("Acc X"); Serial.print("\t|\t"); 
+//    Serial.print("Acc Y"); Serial.print("\t|\t"); 
+//    Serial.print("Acc Z"); Serial.print("\t|\t"); 
+//    Serial.print("Gyr X"); Serial.print("\t|\t");
+//    Serial.print("Gyr Y"); Serial.print("\t|\t");
+//    Serial.print("Gyr Z"); Serial.print("\t|\t");
+//    Serial.print("Temp"); Serial.print("\t|\t");
+//    Serial.println();
+//
+//    Serial.print(imu.accelRaw.x); Serial.print("\t|\t"); 
+//    Serial.print(imu.accelRaw.y); Serial.print("\t|\t"); 
+//    Serial.print(imu.accelRaw.z); Serial.print("\t|\t"); 
+//    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
+//    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
+//    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
+//    Serial.print(imu.tempRaw); Serial.print("\t|\t");
+//    Serial.println();
+//    Serial.println();
+//
+//    Serial.print("Mag X"); Serial.print("\t|\t"); 
+//    Serial.print("Mag Y"); Serial.print("\t|\t"); 
+//    Serial.print("Mag Z"); Serial.print("\t|\t"); 
+//    Serial.print("Mag T"); Serial.print("\t|\t"); 
+//    Serial.println();
+//
+//    Serial.print(mag_data.x); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.y); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.z); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.t); Serial.print("\t|\t"); 
+//    Serial.println();
+//    Serial.println();
+//
+//    Serial.print("P1 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("P2 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("P3 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("Press"); Serial.print("\t|\t"); 
+//    Serial.print("Humid"); Serial.print("\t|\t");
+//    Serial.print("Theta"); Serial.print("\t|\t");
+//    Serial.println();
+//
+//    sun_sensor.default_config();
+//    sun_sensor.sample_wait();
+//    
+//    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
+//    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
+//    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
+//    Serial.print(pressure_reading); Serial.print("\t|\t"); 
+//    Serial.print(humidity_reading); Serial.print("\t|\t");
+//    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
+//    Serial.println();
+//    Serial.println();
 
-    Serial.print("Acc X"); Serial.print("\t|\t"); 
-    Serial.print("Acc Y"); Serial.print("\t|\t"); 
-    Serial.print("Acc Z"); Serial.print("\t|\t"); 
-    Serial.print("Gyr X"); Serial.print("\t|\t");
-    Serial.print("Gyr Y"); Serial.print("\t|\t");
-    Serial.print("Gyr Z"); Serial.print("\t|\t");
-    Serial.print("Temp"); Serial.print("\t|\t");
-    Serial.println();
+//    Serial.print("Analog:"); Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print(",");
+//    Serial.print("Digital:"); Serial.print(digitalRead(PANEL_3_ON)*255); Serial.println();
 
-    Serial.print(imu.accelRaw.x); Serial.print("\t|\t"); 
-    Serial.print(imu.accelRaw.y); Serial.print("\t|\t"); 
-    Serial.print(imu.accelRaw.z); Serial.print("\t|\t"); 
-    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
-    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
-    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
-    Serial.print(imu.tempRaw); Serial.print("\t|\t");
-    Serial.println();
-    Serial.println();
+//    Serial.print("X:"); Serial.print(imu.gyroDPS.x); Serial.print(",");
+//    Serial.print("Y:"); Serial.print(imu.gyroDPS.y); Serial.print(",");
+//    Serial.print("Z:"); Serial.print(imu.gyroDPS.z);
+//    Serial.println();
 
-    Serial.print("Mag X"); Serial.print("\t|\t"); 
-    Serial.print("Mag Y"); Serial.print("\t|\t"); 
-    Serial.print("Mag Z"); Serial.print("\t|\t"); 
-    Serial.print("Mag T"); Serial.print("\t|\t"); 
+    Serial.print("X:"); Serial.print(mag_data.x); Serial.print(",");
+    Serial.print("Y:"); Serial.print(mag_data.y); Serial.print(",");
+    Serial.print("Z:"); Serial.print(mag_data.z);
     Serial.println();
-
-    Serial.print(mag_data.x); Serial.print("\t|\t"); 
-    Serial.print(mag_data.y); Serial.print("\t|\t"); 
-    Serial.print(mag_data.z); Serial.print("\t|\t"); 
-    Serial.print(mag_data.t); Serial.print("\t|\t"); 
-    Serial.println();
-    Serial.println();
-
-    Serial.print("P1 Temp"); Serial.print("\t|\t"); 
-    Serial.print("P2 Temp"); Serial.print("\t|\t"); 
-    Serial.print("P3 Temp"); Serial.print("\t|\t"); 
-    Serial.print("Press"); Serial.print("\t|\t"); 
-    Serial.print("Humid"); Serial.print("\t|\t");
-    Serial.print("Theta"); Serial.print("\t|\t");
-    Serial.println();
-
-    sun_sensor.default_config();
-    sun_sensor.sample_wait();
+//    Serial.print("PANEL 3"); Serial.print("\t|\t"); 
+//    Serial.println();
+//
+//    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
+//    Serial.println();
+//    Serial.println();
+//
+//    Serial.print("PANEL 3 D"); Serial.print("\t|\t");
+//    Serial.println();
+//
+//    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
+//    Serial.println();
+//    Serial.println();
     
-    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
-    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
-    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
-    Serial.print(pressure_reading); Serial.print("\t|\t"); 
-    Serial.print(humidity_reading); Serial.print("\t|\t");
-    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
-    Serial.println();
-    Serial.println();
-
-    Serial.print("PANEL 3"); Serial.print("\t|\t"); 
-    Serial.println();
-
-    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
-    Serial.println();
-    Serial.println();
-    
-    delay(1000);
+    //delay(1000);
   }
   #endif
   
