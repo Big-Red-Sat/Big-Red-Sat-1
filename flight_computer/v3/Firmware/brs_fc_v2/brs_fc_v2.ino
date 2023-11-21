@@ -37,6 +37,7 @@
 #define MAX_LADDER_STEPS 16
 #define EPS_SEND_TIMEOUT -1
 
+// Cutoff voltage set to 6.5V
 #define BUSS_VOLTAGE_CUTOFF 0x7E
 uint8_t battery_voltage;
 
@@ -286,15 +287,13 @@ void step_ladder(void)
 
 void reset_ladder(void)
 {
-  set_trace_direction(COUNT_UP);
-  while (digitalRead(CT_GOOD))
-  {
-    step_ladder();
-  }
-//  set_trace_direction(COUNT_DOWN);
-  step_ladder();
   ladder_step = 0;
-  set_trace_direction(trace_dir);
+  uint8_t last_pixel = current_pixel;
+  reset_mux();
+  while (current_pixel != last_pixel) 
+  {
+    step_mux();
+  }
 }
 
 void reset_mux(void)
@@ -552,6 +551,16 @@ void read_magnetometer(void)
 ///////////////////////////////////////////
 //       END SECONDARY PAYLOAD CODE
 ///////////////////////////////////////////
+
+void reset_msp430(void)
+{
+  WDTCTL = 0;
+}
+
+void sleep_mode(void)
+{
+  __bis_SR_register(LPM4_bits);
+}
 
 void shutdown_system(void)
 {
@@ -1351,7 +1360,7 @@ void loop()
 //    interrupts();
   }
   // Reset the ladder step
-  ladder_step = 0;
+  reset_ladder();
   // Invert the counting direction
   set_trace_direction(!trace_dir);
   // If two directions have been performed, then go to the next pixel
