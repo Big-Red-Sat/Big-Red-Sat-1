@@ -1,2 +1,1 @@
-# internal CubeSat Boards
-
+# Big Red Sat-1
