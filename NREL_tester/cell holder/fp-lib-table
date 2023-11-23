@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name Perovskite)(type KiCad)(uri "${KIPRJMOD}/KICAD Parts/Perovskite")(options "")(descr ""))
-  (lib (name MCP9804_Custom)(type KiCad)(uri "${KIPRJMOD}/KICAD Parts/MCP9804/MCP9804_Custom.pretty")(options "")(descr ""))
-)

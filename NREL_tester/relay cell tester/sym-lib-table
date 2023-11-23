@@ -1,5 +1,0 @@
-(sym_lib_table
-  (lib (name 2-1419130-4)(type Legacy)(uri "${KIPRJMOD}/KICAD Parts/2-1419130-4/2-1419130-4.lib")(options "")(descr ""))
-  (lib (name ADG841YKSZ-500RL7)(type Legacy)(uri "${KIPRJMOD}/KICAD Parts/ul_ADG841YKSZ-500RL7/ADG841YKSZ-500RL7.lib")(options "")(descr ""))
-  (lib (name CD4024)(type Legacy)(uri "${KIPRJMOD}/KICAD Parts/ul_CD4024BM96/CD4024.lib")(options "")(descr ""))
-)
