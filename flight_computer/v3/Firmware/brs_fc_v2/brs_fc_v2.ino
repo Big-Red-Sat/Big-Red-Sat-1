@@ -12,9 +12,9 @@
 #define DEBUGGING
 //#define SOLAR_TEST
 //#define ROTATION_TEST
-#define STATIC_TEST
+//#define STATIC_TEST
 //#define POWER_TEST
-//#define SENSOR_TEST
+#define SENSOR_TEST
 //#define TEST_ORBIT
 //#define DEPLOY
 #define NO_TRANSMIT
@@ -192,6 +192,7 @@ volatile uint8_t trigger_current = 0;
 
 void p3_rotation_isr(void)
 {
+  //__bic_SR_register_on_exit(LPM4_bits);
   if (!last_p3_en)
   {
     if (last_p3_time != 0)
@@ -203,7 +204,8 @@ void p3_rotation_isr(void)
   }
 }
 
-// Do we need center time? Could probably skip and just wait
+// Do we need center time? Could probably skip and just wait.
+// Nope need it
 # define CENTER_TIME
 void p3_wait(void)
 {
@@ -216,7 +218,6 @@ void p3_wait(void)
   while (zero_checks != 0)
   {
     uint8_t panel_current = analogRead(PANEL_3_CURRENT_V);
-    //Serial.print("Current: "); Serial.print (panel_current); Serial.print(" | Trigger: "); Serial.println(trigger_current);
     long panel_current_time = millis();
     if (panel_current != 0)
     {
@@ -233,7 +234,6 @@ void p3_wait(void)
     }
   }
   center_time = max_current_time - last_p3_time;
-//  Serial.print("Center Time: "); Serial.println(center_time);
   if (center_time > 0 && rotation > 1000) delay((uint16_t)((rotation / 2) + center_time));
 #else
   delay(rotation / 2);
@@ -287,13 +287,9 @@ void step_ladder(void)
 
 void reset_ladder(void)
 {
+  while (digitalRead(CT_GOOD)) step_ladder(); // Set the ladder to 0xF
+  if (trace_dir == COUNT_UP) step_ladder(); // Set the ladder to 0x0
   ladder_step = 0;
-  uint8_t last_pixel = current_pixel;
-  reset_mux();
-  while (current_pixel != last_pixel) 
-  {
-    step_mux();
-  }
 }
 
 void reset_mux(void)
@@ -1156,77 +1152,77 @@ void loop()
 #ifdef SENSOR_TEST
   while (true)
   {
-    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
-    read_gaas_temp(&gaas_temperature);
+//    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
+//    read_gaas_temp(&gaas_temperature);
     read_bme280();
-    read_imu();
-    read_magnetometer();
-    sun_sensor.default_config();
-    sun_sensor.sample_wait();
+//    read_imu();
+//    read_magnetometer();
+//    sun_sensor.default_config();
+//    sun_sensor.sample_wait();
+//
+//    Serial.print("Acc X"); Serial.print("\t|\t"); 
+//    Serial.print("Acc Y"); Serial.print("\t|\t"); 
+//    Serial.print("Acc Z"); Serial.print("\t|\t"); 
+//    Serial.print("Gyr X"); Serial.print("\t|\t");
+//    Serial.print("Gyr Y"); Serial.print("\t|\t");
+//    Serial.print("Gyr Z"); Serial.print("\t|\t");
+//    Serial.print("Temp"); Serial.print("\t|\t");
+//    Serial.println();
+//
+//    Serial.print(imu.accelRaw.x); Serial.print("\t|\t"); 
+//    Serial.print(imu.accelRaw.y); Serial.print("\t|\t"); 
+//    Serial.print(imu.accelRaw.z); Serial.print("\t|\t"); 
+//    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
+//    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
+//    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
+//    Serial.print(imu.tempRaw); Serial.print("\t|\t");
+//    Serial.println();
+//    Serial.println();
+//
+//    Serial.print("Mag X"); Serial.print("\t|\t"); 
+//    Serial.print("Mag Y"); Serial.print("\t|\t"); 
+//    Serial.print("Mag Z"); Serial.print("\t|\t"); 
+//    Serial.print("Mag T"); Serial.print("\t|\t"); 
+//    Serial.println();
+//
+//    Serial.print(mag_data.x); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.y); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.z); Serial.print("\t|\t"); 
+//    Serial.print(mag_data.t); Serial.print("\t|\t"); 
+//    Serial.println();
+//    Serial.println();
 
-    Serial.print("Acc X"); Serial.print("\t|\t"); 
-    Serial.print("Acc Y"); Serial.print("\t|\t"); 
-    Serial.print("Acc Z"); Serial.print("\t|\t"); 
-    Serial.print("Gyr X"); Serial.print("\t|\t");
-    Serial.print("Gyr Y"); Serial.print("\t|\t");
-    Serial.print("Gyr Z"); Serial.print("\t|\t");
-    Serial.print("Temp"); Serial.print("\t|\t");
-    Serial.println();
+//    Serial.print("GaAs Temp"); Serial.print("\t|\t");
+//    Serial.print("P1 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("P2 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("P3 Temp"); Serial.print("\t|\t"); 
+//    Serial.print("Press"); Serial.print("\t|\t"); 
+//    Serial.print("Humid"); Serial.print("\t|\t");
+//    Serial.print("Theta"); Serial.print("\t|\t");
+//    Serial.println();
 
-    Serial.print(imu.accelRaw.x); Serial.print("\t|\t"); 
-    Serial.print(imu.accelRaw.y); Serial.print("\t|\t"); 
-    Serial.print(imu.accelRaw.z); Serial.print("\t|\t"); 
-    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
-    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
-    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
-    Serial.print(imu.tempRaw); Serial.print("\t|\t");
-    Serial.println();
-    Serial.println();
-
-    Serial.print("Mag X"); Serial.print("\t|\t"); 
-    Serial.print("Mag Y"); Serial.print("\t|\t"); 
-    Serial.print("Mag Z"); Serial.print("\t|\t"); 
-    Serial.print("Mag T"); Serial.print("\t|\t"); 
-    Serial.println();
-
-    Serial.print(mag_data.x); Serial.print("\t|\t"); 
-    Serial.print(mag_data.y); Serial.print("\t|\t"); 
-    Serial.print(mag_data.z); Serial.print("\t|\t"); 
-    Serial.print(mag_data.t); Serial.print("\t|\t"); 
-    Serial.println();
-    Serial.println();
-
-    Serial.print("GaAs Temp"); Serial.print("\t|\t");
-    Serial.print("P1 Temp"); Serial.print("\t|\t"); 
-    Serial.print("P2 Temp"); Serial.print("\t|\t"); 
-    Serial.print("P3 Temp"); Serial.print("\t|\t"); 
-    Serial.print("Press"); Serial.print("\t|\t"); 
-    Serial.print("Humid"); Serial.print("\t|\t");
-    Serial.print("Theta"); Serial.print("\t|\t");
-    Serial.println();
-
-    Serial.print(gaas_temperature); Serial.print("\t|\t");
-    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
-    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
-    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
+//    Serial.print(gaas_temperature); Serial.print("\t|\t");
+//    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
+//    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
+//    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
     Serial.print(pressure_reading); Serial.print("\t|\t"); 
     Serial.print(humidity_reading); Serial.print("\t|\t");
-    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
-    Serial.println();
-    Serial.println();
-
-    Serial.print("PANEL 3 CURRENT"); Serial.print("\t|\t"); 
-    Serial.print("PANEL 3 ON"); Serial.print("\t|\t");
-    Serial.print("Battery"); Serial.print("\t|\t");
+//    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
+//    Serial.println();
     Serial.println();
 
-    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
-    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
-    Serial.print(read_battery()); Serial.print("\t|\t");
-    Serial.println();
-    Serial.println();
-
-    delay(1000);
+//    Serial.print("PANEL 3 CURRENT"); Serial.print("\t|\t"); 
+//    Serial.print("PANEL 3 ON"); Serial.print("\t|\t");
+//    Serial.print("Battery"); Serial.print("\t|\t");
+//    Serial.println();
+//
+//    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t"); 
+//    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
+//    Serial.print(read_battery()); Serial.print("\t|\t");
+//    Serial.println();
+//    Serial.println();
+//
+//    delay(1000);
   }
 #endif
 #ifdef STATIC_TEST
@@ -1359,8 +1355,7 @@ void loop()
     
 //    interrupts();
   }
-  // Reset the ladder step
-  reset_ladder();
+  
   // Invert the counting direction
   set_trace_direction(!trace_dir);
   // If two directions have been performed, then go to the next pixel
@@ -1374,7 +1369,8 @@ void loop()
       reset_mux();
     }
   }
-  
+  // Reset the ladder step
+  reset_ladder();
 #ifdef DEBUGGING
   Serial.println("TEST ORBIT: Finished curve trace");
 #endif
