@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "1P")(type "Legacy")(uri "/Users/epuatu/Documents/HABies/MV12605M1P/G125-MV12605M1P.lib")(options "")(descr ""))
+  (lib (name "1R")(type "Legacy")(uri "/Users/epuatu/Documents/HABies/MV12605M1R/G125-MH12605M4R.lib")(options "")(descr ""))
+)
