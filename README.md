@@ -1,5 +1,7 @@
 # Big Red Sat-1
 
+![Banner Image](https://github.com/wsarce/Big-Red-Sat-1/blob/main/Images/Banner%20Image.png)
+
 ## Introduction 
 
 This repository contains the original designs for the Big Red Sat-1 1U cube satellite, conceived, designed, and launched by a multi-disciplinary team of middle schoolers and high schoolers from the Nebraska public school system, as well as undergraduate students and graduate students from the University of Nebraska-Lincoln.  
