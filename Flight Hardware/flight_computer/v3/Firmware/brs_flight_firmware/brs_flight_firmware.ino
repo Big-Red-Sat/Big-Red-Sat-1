@@ -1087,8 +1087,7 @@ void send_tertiary_payload(void)
 }
 
 long startup_time = 0;
-#define HALFORBIT_WAKEUP 1500000
-#define TESTORBIT_WAKEUP 1000
+#define THETA_SAMPLE_RANGE 4000
 
 void setup() {
 #ifdef DEBUGGING
@@ -1109,56 +1108,67 @@ void setup() {
 
 void loop() 
 {
-  while (ladder_step != MAX_LADDER_STEPS)
+  int16_t current_theta = 0xFFFF;
+  while (!(current_theta < -THETA_SAMPLE_RANGE && current_theta > THETA_SAMPLE_RANGE))
   {
     sun_sensor.default_config();
     sun_sensor.sample_wait();
-    flux[ladder_step] = sun_sensor.getTheta();
-    // Read from each sample
-    set_read_mux(MUX_POS_GAAS);
-    read_mux(&voltage_1[ladder_step], &current_1[ladder_step]);
-    set_read_mux(MUX_POS_P1);
-    read_mux(&voltage_2[ladder_step], &current_2[ladder_step]);
-    set_read_mux(MUX_POS_P2);
-    read_mux(&voltage_3[ladder_step], &current_3[ladder_step]);
-    set_read_mux(MUX_POS_P3);
-    read_mux(&voltage_4[ladder_step], &current_4[ladder_step]);
-    set_read_mux(MUX_POS_GAAS);
-    step_ladder();
+    current_theta = sun_sensor.getTheta();
   }
-  
-  // Invert the counting direction
-  set_trace_direction(!trace_dir);
-  // If two directions have been performed, then go to the next pixel
-  if (trace_dir == COUNT_UP)
+  if (digitalRead(GAAS_ON))
   {
-    // Go to the next pixel
-    step_mux();
-    // If all pixels have been sampled, then reset mux
-    if (digitalRead(MUX_GOOD))
+    while (ladder_step != MAX_LADDER_STEPS)
     {
-      reset_mux();
+      // Read from each sample
+      set_read_mux(MUX_POS_GAAS);
+      read_mux(&voltage_1[ladder_step], &current_1[ladder_step]);
+      set_read_mux(MUX_POS_P1);
+      read_mux(&voltage_2[ladder_step], &current_2[ladder_step]);
+      set_read_mux(MUX_POS_P2);
+      read_mux(&voltage_3[ladder_step], &current_3[ladder_step]);
+      set_read_mux(MUX_POS_P3);
+      read_mux(&voltage_4[ladder_step], &current_4[ladder_step]);
+      set_read_mux(MUX_POS_GAAS);
+      step_ladder();
     }
-  }
-  // Reset the ladder step
-  reset_ladder();
+    
+    // Invert the counting direction
+    set_trace_direction(!trace_dir);
+    // If two directions have been performed, then go to the next pixel
+    if (trace_dir == COUNT_UP)
+    {
+      // Go to the next pixel
+      step_mux();
+      // If all pixels have been sampled, then reset mux
+      if (digitalRead(MUX_GOOD))
+      {
+        reset_mux();
+      }
+    }
+    // Reset the ladder step
+    reset_ladder();
+    
+    // Read payload temperatures
+    read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
+    read_gaas_temp(&gaas_temperature);
   
-  // Read payload temperatures
-  read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
-  read_gaas_temp(&gaas_temperature);
-
-  // Read humidity and pressure
-  read_bme280();
-
-  // Read accelerometry, gyroscope, and magnetometer
-  read_magnetometer();
-  read_imu();
-
-  // Send all packets twice
-  send_payload_1_packets();
-  send_payload_2_packets();
-  send_payload_3_packets();
-  send_payload_4_packets();
-  send_secondary_payload();
-  send_tertiary_payload();
+    // Read humidity and pressure
+    read_bme280();
+  
+    // Read accelerometry, gyroscope, and magnetometer
+    read_magnetometer();
+    read_imu();
+  
+    // Send all packets twice
+    send_payload_1_packets();
+    send_payload_2_packets();
+    send_payload_3_packets();
+    send_payload_4_packets();
+    send_secondary_payload();
+    send_tertiary_payload();
+  }
+  else
+  {
+    reset_msp430();
+  }
 }
