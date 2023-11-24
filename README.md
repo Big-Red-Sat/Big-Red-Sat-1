@@ -27,6 +27,12 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 - [Perovskite pogo pin board](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Flight%20Hardware/perovskite_contact_board/V6/bot)
 - [Perovskite payload enclosure](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Flight%20Payload/Mechanical%20Design)
 
+## Software Libraries Developed
+
+- [NSL-EPS-Arduino, an Arduino library to communicate with the NSL electrical power system and radio](https://github.com/wsarce/NSL-EPS-Arduino)
+- [FSS100-Arduino, an Arduino library to communicate with the FSS100 sun vector sensor to detect position of sun](https://github.com/wsarce/FSS100-Arduino)
+- [pyOssila, a Python library to communicate with the AM1.5 sun simulator](https://github.com/wsarce/pyOssila)
+
 ## Satellite Exploded View Render
 
 https://github.com/wsarce/Big-Red-Sat-1/assets/22334349/7d4744a6-e3ca-4aac-ab56-a3370dd9aef9
