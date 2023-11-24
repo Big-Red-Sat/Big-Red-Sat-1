@@ -17,6 +17,7 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 - [Payload breakout board to interact with perovskite cells in payload](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/payload-breakout-board/Gecko_Poker)
 - [Temperature sensor prototyping](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/temp-sensor-prototyping)
 - [Neopixel perovskite pixel isolator](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/perovskite-cell-isolator)
+- [Prototype flight computer with curve tracer and multiplexer](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/payload_controller)
 
 ## Final Designs
 
@@ -37,3 +38,104 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 
 https://github.com/wsarce/Big-Red-Sat-1/assets/22334349/7d4744a6-e3ca-4aac-ab56-a3370dd9aef9
 
+### Contact
+
+### Citation
+
+### Funding
+
+### Dataset Metadata
+The following table is necessary for this dataset to be indexed by search
+engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
+<div itemscope itemtype="http://schema.org/Dataset">
+<table>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+<tr>
+<td>name</td>
+<td><code itemprop="name">Big Red Sat-1 design dataset</code></td>
+</tr>
+<tr>
+<td>description</td>
+<td><code itemprop="description">The dataset and designs from the development of the Big Red Sat-1 cube satellite.</code></td>
+</tr>
+</tr>
+<tr>
+<td>url</td>
+<td><code itemprop="url">https://github.com/wsarce/Big-Red-Sat-1</code></td>
+</tr>
+<tr>
+<td>sameAs</td>
+<td><code itemprop="sameAs">https://github.com/wsarce/Big-Red-Sat-1</code></td>
+</tr>
+<tr>
+<td>citation</td>
+<td><code itemprop="citation">TBA</code></td>
+</tr>
+<tr>
+<td>hw license</td>
+<td>
+<div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
+<table>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+<tr>
+<td>name</td>
+<td><code itemprop="name">CERN-OHL-S-2.0</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td><code itemprop="url">https://spdx.org/licenses/CERN-OHL-S-2.0.html</code></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>sw license</td>
+<td>
+<div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
+<table>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+<tr>
+<td>name</td>
+<td><code itemprop="name">MIT</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td><code itemprop="url">https://opensource.org/licenses/MIT</code></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>docs license</td>
+<td>
+<div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
+<table>
+<tr>
+<th>property</th>
+<th>value</th>
+</tr>
+<tr>
+<td>name</td>
+<td><code itemprop="name">CC BY-SA 4.0</code></td>
+</tr>
+<tr>
+<td>url</td>
+<td><code itemprop="url">https://creativecommons.org/licenses/by-sa/4.0/</code></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
