@@ -1111,8 +1111,21 @@ void setup() {
     #endif
     while (1);
   }
-
+  sun_sensor.default_config();
+  Serial.println((0.5)*3.14159265358979323846);
+  Serial.println(2000/32767.0);
+  Serial.println((0.5)*3.14159265358979323846*(2000 / 32767.0));
   startup_time = millis();
+}
+
+float convert_phi(int16_t raw_phi)
+{
+  return (float)((0.5)*3.14159265358979323846*(raw_phi / 32767.0));
+}
+
+float convert_theta(int16_t raw_theta)
+{
+  return (float)((0.333)*3.14159265358979323846*(raw_theta / 32767.0));
 }
 
 void loop() 
@@ -1157,8 +1170,24 @@ void loop()
     read_bme280();
 //    read_imu();
 //    read_magnetometer();
-//    sun_sensor.default_config();
-//    sun_sensor.sample_wait();
+    
+    if (sun_sensor.sample_wait())
+    {
+      int16_t test_theta = sun_sensor.getTheta();
+      int16_t test_phi = sun_sensor.getPhi();
+      int16_t test_value = test_theta;
+      if ((test_value > 0 && test_value > 200) || (test_value < 0 && test_value < -200))
+      {
+        if (test_value < 40000 && test_value > -40000)
+        {
+        
+//          Serial.print("Phi:");Serial.print(test_phi);Serial.print(" Theta:");Serial.print(test_theta);          
+          Serial.print(" PhiD:");Serial.print(convert_phi(test_phi) * 100);Serial.print(" ThetaD:");Serial.println(convert_theta(test_theta) * 100);
+
+        }
+      }
+      sun_sensor.default_config();
+    }
 //
 //    Serial.print("Acc X"); Serial.print("\t|\t"); 
 //    Serial.print("Acc Y"); Serial.print("\t|\t"); 
@@ -1199,18 +1228,24 @@ void loop()
 //    Serial.print("Press"); Serial.print("\t|\t"); 
 //    Serial.print("Humid"); Serial.print("\t|\t");
 //    Serial.print("Theta"); Serial.print("\t|\t");
+//    Serial.print("Phi"); Serial.print("\t|\t");
 //    Serial.println();
 
 //    Serial.print(gaas_temperature); Serial.print("\t|\t");
 //    Serial.print(p_1_temperature); Serial.print("\t|\t"); 
 //    Serial.print(p_2_temperature); Serial.print("\t|\t"); 
 //    Serial.print(p_3_temperature); Serial.print("\t|\t"); 
-    Serial.print(pressure_reading); Serial.print("\t|\t"); 
-    Serial.print(humidity_reading); Serial.print("\t|\t");
+//    Serial.print(pressure_reading); Serial.print("\t|\t"); 
+//    Serial.print(humidity_reading); Serial.print("\t|\t");
 //    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
+//    Serial.print(sun_sensor.getPhi()); Serial.print("\t|\t");
 //    Serial.println();
-    Serial.println();
+//    Serial.println();
 
+//      int16_t theta_test = sun_sensor.getTheta();
+//      if (theta_test == 0) sun_sensor.continuous_config();
+      
+      
 //    Serial.print("PANEL 3 CURRENT"); Serial.print("\t|\t"); 
 //    Serial.print("PANEL 3 ON"); Serial.print("\t|\t");
 //    Serial.print("Battery"); Serial.print("\t|\t");

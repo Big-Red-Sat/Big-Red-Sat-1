@@ -69,8 +69,6 @@ uint16_t voltage_3[16] = { 0 };
 uint16_t current_4[16] = { 0 };
 uint16_t voltage_4[16] = { 0 };
 
-int i, mp_1, mp_1i, mp_2, mp_2i, mp_3, mp_3i, mp_4, mp_4i;
-
 #define STATUS_REGISTER_PIXEL_BIT_0   0
 #define STATUS_REGISTER_PIXEL_BIT_1   1
 #define STATUS_REGISTER_PIXEL_BIT_2   2
@@ -107,6 +105,8 @@ uint16_t p_2_temperature;
 uint16_t p_3_temperature;
 uint16_t gaas_temperature;
 bool trace_dir;
+int16_t current_theta;
+int16_t current_phi;
 
 ///////////////////////////////////////////
 //       START PRIMARY PAYLOAD CODE
@@ -581,7 +581,7 @@ void init_pins(void)
   digitalWrite(SET, LOW);
   pinMode(MAG_INT, INPUT);
   pinMode(CT_GOOD, INPUT);
-  pinMode(GAAS_ON, INPUT);
+  pinMode(GAAS_ON, INPUT_PULLUP);
   
   pinMode(MUX_GOOD, INPUT);
   pinMode(MUX_CLOCK, OUTPUT);
@@ -607,6 +607,7 @@ void init_pins(void)
   
   reset_mux();
   set_trace_direction(COUNT_UP);
+  reset_ladder();
 }
 
 uint8_t read_battery(void)
@@ -627,21 +628,12 @@ bool check_battery(void)
 bool startup_test(void)
 {
   // Wait for EPS to wakeup
-  int timeout_count = 0;
   while (digitalRead(BUSY) == EPS_BUSY)
   {
     delay(1000);
     #ifdef DEBUGGING
-    Serial.print("Waiting for EPS, ");
-    Serial.println(timeout_count);
+    Serial.println("Waiting for EPS");
     #endif
-    if (timeout_count++ == EPS_SEND_TIMEOUT)
-    {
-      #ifdef DEBUGGING
-      Serial.println("EPS timeout");
-      #endif
-      break;
-    }
   }
   // Startup cubesat EPS
   eps.begin();
@@ -652,26 +644,20 @@ bool startup_test(void)
     #ifdef DEBUGGING
     Serial.println("Heartbeat payload failed");
     #endif
+    reset_msp430();
   }
-  if (check_battery())
-  {
-    // Initialize sensors
-    sun_sensor.init();
-    init_secondary_payload();
-    init_payload();
   
-    // Setup rotation interrupts
-    attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
-  
-    // Set reading mux
-    set_read_mux(MUX_POS_GAAS);
+  // Initialize sensors
+  sun_sensor.init();
+  init_secondary_payload();
+  init_payload();
 
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+  // Setup rotation interrupts
+//  attachInterrupt(digitalPinToInterrupt(PANEL_3_ON), p3_rotation_isr, RISING);
+//  attachInterrupt(digitalPinToInterrupt(GAAS_ON), p3_rotation_isr, RISING);
+
+  // Set reading mux
+  set_read_mux(MUX_POS_GAAS);
 }
 
 void send_payload_1_packets(void)
@@ -680,21 +666,21 @@ void send_payload_1_packets(void)
   status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       0x00;
-                      
-  pixel_packet_1[4] = (byte)(gaas_temperature >> 8);
-  pixel_packet_1[5] = (byte)(gaas_temperature);
-  pixel_packet_1[6] = (byte)(voltage_1[0]);
-  pixel_packet_1[7] = (byte)(current_1[0]);
-  pixel_packet_1[8] = (byte)(voltage_1[mp_1i - 2]);
-  pixel_packet_1[9] = (byte)(current_1[mp_1i - 2]);
-  pixel_packet_1[10] = (byte)(voltage_1[mp_1i - 1]);
-  pixel_packet_1[11] = (byte)(current_1[mp_1i - 1]);
-  pixel_packet_1[12] = (byte)(voltage_1[mp_1i]);
-  pixel_packet_1[13] = (byte)(current_1[mp_1i]);
-  pixel_packet_1[14] = (byte)(voltage_1[mp_1i + 1]);
-  pixel_packet_1[15] = (byte)(current_1[mp_1i + 1]);
-  pixel_packet_1[16] = (byte)(voltage_1[mp_1i + 2]);
-  pixel_packet_1[17] = (byte)(current_1[mp_1i + 2]);
+
+  pixel_packet_1[4] = (byte)(voltage_1[8]);
+  pixel_packet_1[5] = (byte)(current_1[8]);
+  pixel_packet_1[6] = (byte)(voltage_1[9]);
+  pixel_packet_1[7] = (byte)(current_1[9]);
+  pixel_packet_1[8] = (byte)(voltage_1[10]);
+  pixel_packet_1[9] = (byte)(current_1[10]);
+  pixel_packet_1[10] = (byte)(voltage_1[11]);
+  pixel_packet_1[11] = (byte)(current_1[11]);
+  pixel_packet_1[12] = (byte)(voltage_1[12]);
+  pixel_packet_1[13] = (byte)(current_1[12]);
+  pixel_packet_1[14] = (byte)(voltage_1[13]);
+  pixel_packet_1[15] = (byte)(current_1[13]);
+  pixel_packet_1[16] = (byte)(voltage_1[14]);
+  pixel_packet_1[17] = (byte)(current_1[14]);
   pixel_packet_1[18] = (byte)(voltage_1[15]);
   pixel_packet_1[19] = (byte)(current_1[15]);
   pixel_packet_1[20] = status_register;
@@ -713,44 +699,6 @@ void send_payload_1_packets(void)
   }
   Serial.println();
   #endif
-
-  status_register = 0x00;
-  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
-                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
-                      0x00;
-
-  flux_packet_1[4] = (byte)(flux[0] >> 8);
-  flux_packet_1[5] = (byte)(flux[0] >> 0);
-  flux_packet_1[6] = (byte)(flux[mp_1i - 2] >> 8);
-  flux_packet_1[7] = (byte)(flux[mp_1i - 2] >> 0);
-  flux_packet_1[8] = (byte)(flux[mp_1i - 1] >> 8);
-  flux_packet_1[9] = (byte)(flux[mp_1i - 1] >> 0);
-  flux_packet_1[10] = (byte)(flux[mp_1i] >> 8);
-  flux_packet_1[11] = (byte)(flux[mp_1i] >> 0);
-  flux_packet_1[12] = (byte)(flux[mp_1i + 1] >> 8);
-  flux_packet_1[13] = (byte)(flux[mp_1i + 1] >> 0);
-  flux_packet_1[14] = (byte)(flux[mp_1i + 2] >> 8);
-  flux_packet_1[15] = (byte)(flux[mp_1i + 2] >> 0);
-  flux_packet_1[16] = (byte)(flux[15] >> 8);
-  flux_packet_1[17] = (byte)(flux[15] >> 0);
-  flux_packet_1[18] = (byte)(current_rot >> 8);
-  flux_packet_1[19] = (byte)(current_rot >> 0);
-  flux_packet_1[20] = status_register;
-
-  #ifndef NO_TRANSMIT
-  eps.radio(flux_packet_1);
-  eps.radio(flux_packet_1);
-  #endif
-  #ifdef DEBUGGING
-  Serial.println("GaAs Flux Packet");
-  for (int i = 0; i < 21; i++)
-  {
-    Serial.print("0x");
-    Serial.print(flux_packet_1[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
-  #endif
 }
 
 void send_payload_2_packets(void)
@@ -760,20 +708,20 @@ void send_payload_2_packets(void)
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
-  pixel_packet_2[4] = (byte)(p_1_temperature >> 8);
-  pixel_packet_2[5] = (byte)(p_1_temperature >> 0);
-  pixel_packet_2[6] = (byte)(voltage_2[0]);
-  pixel_packet_2[7] = (byte)(current_2[0]);
-  pixel_packet_2[8] = (byte)(voltage_2[mp_2i - 2]);
-  pixel_packet_2[9] = (byte)(current_2[mp_2i - 2]);
-  pixel_packet_2[10] = (byte)(voltage_2[mp_2i - 1]);
-  pixel_packet_2[11] = (byte)(current_2[mp_2i - 1]);
-  pixel_packet_2[12] = (byte)(voltage_2[mp_2i]);
-  pixel_packet_2[13] = (byte)(current_2[mp_2i]);
-  pixel_packet_2[14] = (byte)(voltage_2[mp_2i + 1]);
-  pixel_packet_2[15] = (byte)(current_2[mp_2i + 1]);
-  pixel_packet_2[16] = (byte)(voltage_2[mp_2i + 2]);
-  pixel_packet_2[17] = (byte)(current_2[mp_2i + 2]);
+  pixel_packet_2[4] = (byte)(voltage_2[8]);
+  pixel_packet_2[5] = (byte)(current_2[8]);
+  pixel_packet_2[6] = (byte)(voltage_2[9]);
+  pixel_packet_2[7] = (byte)(current_2[9]);
+  pixel_packet_2[8] = (byte)(voltage_2[10]);
+  pixel_packet_2[9] = (byte)(current_2[10]);
+  pixel_packet_2[10] = (byte)(voltage_2[11]);
+  pixel_packet_2[11] = (byte)(current_2[11]);
+  pixel_packet_2[12] = (byte)(voltage_2[12]);
+  pixel_packet_2[13] = (byte)(current_2[12]);
+  pixel_packet_2[14] = (byte)(voltage_2[13]);
+  pixel_packet_2[15] = (byte)(current_2[13]);
+  pixel_packet_2[16] = (byte)(voltage_2[14]);
+  pixel_packet_2[17] = (byte)(current_2[14]);
   pixel_packet_2[18] = (byte)(voltage_2[15]);
   pixel_packet_2[19] = (byte)(current_2[15]);
   pixel_packet_2[20] = status_register;
@@ -792,44 +740,6 @@ void send_payload_2_packets(void)
   }
   Serial.println();
   #endif
-
-  status_register = 0x00;
-  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
-                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
-                      current_pixel;
-
-  flux_packet_2[4] = (byte)(flux[0] >> 8);
-  flux_packet_2[5] = (byte)(flux[0] >> 0);
-  flux_packet_2[6] = (byte)(flux[mp_2i - 2] >> 8);
-  flux_packet_2[7] = (byte)(flux[mp_2i - 2] >> 0);
-  flux_packet_2[8] = (byte)(flux[mp_2i - 1] >> 8);
-  flux_packet_2[9] = (byte)(flux[mp_2i - 1] >> 0);
-  flux_packet_2[10] = (byte)(flux[mp_2i] >> 8);
-  flux_packet_2[11] = (byte)(flux[mp_2i] >> 0);
-  flux_packet_2[12] = (byte)(flux[mp_2i + 1] >> 8);
-  flux_packet_2[13] = (byte)(flux[mp_2i + 1] >> 0);
-  flux_packet_2[14] = (byte)(flux[mp_2i + 2] >> 8);
-  flux_packet_2[15] = (byte)(flux[mp_2i + 2] >> 0);
-  flux_packet_2[16] = (byte)(flux[15] >> 8);
-  flux_packet_2[17] = (byte)(flux[15] >> 0);
-  flux_packet_2[18] = (byte)(current_rot >> 8);
-  flux_packet_2[19] = (byte)(current_rot >> 0);
-  flux_packet_2[20] = status_register;
-
-  #ifndef NO_TRANSMIT
-  eps.radio(flux_packet_2);
-  eps.radio(flux_packet_2);
-  #endif
-  #ifdef DEBUGGING
-  Serial.println("P1 Flux Packet");
-  for (int i = 0; i < 21; i++)
-  {
-    Serial.print("0x");
-    Serial.print(flux_packet_2[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
-  #endif
 }
 
 void send_payload_3_packets(void)
@@ -839,20 +749,20 @@ void send_payload_3_packets(void)
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
-  pixel_packet_3[4] = (byte)(p_2_temperature >> 8);
-  pixel_packet_3[5] = (byte)(p_2_temperature);
-  pixel_packet_3[6] = (byte)(voltage_3[0]);
-  pixel_packet_3[7] = (byte)(current_3[0]);
-  pixel_packet_3[8] = (byte)(voltage_3[mp_3i - 2]);
-  pixel_packet_3[9] = (byte)(current_3[mp_3i - 2]);
-  pixel_packet_3[10] = (byte)(voltage_3[mp_3i - 1]);
-  pixel_packet_3[11] = (byte)(current_3[mp_3i - 1]);
-  pixel_packet_3[12] = (byte)(voltage_3[mp_3i]);
-  pixel_packet_3[13] = (byte)(current_3[mp_3i]);
-  pixel_packet_3[14] = (byte)(voltage_3[mp_3i + 1]);
-  pixel_packet_3[15] = (byte)(current_3[mp_3i + 1]);
-  pixel_packet_3[16] = (byte)(voltage_3[mp_3i + 2]);
-  pixel_packet_3[17] = (byte)(current_3[mp_3i + 2]);
+  pixel_packet_3[4] = (byte)(voltage_3[8]);
+  pixel_packet_3[5] = (byte)(current_3[8]);
+  pixel_packet_3[6] = (byte)(voltage_3[9]);
+  pixel_packet_3[7] = (byte)(current_3[9]);
+  pixel_packet_3[8] = (byte)(voltage_3[10]);
+  pixel_packet_3[9] = (byte)(current_3[10]);
+  pixel_packet_3[10] = (byte)(voltage_3[11]);
+  pixel_packet_3[11] = (byte)(current_3[11]);
+  pixel_packet_3[12] = (byte)(voltage_3[12]);
+  pixel_packet_3[13] = (byte)(current_3[12]);
+  pixel_packet_3[14] = (byte)(voltage_3[13]);
+  pixel_packet_3[15] = (byte)(current_3[13]);
+  pixel_packet_3[16] = (byte)(voltage_3[14]);
+  pixel_packet_3[17] = (byte)(current_3[14]);
   pixel_packet_3[18] = (byte)(voltage_3[15]);
   pixel_packet_3[19] = (byte)(current_3[15]);
   pixel_packet_3[20] = status_register;
@@ -871,44 +781,6 @@ void send_payload_3_packets(void)
   }
   Serial.println();
   #endif
-
-  status_register = 0x00;
-  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
-                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
-                      current_pixel;
-
-  flux_packet_3[4] = (byte)(flux[0] >> 8);
-  flux_packet_3[5] = (byte)(flux[0] >> 0);
-  flux_packet_3[6] = (byte)(flux[mp_3i - 2] >> 8);
-  flux_packet_3[7] = (byte)(flux[mp_3i - 2] >> 0);
-  flux_packet_3[8] = (byte)(flux[mp_3i - 1] >> 8);
-  flux_packet_3[9] = (byte)(flux[mp_3i - 1] >> 0);
-  flux_packet_3[10] = (byte)(flux[mp_3i] >> 8);
-  flux_packet_3[11] = (byte)(flux[mp_3i] >> 0);
-  flux_packet_3[12] = (byte)(flux[mp_3i + 1] >> 8);
-  flux_packet_3[13] = (byte)(flux[mp_3i + 1] >> 0);
-  flux_packet_3[14] = (byte)(flux[mp_3i + 2] >> 8);
-  flux_packet_3[15] = (byte)(flux[mp_3i + 2] >> 0);
-  flux_packet_3[16] = (byte)(flux[15] >> 8);
-  flux_packet_3[17] = (byte)(flux[15] >> 0);
-  flux_packet_3[18] = (byte)(current_rot >> 8);
-  flux_packet_3[19] = (byte)(current_rot >> 0);
-  flux_packet_3[20] = status_register;
-
-  #ifndef NO_TRANSMIT
-  eps.radio(flux_packet_3);
-  eps.radio(flux_packet_3);
-  #endif
-  #ifdef DEBUGGING
-  Serial.println("P2 Flux Packet");
-  for (int i = 0; i < 21; i++)
-  {
-    Serial.print("0x");
-    Serial.print(flux_packet_3[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
-  #endif
 }
 
 void send_payload_4_packets(void)
@@ -918,20 +790,20 @@ void send_payload_4_packets(void)
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
                       
-  pixel_packet_4[4] = (byte)(p_3_temperature >> 8);
-  pixel_packet_4[5] = (byte)(p_3_temperature);
-  pixel_packet_4[6] = (byte)(voltage_4[0]);
-  pixel_packet_4[7] = (byte)(current_4[0]);
-  pixel_packet_4[8] = (byte)(voltage_4[mp_4i - 2]);
-  pixel_packet_4[9] = (byte)(current_4[mp_4i - 2]);
-  pixel_packet_4[10] = (byte)(voltage_4[mp_4i - 1]);
-  pixel_packet_4[11] = (byte)(current_4[mp_4i - 1]);
-  pixel_packet_4[12] = (byte)(voltage_4[mp_4i]);
-  pixel_packet_4[13] = (byte)(current_4[mp_4i]);
-  pixel_packet_4[14] = (byte)(voltage_4[mp_4i + 1]);
-  pixel_packet_4[15] = (byte)(current_4[mp_4i + 1]);
-  pixel_packet_4[16] = (byte)(voltage_4[mp_4i + 2]);
-  pixel_packet_4[17] = (byte)(current_4[mp_4i + 2]);
+  pixel_packet_4[4] = (byte)(voltage_4[8]);
+  pixel_packet_4[5] = (byte)(current_4[8]);
+  pixel_packet_4[6] = (byte)(voltage_4[9]);
+  pixel_packet_4[7] = (byte)(current_4[9]);
+  pixel_packet_4[8] = (byte)(voltage_4[10]);
+  pixel_packet_4[9] = (byte)(current_4[10]);
+  pixel_packet_4[10] = (byte)(voltage_4[11]);
+  pixel_packet_4[11] = (byte)(current_4[11]);
+  pixel_packet_4[12] = (byte)(voltage_4[12]);
+  pixel_packet_4[13] = (byte)(current_4[12]);
+  pixel_packet_4[14] = (byte)(voltage_4[13]);
+  pixel_packet_4[15] = (byte)(current_4[13]);
+  pixel_packet_4[16] = (byte)(voltage_4[14]);
+  pixel_packet_4[17] = (byte)(current_4[14]);
   pixel_packet_4[18] = (byte)(voltage_4[15]);
   pixel_packet_4[19] = (byte)(current_4[15]);
   pixel_packet_4[20] = status_register;
@@ -946,44 +818,6 @@ void send_payload_4_packets(void)
   {
     Serial.print("0x");
     Serial.print(pixel_packet_4[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
-  #endif
-
-  status_register = 0x00;
-  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
-                      (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) | 
-                      current_pixel;
-
-  flux_packet_4[4] = (byte)(flux[0] >> 8);
-  flux_packet_4[5] = (byte)(flux[0] >> 0);
-  flux_packet_4[6] = (byte)(flux[mp_4i - 2] >> 8);
-  flux_packet_4[7] = (byte)(flux[mp_4i - 2] >> 0);
-  flux_packet_4[8] = (byte)(flux[mp_4i - 1] >> 8);
-  flux_packet_4[9] = (byte)(flux[mp_4i - 1] >> 0);
-  flux_packet_4[10] = (byte)(flux[mp_4i] >> 8);
-  flux_packet_4[11] = (byte)(flux[mp_4i] >> 0);
-  flux_packet_4[12] = (byte)(flux[mp_4i + 1] >> 8);
-  flux_packet_4[13] = (byte)(flux[mp_4i + 1] >> 0);
-  flux_packet_4[14] = (byte)(flux[mp_4i + 2] >> 8);
-  flux_packet_4[15] = (byte)(flux[mp_4i + 2] >> 0);
-  flux_packet_4[16] = (byte)(flux[15] >> 8);
-  flux_packet_4[17] = (byte)(flux[15] >> 0);
-  flux_packet_4[18] = (byte)(current_rot >> 8);
-  flux_packet_4[19] = (byte)(current_rot >> 0);
-  flux_packet_4[20] = status_register;
-
-  #ifndef NO_TRANSMIT
-  eps.radio(flux_packet_4);
-  eps.radio(flux_packet_4);
-  #endif
-  #ifdef DEBUGGING
-  Serial.println("P3 Flux Packet");
-  for (int i = 0; i < 21; i++)
-  {
-    Serial.print("0x");
-    Serial.print(flux_packet_4[i], HEX);
     Serial.print(" ");
   }
   Serial.println();
@@ -1046,27 +880,27 @@ void send_tertiary_payload(void)
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
                       current_pixel;
   
-  tertiary_packet[4] = (imu.accelRaw.x >> 8);
-  tertiary_packet[5] = (imu.accelRaw.x >> 0);
+  tertiary_packet[4] = (byte)(imu.accelRaw.x >> 8);
+  tertiary_packet[5] = (byte)(imu.accelRaw.x >> 0);
 
-  tertiary_packet[6] = (imu.accelRaw.y >> 8);
-  tertiary_packet[7] = (imu.accelRaw.y >> 0);
+  tertiary_packet[6] = (byte)(imu.accelRaw.y >> 8);
+  tertiary_packet[7] = (byte)(imu.accelRaw.y >> 0);
 
-  tertiary_packet[8] = (imu.accelRaw.z >> 8);
-  tertiary_packet[9] = (imu.accelRaw.z >> 0);
+  tertiary_packet[8] = (byte)(imu.accelRaw.z >> 8);
+  tertiary_packet[9] = (byte)(imu.accelRaw.z >> 0);
 
   tertiary_packet[10] = 0x00;
-  tertiary_packet[11] = battery_voltage;
+  tertiary_packet[11] = 0x00;
 
-  tertiary_packet[12] = (pressure_reading >> 24);
-  tertiary_packet[13] = (pressure_reading >> 16);
-  tertiary_packet[14] = (pressure_reading >> 8);
-  tertiary_packet[15] = (pressure_reading >> 0);
+  tertiary_packet[12] = (byte)(pressure_reading >> 24);
+  tertiary_packet[13] = (byte)(pressure_reading >> 16);
+  tertiary_packet[14] = (byte)(pressure_reading >> 8);
+  tertiary_packet[15] = (byte)(pressure_reading >> 0);
 
-  tertiary_packet[16] = (humidity_reading >> 24);
-  tertiary_packet[17] = (humidity_reading >> 16);
-  tertiary_packet[18] = (humidity_reading >> 8);
-  tertiary_packet[19] = (humidity_reading >> 0);
+  tertiary_packet[16] = (byte)(humidity_reading >> 24);
+  tertiary_packet[17] = (byte)(humidity_reading >> 16);
+  tertiary_packet[18] = (byte)(humidity_reading >> 8);
+  tertiary_packet[19] = (byte)(humidity_reading >> 0);
 
   tertiary_packet[20] = status_register;
 
@@ -1080,6 +914,47 @@ void send_tertiary_payload(void)
   {
     Serial.print("0x");
     Serial.print(tertiary_packet[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+  #endif
+}
+
+void send_flux_packet(void)
+{
+  status_register = 0x00;
+  status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (1 << STATUS_REGISTER_PACKET_BIT_0) |
+                      (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) | 
+                      0x00;
+
+  flux_packet_1[4] = (byte)(current_theta >> 8);
+  flux_packet_1[5] = (byte)(current_theta >> 0);
+  flux_packet_1[6] = (byte)(current_phi >> 8);
+  flux_packet_1[7] = (byte)(current_phi >> 0);
+  flux_packet_1[8] = (byte)(gaas_temperature >> 8);
+  flux_packet_1[9] = (byte)(gaas_temperature >> 0);
+  flux_packet_1[10] = (byte)(p_1_temperature >> 8);
+  flux_packet_1[11] = (byte)(p_1_temperature >> 0);
+  flux_packet_1[12] = (byte)(p_2_temperature >> 8);
+  flux_packet_1[13] = (byte)(p_2_temperature >> 0);
+  flux_packet_1[14] = (byte)(p_3_temperature >> 8);
+  flux_packet_1[15] = (byte)(p_3_temperature >> 0);
+  flux_packet_1[16] = 0x00;
+  flux_packet_1[17] = 0x00;
+  flux_packet_1[18] = 0x00;
+  flux_packet_1[19] = 0x00;
+  flux_packet_1[20] = status_register;
+
+  #ifndef NO_TRANSMIT
+  eps.radio(flux_packet_1);
+  eps.radio(flux_packet_1);
+  #endif
+  #ifdef DEBUGGING
+  Serial.println("GaAs Flux Packet");
+  for (int i = 0; i < 21; i++)
+  {
+    Serial.print("0x");
+    Serial.print(flux_packet_1[i], HEX);
     Serial.print(" ");
   }
   Serial.println();
@@ -1103,31 +978,47 @@ void setup() {
   analogReference(EXTERNAL);
   
   startup_test();
-  startup_time = millis();
-}
 
-void loop() 
-{
-  int16_t current_theta = 0xFFFF;
+  while (!digitalRead(GAAS_ON))
+  {
+    #ifdef DEBUGGING
+    Serial.println("Waiting for GaAs trigger");
+    delay(1000);
+    #endif
+  }
+  
+  sun_sensor.default_config();
+  current_phi = 0xFFFF;
+  current_theta = 0xFFFF;
   while (!(current_theta < -THETA_SAMPLE_RANGE && current_theta > THETA_SAMPLE_RANGE))
   {
-    sun_sensor.default_config();
-    sun_sensor.sample_wait();
-    current_theta = sun_sensor.getTheta();
+    if (sun_sensor.sample_wait())
+    {
+      int16_t temp_theta = sun_sensor.getTheta();
+      if ((temp_theta > 0 && temp_theta > 200) || (temp_theta < 0 && temp_theta < -200))
+      {
+        current_theta = temp_theta;
+      }
+      sun_sensor.default_config();
+    }
   }
+  current_phi = sun_sensor.getPhi();
+  
   if (digitalRead(GAAS_ON))
   {
     while (ladder_step != MAX_LADDER_STEPS)
     {
+      uint8_t read_ladder_step = ladder_step;
+      if (trace_dir = COUNT_DOWN) read_ladder_step = 15 - ladder_step;
       // Read from each sample
       set_read_mux(MUX_POS_GAAS);
-      read_mux(&voltage_1[ladder_step], &current_1[ladder_step]);
+      read_mux(&voltage_1[read_ladder_step], &current_1[read_ladder_step]);
       set_read_mux(MUX_POS_P1);
-      read_mux(&voltage_2[ladder_step], &current_2[ladder_step]);
+      read_mux(&voltage_2[read_ladder_step], &current_2[read_ladder_step]);
       set_read_mux(MUX_POS_P2);
-      read_mux(&voltage_3[ladder_step], &current_3[ladder_step]);
+      read_mux(&voltage_3[read_ladder_step], &current_3[read_ladder_step]);
       set_read_mux(MUX_POS_P3);
-      read_mux(&voltage_4[ladder_step], &current_4[ladder_step]);
+      read_mux(&voltage_4[read_ladder_step], &current_4[read_ladder_step]);
       set_read_mux(MUX_POS_GAAS);
       step_ladder();
     }
@@ -1164,11 +1055,11 @@ void loop()
     send_payload_2_packets();
     send_payload_3_packets();
     send_payload_4_packets();
+    send_flux_packet();
     send_secondary_payload();
     send_tertiary_payload();
   }
-  else
-  {
-    reset_msp430();
-  }
+  reset_msp430();
 }
+
+void loop() {}
