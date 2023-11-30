@@ -16,7 +16,6 @@ GaAs 12, V:112, I:0
 GaAs 13, V:112, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:112, I:0
-
 Direction: UP
 Pixel: 0
 GaAs 0, V:112, I:0
@@ -35,7 +34,6 @@ GaAs 12, V:111, I:58
 GaAs 13, V:111, I:84
 GaAs 14, V:110, I:188
 GaAs 15, V:17, I:255
-
 Direction: DOWN
 Pixel: 1
 GaAs 0, V:8, I:255
@@ -54,7 +52,6 @@ GaAs 12, V:112, I:0
 GaAs 13, V:112, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:112, I:0
-
 Direction: UP
 Pixel: 1
 GaAs 0, V:112, I:0
@@ -73,7 +70,6 @@ GaAs 12, V:111, I:58
 GaAs 13, V:111, I:84
 GaAs 14, V:110, I:188
 GaAs 15, V:17, I:255
-
 Direction: DOWN
 Pixel: 2
 GaAs 0, V:8, I:255
@@ -92,7 +88,6 @@ GaAs 12, V:112, I:0
 GaAs 13, V:112, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:112, I:0
-
 Direction: UP
 Pixel: 2
 GaAs 0, V:112, I:0
@@ -111,7 +106,6 @@ GaAs 12, V:111, I:58
 GaAs 13, V:111, I:84
 GaAs 14, V:110, I:188
 GaAs 15, V:17, I:255
-
 Direction: DOWN
 Pixel: 3
 GaAs 0, V:8, I:255
@@ -130,7 +124,6 @@ GaAs 12, V:111, I:0
 GaAs 13, V:112, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:111, I:0
-
 Direction: UP
 Pixel: 3
 GaAs 0, V:112, I:0
@@ -149,7 +142,6 @@ GaAs 12, V:111, I:58
 GaAs 13, V:111, I:84
 GaAs 14, V:110, I:188
 GaAs 15, V:17, I:255
-
 Direction: DOWN
 Pixel: 4
 GaAs 0, V:8, I:255
@@ -168,7 +160,6 @@ GaAs 12, V:111, I:0
 GaAs 13, V:111, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:111, I:0
-
 Direction: UP
 Pixel: 4
 GaAs 0, V:112, I:0
@@ -187,7 +178,6 @@ GaAs 12, V:111, I:58
 GaAs 13, V:111, I:84
 GaAs 14, V:110, I:188
 GaAs 15, V:17, I:255
-
 Direction: DOWN
 Pixel: 5
 GaAs 0, V:8, I:255
@@ -206,7 +196,6 @@ GaAs 12, V:111, I:0
 GaAs 13, V:111, I:0
 GaAs 14, V:111, I:0
 GaAs 15, V:111, I:0
-
 Direction: UP
 Pixel: 5
 GaAs 0, V:111, I:0
