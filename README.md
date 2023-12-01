@@ -20,6 +20,9 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 - [Temperature sensor prototyping](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/temp-sensor-prototyping)
 - [Neopixel perovskite pixel isolator](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/perovskite-cell-isolator)
 - [Prototype flight computer with curve tracer and multiplexer](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/payload_controller)
+- [Magnet mounting jig for orbit alignment magnet](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/magnet_mounting)
+- [Ossila AM1.5 standoff and mounts](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/ossila_mounting)
+- [Tooling for building the payload](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/payload_mounting)
 
 ## Final Designs
 
@@ -30,11 +33,12 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 - [Perovskite pogo pin board](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Flight%20Hardware/perovskite_contact_board/V6/bot)
 - [Perovskite payload enclosure](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Flight%20Payload/Mechanical%20Design)
 
-## Software Libraries Developed
+## Software Developed
 
 - [NSL-EPS-Arduino, an Arduino library to communicate with the NSL electrical power system and radio](https://github.com/wsarce/NSL-EPS-Arduino)
 - [FSS100-Arduino, an Arduino library to communicate with the FSS100 sun vector sensor to detect position of sun](https://github.com/wsarce/FSS100-Arduino)
 - [pyOssila, a Python library to communicate with the AM1.5 sun simulator](https://github.com/wsarce/pyOssila)
+- [Flight firmware for Big Red Sat-1](https://github.com/wsarce/Big-Red-Sat-1/blob/main/Flight%20Hardware/flight_computer/v3/Firmware/brs_flight_firmware/brs_flight_firmware.ino)
 
 ## Satellite Exploded View Render
 
