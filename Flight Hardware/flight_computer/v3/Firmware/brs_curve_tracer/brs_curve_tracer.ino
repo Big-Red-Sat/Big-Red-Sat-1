@@ -10,13 +10,6 @@
 #include <ICM20649.h>
 
 #define DEBUGGING
-//#define SOLAR_TEST
-//#define ROTATION_TEST
-#define STATIC_TEST
-//#define POWER_TEST
-//#define SENSOR_TEST
-//#define TEST_ORBIT
-//#define DEPLOY
 #define NO_TRANSMIT
 
 #define COUNT_UP HIGH
@@ -1116,151 +1109,14 @@ void setup() {
   startup_test();
 
   set_trace_direction(COUNT_DOWN);
-//  step_ladder();
+  //  step_ladder();
   startup_time = millis();
 }
 
-float convert_phi(int16_t raw_phi)
-{
-  return (float)((0.5) * 3.14159265358979323846 * (raw_phi / 32767.0));
-}
-
-float convert_theta(int16_t raw_theta)
-{
-  return (float)((0.333) * 3.14159265358979323846 * (raw_theta / 32767.0));
-}
+int test_run = 0;
 
 void loop()
 {
-#ifdef POWER_TEST
-  while (true)
-  {
-    Serial.println("Waiting...");
-    delay(1000);
-  }
-#endif
-#ifdef SOLAR_TEST
-  while (true)
-  {
-    Serial.print("Analog:"); Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print(",");
-    Serial.print("Digital:"); Serial.print(digitalRead(PANEL_3_ON) * 255); Serial.println();
-
-    Serial.print("GX:"); Serial.print(imu.gyroDPS.x); Serial.print(",");
-    Serial.print("GY:"); Serial.print(imu.gyroDPS.y); Serial.print(",");
-    Serial.print("GZ:"); Serial.print(imu.gyroDPS.z);
-    Serial.println();
-
-    Serial.print("MX:"); Serial.print(mag_data.x); Serial.print(",");
-    Serial.print("MY:"); Serial.print(mag_data.y); Serial.print(",");
-    Serial.print("MZ:"); Serial.print(mag_data.z);
-    Serial.println();
-  }
-#endif
-#ifdef ROTATION_TEST
-  while (true)
-  {
-    while (!last_p3_en);
-    p3_wait();
-    Serial.print("Rotation:"); Serial.println(rotation);
-  }
-#endif
-#ifdef SENSOR_TEST
-  while (true)
-  {
-        read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
-        read_gaas_temp(&gaas_temperature);
-        read_bme280();
-        read_imu();
-        read_magnetometer();
-        read_relay();
-
-    //    if (sun_sensor.sample_wait())
-    //    {
-    int16_t temp_phi, temp_theta, temp_temp;
-    set_read_mux(MUX_POS_GAAS);
-    read_mux(&voltage_1[0], &current_1[0]);
-    sun_sensor.getSample(&temp_theta, &temp_phi, &temp_temp);
-    Serial.print("Theta:"); Serial.print(temp_theta); Serial.print(",Phi:"); Serial.print(temp_phi); Serial.print(",Temp:"); Serial.print(temp_temp); Serial.print(",GAAS:"); Serial.print(current_1[0]); Serial.print(",LADDER:"); Serial.print(ladder_step); Serial.print(",GAAS ON:"); Serial.println(digitalRead(GAAS_ON));
-    sun_sensor.set_one_shot();
-    if (Serial.available())
-    {
-      step_ladder();
-      Serial.read();
-    }
-    //    }
-    //
-    //    Serial.print("Acc X"); Serial.print("\t|\t");
-    //    Serial.print("Acc Y"); Serial.print("\t|\t");
-    //    Serial.print("Acc Z"); Serial.print("\t|\t");
-    //    Serial.print("Gyr X"); Serial.print("\t|\t");
-    //    Serial.print("Gyr Y"); Serial.print("\t|\t");
-    //    Serial.print("Gyr Z"); Serial.print("\t|\t");
-    //    Serial.print("Temp"); Serial.print("\t|\t");
-    //    Serial.println();
-    //
-    //    Serial.print(imu.accelRaw.x); Serial.print("\t|\t");
-    //    Serial.print(imu.accelRaw.y); Serial.print("\t|\t");
-    //    Serial.print(imu.accelRaw.z); Serial.print("\t|\t");
-    //    Serial.print(imu.gyroRaw.x); Serial.print("\t|\t");
-    //    Serial.print(imu.gyroRaw.y); Serial.print("\t|\t");
-    //    Serial.print(imu.gyroRaw.z); Serial.print("\t|\t");
-    //    Serial.print(imu.tempRaw); Serial.print("\t|\t");
-    //    Serial.println();
-    //    Serial.println();
-    //
-    //    Serial.print("Mag X"); Serial.print("\t|\t");
-    //    Serial.print("Mag Y"); Serial.print("\t|\t");
-    //    Serial.print("Mag Z"); Serial.print("\t|\t");
-    //    Serial.print("Mag T"); Serial.print("\t|\t");
-    //    Serial.println();
-    //
-    //    Serial.print(mag_data.x); Serial.print("\t|\t");
-    //    Serial.print(mag_data.y); Serial.print("\t|\t");
-    //    Serial.print(mag_data.z); Serial.print("\t|\t");
-    //    Serial.print(mag_data.t); Serial.print("\t|\t");
-    //    Serial.println();
-    //    Serial.println();
-
-    //    Serial.print("GaAs Temp"); Serial.print("\t|\t");
-    //    Serial.print("P1 Temp"); Serial.print("\t|\t");
-    //    Serial.print("P2 Temp"); Serial.print("\t|\t");
-    //    Serial.print("P3 Temp"); Serial.print("\t|\t");
-    //    Serial.print("Press"); Serial.print("\t|\t");
-    //    Serial.print("Humid"); Serial.print("\t|\t");
-    //    Serial.print("Theta"); Serial.print("\t|\t");
-    //    Serial.print("Phi"); Serial.print("\t|\t");
-    //    Serial.println();
-
-    //    Serial.print(gaas_temperature); Serial.print("\t|\t");
-    //    Serial.print(p_1_temperature); Serial.print("\t|\t");
-    //    Serial.print(p_2_temperature); Serial.print("\t|\t");
-    //    Serial.print(p_3_temperature); Serial.print("\t|\t");
-    //    Serial.print(pressure_reading); Serial.print("\t|\t");
-    //    Serial.print(humidity_reading); Serial.print("\t|\t");
-    //    Serial.print(sun_sensor.getTheta()); Serial.print("\t|\t");
-    //    Serial.print(sun_sensor.getPhi()); Serial.print("\t|\t");
-    //    Serial.println();
-    //    Serial.println();
-
-    //      int16_t theta_test = sun_sensor.getTheta();
-    //      if (theta_test == 0) sun_sensor.continuous_config();
-
-
-    //    Serial.print("PANEL 3 CURRENT"); Serial.print("\t|\t");
-    //    Serial.print("PANEL 3 ON"); Serial.print("\t|\t");
-    //    Serial.print("Battery"); Serial.print("\t|\t");
-    //    Serial.println();
-    //
-    //    Serial.print(analogRead(PANEL_3_CURRENT_V)); Serial.print("\t|\t");
-    //    Serial.print(digitalRead(PANEL_3_ON)); Serial.print("\t|\t");
-    //    Serial.print(read_battery()); Serial.print("\t|\t");
-    //    Serial.println();
-    //    Serial.println();
-    //
-    //    delay(1000);
-  }
-#endif
-#ifdef STATIC_TEST
   while (true)
   {
     while (ladder_step != MAX_LADDER_STEPS)
@@ -1281,43 +1137,47 @@ void loop()
       step_ladder();
     }
     int i;
-    Serial.print("Direction: "); 
+    Serial.print("Direction: ");
     if (trace_dir == COUNT_UP) Serial.println("UP");
     else Serial.println("DOWN");
-    Serial.print("Pixel: ");Serial.println(current_pixel);
-    
-//    for (i = 0; i < MAX_LADDER_STEPS; i++)
-//    {
-//      Serial.print("GaAs "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_1[i]); Serial.print(", I:"); Serial.println(current_1[i]);
-//      voltage_1[i] = 0;
-//      current_1[i] = 0;
-//    }
-//    Serial.println();
-    for (i = 0; i < MAX_LADDER_STEPS; i++)
+    Serial.print("Pixel: "); Serial.println(current_pixel);
+
+    if (test_run == 0)
     {
-      Serial.print("P1 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_2[i]); Serial.print(", I:"); Serial.println(current_2[i]);
-      voltage_2[i] = 0;
-      current_2[i] = 0;
+      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      {
+        Serial.print("GaAs "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_1[i]); Serial.print(", I:"); Serial.println(current_1[i]);
+        voltage_1[i] = 0;
+        current_1[i] = 0;
+      }
     }
-    Serial.println();
-    for (i = 0; i < MAX_LADDER_STEPS; i++)
+    if (test_run == 1)
     {
-      Serial.print("P2 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_3[i]); Serial.print(", I:"); Serial.println(current_3[i]);
-      voltage_3[i] = 0;
-      current_3[i] = 0;
+      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      {
+        Serial.print("P1 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_2[i]); Serial.print(", I:"); Serial.println(current_2[i]);
+        voltage_2[i] = 0;
+        current_2[i] = 0;
+      }
     }
-    Serial.println();
-    for (i = 0; i < MAX_LADDER_STEPS; i++)
+    if (test_run == 2)
     {
-      Serial.print("P3 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_4[i]); Serial.print(", I:"); Serial.println(current_4[i]);
-      voltage_4[i] = 0;
-      current_4[i] = 0;
+      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      {
+        Serial.print("P2 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_3[i]); Serial.print(", I:"); Serial.println(current_3[i]);
+        voltage_3[i] = 0;
+        current_3[i] = 0;
+      }
     }
-    Serial.println();
-//    Serial.print("Rotation: "); Serial.println(rotation);
-    // Reset the ladder step
-    // Invert the counting direction
-//    set_trace_direction(!trace_dir);
+    if (test_run == 3)
+    {
+      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      {
+        Serial.print("P3 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_4[i]); Serial.print(", I:"); Serial.println(current_4[i]);
+        voltage_4[i] = 0;
+        current_4[i] = 0;
+      }
+    }
     // If two directions have been performed, then go to the next pixel
     if (trace_dir == COUNT_UP)
     {
@@ -1335,157 +1195,15 @@ void loop()
       set_trace_direction(COUNT_UP);
     }
     reset_ladder();
+    if (Serial.available())
+    {
+      test_run++;
+      if (test_run > 3)
+      {
+        test_run = 0;
+      }
+      Serial.read();
+    }
     delay(1000);
   }
-#endif
-#ifdef DEPLOY
-#ifdef TEST_ORBIT
-  while ((millis() - startup_time) < TESTORBIT_WAKEUP)
-  {
-    Serial.print("TEST ORBIT: Waiting to wakeup in ");
-    Serial.println(TESTORBIT_WAKEUP - (millis() - startup_time));
-    while (!last_p3_en);
-    p3_wait();
-  }
-#else
-  while ((millis() - startup_time) < HALFORBIT_WAKEUP)
-  {
-#ifdef DEBUGGING
-    Serial.print("Waiting to wakeup in ");
-    Serial.println(HALFORBIT_WAKEUP - (millis() - startup_time));
-    delay(1000);
-#endif
-    // Send heartbeat to keep systems alive
-    eps.heartbeat(heartbeat_payload);
-    // Wait one minute
-    delay(60000);
-    // wait until halfway orbit to start sampling
-  }
-#endif
-  while (ladder_step != MAX_LADDER_STEPS)
-  {
-#ifdef TEST_ORBIT
-    Serial.print("TEST ORBIT: Ladder step - ");
-    Serial.println(ladder_step);
-    while (!last_p3_en)
-    {
-      Serial.println("TEST ORBIT: Waiting for solar trigger");
-      delay(1000);
-      break;
-    }
-    Serial.println("TEST ORBIT: Leaving solar trigger");
-#else
-    while (!last_p3_en)
-    {
-#ifdef DEBUGGING
-      Serial.println("Waiting for solar trigger");
-      delay(1000);
-#endif
-    }
-#endif
-    //    noInterrupts();
-    p3_wait();
-
-    sun_sensor.default_config();
-    sun_sensor.sample_wait();
-    flux[ladder_step] = sun_sensor.getTheta();
-    // Read from each sample
-    set_read_mux(MUX_POS_GAAS);
-    read_mux(&voltage_1[ladder_step], &current_1[ladder_step]);
-    set_read_mux(MUX_POS_P1);
-    read_mux(&voltage_2[ladder_step], &current_2[ladder_step]);
-    set_read_mux(MUX_POS_P2);
-    read_mux(&voltage_3[ladder_step], &current_3[ladder_step]);
-    set_read_mux(MUX_POS_P3);
-    read_mux(&voltage_4[ladder_step], &current_4[ladder_step]);
-    set_read_mux(MUX_POS_GAAS);
-    step_ladder();
-
-    //    interrupts();
-  }
-
-  // Invert the counting direction
-  set_trace_direction(!trace_dir);
-  // If two directions have been performed, then go to the next pixel
-  if (trace_dir == COUNT_UP)
-  {
-    // Go to the next pixel
-    step_mux();
-    // If all pixels have been sampled, then reset mux
-    if (digitalRead(MUX_GOOD))
-    {
-      reset_mux();
-    }
-  }
-  // Reset the ladder step
-  reset_ladder();
-#ifdef DEBUGGING
-  Serial.println("TEST ORBIT: Finished curve trace");
-#endif
-
-  // Find maximum power point for each sample
-  for (i = 0; i < 16; i++)
-  {
-    if ((voltage_1[i] * current_1[i]) > mp_1)
-    {
-      mp_1 = voltage_1[i] * current_1[i];
-      mp_1i = i;
-    }
-    if ((voltage_2[i] * current_2[i]) > mp_2)
-    {
-      mp_2 = voltage_2[i] * current_2[i];
-      mp_2i = i;
-    }
-    if ((voltage_3[i] * current_3[i]) > mp_3)
-    {
-      mp_3 = voltage_3[i] * current_3[i];
-      mp_3i = i;
-    }
-    if ((voltage_4[i] * current_4[i]) > mp_4)
-    {
-      mp_4 = voltage_4[i] * current_4[i];
-      mp_4i = i;
-    }
-  }
-  if (mp_1i == 0) mp_1i = 2;
-  else if (mp_1i == 15) mp_1i = 13;
-  if (mp_2i == 0) mp_2i = 2;
-  else if (mp_2i == 15) mp_2i = 13;
-  if (mp_3i == 0) mp_3i = 2;
-  else if (mp_3i == 15) mp_3i = 13;
-  if (mp_4i == 0) mp_4i = 2;
-  else if (mp_4i == 15) mp_4i = 13;
-
-#ifdef DEBUGGING
-  Serial.print("MPP 1: ");
-  Serial.println(mp_1i);
-  Serial.print("MPP 2: ");
-  Serial.println(mp_2i);
-  Serial.print("MPP 3: ");
-  Serial.println(mp_3i);
-  Serial.print("MPP 4: ");
-  Serial.println(mp_4i);
-#endif
-
-  // Read payload temperatures
-  read_payload(&p_1_temperature, &p_2_temperature, &p_3_temperature);
-  read_gaas_temp(&gaas_temperature);
-
-  // Read humidity and pressure
-  read_bme280();
-
-  // Read accelerometry, gyroscope, and magnetometer
-  read_magnetometer();
-  read_imu();
-
-  // Send all packets twice
-  send_payload_1_packets();
-  send_payload_2_packets();
-  send_payload_3_packets();
-  send_payload_4_packets();
-  send_secondary_payload();
-  send_tertiary_payload();
-
-  //noInterrupts();
-#endif
 }
