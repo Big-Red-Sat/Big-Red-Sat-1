@@ -10,7 +10,7 @@
 #include <ICM20649.h>
 
 #define DEBUGGING
-#define NO_TRANSMIT
+//#define NO_TRANSMIT
 
 #define COUNT_UP HIGH
 #define COUNT_DOWN LOW

@@ -1114,96 +1114,103 @@ void setup() {
 }
 
 int test_run = 0;
+bool finished = false;
 
 void loop()
 {
   while (true)
   {
-    while (ladder_step != MAX_LADDER_STEPS)
+    if (!finished)
     {
-      uint8_t read_ladder_step = ladder_step;
-      if (trace_dir == COUNT_DOWN) read_ladder_step = ladder_step;
-      // Read from each sample
-      set_read_mux(MUX_POS_GAAS);
-      read_mux(&voltage_1[read_ladder_step], &current_1[read_ladder_step]);
-      set_read_mux(MUX_POS_P1);
-      read_mux(&voltage_2[read_ladder_step], &current_2[read_ladder_step]);
-      set_read_mux(MUX_POS_P2);
-      read_mux(&voltage_3[read_ladder_step], &current_3[read_ladder_step]);
-      set_read_mux(MUX_POS_P3);
-      read_mux(&voltage_4[read_ladder_step], &current_4[read_ladder_step]);
-      set_read_mux(MUX_POS_GAAS);
+      while (ladder_step != MAX_LADDER_STEPS)
+      {
+        uint8_t read_ladder_step = ladder_step;
+        if (trace_dir == COUNT_DOWN) read_ladder_step = ladder_step;
+        // Read from each sample
+        set_read_mux(MUX_POS_GAAS);
+        read_mux(&voltage_1[read_ladder_step], &current_1[read_ladder_step]);
+        set_read_mux(MUX_POS_P1);
+        read_mux(&voltage_2[read_ladder_step], &current_2[read_ladder_step]);
+        set_read_mux(MUX_POS_P2);
+        read_mux(&voltage_3[read_ladder_step], &current_3[read_ladder_step]);
+        set_read_mux(MUX_POS_P3);
+        read_mux(&voltage_4[read_ladder_step], &current_4[read_ladder_step]);
+        set_read_mux(MUX_POS_GAAS);
 
-      step_ladder();
-    }
-    int i;
-    Serial.print("Direction: ");
-    if (trace_dir == COUNT_UP) Serial.println("UP");
-    else Serial.println("DOWN");
-    Serial.print("Pixel: "); Serial.println(current_pixel);
+        step_ladder();
+      }
+      int i;
+      Serial.print("Direction: ");
+      if (trace_dir == COUNT_UP) Serial.println("UP");
+      else Serial.println("DOWN");
+      Serial.print("Pixel: "); Serial.println(current_pixel);
 
-    if (test_run == 0)
-    {
-      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      if (test_run == 0 && !finished)
       {
-        Serial.print("GaAs "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_1[i]); Serial.print(", I:"); Serial.println(current_1[i]);
-        voltage_1[i] = 0;
-        current_1[i] = 0;
+        for (i = 0; i < MAX_LADDER_STEPS; i++)
+        {
+          Serial.print("GaAs "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_1[i]); Serial.print(", I:"); Serial.println(current_1[i]);
+          voltage_1[i] = 0;
+          current_1[i] = 0;
+        }
       }
-    }
-    if (test_run == 1)
-    {
-      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      if (test_run == 1 && !finished)
       {
-        Serial.print("P1 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_2[i]); Serial.print(", I:"); Serial.println(current_2[i]);
-        voltage_2[i] = 0;
-        current_2[i] = 0;
+        for (i = 0; i < MAX_LADDER_STEPS; i++)
+        {
+          Serial.print("P1 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_2[i]); Serial.print(", I:"); Serial.println(current_2[i]);
+          voltage_2[i] = 0;
+          current_2[i] = 0;
+        }
       }
-    }
-    if (test_run == 2)
-    {
-      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      if (test_run == 2 && !finished)
       {
-        Serial.print("P2 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_3[i]); Serial.print(", I:"); Serial.println(current_3[i]);
-        voltage_3[i] = 0;
-        current_3[i] = 0;
+        for (i = 0; i < MAX_LADDER_STEPS; i++)
+        {
+          Serial.print("P2 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_3[i]); Serial.print(", I:"); Serial.println(current_3[i]);
+          voltage_3[i] = 0;
+          current_3[i] = 0;
+        }
       }
-    }
-    if (test_run == 3)
-    {
-      for (i = 0; i < MAX_LADDER_STEPS; i++)
+      if (test_run == 3 && !finished)
       {
-        Serial.print("P3 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_4[i]); Serial.print(", I:"); Serial.println(current_4[i]);
-        voltage_4[i] = 0;
-        current_4[i] = 0;
+        for (i = 0; i < MAX_LADDER_STEPS; i++)
+        {
+          Serial.print("P3 "); Serial.print(i); Serial.print(", V:"); Serial.print(voltage_4[i]); Serial.print(", I:"); Serial.println(current_4[i]);
+          voltage_4[i] = 0;
+          current_4[i] = 0;
+        }
       }
-    }
-    // If two directions have been performed, then go to the next pixel
-    if (trace_dir == COUNT_UP)
-    {
-      // Go to the next pixel
-      step_mux();
-      // If all pixels have been sampled, then reset mux
-      if (!digitalRead(MUX_GOOD))
+      // If two directions have been performed, then go to the next pixel
+      if (trace_dir == COUNT_UP)
       {
-        reset_mux();
+        // Go to the next pixel
+        step_mux();
+        // If all pixels have been sampled, then reset mux
+        if (!digitalRead(MUX_GOOD))
+        {
+          finished = true;
+          reset_mux();
+        }
+        set_trace_direction(COUNT_DOWN);
       }
-      set_trace_direction(COUNT_DOWN);
+      else
+      {
+        set_trace_direction(COUNT_UP);
+      }
+      reset_ladder();
     }
-    else
-    {
-      set_trace_direction(COUNT_UP);
-    }
-    reset_ladder();
     if (Serial.available())
     {
       test_run++;
+      finished = false;
       if (test_run > 3)
       {
         test_run = 0;
       }
       Serial.read();
     }
+
     delay(1000);
   }
 }
