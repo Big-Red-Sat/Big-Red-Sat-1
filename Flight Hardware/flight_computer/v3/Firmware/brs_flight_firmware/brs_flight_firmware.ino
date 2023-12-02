@@ -650,29 +650,51 @@ bool startup_test(void)
   set_read_mux(MUX_POS_GAAS);
 }
 
-void send_payload_1_packets(void)
+void send_payload_1_packets(bool first_half)
 {
   status_register = 0x00;
   status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) |
                       0x00;
 
-  pixel_packet_1[4] = (byte)(voltage_1[0]);
-  pixel_packet_1[5] = (byte)(current_1[0]);
-  pixel_packet_1[6] = (byte)(voltage_1[1]);
-  pixel_packet_1[7] = (byte)(current_1[1]);
-  pixel_packet_1[8] = (byte)(voltage_1[2]);
-  pixel_packet_1[9] = (byte)(current_1[2]);
-  pixel_packet_1[10] = (byte)(voltage_1[3]);
-  pixel_packet_1[11] = (byte)(current_1[3]);
-  pixel_packet_1[12] = (byte)(voltage_1[4]);
-  pixel_packet_1[13] = (byte)(current_1[4]);
-  pixel_packet_1[14] = (byte)(voltage_1[5]);
-  pixel_packet_1[15] = (byte)(current_1[5]);
-  pixel_packet_1[16] = (byte)(voltage_1[6]);
-  pixel_packet_1[17] = (byte)(current_1[6]);
-  pixel_packet_1[18] = (byte)(voltage_1[7]);
-  pixel_packet_1[19] = (byte)(current_1[7]);
+  if (first_half)
+  {
+    pixel_packet_1[4] = (byte)(voltage_1[0]);
+    pixel_packet_1[5] = (byte)(current_1[0]);
+    pixel_packet_1[6] = (byte)(voltage_1[1]);
+    pixel_packet_1[7] = (byte)(current_1[1]);
+    pixel_packet_1[8] = (byte)(voltage_1[2]);
+    pixel_packet_1[9] = (byte)(current_1[2]);
+    pixel_packet_1[10] = (byte)(voltage_1[3]);
+    pixel_packet_1[11] = (byte)(current_1[3]);
+    pixel_packet_1[12] = (byte)(voltage_1[4]);
+    pixel_packet_1[13] = (byte)(current_1[4]);
+    pixel_packet_1[14] = (byte)(voltage_1[5]);
+    pixel_packet_1[15] = (byte)(current_1[5]);
+    pixel_packet_1[16] = (byte)(voltage_1[6]);
+    pixel_packet_1[17] = (byte)(current_1[6]);
+    pixel_packet_1[18] = (byte)(voltage_1[7]);
+    pixel_packet_1[19] = (byte)(current_1[7]);
+  }
+  else
+  {
+    pixel_packet_1[4] = (byte)(voltage_1[8]);
+    pixel_packet_1[5] = (byte)(current_1[8]);
+    pixel_packet_1[6] = (byte)(voltage_1[9]);
+    pixel_packet_1[7] = (byte)(current_1[9]);
+    pixel_packet_1[8] = (byte)(voltage_1[10]);
+    pixel_packet_1[9] = (byte)(current_1[10]);
+    pixel_packet_1[10] = (byte)(voltage_1[11]);
+    pixel_packet_1[11] = (byte)(current_1[11]);
+    pixel_packet_1[12] = (byte)(voltage_1[12]);
+    pixel_packet_1[13] = (byte)(current_1[12]);
+    pixel_packet_1[14] = (byte)(voltage_1[13]);
+    pixel_packet_1[15] = (byte)(current_1[13]);
+    pixel_packet_1[16] = (byte)(voltage_1[14]);
+    pixel_packet_1[17] = (byte)(current_1[14]);
+    pixel_packet_1[18] = (byte)(voltage_1[15]);
+    pixel_packet_1[19] = (byte)(current_1[15]);
+  }
   pixel_packet_1[20] = status_register;
 
 #ifndef NO_TRANSMIT
@@ -691,29 +713,51 @@ void send_payload_1_packets(void)
 #endif
 }
 
-void send_payload_2_packets(void)
+void send_payload_2_packets(bool first_half)
 {
   status_register = 0x00;
   status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (0 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) |
                       current_pixel;
 
-  pixel_packet_2[4] = (byte)(voltage_2[0]);
-  pixel_packet_2[5] = (byte)(current_2[0]);
-  pixel_packet_2[6] = (byte)(voltage_2[1]);
-  pixel_packet_2[7] = (byte)(current_2[1]);
-  pixel_packet_2[8] = (byte)(voltage_2[2]);
-  pixel_packet_2[9] = (byte)(current_2[2]);
-  pixel_packet_2[10] = (byte)(voltage_2[3]);
-  pixel_packet_2[11] = (byte)(current_2[3]);
-  pixel_packet_2[12] = (byte)(voltage_2[4]);
-  pixel_packet_2[13] = (byte)(current_2[4]);
-  pixel_packet_2[14] = (byte)(voltage_2[5]);
-  pixel_packet_2[15] = (byte)(current_2[5]);
-  pixel_packet_2[16] = (byte)(voltage_2[6]);
-  pixel_packet_2[17] = (byte)(current_2[6]);
-  pixel_packet_2[18] = (byte)(voltage_2[7]);
-  pixel_packet_2[19] = (byte)(current_2[7]);
+  if (first_half)
+  {
+    pixel_packet_2[4] = (byte)(voltage_2[0]);
+    pixel_packet_2[5] = (byte)(current_2[0]);
+    pixel_packet_2[6] = (byte)(voltage_2[1]);
+    pixel_packet_2[7] = (byte)(current_2[1]);
+    pixel_packet_2[8] = (byte)(voltage_2[2]);
+    pixel_packet_2[9] = (byte)(current_2[2]);
+    pixel_packet_2[10] = (byte)(voltage_2[3]);
+    pixel_packet_2[11] = (byte)(current_2[3]);
+    pixel_packet_2[12] = (byte)(voltage_2[4]);
+    pixel_packet_2[13] = (byte)(current_2[4]);
+    pixel_packet_2[14] = (byte)(voltage_2[5]);
+    pixel_packet_2[15] = (byte)(current_2[5]);
+    pixel_packet_2[16] = (byte)(voltage_2[6]);
+    pixel_packet_2[17] = (byte)(current_2[6]);
+    pixel_packet_2[18] = (byte)(voltage_2[7]);
+    pixel_packet_2[19] = (byte)(current_2[7]);
+  }
+  else
+  {
+    pixel_packet_2[4] = (byte)(voltage_2[8]);
+    pixel_packet_2[5] = (byte)(current_2[8]);
+    pixel_packet_2[6] = (byte)(voltage_2[9]);
+    pixel_packet_2[7] = (byte)(current_2[9]);
+    pixel_packet_2[8] = (byte)(voltage_2[10]);
+    pixel_packet_2[9] = (byte)(current_2[10]);
+    pixel_packet_2[10] = (byte)(voltage_2[11]);
+    pixel_packet_2[11] = (byte)(current_2[11]);
+    pixel_packet_2[12] = (byte)(voltage_2[12]);
+    pixel_packet_2[13] = (byte)(current_2[12]);
+    pixel_packet_2[14] = (byte)(voltage_2[13]);
+    pixel_packet_2[15] = (byte)(current_2[13]);
+    pixel_packet_2[16] = (byte)(voltage_2[14]);
+    pixel_packet_2[17] = (byte)(current_2[14]);
+    pixel_packet_2[18] = (byte)(voltage_2[15]);
+    pixel_packet_2[19] = (byte)(current_2[15]);
+  }
   pixel_packet_2[20] = status_register;
 
 #ifndef NO_TRANSMIT
@@ -732,29 +776,51 @@ void send_payload_2_packets(void)
 #endif
 }
 
-void send_payload_3_packets(void)
+void send_payload_3_packets(bool first_half)
 {
   status_register = 0x00;
   status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (0 << STATUS_REGISTER_SAMPLE_BIT_0) |
                       current_pixel;
 
-  pixel_packet_3[4] = (byte)(voltage_3[0]);
-  pixel_packet_3[5] = (byte)(current_3[0]);
-  pixel_packet_3[6] = (byte)(voltage_3[1]);
-  pixel_packet_3[7] = (byte)(current_3[1]);
-  pixel_packet_3[8] = (byte)(voltage_3[2]);
-  pixel_packet_3[9] = (byte)(current_3[2]);
-  pixel_packet_3[10] = (byte)(voltage_3[3]);
-  pixel_packet_3[11] = (byte)(current_3[3]);
-  pixel_packet_3[12] = (byte)(voltage_3[4]);
-  pixel_packet_3[13] = (byte)(current_3[4]);
-  pixel_packet_3[14] = (byte)(voltage_3[5]);
-  pixel_packet_3[15] = (byte)(current_3[5]);
-  pixel_packet_3[16] = (byte)(voltage_3[6]);
-  pixel_packet_3[17] = (byte)(current_3[6]);
-  pixel_packet_3[18] = (byte)(voltage_3[7]);
-  pixel_packet_3[19] = (byte)(current_3[7]);
+  if (first_half)
+  {
+    pixel_packet_3[4] = (byte)(voltage_3[0]);
+    pixel_packet_3[5] = (byte)(current_3[0]);
+    pixel_packet_3[6] = (byte)(voltage_3[1]);
+    pixel_packet_3[7] = (byte)(current_3[1]);
+    pixel_packet_3[8] = (byte)(voltage_3[2]);
+    pixel_packet_3[9] = (byte)(current_3[2]);
+    pixel_packet_3[10] = (byte)(voltage_3[3]);
+    pixel_packet_3[11] = (byte)(current_3[3]);
+    pixel_packet_3[12] = (byte)(voltage_3[4]);
+    pixel_packet_3[13] = (byte)(current_3[4]);
+    pixel_packet_3[14] = (byte)(voltage_3[5]);
+    pixel_packet_3[15] = (byte)(current_3[5]);
+    pixel_packet_3[16] = (byte)(voltage_3[6]);
+    pixel_packet_3[17] = (byte)(current_3[6]);
+    pixel_packet_3[18] = (byte)(voltage_3[7]);
+    pixel_packet_3[19] = (byte)(current_3[7]);
+  }
+  else
+  {
+    pixel_packet_3[4] = (byte)(voltage_3[8]);
+    pixel_packet_3[5] = (byte)(current_3[8]);
+    pixel_packet_3[6] = (byte)(voltage_3[9]);
+    pixel_packet_3[7] = (byte)(current_3[9]);
+    pixel_packet_3[8] = (byte)(voltage_3[10]);
+    pixel_packet_3[9] = (byte)(current_3[10]);
+    pixel_packet_3[10] = (byte)(voltage_3[11]);
+    pixel_packet_3[11] = (byte)(current_3[11]);
+    pixel_packet_3[12] = (byte)(voltage_3[12]);
+    pixel_packet_3[13] = (byte)(current_3[12]);
+    pixel_packet_3[14] = (byte)(voltage_3[13]);
+    pixel_packet_3[15] = (byte)(current_3[13]);
+    pixel_packet_3[16] = (byte)(voltage_3[14]);
+    pixel_packet_3[17] = (byte)(current_3[14]);
+    pixel_packet_3[18] = (byte)(voltage_3[15]);
+    pixel_packet_3[19] = (byte)(current_3[15]);
+  }
   pixel_packet_3[20] = status_register;
 
 #ifndef NO_TRANSMIT
@@ -773,29 +839,51 @@ void send_payload_3_packets(void)
 #endif
 }
 
-void send_payload_4_packets(void)
+void send_payload_4_packets(bool first_half)
 {
   status_register = 0x00;
   status_register |=  (trace_dir << STATUS_REGISTER_DIRECTION_BIT) | (0 << STATUS_REGISTER_PACKET_BIT_1) | (0 << STATUS_REGISTER_PACKET_BIT_0) |
                       (1 << STATUS_REGISTER_SAMPLE_BIT_1) | (1 << STATUS_REGISTER_SAMPLE_BIT_0) |
                       current_pixel;
 
-  pixel_packet_4[4] = (byte)(voltage_4[0]);
-  pixel_packet_4[5] = (byte)(current_4[0]);
-  pixel_packet_4[6] = (byte)(voltage_4[1]);
-  pixel_packet_4[7] = (byte)(current_4[1]);
-  pixel_packet_4[8] = (byte)(voltage_4[2]);
-  pixel_packet_4[9] = (byte)(current_4[2]);
-  pixel_packet_4[10] = (byte)(voltage_4[3]);
-  pixel_packet_4[11] = (byte)(current_4[3]);
-  pixel_packet_4[12] = (byte)(voltage_4[4]);
-  pixel_packet_4[13] = (byte)(current_4[4]);
-  pixel_packet_4[14] = (byte)(voltage_4[5]);
-  pixel_packet_4[15] = (byte)(current_4[5]);
-  pixel_packet_4[16] = (byte)(voltage_4[6]);
-  pixel_packet_4[17] = (byte)(current_4[6]);
-  pixel_packet_4[18] = (byte)(voltage_4[7]);
-  pixel_packet_4[19] = (byte)(current_4[7]);
+  if (first_half)
+  {
+    pixel_packet_4[4] = (byte)(voltage_4[0]);
+    pixel_packet_4[5] = (byte)(current_4[0]);
+    pixel_packet_4[6] = (byte)(voltage_4[1]);
+    pixel_packet_4[7] = (byte)(current_4[1]);
+    pixel_packet_4[8] = (byte)(voltage_4[2]);
+    pixel_packet_4[9] = (byte)(current_4[2]);
+    pixel_packet_4[10] = (byte)(voltage_4[3]);
+    pixel_packet_4[11] = (byte)(current_4[3]);
+    pixel_packet_4[12] = (byte)(voltage_4[4]);
+    pixel_packet_4[13] = (byte)(current_4[4]);
+    pixel_packet_4[14] = (byte)(voltage_4[5]);
+    pixel_packet_4[15] = (byte)(current_4[5]);
+    pixel_packet_4[16] = (byte)(voltage_4[6]);
+    pixel_packet_4[17] = (byte)(current_4[6]);
+    pixel_packet_4[18] = (byte)(voltage_4[7]);
+    pixel_packet_4[19] = (byte)(current_4[7]);
+  }
+  else
+  {
+    pixel_packet_4[4] = (byte)(voltage_4[8]);
+    pixel_packet_4[5] = (byte)(current_4[8]);
+    pixel_packet_4[6] = (byte)(voltage_4[9]);
+    pixel_packet_4[7] = (byte)(current_4[9]);
+    pixel_packet_4[8] = (byte)(voltage_4[10]);
+    pixel_packet_4[9] = (byte)(current_4[10]);
+    pixel_packet_4[10] = (byte)(voltage_4[11]);
+    pixel_packet_4[11] = (byte)(current_4[11]);
+    pixel_packet_4[12] = (byte)(voltage_4[12]);
+    pixel_packet_4[13] = (byte)(current_4[12]);
+    pixel_packet_4[14] = (byte)(voltage_4[13]);
+    pixel_packet_4[15] = (byte)(current_4[13]);
+    pixel_packet_4[16] = (byte)(voltage_4[14]);
+    pixel_packet_4[17] = (byte)(current_4[14]);
+    pixel_packet_4[18] = (byte)(voltage_4[15]);
+    pixel_packet_4[19] = (byte)(current_4[15]);
+  }
   pixel_packet_4[20] = status_register;
 
 #ifndef NO_TRANSMIT
@@ -1041,10 +1129,14 @@ void loop()
     read_imu();
 
     // Send all packets twice
-    send_payload_1_packets();
-    send_payload_2_packets();
-    send_payload_3_packets();
-    send_payload_4_packets();
+    send_payload_1_packets(true);
+    send_payload_1_packets(false);
+    send_payload_2_packets(true);
+    send_payload_2_packets(false);
+    send_payload_3_packets(true);
+    send_payload_3_packets(false);
+    send_payload_4_packets(true);
+    send_payload_4_packets(false);
     send_flux_packet();
     send_secondary_payload();
     send_tertiary_payload();
