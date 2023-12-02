@@ -1,4 +1,5 @@
 +3V3: 3mA
 VBUS: 4mA
-VDDF: 3.5mA
+VDDF: 2.8mA
 VPP: 0.5mA active 3uA passive
+Total: 9.8 mA
