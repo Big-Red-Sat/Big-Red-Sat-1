@@ -685,7 +685,6 @@ void setup() {
 
   set_trace_direction(COUNT_DOWN);
   //  step_ladder();
-  startup_time = millis();
 }
 
 int test_run = 0;

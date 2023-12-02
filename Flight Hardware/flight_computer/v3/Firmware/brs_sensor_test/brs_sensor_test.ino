@@ -635,6 +635,7 @@ bool startup_test(void)
   {
     // Initialize sensors
     sun_sensor.init();
+    sun_sensor.default_config();
     init_secondary_payload();
     init_payload();
 
@@ -1104,15 +1105,16 @@ void loop()
     read_bme280();
     read_imu();
     read_magnetometer();
-    read_relay();
+//    read_relay();
 
-    sun_sensor.default_config();
+    sun_sensor.set_one_shot();
     current_phi = 0xFFFF;
     current_theta = 0xFFFF;
     current_temp = 0xFFFF;
     int sun_sensor_wait = SUN_SENSOR_TIMEOUT;
     while (!sun_sensor.sample_wait())
     {
+      delay(1);
       if (sun_sensor_wait-- == 0)
       {
         break;

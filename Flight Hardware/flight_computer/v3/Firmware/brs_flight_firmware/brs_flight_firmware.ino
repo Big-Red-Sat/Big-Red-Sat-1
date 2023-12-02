@@ -954,7 +954,10 @@ void loop()
   set_trace_direction(COUNT_DOWN);
   reset_ladder();
 
-  while (!digitalRead(GAAS_ON));
+  while (!digitalRead(GAAS_ON))
+  {
+    
+  }
 
 #ifdef DEBUGGING
   Serial.println("GaAs triggered");
