@@ -436,7 +436,7 @@ void read_relay(void)
     no_time = (uint16_t)(end_time - start_time);
   }
   // Let NC discharge
-//  delay(10000);
+  //  delay(10000);
 
   nc_time = 0;
   set_relay_comparator(NC_V);
@@ -1086,9 +1086,14 @@ void setup() {
 
   set_trace_direction(COUNT_DOWN);
   reset_ladder();
-  
+
   startup_time = millis();
 }
+
+#define SUN_SENSOR_TIMEOUT 250
+int16_t current_theta;
+int16_t current_phi;
+int16_t current_temp;
 
 void loop()
 {
@@ -1101,12 +1106,19 @@ void loop()
     read_magnetometer();
     read_relay();
 
-    int16_t temp_phi, temp_theta, temp_temp;
-    if (sun_sensor.sample_wait())
+    sun_sensor.default_config();
+    current_phi = 0xFFFF;
+    current_theta = 0xFFFF;
+    current_temp = 0xFFFF;
+    int sun_sensor_wait = SUN_SENSOR_TIMEOUT;
+    while (!sun_sensor.sample_wait())
     {
-      sun_sensor.getSample(&temp_theta, &temp_phi, &temp_temp);
-      sun_sensor.set_one_shot();
+      if (sun_sensor_wait-- == 0)
+      {
+        break;
+      }
     }
+    sun_sensor.getSample(&current_theta, &current_phi, &current_temp);
 
     Serial.print("Acc X"); Serial.print("\t|\t");
     Serial.print("Acc Y"); Serial.print("\t|\t");
@@ -1156,8 +1168,8 @@ void loop()
     Serial.print(p_3_temperature); Serial.print("\t|\t");
     Serial.print(pressure_reading); Serial.print("\t|\t");
     Serial.print(humidity_reading); Serial.print("\t|\t");
-    Serial.print(temp_theta); Serial.print("\t|\t");
-    Serial.print(temp_phi); Serial.print("\t|\t");
+    Serial.print(current_theta); Serial.print("\t|\t");
+    Serial.print(current_phi); Serial.print("\t|\t");
     Serial.println();
     Serial.println();
 
