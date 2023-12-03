@@ -530,12 +530,6 @@ bool startup_test(void)
 
   // Initialize sensors
   sun_sensor.init();
-  // Should equal 144, probably didn't turn on correctly.
-  if (sun_sensor.get_conl() == 0)
-  {
-    eps.heartbeat(shutdown_payload);
-    reset_msp430();
-  }
   init_secondary_payload();
   init_payload();
 
@@ -944,6 +938,7 @@ void setup() {
 }
 
 #define SUN_SENSOR_TIMEOUT 250
+#define HEARTBEAT_INTERVAL 60
 
 void loop()
 {
@@ -954,9 +949,15 @@ void loop()
   set_trace_direction(COUNT_DOWN);
   reset_ladder();
 
+  int heartbeat_timer = HEARTBEAT_INTERVAL
   while (!digitalRead(GAAS_ON))
   {
-    
+    delay(1000);
+    if (heartbeat_timer-- == 0)
+    {
+      eps.heartbeat(heartbeat_payload);
+      heartbeat_timer = HEARTBEAT_INTERVAL;
+    }
   }
 
 #ifdef DEBUGGING
