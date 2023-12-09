@@ -1,0 +1,216 @@
+Direction: DOWN
+Pixel: 0
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:186
+GaAs 2, V:110, I:83
+GaAs 3, V:111, I:58
+GaAs 4, V:111, I:52
+GaAs 5, V:111, I:41
+GaAs 6, V:111, I:32
+GaAs 7, V:111, I:28
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:111, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 0
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:112, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:111, I:27
+GaAs 9, V:111, I:32
+GaAs 10, V:111, I:41
+GaAs 11, V:111, I:53
+GaAs 12, V:111, I:58
+GaAs 13, V:111, I:84
+GaAs 14, V:110, I:187
+GaAs 15, V:18, I:255
+Direction: DOWN
+Pixel: 1
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:187
+GaAs 2, V:110, I:84
+GaAs 3, V:111, I:58
+GaAs 4, V:111, I:52
+GaAs 5, V:111, I:41
+GaAs 6, V:111, I:31
+GaAs 7, V:111, I:28
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:111, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 1
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:111, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:111, I:27
+GaAs 9, V:111, I:32
+GaAs 10, V:111, I:41
+GaAs 11, V:111, I:53
+GaAs 12, V:111, I:58
+GaAs 13, V:110, I:84
+GaAs 14, V:110, I:187
+GaAs 15, V:17, I:255
+Direction: DOWN
+Pixel: 2
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:186
+GaAs 2, V:110, I:83
+GaAs 3, V:110, I:59
+GaAs 4, V:111, I:52
+GaAs 5, V:111, I:41
+GaAs 6, V:111, I:32
+GaAs 7, V:111, I:28
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:111, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 2
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:111, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:111, I:27
+GaAs 9, V:111, I:32
+GaAs 10, V:111, I:41
+GaAs 11, V:111, I:53
+GaAs 12, V:111, I:58
+GaAs 13, V:110, I:84
+GaAs 14, V:110, I:186
+GaAs 15, V:17, I:255
+Direction: DOWN
+Pixel: 3
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:187
+GaAs 2, V:110, I:83
+GaAs 3, V:110, I:57
+GaAs 4, V:110, I:52
+GaAs 5, V:111, I:41
+GaAs 6, V:111, I:32
+GaAs 7, V:111, I:27
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:111, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 3
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:111, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:111, I:28
+GaAs 9, V:111, I:32
+GaAs 10, V:111, I:41
+GaAs 11, V:110, I:53
+GaAs 12, V:110, I:59
+GaAs 13, V:110, I:83
+GaAs 14, V:110, I:186
+GaAs 15, V:18, I:255
+Direction: DOWN
+Pixel: 4
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:186
+GaAs 2, V:110, I:83
+GaAs 3, V:110, I:58
+GaAs 4, V:110, I:52
+GaAs 5, V:110, I:41
+GaAs 6, V:110, I:32
+GaAs 7, V:111, I:28
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:111, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 4
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:111, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:111, I:27
+GaAs 9, V:110, I:32
+GaAs 10, V:110, I:41
+GaAs 11, V:110, I:53
+GaAs 12, V:110, I:57
+GaAs 13, V:110, I:83
+GaAs 14, V:110, I:186
+GaAs 15, V:17, I:255
+Direction: DOWN
+Pixel: 5
+GaAs 0, V:8, I:255
+GaAs 1, V:99, I:185
+GaAs 2, V:110, I:84
+GaAs 3, V:110, I:57
+GaAs 4, V:110, I:53
+GaAs 5, V:110, I:41
+GaAs 6, V:110, I:32
+GaAs 7, V:110, I:27
+GaAs 8, V:111, I:0
+GaAs 9, V:111, I:0
+GaAs 10, V:110, I:0
+GaAs 11, V:111, I:0
+GaAs 12, V:111, I:0
+GaAs 13, V:111, I:0
+GaAs 14, V:111, I:0
+GaAs 15, V:111, I:0
+Direction: UP
+Pixel: 5
+GaAs 0, V:111, I:0
+GaAs 1, V:111, I:0
+GaAs 2, V:111, I:0
+GaAs 3, V:111, I:0
+GaAs 4, V:111, I:0
+GaAs 5, V:111, I:0
+GaAs 6, V:111, I:0
+GaAs 7, V:111, I:0
+GaAs 8, V:110, I:28
+GaAs 9, V:110, I:32
+GaAs 10, V:110, I:41
+GaAs 11, V:110, I:53
+GaAs 12, V:110, I:59
+GaAs 13, V:110, I:84
+GaAs 14, V:109, I:186
+GaAs 15, V:17, I:255

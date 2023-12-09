@@ -15,10 +15,10 @@ def adc_to_current(adc_code, gain=200.0, ref_voltage=3.29, max_bin=2**8, sense_r
 
 pixel_area = 0.058
 current_density = 100
-gaas_performance = r"C:\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\GaAs_Assembled\29Nov2023.txt"
-p1_performance = r"C:\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P1_Assembled\29Nov2023.txt"
-p2_performance = r"C:\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P2_Assembled\29Nov2023.txt"
-p3_performance = r"C:\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P3_Assembled\29Nov2023.txt"
+gaas_performance = r"C:\Users\jmurc\Documents\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\GaAs_Assembled\6Dec23.txt"
+p1_performance = r"C:\Users\jmurc\Documents\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P1_Assembled\6Dec23.txt"
+p2_performance = r"C:\Users\jmurc\Documents\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P2_Assembled\6Dec23.txt"
+p3_performance = r"C:\Users\jmurc\Documents\GitHub\Big-Red-Sat-1\Flight Payload\Perovskite Performance\P3_Assembled\6Dec23.txt"
 
 
 def plot_save_curves(curve_file, perov):

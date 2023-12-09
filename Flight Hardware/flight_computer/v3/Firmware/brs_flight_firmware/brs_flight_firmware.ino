@@ -949,7 +949,7 @@ void loop()
   set_trace_direction(COUNT_DOWN);
   reset_ladder();
 
-  int heartbeat_timer = HEARTBEAT_INTERVAL
+  int heartbeat_timer = HEARTBEAT_INTERVAL;
   while (!digitalRead(GAAS_ON))
   {
     delay(1000);
