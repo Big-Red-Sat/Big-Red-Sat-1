@@ -221,7 +221,7 @@ void step_ladder(void)
 
 void reset_ladder(void)
 {
-  while (digitalRead(CT_GOOD)) 
+  while (digitalRead(CT_GOOD))
   {
     step_ladder(); // Set the ladder to 0xF
     delay(10);
@@ -327,84 +327,49 @@ void set_relay_comparator (int pin)
 
 void read_relay(void)
 {
-  relay_done = false;
-  end_time = 0;
-  digitalWrite(SET, HIGH);
-  delay(50);
-  digitalWrite(SET, LOW);
-
   // Test the NO path
   no_time = 0;
-  set_relay_comparator(NO_V);
+
+  int readings = 0;
   // Latch NO path
   digitalWrite(UNSET, HIGH);
-  // Start reading
-  start_time = micros();
-  delay(5);
+  for (i = 0; i < 10; i++)
+  {
+    readings += analogRead(NO_V);
+  }
   digitalWrite(UNSET, LOW);
-  while (!relay_done)
+  for (i = 0; i < 10; i++)
   {
-#ifdef DEBUGGING
-    Serial.print(CECTL1, BIN);
-    Serial.print(" | ");
-    Serial.print(CEINT, BIN);
-    Serial.print(" | ");
-    Serial.print("NO V: ");
-    Serial.println(analogRead(NO_V));
-#endif
-    if ((micros() - start_time) > 0xFFFF)
-    {
-      no_time = 0xFFFF;
-      break;
-    }
+    readings += analogRead(NO_V);
   }
-  if (no_time == 0)
-  {
-    no_time = (uint16_t)(end_time - start_time);
-  }
+  no_time = readings / 20;
+
   // Let NC discharge
-  delay(10000);
+  delay(5000);
 
   nc_time = 0;
-  set_relay_comparator(NC_V);
+  readings = 0;
+
   digitalWrite(SET, HIGH);
-  start_time = micros();
-  delay(5);
+  for (i = 0; i < 10; i++)
+  {
+    readings += analogRead(NO_V);
+  }
   digitalWrite(SET, LOW);
-
-
-  while (!relay_done)
+  for (i = 0; i < 10; i++)
   {
-#ifdef DEBUGGING
-    Serial.print(CECTL1, BIN);
-    Serial.print(" | ");
-    Serial.print(CEINT, BIN);
-    Serial.print(" | ");
-    Serial.print("NC V: ");
-    Serial.println(analogRead(NC_V));
-#endif
-    if ((micros() - start_time) > 0xFFFF)
-    {
-      nc_time = 0xFFFF;
-      break;
-    }
+    readings += analogRead(NO_V);
   }
-  if (nc_time == 0)
-  {
-    nc_time = (uint16_t)(end_time - start_time);
-  }
+  nc_time = readings / 20;
 
 #ifdef DEBUGGING
-  Serial.print("Relay results\n\tNC Time: ");
-  Serial.print(nc_time);
-  Serial.print("\tNO Time: ");
   Serial.println(no_time);
+  Serial.println(nc_time);
 #endif
 }
 
 void init_secondary_payload(void)
 {
-  //  read_relay();
   init_magnetometer();
   init_imu();
 }
@@ -908,7 +873,7 @@ void send_flux_packet(void)
   eps.radio(flux_packet_1);
 
 #ifdef DEBUGGING
-  Serial.println("GaAs Flux Packet");
+  Serial.println("Flux Packet");
   for (int i = 0; i < 21; i++)
   {
     Serial.print("0x");
@@ -955,6 +920,9 @@ void loop()
     delay(1000);
     if (heartbeat_timer-- == 0)
     {
+#ifdef DEBUGGING
+      Serial.println("Sending heartbeat");
+#endif
       eps.heartbeat(heartbeat_payload);
       heartbeat_timer = HEARTBEAT_INTERVAL;
     }
@@ -1024,6 +992,7 @@ void loop()
     read_bme280();
 
     // Read accelerometry, gyroscope, and magnetometer
+    read_relay();
     read_magnetometer();
     read_imu();
 
