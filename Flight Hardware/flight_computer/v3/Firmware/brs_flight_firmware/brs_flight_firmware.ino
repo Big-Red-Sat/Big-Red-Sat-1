@@ -9,7 +9,7 @@
 #include <TinyBME280.h>
 #include <ICM20649.h>
 
-#define DEBUGGING
+//#define DEBUGGING
 
 #define COUNT_UP HIGH
 #define COUNT_DOWN LOW
@@ -289,60 +289,27 @@ void read_mux(uint16_t *voltage, uint16_t *current)
 //       START SECONDARY PAYLOAD CODE
 ///////////////////////////////////////////
 
-volatile long start_time, end_time;
 uint16_t nc_time, no_time;
-volatile bool relay_done = false;
-bool relay_selector = false;
-
-#pragma vector = COMP_E_VECTOR
-__interrupt void COMPE_ISR(void)
-{
-  relay_done = true;
-  end_time = micros();
-  //Serial.println("COMPE ISR");
-  //  if((CECTL2 & CEOUT)==0x01)
-  //  {
-  //
-  //  }
-}
-
-void set_relay_comparator (int pin)
-{
-  Serial.print(CECTL1, BIN);
-  Serial.print(" | ");
-  Serial.print(CECTL2, BIN);
-  Serial.print(" | ");
-  Serial.print(CEINT, BIN);
-  Serial.println(" | ");
-  CECTL0 = CEIPSEL_12;  // P1.1 = +comp
-  //  CEINT |= CEIE;
-  CECTL1 = CERSEL + CEREFL_2 + CEON;
-  Serial.print(CECTL1, BIN);
-  Serial.print(" | ");
-  Serial.print(CECTL2, BIN);
-  Serial.print(" | ");
-  Serial.print(CEINT, BIN);
-  Serial.println(" | ");
-}
-
+#define RELAY_READS 50
 void read_relay(void)
 {
   // Test the NO path
   no_time = 0;
 
   int readings = 0;
+  int i;
   // Latch NO path
   digitalWrite(UNSET, HIGH);
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < RELAY_READS; i++)
   {
     readings += analogRead(NO_V);
   }
   digitalWrite(UNSET, LOW);
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < RELAY_READS; i++)
   {
     readings += analogRead(NO_V);
   }
-  no_time = readings / 20;
+  no_time = readings / (RELAY_READS * 2);
 
   // Let NC discharge
   delay(5000);
@@ -351,16 +318,16 @@ void read_relay(void)
   readings = 0;
 
   digitalWrite(SET, HIGH);
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < RELAY_READS; i++)
   {
-    readings += analogRead(NO_V);
+    readings += analogRead(NC_V);
   }
   digitalWrite(SET, LOW);
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < RELAY_READS; i++)
   {
-    readings += analogRead(NO_V);
+    readings += analogRead(NC_V);
   }
-  nc_time = readings / 20;
+  nc_time = readings / (RELAY_READS * 2);
 
 #ifdef DEBUGGING
   Serial.println(no_time);
