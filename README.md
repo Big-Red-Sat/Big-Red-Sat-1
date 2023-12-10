@@ -12,6 +12,7 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 
 ## Prototyping Designs
 
+- [Prototype curve tracers for high altitude balloons](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/SIV_pcb)
 - [Prototype digital potentiometer curve tracer](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/singular_SIV)
 - [Prototype resistor ladder curve tracer in LaunchPad form factor](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/resistor_ladder_curve_tracer)
 - [Prototype analog multiplexer in LaunchPad form factor](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/perovskite_switcher/v2)
