@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+authors:
+- family-names: "Arce"
+  given-names: "Walker"
+  orcid: "https://orcid.org/0000-0003-0819-0710"
+- family-names: "Murch-Shafer"
+  given-names: "Joel"
+  orcid: ""
+title: "Big Red Sat-1"
+version: v1.0
+date-released: 2023-12-12
+url: "https://github.com/wsarce/Big-Red-Sat-1"
