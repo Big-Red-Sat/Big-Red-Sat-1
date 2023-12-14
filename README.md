@@ -49,6 +49,7 @@ https://github.com/wsarce/Big-Red-Sat-1/assets/22334349/7d4744a6-e3ca-4aac-ab56-
 For technical questions, contact either Joel Murch-Shafer (jmurch-shafer2@huskers.unl.edu) or Walker Arce (wsarcera@gmail.com).
 
 ### Citation
+Arce, W., & Murch-Shafer, J. (2023). Big Red Sat-1 (Version v1.0) [Computer software & hardware]. https://github.com/wsarce/Big-Red-Sat-1
 
 ### Funding
 This work would not be possible without the generous assistance of our donors.
