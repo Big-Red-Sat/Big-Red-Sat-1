@@ -52,7 +52,17 @@ For technical questions, contact either Joel Murch-Shafer (jmurch-shafer2@husker
 Arce, W., & Murch-Shafer, J. (2023). Big Red Sat-1 (Version v1.0) [Computer software & hardware]. https://github.com/wsarce/Big-Red-Sat-1
 
 ### Funding
-This work would not be possible without the generous assistance of our donors.
+This work would not be possible without the generous assistance of our donors, listed in alphabetical order below.
+1.	Ameritas
+2.	Acklie Charitable Foundation
+3.	Cooper Foundation
+4.	Ethel S. Abbott Charitable Foundation
+5.	Individual Donors
+6.	Millard Public Schools Foundation
+7.	Monolith
+8.	NASA Nebraska Space Grant
+9.	Rogers Foundation
+10.	University of Nebraska-Lincoln
 
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
