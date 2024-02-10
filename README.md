@@ -10,6 +10,8 @@ The goal of this scientific mission is to characterize the performance and degra
 
 Electrical connections to the perovskite solar cell samples were made using pogo-pins, with the temperature of each sample being collected with a high-precision temperature sensor affixed to their back face with EP30-2 epoxy.  The enclosure was designed to be airtight to prevent degradation due to humidity and oxygen, so a pressure and humidity sensor were included to monitor changes in this performance.  Since the final samples had a coverslip epoxied to protect the perovskite layer, the airtight property was considered a redundancy.
 
+Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer on 12 December 2023 and is slated to launch on 4 March 2024 on the SpaceX CRS-30 mission.   
+
 ## Prototyping Designs
 
 - [Prototype curve tracers for high altitude balloons](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/SIV_pcb)
@@ -52,7 +54,17 @@ For technical questions, contact either Joel Murch-Shafer (jmurch-shafer2@husker
 Arce, W., & Murch-Shafer, J. (2023). Big Red Sat-1 (Version v1.0) [Computer software & hardware]. https://github.com/wsarce/Big-Red-Sat-1
 
 ### Funding
-This work would not be possible without the generous assistance of our donors.
+This work would not be possible without the generous assistance of our donors, listed in alphabetical order below.
+1.	Ameritas
+2.	Acklie Charitable Foundation
+3.	Cooper Foundation
+4.	Ethel S. Abbott Charitable Foundation
+5.	Individual Donors
+6.	Millard Public Schools Foundation
+7.	Monolith
+8.	NASA Nebraska Space Grant
+9.	Rogers Foundation
+10.	University of Nebraska-Lincoln
 
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
