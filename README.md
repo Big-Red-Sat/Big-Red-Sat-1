@@ -66,6 +66,10 @@ This work would not be possible without the generous assistance of our donors, l
 9.	Rogers Foundation
 10.	University of Nebraska-Lincoln
 
+### Media
+
+[Big Red Sat Team readies for ISS launch](https://news.unl.edu/newsrooms/today/article/big-red-sat-team-readies-for-iss-launch/)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
