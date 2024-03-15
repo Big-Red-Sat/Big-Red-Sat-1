@@ -72,6 +72,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 [March 6, 2024 - Big Red Sat Team readies for ISS launch](https://news.unl.edu/newsrooms/today/article/big-red-sat-team-readies-for-iss-launch/)
 
+[March 15, 2024 - Young Nebraska scientists built a satellite, it's now headed to space](https://nebraskapublicmedia.org/en/news/news-articles/young-nebraska-scientists-built-a-satellite-its-now-headed-to-space/)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
