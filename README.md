@@ -68,7 +68,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 ### Media
 
-[Big Red Sat Team readies for ISS launch](https://news.unl.edu/newsrooms/today/article/big-red-sat-team-readies-for-iss-launch/)
+[April 21, 2021 - NASA selects Nebraska students’ satellite to orbit in space](https://news.unl.edu/newsrooms/today/article/nasa-selects-nebraska-students-satellite-to-orbit-in-space/)
+[March 6, 2024 - Big Red Sat Team readies for ISS launch](https://news.unl.edu/newsrooms/today/article/big-red-sat-team-readies-for-iss-launch/)
 
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
