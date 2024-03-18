@@ -74,6 +74,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 [March 15, 2024 - Young Nebraska scientists built a satellite, it's now headed to space](https://nebraskapublicmedia.org/en/news/news-articles/young-nebraska-scientists-built-a-satellite-its-now-headed-to-space/)
 
+[March 18, 2024 - NASA Set to Launch Four CubeSats to Space Station](https://blogs.nasa.gov/smallsatellites/2024/03/18/nasa-set-to-launch-four-cubesats-to-space-station/)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
