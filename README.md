@@ -76,6 +76,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 [March 18, 2024 - NASA Set to Launch Four CubeSats to Space Station](https://blogs.nasa.gov/smallsatellites/2024/03/18/nasa-set-to-launch-four-cubesats-to-space-station/)
 
+[March 21, 2024 - Nebraska students launch satellite into space](https://www.1011now.com/2024/03/21/nebraska-students-launch-satellite-into-space/)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
