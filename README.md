@@ -80,6 +80,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 [March 25, 2024 - NASA Space X resupply rocket launches Nebraska CubeSat into outer space](https://engineering.unl.edu/news/240325/nasa_cubesat_launch/)
 
+[March 29, 2024 - Satellite launch a success for Nebraska Engineering team](https://news.unl.edu/newsrooms/today/article/satellite-launch-a-success-for-nebraska-engineering-team/)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
