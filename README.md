@@ -10,7 +10,9 @@ The goal of this scientific mission is to characterize the performance and degra
 
 Electrical connections to the perovskite solar cell samples were made using pogo-pins, with the temperature of each sample being collected with a high-precision temperature sensor affixed to their back face with EP30-2 epoxy.  The enclosure was designed to be airtight to prevent degradation due to humidity and oxygen, so a pressure and humidity sensor were included to monitor changes in this performance.  Since the final samples had a coverslip epoxied to protect the perovskite layer, the airtight property was considered a redundancy.
 
-Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer on 12 December 2023 and is slated to launch on 4 March 2024 on the SpaceX CRS-30 mission.   
+Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer 27 (NRCSD27) on 12 December 2023 and launched on 21 March 2024 on the SpaceX CRS-30 mission.   
+
+Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:05:09 UTC ([Deployment Clip](https://www.youtube.com/clip/UgkxD5o3cp39FE0SL8AzyLTBCwdvlqdmNVEa)).  The satellite made first communication with the operations team at 03:00:10 UTC on 19 April 2024.
 
 ## Prototyping Designs
 
