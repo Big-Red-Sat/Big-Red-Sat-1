@@ -14,6 +14,10 @@ Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer 27 (NRCSD27) on
 
 Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:05:09 UTC ([Deployment Clip](https://www.youtube.com/clip/UgkxD5o3cp39FE0SL8AzyLTBCwdvlqdmNVEa)).  The satellite made first communication with the operations team at 03:00:10 UTC on 19 April 2024.
 
+## Current Satellite Location
+
+[SatNOGS DB - Big Red Sat-1](https://db.satnogs.org/satellite/YJQI-7143-2488-2930-9322#mapcontent)
+
 ## Prototyping Designs
 
 - [Prototype curve tracers for high altitude balloons](https://github.com/wsarce/Big-Red-Sat-1/tree/main/Prototyping/SIV_pcb)
