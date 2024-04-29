@@ -88,6 +88,8 @@ This work would not be possible without the generous assistance of our donors, l
 
 [March 29, 2024 - Satellite launch a success for Nebraska Engineering team](https://news.unl.edu/newsrooms/today/article/satellite-launch-a-success-for-nebraska-engineering-team/)
 
+[April 22, 2024 - Nebraska's first research satellite reaches International Space Station](https://www.hastingstribune.com/news/nebraskas-first-research-satellite-reaches-international-space-station/article_87f0fb4a-ffdd-11ee-b091-f7073b412070.html)
+
 ### Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
