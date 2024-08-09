@@ -16,7 +16,7 @@ Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:
 
 ## TLE Data
 
-![Up to date TLE data and visualizations](https://orbit.ing-now.com/satellite/59560/1998-067wk/1998-067wk/)
+[Up to date TLE data and visualizations](https://orbit.ing-now.com/satellite/59560/1998-067wk/1998-067wk/)
 
 ## Launch Patch
 
