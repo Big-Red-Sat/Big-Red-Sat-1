@@ -14,6 +14,12 @@ Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer 27 (NRCSD27) on
 
 Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:05:09 UTC ([Deployment Clip](https://www.youtube.com/clip/UgkxD5o3cp39FE0SL8AzyLTBCwdvlqdmNVEa)).  The satellite made first communication with the operations team at 03:00:10 UTC on 19 April 2024.  The satellite deorbited sometime after 23:41:51 UTC on 1 August 2024 after 105 days of operation.
 
+## TLE Set
+
+1 59560U 98067WK  24213.81050360  .04141004  11879-4  17566-2 0  9991
+
+2 59560  51.6156  78.9942 0011957 251.3800 108.5920 16.21924748 16367
+
 ## Launch Patch
 
 ![BRS-1 Patch](https://github.com/Big-Red-Sat/Big-Red-Sat-1/blob/main/Patches/BRS-1_Patch.png)
