@@ -12,7 +12,7 @@ Electrical connections to the perovskite solar cell samples were made using pogo
 
 Big Red Sat-1 was integrated into the Nanoracks CubeSat Deployer 27 (NRCSD27) on 12 December 2023 and launched on 21 March 2024 on the SpaceX CRS-30 mission.   
 
-Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:05:09 UTC ([Deployment Clip](https://www.youtube.com/clip/UgkxD5o3cp39FE0SL8AzyLTBCwdvlqdmNVEa)).  The satellite made first communication with the operations team at 03:00:10 UTC on 19 April 2024.
+Big Red Sat-1 was deployed from NRCSD27 by Voyager Space on 18 April 2024 at 18:05:09 UTC ([Deployment Clip](https://www.youtube.com/clip/UgkxD5o3cp39FE0SL8AzyLTBCwdvlqdmNVEa)).  The satellite made first communication with the operations team at 03:00:10 UTC on 19 April 2024.  The satellite deorbited sometime after 23:41:51 UTC on 1 August 2024 after 105 days of operation.
 
 ## Launch Patch
 
