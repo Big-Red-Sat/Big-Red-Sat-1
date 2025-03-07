@@ -83,7 +83,7 @@ This work would not be possible without the generous assistance of our donors an
 10.	NASA Nebraska Space Grant
 11.	National Renewable Energy Laboratory
 12.	Rhodes College
-13.	Rogers Foundation
+13.	Rodgers Foundation
 14.	University of Nebraska-College of Engineering
 15.	University of Oklahoma
 
