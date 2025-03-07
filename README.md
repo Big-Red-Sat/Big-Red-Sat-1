@@ -85,7 +85,7 @@ This work would not be possible without the generous assistance of our donors an
 12.	Rhodes College
 13.	Rodgers Foundation
 14.	University of Nebraska-College of Engineering
-15.	University of Oklahoma
+15.	Oklahoma University
 
 ### Media
 
