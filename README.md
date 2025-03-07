@@ -69,18 +69,23 @@ For questions, contact either Karen Stelling (kstelling2@unl.edu) or Walker Arce
 ### Citation
 Arce, W., & Murch-Shafer, J. (2023). Big Red Sat-1 (Version v1.0) [Computer software & hardware]. https://github.com/wsarce/Big-Red-Sat-1
 
-### Funding
-This work would not be possible without the generous assistance of our donors, listed in alphabetical order below.
+### Funding and Collaboration
+This work would not be possible without the generous assistance of our donors and collaborators, listed in alphabetical order below.
 1.	Ameritas
 2.	Acklie Charitable Foundation
 3.	Cooper Foundation
-4.	Ethel S. Abbott Charitable Foundation
-5.	Individual Donors
-6.	Millard Public Schools Foundation
-7.	Monolith
-8.	NASA Nebraska Space Grant
-9.	Rogers Foundation
-10.	University of Nebraska-Lincoln
+4.	CubeSat Launch Initiative
+5.	Ethel S. Abbott Charitable Foundation
+6.	Individual Donors
+7.	Millard Public Schools Foundation
+8.	Monolith
+9.	NASA
+10.	NASA Nebraska Space Grant
+11.	National Renewable Energy Laboratory
+12.	Rhodes College
+13.	Rogers Foundation
+14.	University of Nebraska-College of Engineering
+15.	University of Oklahoma
 
 ### Media
 
